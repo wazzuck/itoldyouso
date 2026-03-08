@@ -228,11 +228,31 @@
             margin-top: 8px;
         }
 
-        /* section headings */
+        /* options section - now with blue border like eligibility section */
+        .options-section {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 24px 22px;
+            margin: 24px 0 20px 0;
+            border: 2px solid #007aff;
+            box-shadow: 0 8px 20px rgba(0,122,255,0.1);
+        }
+        .options-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1c1c1e;
+            margin-bottom: 16px;
+            text-align: center;
+            background: linear-gradient(135deg, #007aff 0%, #005bbf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* section headings inside options */
         .section-label {
             font-size: 1.4rem;
             font-weight: 640;
-            margin: 28px 0 12px 0;
+            margin: 20px 0 12px 0;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -488,12 +508,12 @@
             <div class="phone-badge clickable-phone" onclick="window.location.href='tel:07809590652'">07809590652</div>
         </div>
 
-        <!-- NEW: Is this migration right for you? Section -->
+        <!-- Is this migration right for you? Section -->
         <div class="eligibility-section">
             <div class="eligibility-title">✨ Is this migration right for you?</div>
             
             <!-- Question 1 - Computer Age -->
-            <div class="eligibility-question">1️⃣ Roughly what age is your computer?</div>
+            <div class="eligibility-question">1️⃣ Roughly what age is the computer?</div>
             <div class="eligibility-radio-group" id="ageGroup">
                 <div class="eligibility-radio-card" id="ageNew">
                     <input type="radio" name="computerAge" id="age1_3" value="1-3 years">
@@ -506,12 +526,12 @@
             </div>
             <div id="ageFeedback" class="eligibility-feedback" style="display: none;"></div>
 
-            <!-- Question 2 - Physical Working Order -->
+            <!-- Question 2 - Physical Working Order - UPDATED TEXT -->
             <div class="eligibility-question">2️⃣ Are you happy with the physical working order of the machine?</div>
             <div class="eligibility-radio-group" id="physicalGroup">
                 <div class="eligibility-radio-card" id="physicalYes">
                     <input type="radio" name="physicalOrder" id="physicalGood" value="good">
-                    <label for="physicalGood">Yes most things work, and any common battery or broken monitor issues I can live with by plugging the computer in and using it in an office environment</label>
+                    <label for="physicalGood">Yes, most things work, and any common battery or broken monitor issues I can live with by plugging the computer in and using it in an office environment</label>
                 </div>
                 <div class="eligibility-radio-card" id="physicalNo">
                     <input type="radio" name="physicalOrder" id="physicalBad" value="bad">
@@ -520,12 +540,12 @@
             </div>
             <div id="physicalFeedback" class="eligibility-feedback" style="display: none;"></div>
 
-            <!-- Question 3 - RAM Knowledge -->
+            <!-- Question 3 - RAM Knowledge - UPDATED TEXT -->
             <div class="eligibility-question">3️⃣ Do you know how much RAM is inside the computer?</div>
             <div class="eligibility-radio-group" id="ramGroup">
                 <div class="eligibility-radio-card" id="ramYes">
                     <input type="radio" name="ramKnowledge" id="ramKnown" value="yes">
-                    <label for="ramKnown">Yes I know that there is at least a minimum of 4GB of RAM that will be used for light browsing, or 8GB of RAM that I can use for a home office setup providing lots of multitasking productivity</label>
+                    <label for="ramKnown">Yes, I know that there is at least a minimum of 4GB of RAM that will be used for light browsing, or 8GB of RAM that I can use for a home office setup providing lots of multitasking productivity</label>
                 </div>
                 <div class="eligibility-radio-card" id="ramNo">
                     <input type="radio" name="ramKnowledge" id="ramUnknown" value="no">
@@ -546,7 +566,7 @@
             document.getElementById('age4_10').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('ageFeedback').style.display = 'block';
-                    document.getElementById('ageFeedback').innerHTML = '✅ This migration to Chrome OS Flex is made for you and breathes life into older hardware.';
+                    document.getElementById('ageFeedback').innerHTML = '✅ This migration to Chrome OS Flex is made for you and breathes new life into older hardware.';
                 }
             });
 
@@ -590,56 +610,84 @@
             });
         </script>
 
-        <!-- explanatory section about basic migration pricing - updated to £70 -->
+        <!-- explanatory section about basic migration pricing - UPDATED TEXT -->
         <div class="info-message">
-            <p>💡 <strong>Basic migration is £70</strong> — this covers the standard ChromeOS Flex installation on your device.</p>
+            <p>💡 <strong>The basic migration is £70</strong> — this covers the standard ChromeOS Flex installation on your device.</p>
             <p>If you need help preserving your photos, documents, or other important data, additional costs may apply based on the options below.</p>
             <div class="price-highlight">Additional data care options available</div>
         </div>
 
-        <!-- OPTION 1 block - updated prices to £70 -->
-        <div class="section-label">
-            Option 1 <small>data migration</small>
-        </div>
-        <div class="question-text">
-            Do you need help transferring photos, documents, or important data?
-        </div>
-
-        <div class="radio-grid" id="migrationGroup">
-            <!-- radio 1: no (self backup) £70 (updated) -->
-            <div class="radio-card" id="radioNo">
-                <input type="radio" name="migration" id="migNo" value="no">
-                <label for="migNo">No, I've already backed up myself</label>
-                <span class="price-chip">£70</span>
+        <!-- OPTIONS SECTION with blue border -->
+        <div class="options-section">
+            <div class="options-title">🔧 Migration Options</div>
+            
+            <!-- OPTION 1 block -->
+            <div class="section-label">
+                Option 1 <small>data migration</small>
             </div>
-            <!-- radio 2: yes assistance £95 -->
-            <div class="radio-card" id="radioYes">
-                <input type="radio" name="migration" id="migYes" value="yes">
-                <label for="migYes">Yes, I require full assistance</label>
-                <span class="price-chip">£95</span>
+            <div class="question-text">
+                Do you need help transferring photos, documents, or important data?
             </div>
-        </div>
 
-        <!-- OPTION 2 Reversible backup - updated text -->
-        <div class="section-label" style="margin-top: 32px;">
-            Option 2 <small>reversible backup</small>
-        </div>
-        <div class="question-text">
-            Do you want the change to be fully reversible in the event that you need to get the system back to how it is now?
-        </div>
-
-        <div class="radio-grid" id="reversibleGroup">
-            <!-- radio no: permanent change £0 - updated text -->
-            <div class="radio-card" id="reversibleNo">
-                <input type="radio" name="reversible" id="revNo" value="no">
-                <label for="revNo">No, I understand what ChromeOS Flex is and I'm happy for the change to be permanent with no way back</label>
-                <span class="price-chip">£0</span>
+            <div class="radio-grid" id="migrationGroup">
+                <!-- radio 1: no (self backup) £70 -->
+                <div class="radio-card" id="radioNo">
+                    <input type="radio" name="migration" id="migNo" value="no">
+                    <label for="migNo">No, I've already backed up myself</label>
+                    <span class="price-chip">£70</span>
+                </div>
+                <!-- radio 2: yes assistance £95 -->
+                <div class="radio-card" id="radioYes">
+                    <input type="radio" name="migration" id="migYes" value="yes">
+                    <label for="migYes">Yes, I require full assistance</label>
+                    <span class="price-chip">£95</span>
+                </div>
             </div>
-            <!-- radio yes: exact clone USB -->
-            <div class="radio-card" id="reversibleYes">
-                <input type="radio" name="reversible" id="revYes" value="yes">
-                <label for="revYes">Yes, I would an exact clone of every aspect of my system, so that upon request I can revert back to exactly before the change to Chrome OS Flex was made</label>
-                <span class="price-chip">+ £100</span>
+
+            <!-- OPTION 2 Reversible backup -->
+            <div class="section-label" style="margin-top: 20px;">
+                Option 2 <small>reversible backup</small>
+            </div>
+            <div class="question-text">
+                Do you want the change to be fully reversible in the event that you need to get the system back to how it is now?
+            </div>
+
+            <div class="radio-grid" id="reversibleGroup">
+                <!-- radio no: permanent change £0 -->
+                <div class="radio-card" id="reversibleNo">
+                    <input type="radio" name="reversible" id="revNo" value="no">
+                    <label for="revNo">No, I understand what ChromeOS Flex is and I'm happy for the change to be permanent with no way back</label>
+                    <span class="price-chip">£0</span>
+                </div>
+                <!-- radio yes: exact clone USB -->
+                <div class="radio-card" id="reversibleYes">
+                    <input type="radio" name="reversible" id="revYes" value="yes">
+                    <label for="revYes">Yes, I would an exact clone of every aspect of my system, so that upon request I can revert back to exactly before the change to Chrome OS Flex was made</label>
+                    <span class="price-chip">+ £100</span>
+                </div>
+            </div>
+
+            <!-- NEW: Collection and Return Option -->
+            <div class="section-label" style="margin-top: 20px;">
+                Option 3 <small>collection & return</small>
+            </div>
+            <div class="question-text">
+                Do you require the device to be collected and returned?
+            </div>
+
+            <div class="radio-grid" id="collectionGroup">
+                <!-- radio 1: no, deliver/collect NW11 7BY - no charge -->
+                <div class="radio-card" id="collectionNo">
+                    <input type="radio" name="collection" id="collNo" value="no">
+                    <label for="collNo">No, I am happy to deliver and collect the device at pre-agreed times to / from NW11 7BY</label>
+                    <span class="price-chip">£0</span>
+                </div>
+                <!-- radio 2: yes, collect and return +£10 -->
+                <div class="radio-card" id="collectionYes">
+                    <input type="radio" name="collection" id="collYes" value="yes">
+                    <label for="collYes">Yes - I would prefer if the device could be collected and returned</label>
+                    <span class="price-chip">+ £10</span>
+                </div>
             </div>
         </div>
 
@@ -664,6 +712,10 @@
             <div class="summary-row">
                 <span>Reversible backup (USB)</span>
                 <span id="sumRev" class="placeholder-text">not selected</span>
+            </div>
+            <div class="summary-row">
+                <span>Collection & return</span>
+                <span id="sumColl" class="placeholder-text">not selected</span>
             </div>
             <div class="total-row" id="totalPrice">—</div>
         </div>
@@ -705,6 +757,12 @@
             const revNoDiv = document.getElementById('reversibleNo');
             const revYesDiv = document.getElementById('reversibleYes');
 
+            // collection radios
+            const collNo = document.getElementById('collNo');
+            const collYes = document.getElementById('collYes');
+            const collNoDiv = document.getElementById('collectionNo');
+            const collYesDiv = document.getElementById('collectionYes');
+
             // photo upload
             const photoUpload = document.getElementById('photoUpload');
             const photoPreview = document.getElementById('photoPreview');
@@ -713,6 +771,7 @@
             // summary elements
             const sumMig = document.getElementById('sumMig');
             const sumRev = document.getElementById('sumRev');
+            const sumColl = document.getElementById('sumColl');
             const totalSpan = document.getElementById('totalPrice');
 
             // email section
@@ -741,11 +800,15 @@
             let reversiblePrice = 0;
             let reversibleLabel = '';
             
+            let collectionSelected = false;
+            let collectionPrice = 0;
+            let collectionLabel = '';
+            
             let photosUploaded = false;
             let photoCount = 0;
 
             function updateSummaryAndUI() {
-                // Check migration selection - updated prices to £70
+                // Check migration selection
                 if (migYes.checked) {
                     migrationSelected = true;
                     migrationPrice = 95;
@@ -787,9 +850,30 @@
                     sumRev.classList.add('placeholder-text');
                 }
 
-                // Calculate total if both selected
-                if (migrationSelected && reversibleSelected) {
-                    const total = migrationPrice + reversiblePrice;
+                // Check collection selection
+                if (collYes.checked) {
+                    collectionSelected = true;
+                    collectionPrice = 10;
+                    collectionLabel = 'Collection & return (+£10)';
+                    sumColl.innerText = 'Collection & return (+£10)';
+                    sumColl.classList.remove('placeholder-text');
+                } else if (collNo.checked) {
+                    collectionSelected = true;
+                    collectionPrice = 0;
+                    collectionLabel = 'Self delivery/collection';
+                    sumColl.innerText = 'self delivery/collection';
+                    sumColl.classList.remove('placeholder-text');
+                } else {
+                    collectionSelected = false;
+                    collectionPrice = 0;
+                    collectionLabel = '';
+                    sumColl.innerText = 'not selected';
+                    sumColl.classList.add('placeholder-text');
+                }
+
+                // Calculate total if all selected
+                if (migrationSelected && reversibleSelected && collectionSelected) {
+                    const total = migrationPrice + reversiblePrice + collectionPrice;
                     totalSpan.innerText = `£${total}`;
                 } else {
                     totalSpan.innerText = '—';
@@ -809,13 +893,19 @@
                     revNoDiv.classList.add('selected');
                 }
 
+                if (collYes.checked) {
+                    collYesDiv.classList.add('selected');
+                } else if (collNo.checked) {
+                    collNoDiv.classList.add('selected');
+                }
+
                 // Check all conditions for showing email section
                 checkAllConditions();
             }
 
             function checkAllConditions() {
-                // Conditions: both sections have a selection AND at least one photo uploaded
-                if (migrationSelected && reversibleSelected && photosUploaded) {
+                // Conditions: all sections have a selection AND at least one photo uploaded
+                if (migrationSelected && reversibleSelected && collectionSelected && photosUploaded) {
                     emailSection.classList.remove('hidden');
                     requirementsNote.classList.add('hidden');
                 } else {
@@ -824,16 +914,16 @@
                     
                     // Update requirements note message based on what's missing
                     let message = '⏳ ';
-                    if (!migrationSelected && !reversibleSelected && !photosUploaded) {
-                        message += 'Please select an option from each section and upload at least one photo';
-                    } else if (!migrationSelected && !reversibleSelected) {
-                        message += 'Please select an option from both sections';
-                    } else if (!migrationSelected) {
-                        message += 'Please select a data migration option';
-                    } else if (!reversibleSelected) {
-                        message += 'Please select a reversible backup option';
-                    } else if (!photosUploaded) {
-                        message += 'Please upload at least one photo of your laptop';
+                    const missing = [];
+                    if (!migrationSelected) missing.push('data migration');
+                    if (!reversibleSelected) missing.push('reversible backup');
+                    if (!collectionSelected) missing.push('collection option');
+                    if (!photosUploaded) missing.push('photo upload');
+                    
+                    if (missing.length === 4) {
+                        message += 'Please select all options and upload at least one photo';
+                    } else if (missing.length > 0) {
+                        message += 'Please select: ' + missing.join(', ');
                     }
                     requirementsNote.innerText = message;
                 }
@@ -862,6 +952,8 @@
             migYes.addEventListener('change', updateSummaryAndUI);
             revNo.addEventListener('change', updateSummaryAndUI);
             revYes.addEventListener('change', updateSummaryAndUI);
+            collNo.addEventListener('change', updateSummaryAndUI);
+            collYes.addEventListener('change', updateSummaryAndUI);
 
             // Click on cards for easier selection
             radioNoDiv.addEventListener('click', function(e) {
@@ -888,6 +980,18 @@
                     updateSummaryAndUI();
                 }
             });
+            collNoDiv.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
+                    collNo.checked = true;
+                    updateSummaryAndUI();
+                }
+            });
+            collYesDiv.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
+                    collYes.checked = true;
+                    updateSummaryAndUI();
+                }
+            });
 
             // Initial update (will show placeholders since nothing selected)
             updateSummaryAndUI();
@@ -900,7 +1004,7 @@
                     return;
                 }
 
-                if (!migrationSelected || !reversibleSelected) {
+                if (!migrationSelected || !reversibleSelected || !collectionSelected) {
                     statusDiv.innerText = '❌ Please select all options first';
                     statusDiv.style.color = '#ff3b30';
                     return;
@@ -911,7 +1015,7 @@
                 statusDiv.style.color = '#3a3a3c';
 
                 // Calculate total
-                const total = migrationPrice + reversiblePrice;
+                const total = migrationPrice + reversiblePrice + collectionPrice;
 
                 // Prepare template parameters
                 const templateParams = {
@@ -919,20 +1023,21 @@
                     customer_email: emailInput.value || 'not provided',
                     migration: migrationLabel,
                     reversible: reversibleLabel,
+                    collection: collectionLabel,
                     total: total,
                     photo_count: photoCount,
                     phone: '07809590652',
                     date: getCurrentDate()
                 };
 
-                // Send email using EmailJS with the new template ID
+                // Send email using EmailJS
                 emailjs.send('service_lxc7ozk', 'template_i4u1bys', templateParams)
                     .then(function(response) {
                         statusDiv.innerText = '✅ Quote sent to nevillebryce@gmail.com!';
                         statusDiv.style.color = '#28a745';
                         console.log('SUCCESS!', response.status, response.text);
                         
-                        // Optional: Clear the form or disable button
+                        // Disable button temporarily
                         sendBtn.disabled = true;
                         setTimeout(() => {
                             sendBtn.disabled = false;
