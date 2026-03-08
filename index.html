@@ -6,7 +6,7 @@
     <title>ChromeOS Flex · migration quote</title>
     <!-- EmailJS library -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <!-- Apple-inspired design · fully responsive · 60% width on large screens -->
+    <!-- Apple-inspired design · fully responsive · optimized for mobile -->
     <style>
         * {
             margin: 0;
@@ -21,242 +21,157 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 12px;
         }
 
-        /* main card adapts — now 60% width on large screens */
+        /* main card adapts for all screen sizes */
         .quote-card {
-            max-width: 460px;
+            max-width: 600px;
             width: 100%;
             background: #ffffff;
-            border-radius: 48px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.02) inset, 0 8px 20px rgba(0,0,0,0.05);
-            padding: 32px 28px;
+            border-radius: 36px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.02) inset;
+            padding: 24px 20px;
             transition: all 0.25s ease;
-            backdrop-filter: blur(2px);
             border: 1px solid rgba(255,255,255,0.7);
         }
 
-        /* laptop: larger comfortable padding and 60% width */
+        /* laptop: more breathing room */
         @media (min-width: 768px) {
+            body { padding: 20px; }
             .quote-card {
                 max-width: 60%;
-                border-radius: 56px;
-                padding: 42px 40px;
-                box-shadow: 0 40px 70px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.02) inset;
+                border-radius: 48px;
+                padding: 36px 32px;
             }
         }
 
-        /* even larger screens: cap at 1000px for readability, but still 60% of width */
-        @media (min-width: 1400px) {
+        /* very small phones */
+        @media (max-width: 380px) {
             .quote-card {
-                max-width: 60%;
-                width: 60%;
-            }
-        }
-
-        /* smaller phones */
-        @media (max-width: 420px) {
-            .quote-card {
-                padding: 24px 18px;
-                border-radius: 36px;
-                max-width: 100%;
+                padding: 18px 14px;
+                border-radius: 28px;
             }
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 650;
             letter-spacing: -0.02em;
             background: linear-gradient(155deg, #1c1c1e 20%, #3a3a3c 90%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.2;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: center;
         }
         .subheadline {
             text-align: center;
             color: #3a3a3c;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             margin-bottom: 16px;
             font-weight: 400;
         }
         @media (min-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
+            h1 { font-size: 2.2rem; }
+            .subheadline { font-size: 1.1rem; }
         }
 
-        /* link section - NEW */
+        /* link section */
         .links-section {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 8px;
             justify-content: center;
-            margin: 16px 0 20px 0;
+            margin: 12px 0 16px 0;
         }
         .info-link {
             background: #f0f7ff;
             border-radius: 40px;
-            padding: 12px 20px;
+            padding: 10px 16px;
             text-decoration: none;
             color: #007aff;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             border: 1px solid #007aff30;
             transition: all 0.15s;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
+            flex: 0 1 auto;
         }
-        .info-link:hover {
-            background: #007aff;
-            color: white;
-            border-color: #007aff;
-        }
-        .info-link.youtube-link {
-            background: #ffebeb;
-            color: #ff0000;
-            border-color: #ff000030;
-        }
-        .info-link.youtube-link:hover {
-            background: #ff0000;
-            color: white;
+        @media (min-width: 768px) {
+            .info-link { font-size: 0.95rem; padding: 12px 20px; }
         }
 
         .consult-banner {
             background: #e9f0fe;
-            border-radius: 32px;
-            padding: 18px 22px;
-            margin: 24px 0 16px 0;
-            border-left: 8px solid #007aff;
-            box-shadow: 0 4px 14px rgba(0,122,255,0.15);
+            border-radius: 28px;
+            padding: 14px 16px;
+            margin: 16px 0 16px 0;
+            border-left: 6px solid #007aff;
+            box-shadow: 0 2px 8px rgba(0,122,255,0.1);
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
+            gap: 10px;
         }
         .consult-banner span:first-child {
             font-weight: 550;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #1c1c1e;
         }
         .phone-badge {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #007aff;
             background: white;
-            padding: 8px 24px;
-            border-radius: 60px;
+            padding: 6px 16px;
+            border-radius: 40px;
             border: 1px solid #007aff30;
             letter-spacing: -0.5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
             cursor: pointer;
-            transition: 0.15s;
         }
-        .phone-badge:hover {
-            background: #f0f7ff;
-        }
-        @media (max-width: 420px) {
-            .consult-banner { flex-direction: column; align-items: flex-start; }
-            .phone-badge { align-self: stretch; text-align: center; }
+        @media (min-width: 768px) {
+            .consult-banner { padding: 18px 22px; }
+            .consult-banner span:first-child { font-size: 1.2rem; }
+            .phone-badge { font-size: 1.5rem; padding: 8px 24px; }
         }
 
-        /* eligibility section */
-        .eligibility-section {
+        /* eligibility section - more compact */
+        .eligibility-section,
+        .prerequisites-section,
+        .options-section {
             background: #ffffff;
-            border-radius: 32px;
-            padding: 24px 22px;
-            margin: 24px 0 20px 0;
+            border-radius: 24px;
+            padding: 18px 16px;
+            margin: 16px 0 16px 0;
             border: 2px solid #007aff;
-            box-shadow: 0 8px 20px rgba(0,122,255,0.1);
+            box-shadow: 0 4px 12px rgba(0,122,255,0.08);
         }
-        .eligibility-title {
-            font-size: 1.6rem;
+        @media (min-width: 768px) {
+            .eligibility-section,
+            .prerequisites-section,
+            .options-section {
+                padding: 24px 22px;
+                margin: 24px 0 20px 0;
+            }
+        }
+
+        .eligibility-title,
+        .options-title {
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #1c1c1e;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: center;
             background: linear-gradient(135deg, #007aff 0%, #005bbf 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .eligibility-question {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 20px 0 10px 0;
-            color: #1c1c1e;
-        }
-        .eligibility-radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        .eligibility-radio-card {
-            background: white;
-            border-radius: 20px;
-            padding: 16px 20px;
-            border: 1.5px solid #e1e1e6;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .eligibility-radio-card:hover {
-            border-color: #007aff;
-            background: #f8faff;
-        }
-        .eligibility-radio-card.selected {
-            border-color: #007aff;
-            background: #f0f7ff;
-            box-shadow: 0 4px 12px rgba(0,122,255,0.15);
-        }
-        .eligibility-radio-card input[type="radio"] {
-            appearance: none;
-            width: 22px;
-            height: 22px;
-            border: 2px solid #b8b8c9;
-            border-radius: 22px;
-            margin-right: 14px;
-            vertical-align: middle;
-        }
-        .eligibility-radio-card input[type="radio"]:checked {
-            border-color: #007aff;
-            background: #007aff;
-            box-shadow: inset 0 0 0 5px white;
-        }
-        .eligibility-radio-card label {
-            font-size: 1rem;
-            font-weight: 480;
-            color: #1c1c1e;
-            cursor: pointer;
-            flex: 1;
-        }
-        .eligibility-feedback {
-            background: #f1f3f6;
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin: 10px 0 20px 0;
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #1c1c1e;
-            border-left: 4px solid #007aff;
-        }
-
-        /* prerequisites section - with visible icon */
-        .prerequisites-section {
-            background: #ffffff;
-            border-radius: 32px;
-            padding: 24px 22px;
-            margin: 24px 0 20px 0;
-            border: 2px solid #007aff;
-            box-shadow: 0 8px 20px rgba(0,122,255,0.1);
-        }
         .prerequisites-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #1c1c1e;
             margin-bottom: 16px;
             text-align: center;
             display: flex;
@@ -264,342 +179,250 @@
             justify-content: center;
             gap: 8px;
         }
-        .prerequisites-title span {
-            font-size: 1.8rem;
-        }
+        .prerequisites-title span { font-size: 1.5rem; }
 
-        /* explanatory section */
-        .info-message {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 20px 22px;
-            margin: 16px 0 24px 0;
-            border: 1.5px dashed #007aff;
-            box-shadow: 0 4px 12px rgba(0,122,255,0.08);
-        }
-        .info-message p {
-            font-size: 1.15rem;
-            line-height: 1.4;
-            color: #1c1c1e;
-            font-weight: 460;
-        }
-        .info-message strong {
-            color: #007aff;
-            font-weight: 650;
-        }
-
-        /* options section - with blue border */
-        .options-section {
-            background: #ffffff;
-            border-radius: 32px;
-            padding: 24px 22px;
-            margin: 24px 0 20px 0;
-            border: 2px solid #007aff;
-            box-shadow: 0 8px 20px rgba(0,122,255,0.1);
-        }
-        .options-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #1c1c1e;
-            margin-bottom: 16px;
-            text-align: center;
-            background: linear-gradient(135deg, #007aff 0%, #005bbf 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* section headings inside options */
-        .section-label {
-            font-size: 1.4rem;
-            font-weight: 640;
-            margin: 20px 0 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-label small {
-            font-size: 1rem;
-            font-weight: 440;
-            background: #e9e9ed;
-            padding: 5px 14px;
-            border-radius: 40px;
-            color: #3a3a3c;
-        }
-        .question-text {
-            font-size: 1.2rem;
-            font-weight: 520;
-            margin: 14px 0 16px 0;
+        .eligibility-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 16px 0 10px 0;
             color: #1c1c1e;
             line-height: 1.3;
         }
+        @media (max-width: 380px) {
+            .eligibility-question { font-size: 1rem; }
+        }
 
-        /* radio items */
+        /* radio cards - optimized for mobile */
+        .eligibility-radio-group,
         .radio-grid {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 8px;
+            gap: 10px;
+            margin-bottom: 12px;
         }
+
+        .eligibility-radio-card,
         .radio-card {
             background: white;
-            border-radius: 24px;
-            padding: 18px 22px;
+            border-radius: 18px;
+            padding: 14px 16px;
             border: 1.5px solid #e1e1e6;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.2s;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
-        .radio-card:hover {
-            border-color: #007aff;
-            background: #f8faff;
-            transform: scale(1.01);
+        @media (min-width: 768px) {
+            .eligibility-radio-card,
+            .radio-card {
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
         }
-        .radio-card.selected {
-            border-color: #007aff;
-            background: #f0f7ff;
-            box-shadow: 0 8px 20px rgba(0,122,255,0.15);
-        }
-        .radio-card input[type="radio"] {
-            appearance: none;
-            width: 26px;
-            height: 26px;
-            border: 2.5px solid #b8b8c9;
-            border-radius: 26px;
-            margin-right: 18px;
-            transition: 0.1s;
-            flex-shrink: 0;
-        }
-        .radio-card input[type="radio"]:checked {
-            border-color: #007aff;
-            background: #007aff;
-            box-shadow: inset 0 0 0 6px white;
+
+        .radio-card {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
         }
         .radio-card label {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 480;
             color: #1c1c1e;
-            flex: 1;
             cursor: pointer;
+            flex: 1;
+            line-height: 1.4;
         }
         .price-chip {
             background: #1c1c1e;
             color: white;
-            padding: 8px 20px;
-            border-radius: 40px;
+            padding: 5px 12px;
+            border-radius: 30px;
             font-weight: 600;
-            font-size: 1.1rem;
-            letter-spacing: -0.2px;
+            font-size: 0.9rem;
             white-space: nowrap;
-            margin-left: 12px;
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+        @media (min-width: 768px) {
+            .radio-card label { font-size: 1.1rem; }
+            .price-chip { font-size: 1rem; padding: 6px 16px; }
         }
 
-        /* conditional section (for USB question and clone feedback) */
+        /* compact radio inputs */
+        .eligibility-radio-card input[type="radio"],
+        .radio-card input[type="radio"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #b8b8c9;
+            border-radius: 20px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .eligibility-radio-card input[type="radio"]:checked,
+        .radio-card input[type="radio"]:checked {
+            border-color: #007aff;
+            background: #007aff;
+            box-shadow: inset 0 0 0 5px white;
+        }
+
+        .eligibility-feedback {
+            background: #f1f3f6;
+            border-radius: 14px;
+            padding: 12px 16px;
+            margin: 8px 0 16px 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            border-left: 4px solid #007aff;
+        }
+
+        /* conditional sections */
         .conditional-section {
             background: #f0f7ff;
-            border-radius: 24px;
-            padding: 20px 22px;
-            margin: 20px 0 16px 0;
+            border-radius: 18px;
+            padding: 16px 16px;
+            margin: 16px 0 12px 0;
             border: 2px solid #007aff;
         }
         .conditional-title {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             color: #1c1c1e;
         }
 
-        /* photo upload section */
+        /* photo upload */
         .photo-section {
             background: #f8f8fa;
-            border-radius: 28px;
-            padding: 24px 22px;
-            margin: 36px 0 24px 0;
+            border-radius: 24px;
+            padding: 18px 16px;
+            margin: 24px 0 20px 0;
             border: 2px dashed #007aff;
             text-align: center;
         }
         .photo-section p {
-            font-size: 1.1rem;
-            margin-bottom: 16px;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
             color: #1c1c1e;
             font-weight: 500;
+            line-height: 1.4;
         }
         .photo-label {
             background: white;
             border: 1.5px solid #007aff;
             border-radius: 40px;
-            padding: 14px 24px;
-            display: inline-block;
+            padding: 10px 18px;
             font-weight: 600;
+            font-size: 0.95rem;
             color: #007aff;
             cursor: pointer;
-            transition: 0.15s;
-            margin: 8px 0;
-        }
-        .photo-label:hover {
-            background: #007aff;
-            color: white;
-        }
-        input[type="file"] {
-            display: none;
-        }
-        .photo-preview {
-            margin-top: 16px;
-            font-size: 0.95rem;
-            color: #28a745;
-            font-weight: 500;
-        }
-        .photo-required-badge {
-            background: #ff3b3010;
-            color: #ff3b30;
-            padding: 8px 16px;
-            border-radius: 40px;
-            font-size: 0.9rem;
             display: inline-block;
-            margin-top: 12px;
         }
 
         /* summary panel */
         .summary-panel {
             background: #f1f3f6;
-            border-radius: 32px;
-            padding: 26px 24px;
-            margin: 36px 0 32px;
+            border-radius: 24px;
+            padding: 18px 16px;
+            margin: 24px 0 20px 0;
             border: 1px solid #d9d9e3;
         }
         .summary-row {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
-            font-size: 1.15rem;
+            padding: 8px 0;
+            font-size: 0.95rem;
             border-bottom: 1px dashed #b0b0bb;
-        }
-        .summary-row:last-of-type {
-            border-bottom: none;
         }
         .total-row {
             font-weight: 700;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: #007aff;
             text-align: right;
-            margin-top: 16px;
-            letter-spacing: -0.02em;
+            margin-top: 12px;
         }
-        .placeholder-text {
-            color: #8e8e93;
-            font-style: italic;
-        }
-        @media (max-width: 420px) {
-            .total-row { font-size: 1.9rem; }
+        @media (min-width: 768px) {
+            .total-row { font-size: 2.2rem; }
         }
 
-        /* email section - hidden by default */
-        .email-area {
-            margin: 24px 0 10px;
-            transition: opacity 0.3s ease;
-        }
-        .email-area.hidden {
-            display: none;
-        }
-        .email-label {
-            font-weight: 540;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            color: #2c2c2e;
-        }
-        .email-flex {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
+        /* email form */
         .email-flex input {
             background: #f8f8fa;
             border: 1.5px solid #c6c6c8;
-            border-radius: 50px;
-            padding: 18px 24px;
-            font-size: 1.1rem;
-            outline: none;
+            border-radius: 40px;
+            padding: 14px 18px;
+            font-size: 0.95rem;
             width: 100%;
-        }
-        .email-flex input:focus {
-            border-color: #007aff;
-            box-shadow: 0 0 0 4px #007aff20;
         }
         .send-btn {
             background: #007aff;
             border: none;
-            border-radius: 60px;
-            padding: 20px 24px;
+            border-radius: 40px;
+            padding: 16px 20px;
             color: white;
             font-weight: 600;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: 0.15s;
-            border: 1px solid #0070e0;
+            font-size: 1.1rem;
             width: 100%;
         }
-        .send-btn:active { background: #005bbf; transform: scale(0.98); }
-        .send-btn:hover { background: #0066d9; }
 
-        .status-msg {
-            color: #28a745;
-            font-weight: 500;
-            margin: 16px 0 8px;
-            text-align: center;
-            font-size: 1rem;
+        /* disclaimer */
+        .disclaimer {
+            background: #fff3cd;
+            border-radius: 20px;
+            padding: 14px 16px;
+            margin: 16px 0 16px;
+            border-left: 6px solid #ffc107;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
-        hr {
-            border: none;
-            border-top: 2px solid #e9e9ed;
-            margin: 30px 0 15px;
-        }
-        /* make phone number clickable */
-        .clickable-phone {
-            cursor: pointer;
-        }
+        .disclaimer span { font-size: 1.2rem; }
+
+        /* utility classes */
+        .placeholder-text { color: #8e8e93; font-style: italic; }
+        .hidden { display: none; }
         .requirements-note {
             background: #fff9e6;
-            border-radius: 24px;
-            padding: 14px 18px;
-            margin: 20px 0 10px;
+            border-radius: 20px;
+            padding: 12px 16px;
+            margin: 16px 0 12px;
             border-left: 6px solid #ffb340;
             font-weight: 500;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
     <div class="quote-card">
         <h1>ChromeOS Flex Migration<br>Self‑Pricing Made Simple</h1>
-        <div class="subheadline">Answer a few questions to get an instant quote for your ChromeOS Flex migration</div>
+        <div class="subheadline">Answer a few questions to get an instant quote</div>
 
-        <!-- NEW: Links section at the top -->
+        <!-- Links section at the top -->
         <div class="links-section">
             <a href="https://support.google.com/chromebook/answer/3265094?hl=en-GB#zippy=%2Cdoes-microsoft-office-work-on-a-chromebook" target="_blank" class="info-link">
-                <span>📚</span> ChromeOS FAQ (Microsoft Office, etc.)
+                <span>📚</span> ChromeOS FAQ
             </a>
             <a href="https://www.youtube.com/watch?v=OXaHt9pZCa8" target="_blank" class="info-link youtube-link">
-                <span>▶️</span> Watch Explainer Video
+                <span>▶️</span> Explainer Video
             </a>
         </div>
 
         <!-- consultation banner with phone -->
         <div class="consult-banner">
-            <span>📅 Free 10 minute consultation with Neville</span>
+            <span>📅 Free 10 min consultation</span>
             <div class="phone-badge clickable-phone" onclick="window.location.href='tel:07809590652'">07809590652</div>
         </div>
 
         <!-- Is this migration right for you? Section -->
         <div class="eligibility-section">
-            <div class="eligibility-title">✨ Is this migration right for you?</div>
+            <div class="eligibility-title">✨ Is this right for you?</div>
             
             <!-- Question 1 - Computer Age -->
-            <div class="eligibility-question">1️⃣ Roughly what age is the computer?</div>
+            <div class="eligibility-question">1️⃣ Computer age?</div>
             <div class="eligibility-radio-group" id="ageGroup">
                 <div class="eligibility-radio-card" id="ageNew">
                     <input type="radio" name="computerAge" id="age1_3" value="1-3 years">
@@ -607,35 +430,35 @@
                 </div>
                 <div class="eligibility-radio-card" id="ageOld">
                     <input type="radio" name="computerAge" id="age4_10" value="4+ years">
-                    <label for="age4_10">4+ years old. Also note that Intel based Apple Macs (2007–2017) are compatible with this software migration.</label>
+                    <label for="age4_10">4+ years (Intel Macs 2007-2017 compatible)</label>
                 </div>
             </div>
             <div id="ageFeedback" class="eligibility-feedback" style="display: none;"></div>
 
             <!-- Question 2 - Physical Working Order -->
-            <div class="eligibility-question">2️⃣ Are you happy with the physical working order of the machine?</div>
+            <div class="eligibility-question">2️⃣ Physical condition?</div>
             <div class="eligibility-radio-group" id="physicalGroup">
                 <div class="eligibility-radio-card" id="physicalYes">
                     <input type="radio" name="physicalOrder" id="physicalGood" value="good">
-                    <label for="physicalGood">Yes, most things work, and any common battery or broken monitor issues I can live with by plugging the computer in and using it in an office environment</label>
+                    <label for="physicalGood">Yes, works fine (minor battery/monitor issues ok)</label>
                 </div>
                 <div class="eligibility-radio-card" id="physicalNo">
                     <input type="radio" name="physicalOrder" id="physicalBad" value="bad">
-                    <label for="physicalBad">No, there are problems with electronics malfunctions such as the computer failing to start or beeps or flashing red lights when I try to turn it on</label>
+                    <label for="physicalBad">No - electrical problems, won't start, beeps, lights</label>
                 </div>
             </div>
             <div id="physicalFeedback" class="eligibility-feedback" style="display: none;"></div>
 
             <!-- Question 3 - RAM Knowledge -->
-            <div class="eligibility-question">3️⃣ Do you know how much RAM is inside the computer?</div>
+            <div class="eligibility-question">3️⃣ RAM knowledge?</div>
             <div class="eligibility-radio-group" id="ramGroup">
                 <div class="eligibility-radio-card" id="ramYes">
                     <input type="radio" name="ramKnowledge" id="ramKnown" value="yes">
-                    <label for="ramKnown">Yes, I know that there is at least a minimum of 4GB of RAM that will be used for light browsing, emails and watching television <strong>OR</strong> 8GB of RAM that I can use for a home office setup providing lots of multitasking productivity and office documents open at once</label>
+                    <label for="ramKnown">Yes - 4GB (light use) OR 8GB (office/multitasking)</label>
                 </div>
                 <div class="eligibility-radio-card" id="ramNo">
                     <input type="radio" name="ramKnowledge" id="ramUnknown" value="no">
-                    <label for="ramUnknown">No, but I will provide screenshot below showing the model below</label>
+                    <label for="ramUnknown">No - will provide screenshot</label>
                 </div>
             </div>
             <div id="ramFeedback" class="eligibility-feedback" style="display: none;"></div>
@@ -646,16 +469,15 @@
             document.getElementById('age1_3').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('ageFeedback').style.display = 'block';
-                    document.getElementById('ageFeedback').innerHTML = '⚠️ Your PC probably has Windows 11 on it and is likely quite new. You may want to consider staying on Windows 11, and if there\'s anything I can do to help with that then please don\'t hesitate to call on the number above.';
+                    document.getElementById('ageFeedback').innerHTML = '⚠️ Newer PC with Windows 11 - consider staying on Windows. Call to discuss.';
                 }
             });
             document.getElementById('age4_10').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('ageFeedback').style.display = 'block';
-                    document.getElementById('ageFeedback').innerHTML = '✅ This migration to Chrome OS Flex is made for you and breathes new life into older hardware.';
+                    document.getElementById('ageFeedback').innerHTML = '✅ Perfect for ChromeOS Flex - breathes new life into older hardware.';
                 }
             });
-
             document.getElementById('physicalGood').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('physicalFeedback').style.display = 'block';
@@ -665,20 +487,19 @@
             document.getElementById('physicalBad').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('physicalFeedback').style.display = 'block';
-                    document.getElementById('physicalFeedback').innerHTML = '🔧 I can look at any electrical problems, but the computer itself is not overly valuable if it\'s broken and you may want to consider a replacement. Feel free to call me to discuss.';
+                    document.getElementById('physicalFeedback').innerHTML = '🔧 May need replacement - call to discuss.';
                 }
             });
-
             document.getElementById('ramKnown').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('ramFeedback').style.display = 'block';
-                    document.getElementById('ramFeedback').innerHTML = '✅ Great! The RAM will be checked during the migration process.';
+                    document.getElementById('ramFeedback').innerHTML = '✅ Great! RAM will be checked during migration.';
                 }
             });
             document.getElementById('ramUnknown').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('ramFeedback').style.display = 'block';
-                    document.getElementById('ramFeedback').innerHTML = '📸 Please upload a screenshot showing the system information in the photo section below.';
+                    document.getElementById('ramFeedback').innerHTML = '📸 Please upload screenshot below.';
                 }
             });
 
@@ -688,7 +509,6 @@
                     if (e.target.tagName !== 'INPUT') {
                         const radio = this.querySelector('input[type="radio"]');
                         radio.checked = true;
-                        // Trigger change event
                         const event = new Event('change', { bubbles: true });
                         radio.dispatchEvent(event);
                     }
@@ -696,193 +516,175 @@
             });
         </script>
 
-        <!-- explanatory section about basic migration pricing -->
+        <!-- explanatory section -->
         <div class="info-message">
-            <p>💡 <strong>The basic migration is £70</strong> — this covers the standard ChromeOS Flex installation on your device.</p>
-            <p>If you need help preserving your photos, documents, current working system please apply the relevant options below.</p>
+            <p>💡 <strong>Basic migration: £70</strong> — ChromeOS Flex installation.</p>
+            <p>Add options below for data care.</p>
         </div>
 
         <!-- OPTIONS SECTION -->
         <div class="options-section">
-            <div class="options-title">Additional data care options available</div>
+            <div class="options-title">Additional data care options</div>
             
-            <!-- OPTION 1 block -->
+            <!-- OPTION 1 -->
             <div class="section-label">
                 Option 1 <small>data migration</small>
             </div>
             <div class="question-text">
-                Do you need help transferring photos, documents, or important data?
+                Need help transferring data?
             </div>
 
             <div class="radio-grid" id="migrationGroup">
-                <!-- radio 1: no (self backup) £70 -->
                 <div class="radio-card" id="radioNo">
                     <input type="radio" name="migration" id="migNo" value="no">
-                    <label for="migNo">No, I've already backed up myself</label>
+                    <label for="migNo">No - backed up myself, aware data will be wiped</label>
                     <span class="price-chip">£70</span>
                 </div>
-                <!-- radio 2: yes assistance £70 + £20 for 30 mins -->
                 <div class="radio-card" id="radioYes">
                     <input type="radio" name="migration" id="migYes" value="yes">
-                    <label for="migYes">Yes, I require assistance selecting what data is required to be migrated and would appreciate consultation on this matter</label>
-                    <span class="price-chip">£70 + £20 (30 mins)</span>
+                    <label for="migYes">Yes - need consultation on what to migrate</label>
+                    <span class="price-chip">£70+£30</span>
                 </div>
             </div>
 
-            <!-- Conditional USB question (hidden by default) -->
+            <!-- USB question -->
             <div id="usbQuestion" class="conditional-section" style="display: none;">
-                <div class="conditional-title">💾 The computer will be wiped clean as part of the migration. Do you have something such as a USB drive to store this data on?</div>
+                <div class="conditional-title">💾 Have a USB drive for data backup?</div>
                 <div class="eligibility-radio-group" id="usbGroup">
                     <div class="eligibility-radio-card" id="usbYes">
                         <input type="radio" name="usbStorage" id="usbYesRadio" value="yes">
-                        <label for="usbYesRadio">Yes - I have a device already that is large enough to store the large amount of data that is copied across in a typical migration. (For example I have a working 64GB or 128GB USB storage device.)</label>
+                        <label for="usbYesRadio">Yes - have 64GB/128GB USB</label>
                     </div>
                     <div class="eligibility-radio-card" id="usbNo">
                         <input type="radio" name="usbStorage" id="usbNoRadio" value="no">
-                        <label for="usbNoRadio">No - But I will purchase my own in advance.</label>
+                        <label for="usbNoRadio">No - will buy one</label>
                     </div>
                 </div>
             </div>
 
-            <!-- OPTION 2 Reversible backup -->
-            <div class="section-label" style="margin-top: 20px;">
+            <!-- OPTION 2 -->
+            <div class="section-label" style="margin-top: 16px;">
                 Option 2 <small>reversible clone</small>
             </div>
             <div class="question-text">
-                Do you want the change to be fully reversible in the event that you need to get the system back to how it is now?
+                Want the ability to revert back?
             </div>
 
             <div class="radio-grid" id="reversibleGroup">
-                <!-- radio no: permanent change £0 -->
                 <div class="radio-card" id="reversibleNo">
                     <input type="radio" name="reversible" id="revNo" value="no">
-                    <label for="revNo">No, I understand what ChromeOS Flex is and I'm happy for the change to be permanent with no way back</label>
+                    <label for="revNo">No - happy with permanent change</label>
                     <span class="price-chip">£0</span>
                 </div>
-                <!-- radio yes: exact clone USB -->
                 <div class="radio-card" id="reversibleYes">
                     <input type="radio" name="reversible" id="revYes" value="yes">
-                    <label for="revYes">Yes, I would an exact clone of every aspect of my system, so that upon request I can revert back to exactly how it was before the change to Chrome OS Flex was made</label>
+                    <label for="revYes">Yes - want exact clone to revert if needed</label>
                     <span class="price-chip">Clone (+£100)</span>
                 </div>
             </div>
 
-            <!-- Clone feedback section (hidden by default) - UPDATED TEXT -->
+            <!-- Clone feedback -->
             <div id="cloneFeedback" class="conditional-section" style="display: none;">
-                <div class="conditional-title">🔄 Advanced Clone Information</div>
-                <p style="margin: 0; line-height: 1.5;">Advanced software will be used to preserve the low level technical details of the computer so that it can be fully restored to the exact running state that it is in today. A suitable storage device will be provided at no extra cost holding the complete clone of the current configuration. The clone will be stored in a manner that is not accessible to the user, and if the user also requires access to specific files after the migration then please also select the option above for data migration.</p>
+                <div class="conditional-title">🔄 Clone details</div>
+                <p style="font-size: 0.9rem;">Full system clone on provided USB. Not user-accessible - for reversion only. Select Option 1 if you need file access.</p>
             </div>
 
-            <!-- Collection and Return Option -->
-            <div class="section-label" style="margin-top: 20px;">
-                Option 3 <small>collection & return</small>
+            <!-- OPTION 3 -->
+            <div class="section-label" style="margin-top: 16px;">
+                Option 3 <small>collection</small>
             </div>
             <div class="question-text">
-                Do you require the device to be collected and returned?
+                Need collection & return?
             </div>
 
             <div class="radio-grid" id="collectionGroup">
-                <!-- radio 1: no, deliver/collect NW11 7BY - no charge -->
                 <div class="radio-card" id="collectionNo">
                     <input type="radio" name="collection" id="collNo" value="no">
-                    <label for="collNo">No, I am happy to deliver and collect the device at pre-agreed times to / from NW11 7BY</label>
+                    <label for="collNo">No - will deliver to NW11 7BY</label>
                     <span class="price-chip">£0</span>
                 </div>
-                <!-- radio 2: yes, collect and return +£10 -->
                 <div class="radio-card" id="collectionYes">
                     <input type="radio" name="collection" id="collYes" value="yes">
-                    <label for="collYes">Yes - I would prefer if the device could be collected and returned and I live within a 20 minute drive of NW11 7BY</label>
-                    <span class="price-chip">+ £10</span>
+                    <label for="collYes">Yes - collect/return (20 min drive)</label>
+                    <span class="price-chip">+£10</span>
                 </div>
             </div>
         </div>
 
-        <!-- PREREQUISITES SECTION -->
+        <!-- PREREQUISITES -->
         <div class="prerequisites-section">
             <div class="prerequisites-title">
                 <span>✅</span> Prerequisites
             </div>
             
-            <div class="eligibility-question">Do you have a Google account?</div>
+            <div class="eligibility-question">Google account?</div>
             <div class="eligibility-radio-group" id="googleAccountGroup">
                 <div class="eligibility-radio-card" id="googleYes">
                     <input type="radio" name="googleAccount" id="googleYesRadio" value="yes">
-                    <label for="googleYesRadio">Yes - Great! A Google account is required for logging into your new setup.</label>
+                    <label for="googleYesRadio">Yes - have one</label>
                 </div>
                 <div class="eligibility-radio-card" id="googleNo">
                     <input type="radio" name="googleAccount" id="googleNoRadio" value="no">
-                    <label for="googleNoRadio">No - but I will set one up myself ahead of the migration.</label>
+                    <label for="googleNoRadio">No - will set up</label>
                 </div>
             </div>
             <div id="googleFeedback" class="eligibility-feedback" style="display: none;"></div>
         </div>
 
         <script>
-            // Google account feedback
             document.getElementById('googleYesRadio').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('googleFeedback').style.display = 'block';
-                    document.getElementById('googleFeedback').innerHTML = '✅ Perfect! Your Google account will be used for logging into ChromeOS Flex.';
+                    document.getElementById('googleFeedback').innerHTML = '✅ Perfect! Used for ChromeOS login.';
                 }
             });
             document.getElementById('googleNoRadio').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('googleFeedback').style.display = 'block';
-                    document.getElementById('googleFeedback').innerHTML = '📝 No problem! Please ensure you\'ve created your Google account before the migration appointment.';
+                    document.getElementById('googleFeedback').innerHTML = '📝 Set up before migration.';
                 }
             });
         </script>
 
-        <!-- PHOTO UPLOAD SECTION -->
+        <!-- PHOTO UPLOAD -->
         <div class="photo-section">
-            <p>📸 <strong>Upload at least one photo</strong> of the sticker on the back or bottom of the computer clearly showing the make and model number. Detail is important here, so please provide as much information as possible so that I may identify the device.</p>
-            <p style="font-size: 0.9rem; color: #666;">(If you selected "No" for RAM knowledge, please also upload a screenshot showing system information)</p>
+            <p>📸 <strong>Upload photo</strong> of model sticker on computer</p>
+            <p style="font-size: 0.85rem;">Detail important for identification</p>
             
             <label for="photoUpload" class="photo-label">📁 Choose Photo</label>
             <input type="file" id="photoUpload" accept="image/*" multiple>
             
             <div id="photoPreview" class="photo-preview"></div>
-            <div id="photoRequired" class="photo-required-badge">⚠️ At least one photo required before sending quote</div>
+            <div id="photoRequired" class="photo-required-badge">⚠️ Photo required</div>
         </div>
 
-        <!-- live quote summary -->
+        <!-- SUMMARY -->
         <div class="summary-panel" id="summary">
-            <div class="summary-row">
-                <span>Data migration</span>
-                <span id="sumMig" class="placeholder-text">not selected</span>
-            </div>
-            <div class="summary-row">
-                <span>Reversible clone</span>
-                <span id="sumRev" class="placeholder-text">not selected</span>
-            </div>
-            <div class="summary-row">
-                <span>Collection & return</span>
-                <span id="sumColl" class="placeholder-text">not selected</span>
-            </div>
-            <div class="summary-row">
-                <span>USB storage</span>
-                <span id="sumUsb" class="placeholder-text">not applicable</span>
-            </div>
-            <div class="summary-row">
-                <span>Google account</span>
-                <span id="sumGoogle" class="placeholder-text">not selected</span>
-            </div>
+            <div class="summary-row"><span>Data migration</span><span id="sumMig" class="placeholder-text">-</span></div>
+            <div class="summary-row"><span>Reversible clone</span><span id="sumRev" class="placeholder-text">-</span></div>
+            <div class="summary-row"><span>Collection</span><span id="sumColl" class="placeholder-text">-</span></div>
+            <div class="summary-row"><span>USB storage</span><span id="sumUsb" class="placeholder-text">-</span></div>
+            <div class="summary-row"><span>Google account</span><span id="sumGoogle" class="placeholder-text">-</span></div>
             <div class="total-row" id="totalPrice">—</div>
         </div>
 
-        <!-- requirements note (visible until all conditions met) -->
-        <div id="requirementsNote" class="requirements-note">
-            ⏳ Please select an option from each section, confirm Google account, and upload at least one photo to enable the quote email form
+        <!-- DISCLAIMER -->
+        <div class="disclaimer">
+            <span>⚠️</span>
+            <div><strong>Note:</strong> Google Play Store not available on ChromeOS Flex - no Android apps.</div>
         </div>
 
-        <!-- email form (hidden until all options selected and photo uploaded) -->
+        <!-- requirements note -->
+        <div id="requirementsNote" class="requirements-note">
+            ⏳ Select all options & upload photo to enable email
+        </div>
+
+        <!-- EMAIL FORM -->
         <div class="email-area hidden" id="emailSection">
-            <div class="email-label">📧 Email final quote to nevillebryce@gmail.com</div>
+            <div class="email-label">📧 Email quote to nevillebryce@gmail.com</div>
             <div class="email-flex">
-                <input type="email" id="customerEmail" placeholder="your email (optional for copy)" value="">
-                <button class="send-btn" id="sendEmailBtn">
-                    <span>✈️</span> Send quote
-                </button>
+                <input type="email" id="customerEmail" placeholder="your email (optional)">
+                <button class="send-btn" id="sendEmailBtn">✈️ Send quote</button>
             </div>
             <div id="emailStatus" class="status-msg"></div>
         </div>
@@ -892,7 +694,6 @@
 
     <script>
         (function() {
-            // Initialize EmailJS with your public key
             emailjs.init("K160_i8A3AXGSYFFl"); 
             
             // DOM elements
@@ -900,111 +701,68 @@
             const migYes = document.getElementById('migYes');
             const radioNoDiv = document.getElementById('radioNo');
             const radioYesDiv = document.getElementById('radioYes');
-
-            // reversible radios
             const revNo = document.getElementById('revNo');
             const revYes = document.getElementById('revYes');
             const revNoDiv = document.getElementById('reversibleNo');
             const revYesDiv = document.getElementById('reversibleYes');
-
-            // collection radios
             const collNo = document.getElementById('collNo');
             const collYes = document.getElementById('collYes');
             const collNoDiv = document.getElementById('collectionNo');
             const collYesDiv = document.getElementById('collectionYes');
-
-            // google account radios
             const googleYes = document.getElementById('googleYesRadio');
             const googleNo = document.getElementById('googleNoRadio');
             const googleYesDiv = document.getElementById('googleYes');
             const googleNoDiv = document.getElementById('googleNo');
-
-            // USB storage radios
             const usbYes = document.getElementById('usbYesRadio');
             const usbNo = document.getElementById('usbNoRadio');
             const usbYesDiv = document.getElementById('usbYes');
             const usbNoDiv = document.getElementById('usbNo');
             const usbQuestion = document.getElementById('usbQuestion');
-
-            // clone feedback
             const cloneFeedback = document.getElementById('cloneFeedback');
-
-            // photo upload
             const photoUpload = document.getElementById('photoUpload');
             const photoPreview = document.getElementById('photoPreview');
             const photoRequired = document.getElementById('photoRequired');
-
-            // summary elements
             const sumMig = document.getElementById('sumMig');
             const sumRev = document.getElementById('sumRev');
             const sumColl = document.getElementById('sumColl');
             const sumUsb = document.getElementById('sumUsb');
             const sumGoogle = document.getElementById('sumGoogle');
             const totalSpan = document.getElementById('totalPrice');
-
-            // email section
             const emailSection = document.getElementById('emailSection');
             const requirementsNote = document.getElementById('requirementsNote');
             const sendBtn = document.getElementById('sendEmailBtn');
             const emailInput = document.getElementById('customerEmail');
             const statusDiv = document.getElementById('emailStatus');
 
-            // Helper function to get current date
             function getCurrentDate() {
                 const date = new Date();
-                return date.toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric'
-                });
+                return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
             }
 
-            // state
-            let migrationSelected = false;
-            let migrationPrice = 0;
-            let migrationLabel = '';
-            
-            let reversibleSelected = false;
-            let reversiblePrice = 0;
-            let reversibleLabel = '';
-            
-            let collectionSelected = false;
-            let collectionPrice = 0;
-            let collectionLabel = '';
+            let migrationSelected = false, migrationPrice = 0, migrationLabel = '';
+            let reversibleSelected = false, reversiblePrice = 0, reversibleLabel = '';
+            let collectionSelected = false, collectionPrice = 0, collectionLabel = '';
+            let googleSelected = false, googleLabel = '';
+            let usbSelected = false, usbLabel = '';
+            let photosUploaded = false, photoCount = 0;
 
-            let googleSelected = false;
-            let googleLabel = '';
-
-            let usbSelected = false;
-            let usbLabel = '';
-            
-            let photosUploaded = false;
-            let photoCount = 0;
-
-            // Show/hide USB question based on migration selection
             function toggleUsbQuestion() {
                 if (migYes.checked) {
                     usbQuestion.style.display = 'block';
                 } else {
                     usbQuestion.style.display = 'none';
-                    // Reset USB selection if hidden
                     if (usbYes) usbYes.checked = false;
                     if (usbNo) usbNo.checked = false;
                     usbSelected = false;
                     usbLabel = '';
-                    sumUsb.innerText = 'not applicable';
+                    sumUsb.innerText = '-';
                     sumUsb.classList.add('placeholder-text');
                 }
                 updateSummaryAndUI();
             }
 
-            // Show/hide clone feedback based on reversible selection
             function toggleCloneFeedback() {
-                if (revYes.checked) {
-                    cloneFeedback.style.display = 'block';
-                } else {
-                    cloneFeedback.style.display = 'none';
-                }
+                cloneFeedback.style.display = revYes.checked ? 'block' : 'none';
             }
 
             migYes.addEventListener('change', toggleUsbQuestion);
@@ -1012,33 +770,33 @@
             revNo.addEventListener('change', toggleCloneFeedback);
 
             function updateSummaryAndUI() {
-                // Check migration selection
+                // Migration
                 if (migYes.checked) {
                     migrationSelected = true;
-                    migrationPrice = 90; // £70 + £20
-                    migrationLabel = 'Data consultation (£70 + £20)';
-                    sumMig.innerText = `£70 + £20 (data consultation)`;
+                    migrationPrice = 100;
+                    migrationLabel = 'Data consultation (£70+£30)';
+                    sumMig.innerText = '£70+£30';
                     sumMig.classList.remove('placeholder-text');
                 } else if (migNo.checked) {
                     migrationSelected = true;
                     migrationPrice = 70;
                     migrationLabel = 'Self backup (£70)';
-                    sumMig.innerText = `£70 (self backup)`;
+                    sumMig.innerText = '£70';
                     sumMig.classList.remove('placeholder-text');
                 } else {
                     migrationSelected = false;
                     migrationPrice = 0;
                     migrationLabel = '';
-                    sumMig.innerText = 'not selected';
+                    sumMig.innerText = '-';
                     sumMig.classList.add('placeholder-text');
                 }
 
-                // Check reversible selection
+                // Reversible
                 if (revYes.checked) {
                     reversibleSelected = true;
                     reversiblePrice = 100;
                     reversibleLabel = 'Clone (+£100)';
-                    sumRev.innerText = 'Clone (+£100)';
+                    sumRev.innerText = '+£100';
                     sumRev.classList.remove('placeholder-text');
                     toggleCloneFeedback();
                 } else if (revNo.checked) {
@@ -1052,75 +810,73 @@
                     reversibleSelected = false;
                     reversiblePrice = 0;
                     reversibleLabel = '';
-                    sumRev.innerText = 'not selected';
+                    sumRev.innerText = '-';
                     sumRev.classList.add('placeholder-text');
                     cloneFeedback.style.display = 'none';
                 }
 
-                // Check collection selection
+                // Collection
                 if (collYes.checked) {
                     collectionSelected = true;
                     collectionPrice = 10;
-                    collectionLabel = 'Collection & return (+£10)';
-                    sumColl.innerText = 'Collection & return (+£10)';
+                    collectionLabel = 'Collection (+£10)';
+                    sumColl.innerText = '+£10';
                     sumColl.classList.remove('placeholder-text');
                 } else if (collNo.checked) {
                     collectionSelected = true;
                     collectionPrice = 0;
-                    collectionLabel = 'Self delivery/collection';
-                    sumColl.innerText = 'self delivery/collection';
+                    collectionLabel = 'Self delivery';
+                    sumColl.innerText = 'self';
                     sumColl.classList.remove('placeholder-text');
                 } else {
                     collectionSelected = false;
                     collectionPrice = 0;
                     collectionLabel = '';
-                    sumColl.innerText = 'not selected';
+                    sumColl.innerText = '-';
                     sumColl.classList.add('placeholder-text');
                 }
 
-                // Check USB selection (only if migration yes is selected)
+                // USB
                 if (migYes.checked) {
                     if (usbYes && usbYes.checked) {
                         usbSelected = true;
-                        usbLabel = 'Has USB storage';
-                        sumUsb.innerText = 'has USB';
+                        usbLabel = 'Has USB';
+                        sumUsb.innerText = 'has';
                         sumUsb.classList.remove('placeholder-text');
                     } else if (usbNo && usbNo.checked) {
                         usbSelected = true;
-                        usbLabel = 'Will purchase USB';
-                        sumUsb.innerText = 'will purchase';
+                        usbLabel = 'Will buy USB';
+                        sumUsb.innerText = 'will buy';
                         sumUsb.classList.remove('placeholder-text');
                     } else {
                         usbSelected = false;
                         usbLabel = '';
-                        sumUsb.innerText = 'not selected';
+                        sumUsb.innerText = '-';
                         sumUsb.classList.add('placeholder-text');
                     }
                 }
 
-                // Check google account selection
+                // Google
                 if (googleYes.checked) {
                     googleSelected = true;
-                    googleLabel = 'Has Google account';
-                    sumGoogle.innerText = 'has account';
+                    googleLabel = 'Has account';
+                    sumGoogle.innerText = 'yes';
                     sumGoogle.classList.remove('placeholder-text');
                 } else if (googleNo.checked) {
                     googleSelected = true;
-                    googleLabel = 'Will set up account';
+                    googleLabel = 'Will set up';
                     sumGoogle.innerText = 'will set up';
                     sumGoogle.classList.remove('placeholder-text');
                 } else {
                     googleSelected = false;
                     googleLabel = '';
-                    sumGoogle.innerText = 'not selected';
+                    sumGoogle.innerText = '-';
                     sumGoogle.classList.add('placeholder-text');
                 }
 
-                // Calculate total if all required selections are made
+                // Total
                 let allSelected = migrationSelected && reversibleSelected && collectionSelected && googleSelected;
-                if (migYes.checked) {
-                    allSelected = allSelected && usbSelected;
-                }
+                if (migYes.checked) allSelected = allSelected && usbSelected;
                 
                 if (allSelected) {
                     const total = migrationPrice + reversiblePrice + collectionPrice;
@@ -1129,48 +885,25 @@
                     totalSpan.innerText = '—';
                 }
 
-                // Update selected highlights
+                // Highlights
                 document.querySelectorAll('.radio-card').forEach(c => c.classList.remove('selected'));
-                if (migYes.checked) {
-                    radioYesDiv.classList.add('selected');
-                } else if (migNo.checked) {
-                    radioNoDiv.classList.add('selected');
-                }
+                if (migYes.checked) radioYesDiv.classList.add('selected');
+                else if (migNo.checked) radioNoDiv.classList.add('selected');
+                if (revYes.checked) revYesDiv.classList.add('selected');
+                else if (revNo.checked) revNoDiv.classList.add('selected');
+                if (collYes.checked) collYesDiv.classList.add('selected');
+                else if (collNo.checked) collNoDiv.classList.add('selected');
+                if (googleYes.checked) googleYesDiv.classList.add('selected');
+                else if (googleNo.checked) googleNoDiv.classList.add('selected');
+                if (usbYes && usbYes.checked) usbYesDiv.classList.add('selected');
+                else if (usbNo && usbNo.checked) usbNoDiv.classList.add('selected');
 
-                if (revYes.checked) {
-                    revYesDiv.classList.add('selected');
-                } else if (revNo.checked) {
-                    revNoDiv.classList.add('selected');
-                }
-
-                if (collYes.checked) {
-                    collYesDiv.classList.add('selected');
-                } else if (collNo.checked) {
-                    collNoDiv.classList.add('selected');
-                }
-
-                if (googleYes.checked) {
-                    googleYesDiv.classList.add('selected');
-                } else if (googleNo.checked) {
-                    googleNoDiv.classList.add('selected');
-                }
-
-                if (usbYes && usbYes.checked) {
-                    usbYesDiv.classList.add('selected');
-                } else if (usbNo && usbNo.checked) {
-                    usbNoDiv.classList.add('selected');
-                }
-
-                // Check all conditions for showing email section
                 checkAllConditions();
             }
 
             function checkAllConditions() {
-                // Conditions: all sections have appropriate selections AND at least one photo uploaded
                 let allSelected = migrationSelected && reversibleSelected && collectionSelected && googleSelected;
-                if (migYes.checked) {
-                    allSelected = allSelected && usbSelected;
-                }
+                if (migYes.checked) allSelected = allSelected && usbSelected;
                 
                 if (allSelected && photosUploaded) {
                     emailSection.classList.remove('hidden');
@@ -1178,192 +911,81 @@
                 } else {
                     emailSection.classList.add('hidden');
                     requirementsNote.classList.remove('hidden');
-                    
-                    // Update requirements note message based on what's missing
-                    let message = '⏳ ';
-                    const missing = [];
-                    if (!migrationSelected) missing.push('data migration');
-                    if (!reversibleSelected) missing.push('reversible backup');
-                    if (!collectionSelected) missing.push('collection option');
-                    if (migYes.checked && !usbSelected) missing.push('USB storage');
-                    if (!googleSelected) missing.push('Google account');
-                    if (!photosUploaded) missing.push('photo upload');
-                    
-                    if (missing.length > 0) {
-                        message += 'Please select: ' + missing.join(', ');
-                    }
-                    requirementsNote.innerText = message;
                 }
             }
 
-            // Photo upload handler
             photoUpload.addEventListener('change', function(e) {
-                const files = e.target.files;
-                photoCount = files.length;
-                
-                if (photoCount > 0) {
-                    photosUploaded = true;
-                    photoPreview.innerHTML = `✅ ${photoCount} photo(s) selected`;
-                    photoRequired.style.opacity = '0.5';
-                } else {
-                    photosUploaded = false;
-                    photoPreview.innerHTML = '';
-                    photoRequired.style.opacity = '1';
-                }
-                
+                photoCount = e.target.files.length;
+                photosUploaded = photoCount > 0;
+                photoPreview.innerHTML = photosUploaded ? `✅ ${photoCount} photo(s)` : '';
+                photoRequired.style.opacity = photosUploaded ? '0.5' : '1';
                 checkAllConditions();
             });
 
-            // Event listeners for radio buttons
-            migNo.addEventListener('change', updateSummaryAndUI);
-            migYes.addEventListener('change', updateSummaryAndUI);
-            revNo.addEventListener('change', updateSummaryAndUI);
-            revYes.addEventListener('change', updateSummaryAndUI);
-            collNo.addEventListener('change', updateSummaryAndUI);
-            collYes.addEventListener('change', updateSummaryAndUI);
-            googleYes.addEventListener('change', updateSummaryAndUI);
-            googleNo.addEventListener('change', updateSummaryAndUI);
-            if (usbYes) usbYes.addEventListener('change', updateSummaryAndUI);
-            if (usbNo) usbNo.addEventListener('change', updateSummaryAndUI);
+            // Event listeners
+            [migNo, migYes, revNo, revYes, collNo, collYes, googleYes, googleNo, usbYes, usbNo].forEach(el => {
+                if (el) el.addEventListener('change', updateSummaryAndUI);
+            });
 
-            // Click on cards for easier selection
-            radioNoDiv.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                    migNo.checked = true;
-                    updateSummaryAndUI();
-                    toggleUsbQuestion();
+            // Click handlers
+            [radioNoDiv, radioYesDiv, revNoDiv, revYesDiv, collNoDiv, collYesDiv, googleYesDiv, googleNoDiv, usbYesDiv, usbNoDiv].forEach(div => {
+                if (div) {
+                    div.addEventListener('click', function(e) {
+                        if (!e.target.matches('input, label, span')) {
+                            const radio = this.querySelector('input[type="radio"]');
+                            if (radio) {
+                                radio.checked = true;
+                                radio.dispatchEvent(new Event('change', { bubbles: true }));
+                            }
+                        }
+                    });
                 }
             });
-            radioYesDiv.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                    migYes.checked = true;
-                    updateSummaryAndUI();
-                    toggleUsbQuestion();
-                }
-            });
-            revNoDiv.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                    revNo.checked = true;
-                    updateSummaryAndUI();
-                    toggleCloneFeedback();
-                }
-            });
-            revYesDiv.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                    revYes.checked = true;
-                    updateSummaryAndUI();
-                    toggleCloneFeedback();
-                }
-            });
-            collNoDiv.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                    collNo.checked = true;
-                    updateSummaryAndUI();
-                }
-            });
-            collYesDiv.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                    collYes.checked = true;
-                    updateSummaryAndUI();
-                }
-            });
-            googleYesDiv.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                    googleYes.checked = true;
-                    updateSummaryAndUI();
-                }
-            });
-            googleNoDiv.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                    googleNo.checked = true;
-                    updateSummaryAndUI();
-                }
-            });
-            if (usbYesDiv) {
-                usbYesDiv.addEventListener('click', function(e) {
-                    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                        usbYes.checked = true;
-                        updateSummaryAndUI();
-                    }
-                });
-            }
-            if (usbNoDiv) {
-                usbNoDiv.addEventListener('click', function(e) {
-                    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && e.target.tagName !== 'SPAN') {
-                        usbNo.checked = true;
-                        updateSummaryAndUI();
-                    }
-                });
-            }
 
-            // Initial update
             updateSummaryAndUI();
 
-            // EmailJS send function
+            // Email send
             sendBtn.addEventListener('click', function() {
                 if (!photosUploaded) {
-                    statusDiv.innerText = '❌ Please upload at least one photo first';
+                    statusDiv.innerText = '❌ Photo required';
                     statusDiv.style.color = '#ff3b30';
                     return;
                 }
 
                 let allSelected = migrationSelected && reversibleSelected && collectionSelected && googleSelected;
-                if (migYes.checked) {
-                    allSelected = allSelected && usbSelected;
-                }
+                if (migYes.checked) allSelected = allSelected && usbSelected;
                 
                 if (!allSelected) {
-                    statusDiv.innerText = '❌ Please select all options first';
-                    statusDiv.style.color = '#ff3b30';
+                    statusDiv.innerText = '❌ Select all options';
                     return;
                 }
 
-                // Show sending status
-                statusDiv.innerText = '⏳ Sending email...';
-                statusDiv.style.color = '#3a3a3c';
-
-                // Calculate total
+                statusDiv.innerText = '⏳ Sending...';
                 const total = migrationPrice + reversiblePrice + collectionPrice;
 
-                // Prepare template parameters
-                const templateParams = {
+                emailjs.send('service_lxc7ozk', 'template_i4u1bys', {
                     to_email: 'nevillebryce@gmail.com',
                     customer_email: emailInput.value || 'not provided',
                     migration: migrationLabel,
                     reversible: reversibleLabel,
                     collection: collectionLabel,
                     google_account: googleLabel,
-                    usb_storage: usbLabel || 'not applicable',
+                    usb_storage: usbLabel || 'n/a',
                     total: total,
                     photo_count: photoCount,
                     phone: '07809590652',
                     date: getCurrentDate()
-                };
-
-                // Send email using EmailJS
-                emailjs.send('service_lxc7ozk', 'template_i4u1bys', templateParams)
-                    .then(function(response) {
-                        statusDiv.innerText = '✅ Quote sent to nevillebryce@gmail.com!';
-                        statusDiv.style.color = '#28a745';
-                        console.log('SUCCESS!', response.status, response.text);
-                        
-                        // Disable button temporarily
-                        sendBtn.disabled = true;
-                        setTimeout(() => {
-                            sendBtn.disabled = false;
-                        }, 5000);
-                    }, function(error) {
-                        console.log('FAILED...', error);
-                        statusDiv.innerText = `❌ Failed: ${error.text || 'Please check your EmailJS template variables'}`;
-                        statusDiv.style.color = '#ff3b30';
-                    });
+                }).then(() => {
+                    statusDiv.innerText = '✅ Quote sent!';
+                    statusDiv.style.color = '#28a745';
+                    sendBtn.disabled = true;
+                    setTimeout(() => sendBtn.disabled = false, 5000);
+                }).catch(error => {
+                    statusDiv.innerText = `❌ Failed: ${error.text || 'Check template'}`;
+                });
             });
 
-            // make phone clickable
-            document.querySelector('.phone-badge').addEventListener('click', function(e) {
-                window.location.href = 'tel:07809590652';
-            });
-
+            document.querySelector('.phone-badge').addEventListener('click', () => window.location.href = 'tel:07809590652');
         })();
     </script>
 </body>
