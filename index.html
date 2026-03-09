@@ -482,7 +482,7 @@
             </div>
             <div id="physicalFeedback" class="eligibility-feedback" style="display: none;"></div>
 
-            <!-- Question 3 - RAM Knowledge - UPDATED TEXT -->
+            <!-- Question 3 - RAM Knowledge -->
             <div class="eligibility-question">3️⃣ Do you know how much RAM is inside the computer? (Additional RAM can also be purchased)</div>
             <div class="eligibility-radio-group" id="ramGroup">
                 <div class="eligibility-radio-card" id="ramYes">
@@ -520,7 +520,7 @@
         </div>
 
         <script>
-            // Eligibility feedback handling - UPDATED with RAM upgrade
+            // Eligibility feedback handling
             document.getElementById('age1_3').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('ageFeedback').style.display = 'block';
@@ -613,7 +613,7 @@
                 </div>
             </div>
 
-            <!-- USB question - UPDATED -->
+            <!-- USB question -->
             <div id="usbQuestion" class="conditional-section" style="display: none;">
                 <div class="conditional-title">💾 Do you have a USB drive for data backup?</div>
                 <div class="eligibility-radio-group" id="usbGroup">
@@ -628,10 +628,15 @@
                 </div>
             </div>
 
-            <!-- USB Purchase Options (conditional) -->
+            <!-- USB Purchase Options (conditional) - UPDATED with 64GB option -->
             <div id="usbPurchaseOptions" class="conditional-section" style="display: none;">
                 <div class="conditional-title">💿 Select USB drive size</div>
                 <div class="eligibility-radio-group" id="usbPurchaseGroup">
+                    <div class="eligibility-radio-card" id="usb64gb">
+                        <input type="radio" name="usbPurchase" id="usb64gbRadio" value="64gb">
+                        <label for="usb64gbRadio">64GB USB drive</label>
+                        <span class="price-chip">+£15</span>
+                    </div>
                     <div class="eligibility-radio-card" id="usb128gb">
                         <input type="radio" name="usbPurchase" id="usb128gbRadio" value="128gb">
                         <label for="usb128gbRadio">128GB USB drive</label>
@@ -646,7 +651,7 @@
             </div>
         </div>
 
-        <!-- OPTION 2 - Reversible Clone (still in options section) -->
+        <!-- OPTION 2 - Reversible Clone -->
         <div class="options-section">
             <div class="section-label" style="margin-top: 0;">
                 Option 2 <small>reversible clone</small>
@@ -679,7 +684,7 @@
         <div class="additional-options-section">
             <div class="additional-options-title">Additional Options</div>
             
-            <!-- Collection Option -->
+            <!-- Collection Option - UPDATED TEXT -->
             <div class="section-label" style="margin-top: 0;">
                 Option 3 <small>collection</small>
             </div>
@@ -695,19 +700,19 @@
                 </div>
                 <div class="radio-card" id="collectionYes">
                     <input type="radio" name="collection" id="collYes" value="yes">
-                    <label for="collYes">Yes - collect/return (20 min drive)</label>
+                    <label for="collYes">Yes - both collect and return (20 min drive)</label>
                     <span class="price-chip">+£10</span>
                 </div>
             </div>
         </div>
 
-        <!-- PREREQUISITES -->
+        <!-- PREREQUISITES - UPDATED QUESTION TEXT -->
         <div class="prerequisites-section">
             <div class="prerequisites-title">
                 <span>✅</span> Prerequisites
             </div>
             
-            <div class="eligibility-question">Google account?</div>
+            <div class="eligibility-question">A Google account is mandatory to use ChromeOS Flex. Do you have one?</div>
             <div class="eligibility-radio-group" id="googleAccountGroup">
                 <div class="eligibility-radio-card" id="googleYes">
                     <input type="radio" name="googleAccount" id="googleYesRadio" value="yes">
@@ -807,15 +812,17 @@
             const googleYesDiv = document.getElementById('googleYes');
             const googleNoDiv = document.getElementById('googleNo');
             
-            // USB elements
+            // USB elements - UPDATED with 64gb
             const usbYes = document.getElementById('usbYesRadio');
             const usbNo = document.getElementById('usbNoRadio');
             const usbYesDiv = document.getElementById('usbYes');
             const usbNoDiv = document.getElementById('usbNo');
             const usbQuestion = document.getElementById('usbQuestion');
             const usbPurchaseOptions = document.getElementById('usbPurchaseOptions');
+            const usb64gb = document.getElementById('usb64gbRadio');
             const usb128gb = document.getElementById('usb128gbRadio');
             const usb256gb = document.getElementById('usb256gbRadio');
+            const usb64gbDiv = document.getElementById('usb64gb');
             const usb128gbDiv = document.getElementById('usb128gb');
             const usb256gbDiv = document.getElementById('usb256gb');
             
@@ -883,6 +890,7 @@
                     usbPurchaseOptions.style.display = 'none';
                     if (usbYes) usbYes.checked = false;
                     if (usbNo) usbNo.checked = false;
+                    if (usb64gb) usb64gb.checked = false;
                     if (usb128gb) usb128gb.checked = false;
                     if (usb256gb) usb256gb.checked = false;
                     usbSelected = false;
@@ -897,6 +905,7 @@
                     usbPurchaseOptions.style.display = 'block';
                 } else {
                     usbPurchaseOptions.style.display = 'none';
+                    if (usb64gb) usb64gb.checked = false;
                     if (usb128gb) usb128gb.checked = false;
                     if (usb256gb) usb256gb.checked = false;
                 }
@@ -992,9 +1001,14 @@
                     sumRam.innerText = '+£0';
                 }
 
-                // USB
+                // USB - UPDATED with 64gb option
                 if (migYes.checked) {
-                    if (usb128gb && usb128gb.checked) {
+                    if (usb64gb && usb64gb.checked) {
+                        usbSelected = true;
+                        usbExtra = 15;
+                        usbLabel = '64GB USB (+£15)';
+                        sumUsb.innerText = '+£15';
+                    } else if (usb128gb && usb128gb.checked) {
                         usbSelected = true;
                         usbExtra = 20;
                         usbLabel = '128GB USB (+£20)';
@@ -1056,7 +1070,8 @@
                 if (ram4gb && ram4gb.checked) ram4gbDiv.classList.add('selected');
                 else if (ram8gb && ram8gb.checked) ram8gbDiv.classList.add('selected');
                 
-                if (usb128gb && usb128gb.checked) usb128gbDiv.classList.add('selected');
+                if (usb64gb && usb64gb.checked) usb64gbDiv.classList.add('selected');
+                else if (usb128gb && usb128gb.checked) usb128gbDiv.classList.add('selected');
                 else if (usb256gb && usb256gb.checked) usb256gbDiv.classList.add('selected');
                 else if (usbYes && usbYes.checked) usbYesDiv.classList.add('selected');
                 else if (usbNo && usbNo.checked) usbNoDiv.classList.add('selected');
@@ -1070,7 +1085,7 @@
                 if (migYes.checked) {
                     // If they chose "No - I wish to purchase one", they need to select a size
                     if (usbNo && usbNo.checked) {
-                        usbCondition = (usb128gb && usb128gb.checked) || (usb256gb && usb256gb.checked);
+                        usbCondition = (usb64gb && usb64gb.checked) || (usb128gb && usb128gb.checked) || (usb256gb && usb256gb.checked);
                     } else {
                         usbCondition = (usbYes && usbYes.checked) || (usbNo && usbNo.checked);
                     }
@@ -1095,14 +1110,14 @@
             });
 
             // Event listeners
-            [migNo, migYes, revNo, revYes, collNo, collYes, googleYes, googleNo, usbYes, usbNo, usb128gb, usb256gb, ram4gb, ram8gb].forEach(el => {
+            [migNo, migYes, revNo, revYes, collNo, collYes, googleYes, googleNo, usbYes, usbNo, usb64gb, usb128gb, usb256gb, ram4gb, ram8gb].forEach(el => {
                 if (el) el.addEventListener('change', updateSummaryAndUI);
             });
 
             // Click handlers for cards
             const allDivs = [
                 radioNoDiv, radioYesDiv, revNoDiv, revYesDiv, collNoDiv, collYesDiv, 
-                googleYesDiv, googleNoDiv, usbYesDiv, usbNoDiv, usb128gbDiv, usb256gbDiv, 
+                googleYesDiv, googleNoDiv, usbYesDiv, usbNoDiv, usb64gbDiv, usb128gbDiv, usb256gbDiv,
                 ram4gbDiv, ram8gbDiv
             ];
             
@@ -1134,7 +1149,7 @@
                 let usbCondition = true;
                 if (migYes.checked) {
                     if (usbNo && usbNo.checked) {
-                        usbCondition = (usb128gb && usb128gb.checked) || (usb256gb && usb256gb.checked);
+                        usbCondition = (usb64gb && usb64gb.checked) || (usb128gb && usb128gb.checked) || (usb256gb && usb256gb.checked);
                     } else {
                         usbCondition = (usbYes && usbYes.checked) || (usbNo && usbNo.checked);
                     }
