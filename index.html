@@ -628,7 +628,7 @@
                 </div>
             </div>
 
-            <!-- USB Purchase Options (conditional) - UPDATED with 64GB option -->
+            <!-- USB Purchase Options (conditional) -->
             <div id="usbPurchaseOptions" class="conditional-section" style="display: none;">
                 <div class="conditional-title">💿 Select USB drive size</div>
                 <div class="eligibility-radio-group" id="usbPurchaseGroup">
@@ -651,13 +651,13 @@
             </div>
         </div>
 
-        <!-- OPTION 2 - Reversible Clone -->
+        <!-- OPTION 2 - Reversible Clone - UPDATED QUESTION TEXT -->
         <div class="options-section">
             <div class="section-label" style="margin-top: 0;">
                 Option 2 <small>reversible clone</small>
             </div>
             <div class="question-text">
-                Want the ability to revert back?
+                Want the ability to revert back to exactly how things are running now? Note that this is a complex process and is priced accordingly.
             </div>
 
             <div class="radio-grid" id="reversibleGroup">
@@ -684,7 +684,7 @@
         <div class="additional-options-section">
             <div class="additional-options-title">Additional Options</div>
             
-            <!-- Collection Option - UPDATED TEXT -->
+            <!-- Collection Option -->
             <div class="section-label" style="margin-top: 0;">
                 Option 3 <small>collection</small>
             </div>
@@ -706,7 +706,7 @@
             </div>
         </div>
 
-        <!-- PREREQUISITES - UPDATED QUESTION TEXT -->
+        <!-- PREREQUISITES -->
         <div class="prerequisites-section">
             <div class="prerequisites-title">
                 <span>✅</span> Prerequisites
@@ -812,7 +812,7 @@
             const googleYesDiv = document.getElementById('googleYes');
             const googleNoDiv = document.getElementById('googleNo');
             
-            // USB elements - UPDATED with 64gb
+            // USB elements
             const usbYes = document.getElementById('usbYesRadio');
             const usbNo = document.getElementById('usbNoRadio');
             const usbYesDiv = document.getElementById('usbYes');
@@ -1001,7 +1001,7 @@
                     sumRam.innerText = '+£0';
                 }
 
-                // USB - UPDATED with 64gb option
+                // USB
                 if (migYes.checked) {
                     if (usb64gb && usb64gb.checked) {
                         usbSelected = true;
