@@ -468,12 +468,12 @@
             </div>
             <div id="ageFeedback" class="eligibility-feedback" style="display: none;"></div>
 
-            <!-- Question 2 - Physical Working Order - UPDATED TEXT -->
+            <!-- Question 2 - Physical Working Order -->
             <div class="eligibility-question">2️⃣ Physical condition?</div>
             <div class="eligibility-radio-group" id="physicalGroup">
                 <div class="eligibility-radio-card" id="physicalYes">
                     <input type="radio" name="physicalOrder" id="physicalGood" value="good">
-                    <label for="physicalGood">Yes most things work fine and I'm happy to work around any minor battery/monitor issues.</label>
+                    <label for="physicalGood">Yes, works fine (minor battery/monitor issues ok)</label>
                 </div>
                 <div class="eligibility-radio-card" id="physicalNo">
                     <input type="radio" name="physicalOrder" id="physicalBad" value="bad">
@@ -520,7 +520,7 @@
         </div>
 
         <script>
-            // Eligibility feedback handling - UPDATED physical feedback text
+            // Eligibility feedback handling
             document.getElementById('age1_3').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('ageFeedback').style.display = 'block';
@@ -542,7 +542,7 @@
             document.getElementById('physicalBad').addEventListener('change', function() {
                 if(this.checked) {
                     document.getElementById('physicalFeedback').style.display = 'block';
-                    document.getElementById('physicalFeedback').innerHTML = '🔧 May need replacement or repair - call to discuss.';
+                    document.getElementById('physicalFeedback').innerHTML = '🔧 May need replacement - call to discuss.';
                 }
             });
             
@@ -588,11 +588,11 @@
             });
         </script>
 
-        <!-- OPTIONS SECTION - Data Migration (now includes reversible clone) -->
+        <!-- OPTIONS SECTION - Data Migration -->
         <div class="options-section">
             <div class="options-title">Data Migration Options</div>
             
-            <!-- OPTION 1 - Data Migration -->
+            <!-- OPTION 1 -->
             <div class="section-label">
                 Option 1 <small>data migration</small>
             </div>
@@ -603,7 +603,7 @@
             <div class="radio-grid" id="migrationGroup">
                 <div class="radio-card" id="radioNo">
                     <input type="radio" name="migration" id="migNo" value="no">
-                    <label for="migNo">No - backed up myself, aware data will be wiped</label>
+                    <label for="migNo">No - backed up myself, aware data will be wiped (+£0)</label>
                     <span class="price-chip">+£0</span>
                 </div>
                 <div class="radio-card" id="radioYes">
@@ -649,9 +649,11 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- OPTION 2 - Reversible Clone (now inside Data Migration Options) -->
-            <div class="section-label" style="margin-top: 20px;">
+        <!-- OPTION 2 - Reversible Clone - UPDATED QUESTION TEXT -->
+        <div class="options-section">
+            <div class="section-label" style="margin-top: 0;">
                 Option 2 <small>reversible clone</small>
             </div>
             <div class="question-text">
@@ -661,7 +663,7 @@
             <div class="radio-grid" id="reversibleGroup">
                 <div class="radio-card" id="reversibleNo">
                     <input type="radio" name="reversible" id="revNo" value="no">
-                    <label for="revNo">No - happy with permanent change</label>
+                    <label for="revNo">No - happy with permanent change (+£0)</label>
                     <span class="price-chip">+£0</span>
                 </div>
                 <div class="radio-card" id="reversibleYes">
@@ -678,12 +680,15 @@
             </div>
         </div>
 
-        <!-- ADDITIONAL OPTIONS SECTION - Collection only -->
+        <!-- ADDITIONAL OPTIONS SECTION - Collection moved here -->
         <div class="additional-options-section">
             <div class="additional-options-title">Additional Options</div>
             
             <!-- Collection Option -->
-            <div class="question-text" style="margin-top: 0;">
+            <div class="section-label" style="margin-top: 0;">
+                Option 3 <small>collection</small>
+            </div>
+            <div class="question-text">
                 Need collection & return?
             </div>
 
@@ -695,7 +700,7 @@
                 </div>
                 <div class="radio-card" id="collectionYes">
                     <input type="radio" name="collection" id="collYes" value="yes">
-                    <label for="collYes">Yes - both collect and return (within 20 min drive of NW11 7BY)</label>
+                    <label for="collYes">Yes - both collect and return (20 min drive)</label>
                     <span class="price-chip">+£10</span>
                 </div>
             </div>
@@ -711,11 +716,13 @@
             <div class="eligibility-radio-group" id="googleAccountGroup">
                 <div class="eligibility-radio-card" id="googleYes">
                     <input type="radio" name="googleAccount" id="googleYesRadio" value="yes">
-                    <label for="googleYesRadio">Yes - have one</label>
+                    <label for="googleYesRadio">Yes - have one (+£0)</label>
+                    <span class="price-chip">+£0</span>
                 </div>
                 <div class="eligibility-radio-card" id="googleNo">
                     <input type="radio" name="googleAccount" id="googleNoRadio" value="no">
-                    <label for="googleNoRadio">No - I will set up myself before the migration</label>
+                    <label for="googleNoRadio">No - will set up (+£0)</label>
+                    <span class="price-chip">+£0</span>
                 </div>
             </div>
             <div id="googleFeedback" class="eligibility-feedback" style="display: none;"></div>
@@ -1031,7 +1038,7 @@
                     sumUsb.innerText = '+£0';
                 }
 
-                // Google - still tracked for requirements but no price shown
+                // Google
                 if (googleYes.checked || googleNo.checked) {
                     googleSelected = true;
                     googleLabel = googleYes.checked ? 'Has account' : 'Will set up';
