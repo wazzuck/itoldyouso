@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>IT Marketing - Technology Migration Services</title>
+    <title>Neville's Tech Services - Professional Technology Solutions</title>
     <style>
         * {
             margin: 0;
@@ -12,33 +12,80 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
             padding: 20px;
+            padding-top: 80px;
         }
 
-        .home-card {
-            max-width: 700px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 48px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.02) inset;
-            padding: 40px 32px;
-            border: 1px solid rgba(255,255,255,0.8);
-            text-align: center;
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0071e3;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover {
+            transform: translateX(-4px);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #0071e3;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: #0051bb;
+            transform: translateY(-2px);
+        }
+
+        .intro-section {
+            max-width: 800px;
+            margin: 0 auto 48px auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            padding: 48px 40px;
             animation: fadeIn 0.6s ease-in;
+            text-align: center;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 {
+        .intro-section h1 {
             font-size: 2.2rem;
             color: #1d1d1d;
             margin-bottom: 32px;
@@ -68,39 +115,125 @@
         .services-intro {
             font-size: 1rem;
             color: #666666;
-            margin-bottom: 32px;
             line-height: 1.6;
         }
 
-        .cta-button {
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0, 113, 227, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: #1d1d1d;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .service-link {
             display: inline-block;
             background: #0071e3;
             color: white;
-            padding: 14px 32px;
-            border-radius: 24px;
+            padding: 10px 24px;
+            border-radius: 20px;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
-            border: none;
-            cursor: pointer;
         }
 
-        .cta-button:hover {
+        .service-link:hover {
             background: #0051bb;
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 113, 227, 0.4);
         }
 
-        @media (max-width: 600px) {
-            h1 {
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
+            header {
+                padding: 12px 16px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-buttons {
+                width: 100%;
+            }
+
+            .nav-btn {
+                flex: 1;
+                text-align: center;
+            }
+
+            .intro-section {
+                padding: 32px 20px;
+                border-radius: 16px;
+                margin-bottom: 32px;
+            }
+
+            .intro-section h1 {
                 font-size: 1.8rem;
             }
 
-            .home-card {
-                padding: 28px 20px;
-                border-radius: 32px;
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .poem {
@@ -111,31 +244,23 @@
                 font-size: 0.95rem;
             }
         }
-
-        footer {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 0.85rem;
-            color: #999;
-        }
-
-        @media (max-width: 600px) {
-            footer {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="home-card">
+    <header>
+        <a href="index.html" class="logo">🖥️ Neville's Tech Services</a>
+        <div class="nav-buttons">
+            <a href="#services" class="nav-btn">Services</a>
+            <a href="#contact" class="nav-btn">Contact</a>
+        </div>
+    </header>
+
+    <div class="intro-section">
         <h1>Welcome</h1>
         
         <div class="poem">
             <p>Systems migrate, one byte at a time,</p>
             <p>From old to new, in perfect rhyme.</p>
-            <p>Chrome OS Flex brings freedom's light,</p>
-            <p>Your machines reborn, both fast and bright.</p>
             <p>We guide your journey, smooth and clear,</p>
             <p>Technology solutions without the fear.</p>
         </div>
@@ -143,16 +268,105 @@
         <div class="divider"></div>
 
         <p class="services-intro">
-            Transform your IT infrastructure with our expert migration services. From ChromeOS Flex deployments to complete system modernization, we deliver seamless transitions for your organization.
+            Professional technology solutions tailored to your needs. Whether you need expert advice, system migration, data recovery, or custom solutions, we're here to help.
         </p>
+    </div>
 
-        <a href="services/chromeos-flex.html" class="cta-button">
-            ChromeOS Flex Migration Quote
+    <div id="services" class="services-grid">
+        <a href="services/advice.html" class="service-card">
+            <span class="service-icon">💡</span>
+            <h3>Technology Advice</h3>
+            <p>Honest guidance on technology decisions backed by engineering principles.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/backup-archiving.html" class="service-card">
+            <span class="service-icon">📸</span>
+            <h3>Backup & Archiving</h3>
+            <p>Secure your data with comprehensive backup and archiving solutions.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/chromeos-flex.html" class="service-card">
+            <span class="service-icon">🐧</span>
+            <h3>ChromeOS Flex Migration</h3>
+            <p>Breathe new life into older computers with ChromeOS Flex.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/computer-migration.html" class="service-card">
+            <span class="service-icon">🔄</span>
+            <h3>Computer Migration</h3>
+            <p>Seamless transition of your systems with minimal downtime.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/computer-repair.html" class="service-card">
+            <span class="service-icon">🖥️</span>
+            <h3>Home Computer Repair</h3>
+            <p>Professional repair services for computers and laptops.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/custom-solutions.html" class="service-card">
+            <span class="service-icon">⚙️</span>
+            <h3>Custom Solutions</h3>
+            <p>Tailored technology solutions for your unique requirements.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/data-recovery.html" class="service-card">
+            <span class="service-icon">💾</span>
+            <h3>Data Recovery</h3>
+            <p>Expert recovery of lost or corrupted data from various devices.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/home-automation.html" class="service-card">
+            <span class="service-icon">🤖</span>
+            <h3>Home Automation</h3>
+            <p>Smart home setup and integration for modern living.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/home-office-software.html" class="service-card">
+            <span class="service-icon">📊</span>
+            <h3>Home Office Software</h3>
+            <p>Setup and support for productive home office environments.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/home-storage-servers.html" class="service-card">
+            <span class="service-icon">🗄️</span>
+            <h3>Home Storage Servers</h3>
+            <p>Personal NAS solutions for secure data storage and backup.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/internet-networks.html" class="service-card">
+            <span class="service-icon">🌐</span>
+            <h3>Internet & Networks</h3>
+            <p>Reliable network setup, optimization, and troubleshooting.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/online-conferencing.html" class="service-card">
+            <span class="service-icon">🎥</span>
+            <h3>Online Conferencing Setup</h3>
+            <p>Professional video conferencing tools and integration.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/printers.html" class="service-card">
+            <span class="service-icon">🖨️</span>
+            <h3>Printer Setup & Support</h3>
+            <p>Installation, configuration, and support for printing solutions.</p>
+            <span class="service-link">Learn More</span>
         </a>
     </div>
 
     <footer>
-        © IT Marketing Services
+        © Neville's Tech Services | Professional Technology Solutions
     </footer>
 </body>
 </html>
