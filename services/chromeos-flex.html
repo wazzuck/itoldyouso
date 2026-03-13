@@ -6,7 +6,6 @@
     <title>ChromeOS Flex · migration quote</title>
     <!-- EmailJS library -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link rel="stylesheet" href="../header.css">
     <!-- Apple-inspired design · fully responsive · optimized for mobile -->
     <style>
         * {
@@ -19,16 +18,10 @@
         body {
             background: #f5f5f7;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 12px;
-            padding-top: 110px;
-        }
-        @media (max-width: 768px) {
-            body {
-                padding-top: 150px;
-            }
         }
 
         /* main card adapts for all screen sizes */
@@ -45,7 +38,7 @@
 
         /* laptop: more breathing room */
         @media (min-width: 768px) {
-            body { padding: 20px; padding-top: 110px; }
+            body { padding: 20px; }
             .quote-card {
                 max-width: 60%;
                 border-radius: 48px;
@@ -473,50 +466,9 @@
     </style>
 </head>
 <body>
-    <script>
-        const COMPANY_NAME = "IToldYouSo Computing";
-        const PHONE_NUMBER = "07809590652";
-        const EMAIL_ADDRESS = "nevillebryce@gmail.com";
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            // Replace company name in logo
-            const logo = document.querySelector(".logo");
-            if (logo) {
-                logo.textContent = "🖥️ " + COMPANY_NAME;
-            }
-            
-            // Replace company name in footer
-            const footer = document.querySelector("footer");
-            if (footer) {
-                footer.innerHTML = footer.innerHTML.replace(/Neville's Tech Services/g, COMPANY_NAME);
-            }
-            
-            // Replace company name in title
-            document.title = document.title.replace(/Neville's Tech Services/g, COMPANY_NAME);
-            
-            // Update nav buttons with contact info
-            const navButtons = document.querySelector(".nav-buttons");
-            if (navButtons) {
-                navButtons.innerHTML = '<a href="tel:' + PHONE_NUMBER + '" class="nav-btn">' + PHONE_NUMBER + '</a>' +
-                                       '<a href="mailto:' + EMAIL_ADDRESS + '" class="nav-btn" style="font-size: 0.85rem;">' + EMAIL_ADDRESS + '</a>' +
-                                       '<div style="padding: 8px 16px; font-size: 0.8rem; color: #666; font-style: italic; line-height: 1.4;">Free 15 minute<br>consultation</div>';
-            }
-        });
-    </script>
-
-
-
-    <header>
-        <a href="../index.html" class="logo">🖥️ IToldYouSo Computing</a>
-        <div class="phone-info">
-            <a href="tel:07809590652" class="phone-number">07809590652</a>
-            <a href="mailto:nevillebryce@gmail.com" class="email-address">nevillebryce@gmail.com</a>
-            <p class="consultation-text">Free 15 minute consultation</p>
-        </div>
-    </header>
-
     <div class="quote-card">
         <h1>ChromeOS Flex Migration<br>Self‑Pricing Made Simple</h1>
+        <div class="subheadline">This is a short questionnaire on getting an instant quote for moving an older computer over to using ChromeOS Flex as its operating system. It's suitable for computers between 4 - 12 years!</div>
 
         <!-- Links section at the top -->
         <div class="links-section">
@@ -528,19 +480,17 @@
             </a>
         </div>
 
+        <!-- consultation banner with phone -->
+        <div class="consult-banner">
+            <span>📅 Free 10 min consultation</span>
+            <div class="phone-badge clickable-phone" onclick="window.location.href='tel:07809590652'">07809590652</div>
+        </div>
+
         <!-- Base Migration Price Display -->
         <div class="base-price">
             <span>Base Migration:</span>
             <span>£70</span>
         </div>
-
-        <p style="margin: 24px 0 16px 0; line-height: 1.6; color: #333;">
-            ChromeOS Flex is a beautiful, simple and uncluttered operating system implemented by Google. It is perfect for those that wish for a low maintenance, secure and easy to use system. It is identical to Chrome OS that runs on a Chromebook.
-        </p>
-
-        <p style="margin: 16px 0 24px 0; line-height: 1.6; color: #333;">
-            This is a short questionnaire on getting an instant quote for moving an older computer over to using ChromeOS Flex as its operating system. It's suitable for computers between 4 - 12 years!
-        </p>
 
         <!-- Is this migration right for you? Section -->
         <div class="eligibility-section">
@@ -611,7 +561,75 @@
             </div>
         </div>
 
-    
+        <script>
+            // Eligibility feedback handling
+            document.getElementById('age1_3').addEventListener('change', function() {
+                if(this.checked) {
+                    document.getElementById('ageFeedback').style.display = 'block';
+                    document.getElementById('ageFeedback').innerHTML = '⚠️ Newer PC with Windows 11 - consider staying on Windows. Call to discuss.';
+                }
+            });
+            document.getElementById('age4_10').addEventListener('change', function() {
+                if(this.checked) {
+                    document.getElementById('ageFeedback').style.display = 'block';
+                    document.getElementById('ageFeedback').innerHTML = '✅ Perfect for ChromeOS Flex - breathes new life into older hardware.';
+                }
+            });
+            document.getElementById('physicalGood').addEventListener('change', function() {
+                if(this.checked) {
+                    document.getElementById('physicalFeedback').style.display = 'block';
+                    document.getElementById('physicalFeedback').innerHTML = '✨ Perfect!';
+                }
+            });
+            document.getElementById('physicalBad').addEventListener('change', function() {
+                if(this.checked) {
+                    document.getElementById('physicalFeedback').style.display = 'block';
+                    document.getElementById('physicalFeedback').innerHTML = '🔧 May need replacement or repair - call to discuss.';
+                }
+            });
+            
+            // RAM feedback handling with upgrade option
+            const ramKnown = document.getElementById('ramKnown');
+            const ramUnknown = document.getElementById('ramUnknown');
+            const ramUpgradeRadio = document.getElementById('ramUpgradeRadio');
+            const ramUpgradeOptions = document.getElementById('ramUpgradeOptions');
+            
+            function handleRAMChange() {
+                if (ramKnown.checked) {
+                    document.getElementById('ramFeedback').style.display = 'block';
+                    document.getElementById('ramFeedback').innerHTML = '✅ Great! RAM will be checked during migration.';
+                    ramUpgradeOptions.style.display = 'none';
+                } else if (ramUnknown.checked) {
+                    document.getElementById('ramFeedback').style.display = 'block';
+                    document.getElementById('ramFeedback').innerHTML = '📝 Please provide the model number in the Computer Details section below.';
+                    ramUpgradeOptions.style.display = 'none';
+                } else if (ramUpgradeRadio.checked) {
+                    document.getElementById('ramFeedback').style.display = 'block';
+                    document.getElementById('ramFeedback').innerHTML = '🔧 Select your RAM upgrade below.';
+                    ramUpgradeOptions.style.display = 'block';
+                } else {
+                    document.getElementById('ramFeedback').style.display = 'none';
+                    ramUpgradeOptions.style.display = 'none';
+                }
+            }
+
+            ramKnown.addEventListener('change', handleRAMChange);
+            ramUnknown.addEventListener('change', handleRAMChange);
+            ramUpgradeRadio.addEventListener('change', handleRAMChange);
+
+            // Click handlers for eligibility cards
+            document.querySelectorAll('.eligibility-radio-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.tagName !== 'INPUT') {
+                        const radio = this.querySelector('input[type="radio"]');
+                        radio.checked = true;
+                        const event = new Event('change', { bubbles: true });
+                        radio.dispatchEvent(event);
+                    }
+                });
+            });
+        </script>
+
         <!-- OPTIONS SECTION - Data Migration (includes reversible clone) -->
         <div class="options-section">
             <div class="options-title">Data Migration Options</div>
@@ -669,7 +687,7 @@
                     <div class="eligibility-radio-card" id="usb256gb">
                         <input type="radio" name="usbPurchase" id="usb256gbRadio" value="256gb">
                         <label for="usb256gbRadio">256GB USB drive</label>
-                        <span class="price-chip">+£50</span>
+                        <span class="price-chip">+£40</span>
                     </div>
                 </div>
             </div>
@@ -745,7 +763,21 @@
             <div id="googleFeedback" class="eligibility-feedback" style="display: none;"></div>
         </div>
 
-    
+        <script>
+            document.getElementById('googleYesRadio').addEventListener('change', function() {
+                if(this.checked) {
+                    document.getElementById('googleFeedback').style.display = 'block';
+                    document.getElementById('googleFeedback').innerHTML = '✅ Perfect! Used for ChromeOS login.';
+                }
+            });
+            document.getElementById('googleNoRadio').addEventListener('change', function() {
+                if(this.checked) {
+                    document.getElementById('googleFeedback').style.display = 'block';
+                    document.getElementById('googleFeedback').innerHTML = '📝 Set up before migration.';
+                }
+            });
+        </script>
+
         <!-- COMPUTER DETAILS SECTION -->
         <div class="computer-details-section">
             <div class="computer-details-title">💻 Computer Details</div>
@@ -834,5 +866,573 @@
         <hr>
     </div>
 
+    <script>
+        (function() {
+            emailjs.init("K160_i8A3AXGSYFFl"); 
+            
+            // DOM elements
+            const migNo = document.getElementById('migNo');
+            const migYes = document.getElementById('migYes');
+            const radioNoDiv = document.getElementById('radioNo');
+            const radioYesDiv = document.getElementById('radioYes');
+            const revNo = document.getElementById('revNo');
+            const revYes = document.getElementById('revYes');
+            const revNoDiv = document.getElementById('reversibleNo');
+            const revYesDiv = document.getElementById('reversibleYes');
+            const collNo = document.getElementById('collNo');
+            const collYes = document.getElementById('collYes');
+            const collNoDiv = document.getElementById('collectionNo');
+            const collYesDiv = document.getElementById('collectionYes');
+            const googleYes = document.getElementById('googleYesRadio');
+            const googleNo = document.getElementById('googleNoRadio');
+            const googleYesDiv = document.getElementById('googleYes');
+            const googleNoDiv = document.getElementById('googleNo');
+            
+            // USB elements
+            const usbYes = document.getElementById('usbYesRadio');
+            const usbNo = document.getElementById('usbNoRadio');
+            const usbYesDiv = document.getElementById('usbYes');
+            const usbNoDiv = document.getElementById('usbNo');
+            const usbQuestion = document.getElementById('usbQuestion');
+            const usbPurchaseOptions = document.getElementById('usbPurchaseOptions');
+            const usb64gb = document.getElementById('usb64gbRadio');
+            const usb128gb = document.getElementById('usb128gbRadio');
+            const usb256gb = document.getElementById('usb256gbRadio');
+            const usb64gbDiv = document.getElementById('usb64gb');
+            const usb128gbDiv = document.getElementById('usb128gb');
+            const usb256gbDiv = document.getElementById('usb256gb');
+            
+            const cloneFeedback = document.getElementById('cloneFeedback');
+            
+            // RAM upgrade elements
+            const ram4gb = document.getElementById('ram4gbRadio');
+            const ram8gb = document.getElementById('ram8gbRadio');
+            const ram4gbDiv = document.getElementById('ram4gb');
+            const ram8gbDiv = document.getElementById('ram8gb');
+            
+            // Customer details - UPDATED with phone
+            const customerName = document.getElementById('customerName');
+            const customerPhone = document.getElementById('customerPhone');
+            const customerEmail = document.getElementById('customerEmail');
+            
+            // Computer details
+            const computerDescription = document.getElementById('computerDescription');
+            
+            const sumMig = document.getElementById('sumMig');
+            const sumRev = document.getElementById('sumRev');
+            const sumColl = document.getElementById('sumColl');
+            const sumRam = document.getElementById('sumRam');
+            const sumUsb = document.getElementById('sumUsb');
+            const sumGoogle = document.getElementById('sumGoogle');
+            const totalSpan = document.getElementById('totalPrice');
+            const emailSection = document.getElementById('emailSection');
+            const requirementsNote = document.getElementById('requirementsNote');
+            const requirementsList = document.getElementById('requirementsList');
+            const requirementsMessage = document.getElementById('requirementsMessage');
+            const sendBtn = document.getElementById('sendEmailBtn');
+            const statusDiv = document.getElementById('emailStatus');
+
+            const BASE_PRICE = 70;
+
+            function getCurrentDate() {
+                const date = new Date();
+                return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+            }
+
+            let migrationSelected = false;
+            let migrationExtra = 0;
+            let migrationLabel = 'None';
+            
+            let reversibleSelected = false;
+            let reversibleExtra = 0;
+            let reversibleLabel = 'None';
+            
+            let collectionSelected = false;
+            let collectionExtra = 0;
+            let collectionLabel = 'None';
+
+            let googleSelected = false;
+            let googleLabel = 'None';
+            
+            let ramSelected = false;
+            let ramExtra = 0;
+            let ramLabel = 'None';
+            
+            let usbSelected = false;
+            let usbExtra = 0;
+            let usbLabel = 'None';
+
+            function toggleUsbQuestion() {
+                if (migYes.checked) {
+                    usbQuestion.style.display = 'block';
+                } else {
+                    usbQuestion.style.display = 'none';
+                    usbPurchaseOptions.style.display = 'none';
+                    if (usbYes) usbYes.checked = false;
+                    if (usbNo) usbNo.checked = false;
+                    if (usb64gb) usb64gb.checked = false;
+                    if (usb128gb) usb128gb.checked = false;
+                    if (usb256gb) usb256gb.checked = false;
+                    usbSelected = false;
+                    usbExtra = 0;
+                    usbLabel = 'None';
+                    sumUsb.innerText = '+£0';
+                }
+                updateRequirementsDisplay();
+            }
+
+            function toggleUsbPurchase() {
+                if (usbNo && usbNo.checked) {
+                    usbPurchaseOptions.style.display = 'block';
+                } else {
+                    usbPurchaseOptions.style.display = 'none';
+                    if (usb64gb) usb64gb.checked = false;
+                    if (usb128gb) usb128gb.checked = false;
+                    if (usb256gb) usb256gb.checked = false;
+                }
+                updateSummaryAndUI();
+            }
+
+            function toggleCloneFeedback() {
+                cloneFeedback.style.display = revYes.checked ? 'block' : 'none';
+            }
+
+            migYes.addEventListener('change', toggleUsbQuestion);
+            migNo.addEventListener('change', toggleUsbQuestion);
+            
+            if (usbNo) usbNo.addEventListener('change', toggleUsbPurchase);
+            if (usbYes) usbYes.addEventListener('change', toggleUsbPurchase);
+            
+            revYes.addEventListener('change', toggleCloneFeedback);
+            revNo.addEventListener('change', toggleCloneFeedback);
+
+            function updateRequirementsDisplay() {
+                // Check which sections are complete
+                const migComplete = migYes.checked || migNo.checked;
+                const revComplete = revYes.checked || revNo.checked;
+                const collComplete = collYes.checked || collNo.checked;
+                const googleComplete = googleYes.checked || googleNo.checked;
+                const computerComplete = computerDescription.value.trim() !== '';
+                
+                let usbComplete = true;
+                let usbStatus = 'Not needed';
+                
+                if (migYes.checked) {
+                    if (usbNo && usbNo.checked) {
+                        usbComplete = (usb64gb && usb64gb.checked) || (usb128gb && usb128gb.checked) || (usb256gb && usb256gb.checked);
+                        usbStatus = usbComplete ? 'USB size selected' : 'Select USB size';
+                    } else {
+                        usbComplete = (usbYes && usbYes.checked) || (usbNo && usbNo.checked);
+                        usbStatus = usbComplete ? 'USB option chosen' : 'Select USB option';
+                    }
+                } else {
+                    usbStatus = 'Not applicable';
+                }
+                
+                const nameComplete = customerName.value.trim() !== '';
+                const phoneComplete = customerPhone.value.trim() !== '';
+                
+                // Build requirements list
+                let html = '';
+                
+                // Data Migration section
+                html += `<div class="requirements-item ${migComplete ? 'complete' : 'missing'}">
+                    <span class="status-icon">${migComplete ? '✅' : '⬜'}</span>
+                    <span>Data migration option</span>
+                </div>`;
+                
+                // Reversible Clone section
+                html += `<div class="requirements-item ${revComplete ? 'complete' : 'missing'}">
+                    <span class="status-icon">${revComplete ? '✅' : '⬜'}</span>
+                    <span>Reversible clone option</span>
+                </div>`;
+                
+                // Collection section
+                html += `<div class="requirements-item ${collComplete ? 'complete' : 'missing'}">
+                    <span class="status-icon">${collComplete ? '✅' : '⬜'}</span>
+                    <span>Collection option</span>
+                </div>`;
+                
+                // Google account section
+                html += `<div class="requirements-item ${googleComplete ? 'complete' : 'missing'}">
+                    <span class="status-icon">${googleComplete ? '✅' : '⬜'}</span>
+                    <span>Google account</span>
+                </div>`;
+                
+                // USB section (only if needed)
+                if (migYes.checked) {
+                    html += `<div class="requirements-item ${usbComplete ? 'complete' : 'missing'}">
+                        <span class="status-icon">${usbComplete ? '✅' : '⬜'}</span>
+                        <span>USB storage: ${usbStatus}</span>
+                    </div>`;
+                }
+                
+                // Computer Description section
+                html += `<div class="requirements-item ${computerComplete ? 'complete' : 'missing'}">
+                    <span class="status-icon">${computerComplete ? '✅' : '⬜'}</span>
+                    <span>Computer model description</span>
+                </div>`;
+                
+                // Name section
+                html += `<div class="requirements-item ${nameComplete ? 'complete' : 'missing'}">
+                    <span class="status-icon">${nameComplete ? '✅' : '⬜'}</span>
+                    <span>Your name</span>
+                </div>`;
+                
+                // Phone section
+                html += `<div class="requirements-item ${phoneComplete ? 'complete' : 'missing'}">
+                    <span class="status-icon">${phoneComplete ? '✅' : '⬜'}</span>
+                    <span>Your telephone number</span>
+                </div>`;
+                
+                requirementsList.innerHTML = html;
+            }
+
+            function updateSummaryAndUI() {
+                // Migration
+                if (migYes.checked) {
+                    migrationSelected = true;
+                    migrationExtra = 30;
+                    migrationLabel = 'Data consultation (+£30)';
+                    sumMig.innerText = '+£30';
+                } else if (migNo.checked) {
+                    migrationSelected = true;
+                    migrationExtra = 0;
+                    migrationLabel = 'Self backup (+£0)';
+                    sumMig.innerText = '+£0';
+                } else {
+                    migrationSelected = false;
+                    migrationExtra = 0;
+                    migrationLabel = 'None';
+                    sumMig.innerText = '+£0';
+                }
+
+                // Reversible
+                if (revYes.checked) {
+                    reversibleSelected = true;
+                    reversibleExtra = 100;
+                    reversibleLabel = 'Clone (+£100)';
+                    sumRev.innerText = '+£100';
+                    toggleCloneFeedback();
+                } else if (revNo.checked) {
+                    reversibleSelected = true;
+                    reversibleExtra = 0;
+                    reversibleLabel = 'Not added (+£0)';
+                    sumRev.innerText = '+£0';
+                    toggleCloneFeedback();
+                } else {
+                    reversibleSelected = false;
+                    reversibleExtra = 0;
+                    reversibleLabel = 'None';
+                    sumRev.innerText = '+£0';
+                    cloneFeedback.style.display = 'none';
+                }
+
+                // Collection
+                if (collYes.checked) {
+                    collectionSelected = true;
+                    collectionExtra = 10;
+                    collectionLabel = 'Collection (+£10)';
+                    sumColl.innerText = '+£10';
+                } else if (collNo.checked) {
+                    collectionSelected = true;
+                    collectionExtra = 0;
+                    collectionLabel = 'Self delivery (+£0)';
+                    sumColl.innerText = '+£0';
+                } else {
+                    collectionSelected = false;
+                    collectionExtra = 0;
+                    collectionLabel = 'None';
+                    sumColl.innerText = '+£0';
+                }
+
+                // RAM Upgrade
+                if (ram4gb && ram4gb.checked) {
+                    ramSelected = true;
+                    ramExtra = 30;
+                    ramLabel = '4GB RAM (+£30)';
+                    sumRam.innerText = '+£30';
+                } else if (ram8gb && ram8gb.checked) {
+                    ramSelected = true;
+                    ramExtra = 50;
+                    ramLabel = '8GB RAM (+£50)';
+                    sumRam.innerText = '+£50';
+                } else {
+                    ramSelected = false;
+                    ramExtra = 0;
+                    ramLabel = 'None';
+                    sumRam.innerText = '+£0';
+                }
+
+                // USB
+                if (migYes.checked) {
+                    if (usb64gb && usb64gb.checked) {
+                        usbSelected = true;
+                        usbExtra = 15;
+                        usbLabel = '64GB USB (+£15)';
+                        sumUsb.innerText = '+£15';
+                    } else if (usb128gb && usb128gb.checked) {
+                        usbSelected = true;
+                        usbExtra = 20;
+                        usbLabel = '128GB USB (+£20)';
+                        sumUsb.innerText = '+£20';
+                    } else if (usb256gb && usb256gb.checked) {
+                        usbSelected = true;
+                        usbExtra = 40;
+                        usbLabel = '256GB USB (+£40)';
+                        sumUsb.innerText = '+£40';
+                    } else if (usbYes && usbYes.checked) {
+                        usbSelected = true;
+                        usbExtra = 0;
+                        usbLabel = 'Has USB (+£0)';
+                        sumUsb.innerText = '+£0';
+                    } else if (usbNo && usbNo.checked) {
+                        usbSelected = false; // Not fully selected until they choose size
+                        usbExtra = 0;
+                        usbLabel = '';
+                        sumUsb.innerText = '+£0';
+                    } else {
+                        usbSelected = false;
+                        usbExtra = 0;
+                        usbLabel = '';
+                        sumUsb.innerText = '+£0';
+                    }
+                } else {
+                    sumUsb.innerText = '+£0';
+                }
+
+                // Google
+                if (googleYes.checked || googleNo.checked) {
+                    googleSelected = true;
+                    googleLabel = googleYes.checked ? 'Has account' : 'Will set up';
+                    sumGoogle.innerText = '+£0';
+                } else {
+                    googleSelected = false;
+                    googleLabel = 'None';
+                    sumGoogle.innerText = '+£0';
+                }
+
+                // Calculate total
+                const total = BASE_PRICE + migrationExtra + reversibleExtra + collectionExtra + ramExtra + usbExtra;
+                totalSpan.innerText = `£${total}`;
+
+                // Highlights
+                document.querySelectorAll('.radio-card').forEach(c => c.classList.remove('selected'));
+                if (migYes.checked) radioYesDiv.classList.add('selected');
+                else if (migNo.checked) radioNoDiv.classList.add('selected');
+                
+                if (revYes.checked) revYesDiv.classList.add('selected');
+                else if (revNo.checked) revNoDiv.classList.add('selected');
+                
+                if (collYes.checked) collYesDiv.classList.add('selected');
+                else if (collNo.checked) collNoDiv.classList.add('selected');
+                
+                if (googleYes.checked) googleYesDiv.classList.add('selected');
+                else if (googleNo.checked) googleNoDiv.classList.add('selected');
+                
+                if (ram4gb && ram4gb.checked) ram4gbDiv.classList.add('selected');
+                else if (ram8gb && ram8gb.checked) ram8gbDiv.classList.add('selected');
+                
+                if (usb64gb && usb64gb.checked) usb64gbDiv.classList.add('selected');
+                else if (usb128gb && usb128gb.checked) usb128gbDiv.classList.add('selected');
+                else if (usb256gb && usb256gb.checked) usb256gbDiv.classList.add('selected');
+                else if (usbYes && usbYes.checked) usbYesDiv.classList.add('selected');
+                else if (usbNo && usbNo.checked) usbNoDiv.classList.add('selected');
+
+                // Update requirements display
+                updateRequirementsDisplay();
+                checkAllConditions();
+            }
+
+            function checkAllConditions() {
+                // Conditions: all sections have a selection AND computer description is provided
+                let usbCondition = true;
+                if (migYes.checked) {
+                    // If they chose "No - I wish to purchase one", they need to select a size
+                    if (usbNo && usbNo.checked) {
+                        usbCondition = (usb64gb && usb64gb.checked) || (usb128gb && usb128gb.checked) || (usb256gb && usb256gb.checked);
+                    } else {
+                        usbCondition = (usbYes && usbYes.checked) || (usbNo && usbNo.checked);
+                    }
+                }
+                
+                const nameComplete = customerName.value.trim() !== '';
+                const phoneComplete = customerPhone.value.trim() !== '';
+                const computerComplete = computerDescription.value.trim() !== '';
+                
+                const allSelected = migrationSelected && reversibleSelected && collectionSelected && googleSelected && usbCondition && nameComplete && phoneComplete && computerComplete;
+                
+                if (allSelected) {
+                    emailSection.classList.remove('hidden');
+                    requirementsNote.classList.add('hidden');
+                } else {
+                    emailSection.classList.add('hidden');
+                    requirementsNote.classList.remove('hidden');
+                }
+            }
+
+            customerName.addEventListener('input', function() {
+                updateRequirementsDisplay();
+                checkAllConditions();
+            });
+
+            customerPhone.addEventListener('input', function() {
+                updateRequirementsDisplay();
+                checkAllConditions();
+            });
+
+            computerDescription.addEventListener('input', function() {
+                updateRequirementsDisplay();
+                checkAllConditions();
+            });
+
+            // Event listeners
+            [migNo, migYes, revNo, revYes, collNo, collYes, googleYes, googleNo, usbYes, usbNo, usb64gb, usb128gb, usb256gb, ram4gb, ram8gb].forEach(el => {
+                if (el) el.addEventListener('change', updateSummaryAndUI);
+            });
+
+            // Click handlers for cards
+            const allDivs = [
+                radioNoDiv, radioYesDiv, revNoDiv, revYesDiv, collNoDiv, collYesDiv, 
+                googleYesDiv, googleNoDiv, usbYesDiv, usbNoDiv, usb64gbDiv, usb128gbDiv, usb256gbDiv,
+                ram4gbDiv, ram8gbDiv
+            ];
+            
+            allDivs.forEach(div => {
+                if (div) {
+                    div.addEventListener('click', function(e) {
+                        if (!e.target.matches('input, label, span')) {
+                            const radio = this.querySelector('input[type="radio"]');
+                            if (radio) {
+                                radio.checked = true;
+                                radio.dispatchEvent(new Event('change', { bubbles: true }));
+                            }
+                        }
+                    });
+                }
+            });
+
+            // Initial update
+            updateSummaryAndUI();
+
+            // Email send - with customer phone number
+            sendBtn.addEventListener('click', function() {
+                let usbCondition = true;
+                if (migYes.checked) {
+                    if (usbNo && usbNo.checked) {
+                        usbCondition = (usb64gb && usb64gb.checked) || (usb128gb && usb128gb.checked) || (usb256gb && usb256gb.checked);
+                    } else {
+                        usbCondition = (usbYes && usbYes.checked) || (usbNo && usbNo.checked);
+                    }
+                }
+                
+                const nameComplete = customerName.value.trim() !== '';
+                const phoneComplete = customerPhone.value.trim() !== '';
+                const computerComplete = computerDescription.value.trim() !== '';
+                
+                const allSelected = migrationSelected && reversibleSelected && collectionSelected && googleSelected && usbCondition && nameComplete && phoneComplete && computerComplete;
+                
+                if (!allSelected) {
+                    statusDiv.innerText = '❌ Please complete all required sections';
+                    statusDiv.style.color = '#ff3b30';
+                    return;
+                }
+
+                statusDiv.innerText = '⏳ Sending emails...';
+                statusDiv.style.color = '#3a3a3c';
+                
+                const total = BASE_PRICE + migrationExtra + reversibleExtra + collectionExtra + ramExtra + usbExtra;
+                const currentDate = getCurrentDate();
+
+                // Set all hidden form fields
+                document.getElementById('form_customer_name').value = customerName.value.trim() || 'Not provided';
+                document.getElementById('form_customer_phone').value = customerPhone.value.trim() || 'Not provided';
+                document.getElementById('form_customer_email').value = customerEmail.value.trim() || 'Not provided';
+                document.getElementById('form_computer_description').value = computerDescription.value.trim() || 'Not provided';
+                document.getElementById('form_migration').value = migrationLabel;
+                document.getElementById('form_reversible').value = reversibleLabel;
+                document.getElementById('form_collection').value = collectionLabel;
+                document.getElementById('form_ram').value = ramLabel;
+                document.getElementById('form_usb').value = usbLabel;
+                document.getElementById('form_google').value = googleLabel;
+                document.getElementById('form_total').value = `£${total}`;
+                document.getElementById('form_date').value = currentDate;
+
+                // Common template parameters for both emails
+                const templateParams = {
+                    customer_name: customerName.value.trim() || 'Not provided',
+                    customer_phone: customerPhone.value.trim() || 'Not provided',
+                    customer_email: customerEmail.value.trim() || 'Not provided',
+                    computer_description: computerDescription.value.trim() || 'Not provided',
+                    base_price: `£${BASE_PRICE}`,
+                    migration: migrationLabel,
+                    reversible: reversibleLabel,
+                    collection: collectionLabel,
+                    ram_upgrade: ramLabel,
+                    usb_storage: usbLabel,
+                    google_account: googleLabel,
+                    total: `£${total}`,
+                    consultation_phone: '07809590652',
+                    date: currentDate
+                };
+
+                // Track success/failure counts
+                let emailsSent = 0;
+                let emailsFailed = 0;
+                const totalEmails = customerEmail.value.trim() ? 2 : 1;
+
+                function checkAllEmailsDone() {
+                    if (emailsSent + emailsFailed === totalEmails) {
+                        if (emailsFailed === 0) {
+                            statusDiv.innerText = '✅ Quote sent successfully!';
+                            statusDiv.style.color = '#28a745';
+                            sendBtn.disabled = true;
+                            setTimeout(() => sendBtn.disabled = false, 5000);
+                        } else if (emailsSent === 0) {
+                            statusDiv.innerText = '❌ Failed to send emails. Please try again.';
+                            statusDiv.style.color = '#ff3b30';
+                        } else {
+                            statusDiv.innerText = '⚠️ Sent to admin, but customer copy failed.';
+                            statusDiv.style.color = '#ffb340';
+                        }
+                    }
+                }
+
+                // Send admin notification
+                emailjs.send('service_lxc7ozk', 'admin_notification', {
+                    ...templateParams,
+                    to_email: 'nevillebryce@gmail.com'
+                })
+                .then(() => {
+                    emailsSent++;
+                    checkAllEmailsDone();
+                })
+                .catch((error) => {
+                    console.error('Admin email failed:', error);
+                    emailsFailed++;
+                    checkAllEmailsDone();
+                });
+
+                // Send customer confirmation if email provided
+                if (customerEmail.value.trim()) {
+                    emailjs.send('service_lxc7ozk', 'customer_confirmation', {
+                        ...templateParams,
+                        to_email: customerEmail.value.trim()
+                    })
+                    .then(() => {
+                        emailsSent++;
+                        checkAllEmailsDone();
+                    })
+                    .catch((error) => {
+                        console.error('Customer email failed:', error);
+                        emailsFailed++;
+                        checkAllEmailsDone();
+                    });
+                }
+            });
+
+            document.querySelector('.phone-badge').addEventListener('click', () => window.location.href = 'tel:07809590652');
+        })();
+    </script>
 </body>
 </html>
