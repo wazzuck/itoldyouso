@@ -9,21 +9,35 @@
 <body>
     <script>
         const COMPANY_NAME = "IToldYouSo Computing";
+        const PHONE_NUMBER = "07809590652";
+        const EMAIL_ADDRESS = "nevillebryce@gmail.com";
+        
         document.addEventListener("DOMContentLoaded", function() {
             // Replace company name in logo
             const logo = document.querySelector(".logo");
             if (logo) {
                 logo.textContent = "🖥️ " + COMPANY_NAME;
             }
+            
             // Replace company name in footer
             const footer = document.querySelector("footer");
             if (footer) {
                 footer.innerHTML = footer.innerHTML.replace(/Neville's Tech Services/g, COMPANY_NAME);
             }
+            
             // Replace company name in title
             document.title = document.title.replace(/Neville's Tech Services/g, COMPANY_NAME);
+            
+            // Update nav buttons with contact info
+            const navButtons = document.querySelector(".nav-buttons");
+            if (navButtons) {
+                navButtons.innerHTML = '<a href="tel:' + PHONE_NUMBER + '" class="nav-btn">' + PHONE_NUMBER + '</a>' +
+                                       '<a href="mailto:' + EMAIL_ADDRESS + '" class="nav-btn">' + EMAIL_ADDRESS + '</a>' +
+                                       '<div style="padding: 8px 16px; font-size: 0.8rem; color: #666; font-style: italic; line-height: 1.4;">Free 15 minute<br>consultation</div>';
+            }
         });
     </script>
+
 
     <header>
         <a href="../index.html" class="logo">🖥️ Neville's Tech Services</a>
