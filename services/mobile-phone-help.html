@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Phone Help - IToldYouSo Computing</title>
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        const COMPANY_NAME = "IToldYouSo Computing";
+        const PHONE_NUMBER = "07809590652";
+        const EMAIL_ADDRESS = "nevillebryce@gmail.com";
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            // Replace company name in logo
+            const logo = document.querySelector(".logo");
+            if (logo) {
+                logo.textContent = "🖥️ " + COMPANY_NAME;
+            }
+            
+            // Replace company name in footer
+            const footer = document.querySelector("footer");
+            if (footer) {
+                footer.innerHTML = footer.innerHTML.replace(/Neville's Tech Services/g, COMPANY_NAME);
+            }
+            
+            // Replace company name in title
+            document.title = document.title.replace(/Neville's Tech Services/g, COMPANY_NAME);
+            
+            // Update nav buttons with contact info
+            const navButtons = document.querySelector(".nav-buttons");
+            if (navButtons) {
+                navButtons.innerHTML = '<a href="tel:' + PHONE_NUMBER + '" class="nav-btn">' + PHONE_NUMBER + '</a>' +
+                                       '<a href="mailto:' + EMAIL_ADDRESS + '" class="nav-btn" style="font-size: 0.85rem;">' + EMAIL_ADDRESS + '</a>' +
+                                       '<div style="padding: 8px 16px; font-size: 0.8rem; color: #666; font-style: italic; line-height: 1.4;">Free 15 minute<br>consultation</div>';
+            }
+        });
+    </script>
+
+
+
+    <header>
+        <a href="../index.html" class="logo">🖥️ IToldYouSo Computing</a>
+        <div class="phone-info">
+            <a href="tel:07809590652" class="phone-number">07809590652</a>
+            <a href="mailto:nevillebryce@gmail.com" class="email-address">nevillebryce@gmail.com</a>
+            <p class="consultation-text">Free 15 minute consultation</p>
+        </div>
+    </header>
+
+    <div class="service-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Services</a> → Mobile Phone Help
+        </div>
+
+        <span class="service-icon">📱</span>
+        <h1>Mobile Phone Help</h1>
+        <p class="service-tagline">Expert support for iOS and Android devices</p>
+        <div class="divider"></div>
+
+        <p class="service-description">
+            Whether you need help with your iPhone, Android phone, or tablet, I provide friendly and patient support. From setting up new devices and transferring data, to troubleshooting problems, connecting apps, or learning how to use specific features—I help you get the most from your mobile device.
+        </p>
+
+        <div class="service-benefits">
+            <h3>Mobile Phone Services Include:</h3>
+            <ul>
+                <li>New device setup and activation</li>
+                <li>Data migration from old devices</li>
+                <li>App installation and configuration</li>
+                <li>Email and account setup</li>
+                <li>Troubleshooting connection issues</li>
+                <li>Software updates and optimization</li>
+                <li>Security and privacy configuration</li>
+                <li>Backup and recovery assistance</li>
+                <li>Feature training and guidance</li>
+            </ul>
+        </div>
+
+        <div class="pricing-info">
+            <h4>💰 Pricing</h4>
+            <p>£50 per hour for support and assistance. Many common issues can be resolved quickly. Start with a free 15-minute consultation to discuss your mobile phone needs.</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="contact.html" class="cta-button">Get Mobile Phone Help</a>
+            <a href="../index.html" class="cta-secondary">View Other Services</a>
+        </div>
+    </div>
+
+    <footer>
+        © IToldYouSo Computing | Mobile Phone Help
+    </footer>
+</body>
+</html>

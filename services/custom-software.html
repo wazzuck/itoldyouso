@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Software Development - IToldYouSo Computing</title>
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        const COMPANY_NAME = "IToldYouSo Computing";
+        const PHONE_NUMBER = "07809590652";
+        const EMAIL_ADDRESS = "nevillebryce@gmail.com";
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            // Replace company name in logo
+            const logo = document.querySelector(".logo");
+            if (logo) {
+                logo.textContent = "🖥️ " + COMPANY_NAME;
+            }
+            
+            // Replace company name in footer
+            const footer = document.querySelector("footer");
+            if (footer) {
+                footer.innerHTML = footer.innerHTML.replace(/Neville's Tech Services/g, COMPANY_NAME);
+            }
+            
+            // Replace company name in title
+            document.title = document.title.replace(/Neville's Tech Services/g, COMPANY_NAME);
+            
+            // Update nav buttons with contact info
+            const navButtons = document.querySelector(".nav-buttons");
+            if (navButtons) {
+                navButtons.innerHTML = '<a href="tel:' + PHONE_NUMBER + '" class="nav-btn">' + PHONE_NUMBER + '</a>' +
+                                       '<a href="mailto:' + EMAIL_ADDRESS + '" class="nav-btn" style="font-size: 0.85rem;">' + EMAIL_ADDRESS + '</a>' +
+                                       '<div style="padding: 8px 16px; font-size: 0.8rem; color: #666; font-style: italic; line-height: 1.4;">Free 15 minute<br>consultation</div>';
+            }
+        });
+    </script>
+
+
+
+    <header>
+        <a href="../index.html" class="logo">🖥️ IToldYouSo Computing</a>
+        <div class="phone-info">
+            <a href="tel:07809590652" class="phone-number">07809590652</a>
+            <a href="mailto:nevillebryce@gmail.com" class="email-address">nevillebryce@gmail.com</a>
+            <p class="consultation-text">Free 15 minute consultation</p>
+        </div>
+    </header>
+
+    <div class="service-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Services</a> → Custom Software Development
+        </div>
+
+        <span class="service-icon">💻</span>
+        <h1>Custom Software Development</h1>
+        <p class="service-tagline">Tailored applications that solve your unique business challenges</p>
+        <div class="divider"></div>
+
+        <p class="service-description">
+            Off-the-shelf software doesn't always fit your business perfectly. I develop custom applications tailored to your specific needs and workflows. Whether you need desktop applications, mobile apps, database systems, or specialized business tools, I work with you to design and build solutions that streamline operations, improve productivity, and reduce costs.
+        </p>
+
+        <div class="service-benefits">
+            <h3>Custom Software Services Include:</h3>
+            <ul>
+                <li>Requirements analysis and consultation</li>
+                <li>Desktop and mobile application development</li>
+                <li>Database design and implementation</li>
+                <li>Business process automation</li>
+                <li>Integration with existing systems</li>
+                <li>User interface design</li>
+                <li>Testing and quality assurance</li>
+                <li>Deployment and training</li>
+                <li>Ongoing maintenance and support</li>
+            </ul>
+        </div>
+
+        <div class="pricing-info">
+            <h4>💰 Pricing</h4>
+            <p>£50 per hour for development, design, and consultation. Project costs vary based on scope and complexity. Start with a free 15-minute consultation to discuss your requirements and get an estimate.</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="contact.html" class="cta-button">Get Custom Software Quote</a>
+            <a href="../index.html" class="cta-secondary">View Other Services</a>
+        </div>
+    </div>
+
+    <footer>
+        © IToldYouSo Computing | Custom Software Development
+    </footer>
+</body>
+</html>
