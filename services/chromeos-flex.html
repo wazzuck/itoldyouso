@@ -470,6 +470,30 @@
             color: #007aff;
             font-size: 1.3rem;
         }
+
+        /* Breadcrumb navigation */
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .breadcrumb a {
+            color: #007aff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        @media (min-width: 768px) {
+            .breadcrumb {
+                text-align: left;
+                margin-bottom: 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -483,6 +507,10 @@
     </header>
 
     <div class="quote-card">
+        <div class="breadcrumb">
+            <a href="../index.html">Services</a> → ChromeOS Flex
+        </div>
+
         <h1>ChromeOS Flex Migration<br>Self‑Pricing Made Simple</h1>
         <div class="subheadline">This is a short questionnaire on getting an instant quote for moving an older computer over to using ChromeOS Flex as its operating system. It's suitable for computers between 4 - 12 years!</div>
 
