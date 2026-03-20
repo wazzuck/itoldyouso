@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Setup & Training - IToldYouSo Computing</title>
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        const COMPANY_NAME = "IToldYouSo Computing";
+        const PHONE_NUMBER = "07809590652";
+        const EMAIL_ADDRESS = "contactus@itoldyouso.tech";
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const logo = document.querySelector(".logo");
+            if (logo) logo.textContent = "🖥️ " + COMPANY_NAME;
+
+            const footer = document.querySelector("footer");
+            if (footer) footer.innerHTML = footer.innerHTML.replace(/Neville's Tech Services/g, COMPANY_NAME);
+
+            document.title = document.title.replace(/Neville's Tech Services/g, COMPANY_NAME);
+
+            const navButtons = document.querySelector(".nav-buttons");
+            if (navButtons) {
+                navButtons.innerHTML = '<a href="tel:' + PHONE_NUMBER + '" class="nav-btn">' + PHONE_NUMBER + '</a>' +
+                                       '<a href="mailto:' + EMAIL_ADDRESS + '" class="nav-btn" style="font-size: 0.85rem;">' + EMAIL_ADDRESS + '</a>' +
+                                       '<div style="padding: 8px 16px; font-size: 0.8rem; color: #666; font-style: italic; line-height: 1.4;">Free 15 minute<br>consultation</div>';
+            }
+        });
+    </script>
+
+    <header>
+        <a href="../index.html" class="logo">🖥️ IToldYouSo Computing</a>
+        <div class="phone-info">
+            <a href="tel:07809590652" class="phone-number">07809590652</a>
+            <a href="mailto:contactus@itoldyouso.tech" class="email-address">contactus@itoldyouso.tech</a>
+            <p class="consultation-text">Free 15 minute consultation</p>
+        </div>
+    </header>
+
+    <div class="service-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Services</a> → AI Tools Setup & Training
+        </div>
+
+        <span class="service-icon">🤖</span>
+        <h1>AI Tools Setup & Training</h1>
+        <p class="service-tagline">Harness the power of AI to save time and work smarter</p>
+        <div class="divider"></div>
+
+        <p class="service-description">
+            Artificial intelligence tools like ChatGPT, Microsoft Copilot, and Google Gemini are transforming the way people work — but knowing where to start can feel overwhelming. I'll help you set up, configure, and get genuinely productive with AI tools tailored to your specific needs, whether you're a small business owner looking to save time, or an individual wanting to make everyday tasks easier.
+        </p>
+
+        <p class="service-description">
+            Artificial intelligence tools like ChatGPT, Microsoft Copilot, Google Gemini, and Anthropic's Claude are transforming the way people work — but knowing where to start can feel overwhelming. I'll help you set up, configure, and get genuinely productive with AI tools tailored to your specific needs, whether you're a small business owner looking to save time, or an individual wanting to make everyday tasks easier.
+        </p>
+
+        <div class="service-benefits">
+            <h3>AI Tools Services Include:</h3>
+            <ul>
+                <li>Introduction and overview of leading AI tools (ChatGPT, Copilot, Gemini, Claude)</li>
+                <li>Account setup and subscription guidance</li>
+                <li>Claude Desktop setup — Anthropic's powerful AI assistant for your computer</li>
+                <li>Claude Code setup — AI-powered coding assistant for developers and technical users</li>
+                <li>Microsoft 365 Copilot integration and training</li>
+                <li>Using AI for writing, summarising, and proofreading</li>
+                <li>AI-assisted research and information gathering</li>
+                <li>Automating repetitive tasks with AI</li>
+                <li>Image generation tools (DALL·E, Adobe Firefly)</li>
+                <li>AI tools for small business productivity</li>
+                <li>Understanding AI limitations and staying safe online</li>
+                <li>Ongoing tips and updates as tools evolve</li>
+            </ul>
+        </div>
+
+        <div class="pricing-info">
+            <h4>💰 Pricing</h4>
+            <p>£50 per hour for setup and training. A typical introductory session lasts 1–2 hours and leaves you with practical skills you can use immediately. Start with a free 15-minute consultation to discuss which AI tools would benefit you most.</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="contact.html" class="cta-button">Book AI Training Session</a>
+            <a href="../index.html" class="cta-secondary">View Other Services</a>
+        </div>
+    </div>
+
+    <footer>
+        © IToldYouSo Computing | AI Tools Setup & Training
+    </footer>
+</body>
+</html>

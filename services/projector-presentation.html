@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projector & Presentation Equipment Setup - IToldYouSo Computing</title>
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        const COMPANY_NAME = "IToldYouSo Computing";
+        const PHONE_NUMBER = "07809590652";
+        const EMAIL_ADDRESS = "contactus@itoldyouso.tech";
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const logo = document.querySelector(".logo");
+            if (logo) logo.textContent = "🖥️ " + COMPANY_NAME;
+
+            const footer = document.querySelector("footer");
+            if (footer) footer.innerHTML = footer.innerHTML.replace(/Neville's Tech Services/g, COMPANY_NAME);
+
+            document.title = document.title.replace(/Neville's Tech Services/g, COMPANY_NAME);
+
+            const navButtons = document.querySelector(".nav-buttons");
+            if (navButtons) {
+                navButtons.innerHTML = '<a href="tel:' + PHONE_NUMBER + '" class="nav-btn">' + PHONE_NUMBER + '</a>' +
+                                       '<a href="mailto:' + EMAIL_ADDRESS + '" class="nav-btn" style="font-size: 0.85rem;">' + EMAIL_ADDRESS + '</a>' +
+                                       '<div style="padding: 8px 16px; font-size: 0.8rem; color: #666; font-style: italic; line-height: 1.4;">Free 15 minute<br>consultation</div>';
+            }
+        });
+    </script>
+
+    <header>
+        <a href="../index.html" class="logo">🖥️ IToldYouSo Computing</a>
+        <div class="phone-info">
+            <a href="tel:07809590652" class="phone-number">07809590652</a>
+            <a href="mailto:contactus@itoldyouso.tech" class="email-address">contactus@itoldyouso.tech</a>
+            <p class="consultation-text">Free 15 minute consultation</p>
+        </div>
+    </header>
+
+    <div class="service-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Services</a> → Projector & Presentation Equipment Setup
+        </div>
+
+        <span class="service-icon">📽️</span>
+        <h1>Projector & Presentation Equipment Setup</h1>
+        <p class="service-tagline">Professional presentation setups for offices, meeting rooms, and events</p>
+        <div class="divider"></div>
+
+        <p class="service-description">
+            Whether you're equipping a boardroom, setting up a training room, or preparing for a one-off presentation, having reliable and well-configured equipment makes all the difference. I set up and configure projectors, large-format displays, wireless presentation systems, and audio equipment so that your meetings and presentations run smoothly every time — no fumbling with cables or drivers on the day.
+        </p>
+
+        <div class="service-benefits">
+            <h3>Projector & Presentation Services Include:</h3>
+            <ul>
+                <li>Projector installation and calibration</li>
+                <li>Large-format display and screen setup</li>
+                <li>Wireless presentation systems (Chromecast, Apple TV, Barco ClickShare)</li>
+                <li>Laptop and device connectivity (HDMI, DisplayPort, USB-C)</li>
+                <li>Audio system integration and speaker setup</li>
+                <li>Video conferencing integration (Zoom, Teams)</li>
+                <li>Screen resolution and aspect ratio optimisation</li>
+                <li>Cable management and tidy installation</li>
+                <li>Staff training on equipment use</li>
+                <li>Ongoing support and troubleshooting</li>
+            </ul>
+        </div>
+
+        <div class="pricing-info">
+            <h4>💰 Pricing</h4>
+            <p>£50 per hour for setup, configuration, and training. Typical office meeting room setups take 2–3 hours. Call for a free 15-minute consultation to discuss your requirements and get a tailored quote.</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="contact.html" class="cta-button">Book Presentation Setup</a>
+            <a href="../index.html" class="cta-secondary">View Other Services</a>
+        </div>
+    </div>
+
+    <footer>
+        © IToldYouSo Computing | Projector & Presentation Equipment Setup
+    </footer>
+</body>
+</html>

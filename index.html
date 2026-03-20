@@ -186,8 +186,34 @@
             }
 
             .services-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 12px;
+            }
+
+            .service-card {
+                padding: 16px 12px;
+                border-radius: 12px;
+            }
+
+            .service-icon {
+                font-size: 2rem;
+                margin-bottom: 8px;
+            }
+
+            .service-card h3 {
+                font-size: 0.9rem;
+                margin-bottom: 6px;
+            }
+
+            .service-card p {
+                font-size: 0.78rem;
+                line-height: 1.4;
+                margin-bottom: 12px;
+            }
+
+            .service-card img.service-icon {
+                width: 40px !important;
+                height: 40px !important;
             }
 
             .poem {
@@ -196,6 +222,12 @@
 
             .services-intro {
                 font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -241,10 +273,17 @@
             <span class="service-link">Learn More</span>
         </a>
 
-        <a href="services/backup-archiving.html" class="service-card">
-            <img src="assets/safe.png" alt="Backup & Archiving" class="service-icon" style="width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px auto;">
-            <h3>Backup & Archiving</h3>
-            <p>Secure your data with comprehensive backup and archiving solutions.</p>
+        <a href="services/ai-tools.html" class="service-card">
+            <span class="service-icon">🤖</span>
+            <h3>AI Tools Setup &amp; Training</h3>
+            <p>Harness the power of AI to save time and work smarter.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/pos-payment.html" class="service-card">
+            <span class="service-icon">💳</span>
+            <h3>POS &amp; Payment Systems</h3>
+            <p>Get your small business taking payments quickly and reliably.</p>
             <span class="service-link">Learn More</span>
         </a>
 
@@ -255,10 +294,10 @@
             <span class="service-link">Learn More</span>
         </a>
 
-        <a href="services/pos-payments.html" class="service-card">
-            <span class="service-icon">💳</span>
-            <h3>POS &amp; Payment Systems</h3>
-            <p>Setup and configuration of card readers and till systems for UK businesses — SumUp, Square, iZettle, Worldpay and more.</p>
+        <a href="services/backup-archiving.html" class="service-card">
+            <img src="assets/safe.png" alt="Backup &amp; Archiving" class="service-icon" style="width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px auto;">
+            <h3>Backup &amp; Archiving</h3>
+            <p>Secure your data with comprehensive backup and archiving solutions.</p>
             <span class="service-link">Learn More</span>
         </a>
 
@@ -312,7 +351,7 @@
         </a>
 
         <a href="services/home-automation.html" class="service-card">
-            <span class="service-icon">🤖</span>
+            <span class="service-icon">🏠</span>
             <h3>Home Automation</h3>
             <p>Smart home setup and integration for modern living.</p>
             <span class="service-link">Learn More</span>
@@ -322,6 +361,13 @@
             <img src="assets/security_camera.png" alt="Home Digital Security Systems" class="service-icon" style="width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px auto;">
             <h3>Home Digital Security Systems</h3>
             <p>Protect your home with modern smart security solutions.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/home-entertainment.html" class="service-card">
+            <span class="service-icon">🎬</span>
+            <h3>Home Entertainment Setup</h3>
+            <p>Transform your living room into the ultimate home cinema experience.</p>
             <span class="service-link">Learn More</span>
         </a>
 
@@ -340,9 +386,9 @@
         </a>
 
         <a href="services/internet-networks.html" class="service-card">
-            <img src="assets/network.png" alt="Internet & Networks" class="service-icon" style="width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px auto;">
-            <h3>Internet & Networks</h3>
-            <p>Reliable network setup, optimization, and troubleshooting.</p>
+            <img src="assets/network.png" alt="Internet &amp; Networks" class="service-icon" style="width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px auto;">
+            <h3>Internet &amp; Networks</h3>
+            <p>Reliable network setup, optimisation, and troubleshooting.</p>
             <span class="service-link">Learn More</span>
         </a>
 
@@ -360,6 +406,13 @@
             <span class="service-link">Learn More</span>
         </a>
 
+        <a href="services/projector-presentation.html" class="service-card">
+            <span class="service-icon">📽️</span>
+            <h3>Projector &amp; Presentation Setup</h3>
+            <p>Professional presentation setups for offices, meeting rooms, and events.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
         <a href="services/photo-indexing.html" class="service-card">
             <span class="service-icon">📸</span>
             <h3>Photograph Indexing &amp; Organisation</h3>
@@ -369,7 +422,7 @@
 
         <a href="services/printers.html" class="service-card">
             <span class="service-icon">🖨️</span>
-            <h3>Printer Setup & Support</h3>
+            <h3>Printer Setup &amp; Support</h3>
             <p>Installation, configuration, and support for printing solutions.</p>
             <span class="service-link">Learn More</span>
         </a>
@@ -380,7 +433,6 @@
             <p>Professional websites that attract customers and drive growth.</p>
             <span class="service-link">Learn More</span>
         </a>
-
     </div>
 
     <footer>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Entertainment Setup - IToldYouSo Computing</title>
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        const COMPANY_NAME = "IToldYouSo Computing";
+        const PHONE_NUMBER = "07809590652";
+        const EMAIL_ADDRESS = "contactus@itoldyouso.tech";
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const logo = document.querySelector(".logo");
+            if (logo) logo.textContent = "🖥️ " + COMPANY_NAME;
+
+            const footer = document.querySelector("footer");
+            if (footer) footer.innerHTML = footer.innerHTML.replace(/Neville's Tech Services/g, COMPANY_NAME);
+
+            document.title = document.title.replace(/Neville's Tech Services/g, COMPANY_NAME);
+
+            const navButtons = document.querySelector(".nav-buttons");
+            if (navButtons) {
+                navButtons.innerHTML = '<a href="tel:' + PHONE_NUMBER + '" class="nav-btn">' + PHONE_NUMBER + '</a>' +
+                                       '<a href="mailto:' + EMAIL_ADDRESS + '" class="nav-btn" style="font-size: 0.85rem;">' + EMAIL_ADDRESS + '</a>' +
+                                       '<div style="padding: 8px 16px; font-size: 0.8rem; color: #666; font-style: italic; line-height: 1.4;">Free 15 minute<br>consultation</div>';
+            }
+        });
+    </script>
+
+    <header>
+        <a href="../index.html" class="logo">🖥️ IToldYouSo Computing</a>
+        <div class="phone-info">
+            <a href="tel:07809590652" class="phone-number">07809590652</a>
+            <a href="mailto:contactus@itoldyouso.tech" class="email-address">contactus@itoldyouso.tech</a>
+            <p class="consultation-text">Free 15 minute consultation</p>
+        </div>
+    </header>
+
+    <div class="service-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Services</a> → Home Entertainment Setup
+        </div>
+
+        <span class="service-icon">🎬</span>
+        <h1>Home Entertainment Setup</h1>
+        <p class="service-tagline">Transform your living room into the ultimate home cinema experience</p>
+        <div class="divider"></div>
+
+        <p class="service-description">
+            Getting the most from your home entertainment system can be surprisingly complex — from connecting smart TVs and streaming devices to configuring surround sound, setting up gaming consoles, and making everything work seamlessly together. I take the frustration out of it, leaving you with a simple, reliable system that the whole family can use and enjoy.
+        </p>
+
+        <div class="service-benefits">
+            <h3>Home Entertainment Services Include:</h3>
+            <ul>
+                <li>Smart TV setup and configuration</li>
+                <li>Streaming service setup (Netflix, Disney+, BBC iPlayer, etc.)</li>
+                <li>Soundbar and surround sound system installation</li>
+                <li>Gaming console setup and network configuration</li>
+                <li>Blu-ray and media player configuration</li>
+                <li>Universal remote and smart home integration</li>
+                <li>TV wall mounting advice and coordination</li>
+                <li>HDMI and cable management</li>
+                <li>Parental controls and family profiles</li>
+                <li>Wi-Fi optimisation for smooth 4K streaming</li>
+            </ul>
+        </div>
+
+        <div class="pricing-info">
+            <h4>💰 Pricing</h4>
+            <p>£50 per hour. Most home entertainment setups are completed within 1–2 hours. Call for a free 15-minute consultation to discuss your setup and get an accurate estimate.</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="contact.html" class="cta-button">Book Entertainment Setup</a>
+            <a href="../index.html" class="cta-secondary">View Other Services</a>
+        </div>
+    </div>
+
+    <footer>
+        © IToldYouSo Computing | Home Entertainment Setup
+    </footer>
+</body>
+</html>
