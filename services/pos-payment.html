@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS & Payment Systems Setup - IToldYouSo Computing</title>
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        const COMPANY_NAME = "IToldYouSo Computing";
+        const PHONE_NUMBER = "07809590652";
+        const EMAIL_ADDRESS = "contactus@itoldyouso.tech";
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const logo = document.querySelector(".logo");
+            if (logo) logo.textContent = "🖥️ " + COMPANY_NAME;
+
+            const footer = document.querySelector("footer");
+            if (footer) footer.innerHTML = footer.innerHTML.replace(/Neville's Tech Services/g, COMPANY_NAME);
+
+            document.title = document.title.replace(/Neville's Tech Services/g, COMPANY_NAME);
+
+            const navButtons = document.querySelector(".nav-buttons");
+            if (navButtons) {
+                navButtons.innerHTML = '<a href="tel:' + PHONE_NUMBER + '" class="nav-btn">' + PHONE_NUMBER + '</a>' +
+                                       '<a href="mailto:' + EMAIL_ADDRESS + '" class="nav-btn" style="font-size: 0.85rem;">' + EMAIL_ADDRESS + '</a>' +
+                                       '<div style="padding: 8px 16px; font-size: 0.8rem; color: #666; font-style: italic; line-height: 1.4;">Free 15 minute<br>consultation</div>';
+            }
+        });
+    </script>
+
+    <header>
+        <a href="../index.html" class="logo">🖥️ IToldYouSo Computing</a>
+        <div class="phone-info">
+            <a href="tel:07809590652" class="phone-number">07809590652</a>
+            <a href="mailto:contactus@itoldyouso.tech" class="email-address">contactus@itoldyouso.tech</a>
+            <p class="consultation-text">Free 15 minute consultation</p>
+        </div>
+    </header>
+
+    <div class="service-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Services</a> → POS & Payment Systems Setup
+        </div>
+
+        <span class="service-icon">💳</span>
+        <h1>POS & Payment Systems Setup</h1>
+        <p class="service-tagline">Get your small business taking payments quickly and reliably</p>
+        <div class="divider"></div>
+
+        <p class="service-description">
+            Whether you're opening a new shop, market stall, café, or service business, getting your point of sale and payment systems set up correctly from the start saves time and headaches. I help small businesses choose, install, and configure till systems, card readers, and receipt printers — so you can start taking payments with confidence, whether in-person or online.
+        </p>
+
+        <div class="service-benefits">
+            <h3>POS & Payment Services Include:</h3>
+            <ul>
+                <li>Point of sale system selection and setup (Square, SumUp, iZettle, Lightspeed)</li>
+                <li>Card reader configuration and testing</li>
+                <li>Receipt printer installation and setup</li>
+                <li>Cash drawer integration</li>
+                <li>Barcode scanner setup</li>
+                <li>Product catalogue and inventory setup</li>
+                <li>Staff accounts and permissions</li>
+                <li>Online and in-person payment integration</li>
+                <li>Reporting and sales analytics configuration</li>
+                <li>Staff training on system use</li>
+            </ul>
+        </div>
+
+        <div class="pricing-info">
+            <h4>💰 Pricing</h4>
+            <p>£50 per hour for setup, configuration, and training. Most small business POS setups are completed in 2–3 hours. Call for a free 15-minute consultation to discuss the best system for your business and get an accurate estimate.</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="contact.html" class="cta-button">Book POS Setup</a>
+            <a href="../index.html" class="cta-secondary">View Other Services</a>
+        </div>
+    </div>
+
+    <footer>
+        © IToldYouSo Computing | POS & Payment Systems Setup
+    </footer>
+</body>
+</html>
