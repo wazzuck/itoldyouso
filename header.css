@@ -30,6 +30,11 @@ header {
     width: auto;
     display: inline-block;
     margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.logo span {
+    white-space: nowrap;
 }
 
 .logo:hover {
@@ -74,31 +79,38 @@ header {
 
 @media (max-width: 768px) {
     header {
-        padding: 12px 16px;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .phone-info {
-        align-items: center;
-        flex-direction: column;
+        padding: 8px 12px;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 4px;
-        width: 100%;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .phone-number {
+    .logo {
         font-size: 1rem;
     }
 
-    .email-address {
-        font-size: 0.85rem;
+    .logo img {
+        height: 28px;
+        margin-right: 6px;
     }
 
-    .consultation-text {
+    .phone-info {
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .phone-number {
+        font-size: 0.9rem;
+    }
+
+    .email-address {
         font-size: 0.75rem;
     }
 
-    body {
-        padding-top: 150px;
+    .consultation-text {
+        font-size: 0.7rem;
     }
 }
