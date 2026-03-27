@@ -295,30 +295,22 @@
                 font-size: 0.95rem;
             }
 
-            /* Critical: Ensure chatbot container doesn't extend beyond viewport */
+            /* Mobile-optimized chatbot container */
             .fullscreen-chatbot {
-                height: calc(100vh - 50px) !important;
-                max-height: calc(100vh - 50px) !important;
+                /* Height will be set by JavaScript */
                 position: relative;
-                overflow: hidden;
+                /* Make container scrollable */
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+                /* Ensure we can see bottom content */
+                padding-bottom: 100px;
             }
 
             .fullscreen-iframe {
-                height: 100% !important;
-                min-height: 0;
-                position: relative;
-                /* Allow scrolling within iframe */
-                -webkit-overflow-scrolling: touch;
-                overflow: auto;
-            }
-
-            /* Force iframe to show bottom content */
-            .fullscreen-iframe::after {
-                content: '';
-                display: block;
-                height: 60px; /* Space for input box */
                 width: 100%;
-                pointer-events: none;
+                border: none;
+                /* Make iframe very tall to ensure all content is visible */
+                min-height: 1200px;
             }
         }
 
@@ -510,6 +502,110 @@
             startCountdown();
             
             // Focus the iframe for better accessibility
+            // Fix for mobile browser address bar covering input
+            function fixMobileInputVisibility() {
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                const header = document.querySelector('.fullscreen-header');
+                const chatbotContainer = document.querySelector('.fullscreen-chatbot');
+                const iframe = document.querySelector('.fullscreen-iframe');
+                
+                if (!isMobile || !header || !chatbotContainer || !iframe) return;
+                
+                console.log('Mobile device detected, fixing input visibility...');
+                
+                // Function to update heights based on current viewport
+                function updateHeights() {
+                    const viewportHeight = window.innerHeight;
+                    const headerHeight = header.offsetHeight;
+                    
+                    // Calculate available space
+                    const availableHeight = viewportHeight - headerHeight;
+                    
+                    // Set container height
+                    chatbotContainer.style.height = availableHeight + 'px';
+                    
+                    // Make iframe taller to account for browser UI
+                    // Add extra 200px to ensure bottom content is visible
+                    iframe.style.height = (availableHeight + 200) + 'px';
+                    
+                    console.log('Updated heights - Viewport:', viewportHeight, 'Header:', headerHeight, 'Available:', availableHeight);
+                }
+                
+                // Initial update
+                updateHeights();
+                
+                // Update on any viewport change
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(updateHeights, 150);
+                });
+                
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(updateHeights, 350);
+                });
+                
+                // Also try to scroll to bottom after iframe loads
+                iframe.addEventListener('load', () => {
+                    setTimeout(() => {
+                        updateHeights();
+                        // Try to scroll to bottom to show input
+                        setTimeout(() => {
+                            chatbotContainer.scrollTop = chatbotContainer.scrollHeight;
+                            console.log('Scrolled to bottom to show input');
+                        }, 1500);
+                        
+                        // Also try to scroll inside iframe (may not work due to cross-origin)
+                        try {
+                            setTimeout(() => {
+                                if (iframe.contentWindow) {
+                                    iframe.contentWindow.scrollTo(0, iframe.contentWindow.document.body.scrollHeight);
+                                }
+                            }, 2000);
+                        } catch (e) {
+                            console.log('Cannot scroll iframe content (cross-origin restriction)');
+                        }
+                    }, 500);
+                });
+                
+                // Add a temporary scroll hint for mobile users
+                const scrollHint = document.createElement('div');
+                scrollHint.innerHTML = '👇 Scroll down to see chat input';
+                scrollHint.style.cssText = `
+                    position: fixed;
+                    bottom: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: #f7b318;
+                    color: #1d1d1d;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    font-weight: bold;
+                    z-index: 10001;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                    animation: fadeInOut 3s ease-in-out;
+                `;
+                
+                // Add CSS for animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes fadeInOut {
+                        0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                        20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                        80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                        100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                document.body.appendChild(scrollHint);
+                setTimeout(() => {
+                    scrollHint.remove();
+                }, 3000);
+            }
+            
+            // Run the fix
+            setTimeout(fixMobileInputVisibility, 200);
         });
     </script>
 </body>
