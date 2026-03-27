@@ -102,9 +102,7 @@ header.hide {
     }
 
     .phone-info {
-        align-items: flex-end;
-        flex-direction: column;
-        gap: 2px;
+        display: none !important;
     }
 
     .phone-number {
