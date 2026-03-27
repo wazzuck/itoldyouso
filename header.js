@@ -9,3 +9,22 @@ function adjustBodyPadding() {
 
 document.addEventListener('DOMContentLoaded', adjustBodyPadding);
 window.addEventListener('resize', adjustBodyPadding);
+
+// Hide header on scroll down, show on scroll up
+let lastScrollTop = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+        // Scrolling DOWN - hide header
+        header.classList.add('hide');
+    } else {
+        // Scrolling UP - show header
+        header.classList.remove('hide');
+    }
+    
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+
