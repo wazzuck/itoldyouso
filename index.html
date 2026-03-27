@@ -24,29 +24,102 @@
             padding-top: 110px;
         }
 
-        .chat-frame-wrap {
-            max-width: 800px;
-            margin: 0 auto 48px auto;
-            animation: fadeIn 0.6s ease-in;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            background: #FFFBF3;
+            border-radius: 32px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
-        .chat-frame-wrap iframe {
-            display: block;
-            width: 100%;
-            height: 560px;
-            border: none;
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            color: #1d1d1d;
+        }
+
+        .hero-highlight {
+            color: #f7b318;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #4a4a4e;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: #f7b318;
+            color: #1d1d1d;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            background: #e0a010;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #1d1d1d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .trust-badge {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+            margin-top: 0;
+        }
+
+        .trust-badge span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         @media (max-width: 768px) {
-            .chat-frame-wrap {
-                border-radius: 16px;
-                margin-bottom: 32px;
+            .hero-sub {
+                margin-bottom: 16px;
             }
-            .chat-frame-wrap iframe {
-                height: 460px;
+            
+            .hero-buttons {
+                margin-bottom: 12px;
+            }
+            
+            .trust-badge {
+                gap: 10px;
+                padding-top: 10px;
             }
         }
 
@@ -208,12 +281,18 @@
         </div>
     </header>
 
-    <div class="chat-frame-wrap">
-        <iframe
-            src="https://www.chatbase.co/chatbot-iframe/0bcLr7pcOs9kBCHuQuIWD"
-            title="Chat with IToldYouSo Computing"
-            allow="microphone"
-        ></iframe>
+    <!-- Hero section with clear messaging for both audiences -->
+    <div class="hero">
+        <h1>IT & Smart Home Tech Support for <span class="hero-highlight">London</span></h1>
+        <p class="hero-sub">Fast, local help for businesses and busy households. – one call does it all.</p>
+        <div class="hero-buttons">
+            <a href="tel:07809590652" class="btn-primary">📞 Call Now: 07809590652</a>
+            <a href="chatbot.html" class="btn-secondary">💬 Get an Instant Quote</a>
+        </div>
+        <div class="trust-badge">
+            <span>✅ Often same‑day, always within 24h</span>
+            <span>📍 Serving NW London: Hampstead, Highgate, Golders Green & beyond</span>
+        </div>
     </div>
 
     <div id="services" class="services-grid">
