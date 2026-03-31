@@ -164,7 +164,16 @@
         .service-icon {
             font-size: 3rem;
             margin-bottom: 16px;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+        }
+
+        .service-icon img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
         }
 
         .service-card h3 {
@@ -241,6 +250,11 @@
             .service-icon {
                 font-size: 2rem;
                 margin-bottom: 8px;
+                height: 60px;
+            }
+
+            .service-icon img {
+                height: 40px;
             }
 
             .service-card h3 {
@@ -254,10 +268,6 @@
                 margin-bottom: 12px;
             }
 
-            .service-card img.service-icon {
-                width: 40px !important;
-                height: 40px !important;
-            }
         }
 
         @media (max-width: 360px) {
@@ -605,7 +615,7 @@
         </a>
 
         <a href="services/ai-tools.html" class="service-card">
-            <span class="service-icon">🤖</span>
+            <span class="service-icon"><img src="assets/ai.png" alt="AI Tools"></span>
             <h3>AI Tools Setup &amp; Training</h3>
             <p>Harness the power of AI to save time and work smarter.</p>
             <span class="service-link">Learn More</span>
@@ -626,7 +636,7 @@
         </a>
 
         <a href="services/backup-archiving.html" class="service-card">
-            <img src="assets/safe.png" alt="Backup &amp; Archiving" class="service-icon" style="width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px auto;">
+            <span class="service-icon"><img src="assets/safe.png" alt="Backup &amp; Archiving"></span>
             <h3>Backup &amp; Archiving</h3>
             <p>Secure your data with comprehensive backup and archiving solutions.</p>
             <span class="service-link">Learn More</span>
@@ -640,7 +650,7 @@
         </a>
 
         <a href="services/computer-repair.html" class="service-card">
-            <span class="service-icon">🖥️</span>
+            <span class="service-icon"><img src="assets/computer_repair.png" alt="Computer Repair"></span>
             <h3>Computer Repair</h3>
             <p>Professional repair services for computers and laptops.</p>
             <span class="service-link">Learn More</span>
@@ -654,7 +664,7 @@
         </a>
 
         <a href="services/custom-software.html" class="service-card">
-            <span class="service-icon">💻</span>
+            <span class="service-icon"><img src="assets/coding.png" alt="Custom Software Development"></span>
             <h3>Custom Software Development</h3>
             <p>Build custom applications tailored to your business needs.</p>
             <span class="service-link">Learn More</span>
@@ -675,7 +685,7 @@
         </a>
 
         <a href="services/digital-wellbeing.html" class="service-card">
-            <span class="service-icon">🧘</span>
+            <span class="service-icon">🪷</span>
             <h3>Digital Mental Wellbeing</h3>
             <p>Banish annoying adverts, pop-ups and spam emails for a calmer, cleaner digital life that puts you back in control.</p>
             <span class="service-link">Learn More</span>
@@ -689,7 +699,7 @@
         </a>
 
         <a href="services/security-systems.html" class="service-card">
-            <img src="assets/security_camera.png" alt="Security Systems" class="service-icon" style="width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px auto;">
+            <span class="service-icon"><img src="assets/security_camera.png" alt="Security Systems"></span>
             <h3>Security Systems</h3>
             <p>Protect your home with modern smart security solutions.</p>
             <span class="service-link">Learn More</span>
@@ -705,7 +715,7 @@
         <a href="services/office-software.html" class="service-card">
             <span class="service-icon">📊</span>
             <h3>Office Software</h3>
-            <p>Setup and support for productive home office environments.</p>
+            <p>Setup and support for productive office environments.</p>
             <span class="service-link">Learn More</span>
         </a>
 
@@ -717,7 +727,7 @@
         </a>
 
         <a href="services/internet-networks.html" class="service-card">
-            <img src="assets/network.png" alt="Internet &amp; Networks" class="service-icon" style="width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px auto;">
+            <span class="service-icon"><img src="assets/network.png" alt="Internet &amp; Networks"></span>
             <h3>Internet &amp; Networks</h3>
             <p>Reliable network setup, optimisation, and troubleshooting.</p>
             <span class="service-link">Learn More</span>
@@ -731,7 +741,7 @@
         </a>
 
         <a href="services/online-conferencing.html" class="service-card">
-            <img src="assets/webcam.png" alt="Online Conferencing Setup" class="service-icon" style="width: 60px; height: 60px; object-fit: contain; margin: 0 auto 16px auto;">
+            <span class="service-icon"><img src="assets/webcam.png" alt="Online Conferencing Setup"></span>
             <h3>Online Conferencing Setup</h3>
             <p>Professional video conferencing tools and integration.</p>
             <span class="service-link">Learn More</span>
@@ -759,7 +769,7 @@
         </a>
 
         <a href="services/website-development.html" class="service-card">
-            <span class="service-icon">🌐</span>
+            <span class="service-icon"><img src="assets/website.png" alt="Website Development"></span>
             <h3>Website Development</h3>
             <p>Professional websites that attract customers and drive growth.</p>
             <span class="service-link">Learn More</span>
