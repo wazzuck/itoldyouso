@@ -26,6 +26,7 @@
 
         /* Hero Section */
         .hero {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto 40px auto;
             background: #FFFBF3;
@@ -135,12 +136,21 @@
         }
 
         .services-grid {
+            width: 100%;
             max-width: 1600px;
             margin: 0 auto 60px auto;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 24px;
             animation: fadeIn 0.6s ease-in;
+        }
+
+        @media (min-width: 769px) {
+            .hero,
+            .services-grid {
+                width: 70%;
+                max-width: none;
+            }
         }
 
         .service-card {
@@ -636,6 +646,13 @@
             <span class="service-icon"><img src="assets/security_camera.png" alt="Security Systems"></span>
             <h3>Security Systems</h3>
             <p>Protect your home with modern smart security solutions.</p>
+            <span class="service-link">Learn More</span>
+        </a>
+
+        <a href="services/ring-replacement-service.html" class="service-card">
+            <span class="service-icon"><img src="assets/ring.png" alt="Subsripion-Free Smart Doorbells"></span>
+            <h3>Subsripion-Free Smart Doorbells</h3>
+            <p>Replace Ring with higher quality cameras and no subscription costs.</p>
             <span class="service-link">Learn More</span>
         </a>
 
