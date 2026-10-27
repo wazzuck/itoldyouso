@@ -147,7 +147,8 @@
 
         @media (min-width: 769px) {
             .hero,
-            .services-grid {
+            .services-grid,
+            .consulting-section {
                 width: 70%;
                 max-width: none;
             }
@@ -240,6 +241,218 @@
             transform: translateY(-2px);
         }
 
+        /*
+         * Specialist Business Consultancy section styling for the sister
+         * advisory practice: Heath & City Systems Advisory (heathandcity.com).
+         * Step 1: Layout container matching the main hero card architecture.
+         * Step 2: Typography and lead paragraphs for high executive contrast.
+         * Step 3: Responsive two-column grid displaying the four key roles.
+         * Step 4: High-contrast Call To Action (CTA) panel linking to the
+         *         sister website.
+         */
+        .consulting-section {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto 60px auto;
+            background: #FFFBF3;
+            border-radius: 32px;
+            padding: 48px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 0.6s ease-in;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .consulting-badge {
+            display: inline-block;
+            background: #1d1d1d;
+            color: #f7b318;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .consulting-section h2 {
+            font-size: 2.2rem;
+            color: #1d1d1d;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .consulting-lead {
+            font-size: 1.2rem;
+            color: #1d1d1d;
+            line-height: 1.6;
+            max-width: 880px;
+            margin: 0 auto 12px auto;
+            font-weight: 500;
+        }
+
+        .consulting-intro {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            max-width: 880px;
+            margin: 0 auto 36px auto;
+        }
+
+        .consulting-inline-link {
+            color: #0071e3;
+            font-weight: 700;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        .consulting-inline-link:hover {
+            color: #0051bb;
+        }
+
+        .consulting-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 36px;
+            text-align: left;
+        }
+
+        .consulting-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #ede8dc;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .consulting-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .consulting-role-number {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #f7b318;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .consulting-card h3 {
+            font-size: 1.25rem;
+            color: #1d1d1d;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .consulting-target {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #0071e3;
+            margin-bottom: 12px;
+        }
+
+        .consulting-desc {
+            font-size: 0.95rem;
+            color: #4a4a4e;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .consulting-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #1d1d1d;
+            background: #FFFBF3;
+            border: 1px solid #e2dac9;
+            border-radius: 12px;
+            padding: 4px 10px;
+            align-self: flex-start;
+        }
+
+        .consulting-cta-box {
+            background: #1d1d1d;
+            color: #ffffff;
+            border-radius: 24px;
+            padding: 32px 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+
+        .consulting-cta-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .consulting-cta-text h3 {
+            font-size: 1.35rem;
+            color: #ffffff;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .consulting-cta-text p {
+            font-size: 0.95rem;
+            color: #d1d1d6;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .consulting-cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-consulting-primary {
+            display: inline-block;
+            background: #f7b318;
+            color: #1d1d1d;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-consulting-primary:hover {
+            background: #e0a010;
+            transform: translateY(-2px);
+        }
+
+        .btn-consulting-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-consulting-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -298,6 +511,53 @@
                 font-size: 0.92rem;
                 line-height: 1.4;
                 margin-bottom: 12px;
+            }
+
+            .consulting-section {
+                padding: 32px 20px;
+                border-radius: 20px;
+                margin-bottom: 40px;
+            }
+
+            .consulting-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .consulting-lead {
+                font-size: 1.05rem;
+            }
+
+            .consulting-intro {
+                font-size: 0.92rem;
+                margin-bottom: 24px;
+            }
+
+            .consulting-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-bottom: 24px;
+            }
+
+            .consulting-card {
+                padding: 20px 16px;
+            }
+
+            .consulting-cta-box {
+                padding: 24px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .consulting-cta-actions {
+                width: 100%;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .btn-consulting-primary,
+            .btn-consulting-secondary {
+                width: 100%;
+                text-align: center;
             }
 
         }
@@ -564,8 +824,89 @@
         </a>
     </div>
 
+    <!--
+      Specialist Business Consultancy & Sister Practice Section
+      Presents the high-status local advisory and sovereign engineering practice
+      from Heath & City Systems Advisory (heathandcity.com).
+      Step 1: Anchor section with accessibility label.
+      Step 2: Executive overview with inline link to heathandcity.com.
+      Step 3: Four core specialist roles with institutional background.
+      Step 4: Prominent Call To Action (CTA) panel directing clients to
+              the sister website.
+    -->
+    <section class="consulting-section" id="consulting" aria-labelledby="consulting-heading">
+        <div class="consulting-badge">Sister Practice · Hampstead NW3</div>
+        <h2 id="consulting-heading">Specialist Business Consultancy &amp; Sovereign Systems</h2>
+        <p class="consulting-lead">
+            For established North West London principals requiring institutional-grade technology advisory, bespoke workflow automation,
+            or confidential Artificial Intelligence (AI) solutions, visit our sister practice:
+            <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" class="consulting-inline-link">Heath &amp; City Systems Advisory (heathandcity.com)</a>.
+        </p>
+        <p class="consulting-intro">
+            Architected personally from Hampstead with over 17 years of experience engineering mission-critical financial market data systems in the City of London. Designed specifically for established North West London practices where data sovereignty, client confidentiality, and operational continuity are essential.
+        </p>
+
+        <div class="consulting-grid">
+            <div class="consulting-card">
+                <span class="consulting-role-number">01 · SOVEREIGN ARCHITECTURE</span>
+                <h3>Sovereign AI &amp; Private Document Retrieval</h3>
+                <p class="consulting-target">Senior Lawyers, King's Counsel (KC), Surgeons &amp; Medico-Legal Experts</p>
+                <p class="consulting-desc">
+                    Private, on-premises document retrieval and AI extraction. Search 20 years of precedents, confidential case bundles, and clinical records in milliseconds with zero bytes leaving your physical premises—ensuring strict regulatory compliance.
+                </p>
+                <span class="consulting-tag">Two-Tower Neural Search · Local Private Hardware</span>
+            </div>
+
+            <div class="consulting-card">
+                <span class="consulting-role-number">02 · FINANCIAL ENGINEERING</span>
+                <h3>Financial &amp; Document Data Normalisation</h3>
+                <p class="consulting-target">Family Offices, Multi-SPV Property Principals &amp; Insurance Brokers</p>
+                <p class="consulting-desc">
+                    Direct application of ultra-low-latency financial message mapping. Automated pipelines ingest and normalise messy Portable Document Format (PDF) bank disclosures, rent rolls, insurer remittances, and capital calls into unified, reconciled master ledgers.
+                </p>
+                <span class="consulting-tag">Deterministic PDF Extraction · Master Reconciliation</span>
+            </div>
+
+            <div class="consulting-card">
+                <span class="consulting-role-number">03 · OPERATIONAL CONTINUITY</span>
+                <h3>Practice Continuity &amp; "One Clean Daily Screen"</h3>
+                <p class="consulting-target">Boutique Practices &amp; Firms Addressing "Single-PA Fragility"</p>
+                <p class="consulting-desc">
+                    Eliminates the vulnerability of critical knowledge living solely inside one Personal Assistant (PA) or office manager's head. Triage shared inboxes into an automated filing clerk and an 8:00 AM daily briefing without disrupting existing email habits.
+                </p>
+                <span class="consulting-tag">Zero Email Disruption · Institutional Memory</span>
+            </div>
+
+            <div class="consulting-card">
+                <span class="consulting-role-number">04 · LOCAL EXECUTIVE ADVISORY</span>
+                <h3>Fractional CTO &amp; Private Technologist</h3>
+                <p class="consulting-target">Boutique Partnerships, Chambers &amp; High-Net-Worth Principals</p>
+                <p class="consulting-desc">
+                    Your dedicated Chief Technology Officer (CTO) based directly in Hampstead. A flat monthly partnership providing in-person quarterly reviews, cyber security hygiene, sovereign infrastructure maintenance, and rapid local response across NW3, NW6, NW8, NW11, and N6.
+                </p>
+                <span class="consulting-tag">In-Person Hampstead Care · Direct Telephone Line</span>
+            </div>
+        </div>
+
+        <div class="consulting-cta-box">
+            <div class="consulting-cta-text">
+                <h3>Visit Heath &amp; City Systems Advisory</h3>
+                <p>
+                    Explore interactive workflow simulations, architecture blueprints, and fixed-price diagnostic audits on our sister practice website.
+                </p>
+            </div>
+            <div class="consulting-cta-actions">
+                <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" class="btn-consulting-primary">🌐 Visit heathandcity.com</a>
+                <a href="mailto:contactus@heathandcity.com" class="btn-consulting-secondary">✉️ Email Advisory Desk</a>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        © <i>IT</i>oldYouSo Computing | Professional Technology Solutions
+        <p>© <i>IT</i>oldYouSo Computing | Professional Technology Solutions</p>
+        <p style="margin-top: 8px; font-size: 0.85rem; color: #555;">
+            Sister Practice: <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Heath &amp; City Systems Advisory (heathandcity.com)</a>
+        </p>
     </footer>
 
 </body>
