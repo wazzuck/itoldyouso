@@ -545,19 +545,48 @@
             .consulting-cta-box {
                 padding: 24px 20px;
                 flex-direction: column;
+                align-items: center;
+                justify-content: center;
                 text-align: center;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .consulting-cta-text {
+                width: 100%;
+                min-width: 0;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .consulting-cta-text h3 {
+                text-align: center;
+                width: 100%;
+            }
+
+            .consulting-cta-text p {
+                text-align: center;
+                width: 100%;
+                margin: 0 auto;
             }
 
             .consulting-cta-actions {
                 width: 100%;
                 justify-content: center;
+                align-items: center;
                 flex-direction: column;
+                margin: 0 auto;
+                box-sizing: border-box;
             }
 
             .btn-consulting-primary,
             .btn-consulting-secondary {
                 width: 100%;
+                max-width: 100%;
                 text-align: center;
+                box-sizing: border-box;
+                display: block;
+                margin: 0 auto;
             }
 
         }
@@ -565,6 +594,14 @@
         @media (max-width: 360px) {
             .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .consulting-section {
+                padding: 24px 14px;
+            }
+
+            .consulting-cta-box {
+                padding: 20px 14px;
             }
         }
 
