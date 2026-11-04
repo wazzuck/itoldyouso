@@ -45,7 +45,7 @@ function updateHeader() {
         headerElement.innerHTML = `
             <a href="../index.html" class="logo"><img src="/assets/glasses.png" alt="IToldYouSo" /> <span><i>IT</i>oldYouSo Computing</span></a>
             <div class="phone-info">
-                <a href="tel:07809590652" class="phone-number">07809590652</a>
+                <a href="tel:+442045209114" class="phone-number">+44 20 4520 9114</a>
                 <a href="mailto:contactus@itoldyouso.tech" class="email-address">contactus@itoldyouso.tech</a>
                 <p class="consultation-text">Free consultation</p>
             </div>
