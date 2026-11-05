@@ -4,7 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>IToldYouSo :-D Computing - Professional Technology Solutions</title>
+    <meta name="description" content="Fast, same-day local IT support, hardware repairs, Wi-Fi optimisation, smart home installations, and computer solutions across North West London. Call 020 4520 9114.">
+    <link rel="canonical" href="https://itoldyouso.tech/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://itoldyouso.tech/">
+    <meta property="og:title" content="IToldYouSo Computing - Professional Technology Solutions">
+    <meta property="og:description" content="Fast, same-day local IT support, hardware repairs, Wi-Fi optimisation, and computer solutions across North West London. Call 020 4520 9114.">
+    <meta property="og:image" content="https://itoldyouso.tech/assets/network.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://itoldyouso.tech/">
+    <meta name="twitter:title" content="IToldYouSo Computing - Professional Technology Solutions">
+    <meta name="twitter:description" content="Fast, same-day local IT support, hardware repairs, Wi-Fi optimisation, and computer solutions across North West London. Call 020 4520 9114.">
+    <meta name="twitter:image" content="https://itoldyouso.tech/assets/network.png">
     <link rel="stylesheet" href="header.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["ITService", "LocalBusiness"],
+          "@id": "https://itoldyouso.tech/#business",
+          "name": "IToldYouSo Computing",
+          "alternateName": "IToldYouSo :-D Computing",
+          "url": "https://itoldyouso.tech/",
+          "logo": "https://itoldyouso.tech/assets/network.png",
+          "image": "https://itoldyouso.tech/assets/network.png",
+          "description": "Fast, same-day local IT support, hardware repairs, Wi-Fi optimisation, smart home installations, and computer solutions across North West London.",
+          "telephone": "+44 20 4520 9114",
+          "email": "contactus@itoldyouso.tech",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "London",
+            "addressRegion": "Greater London",
+            "postalCode": "NW3",
+            "addressCountry": "GB"
+          },
+          "areaServed": [
+            "Hampstead",
+            "Highgate",
+            "Golders Green",
+            "Belsize Park",
+            "Swiss Cottage",
+            "St John's Wood",
+            "West Hampstead",
+            "NW3",
+            "NW6",
+            "NW8",
+            "NW11",
+            "N6"
+          ],
+          "priceRange": "££",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "08:30",
+              "closes": "19:00"
+            }
+          ],
+          "sameAs": [
+            "https://heathandcity.com"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://itoldyouso.tech/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What areas in North West London do you cover?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We provide on-site callouts and remote support across North West London, specialising in Hampstead (NW3), Belsize Park, Swiss Cottage, West Hampstead (NW6), St John's Wood (NW8), Golders Green (NW11), and Highgate (N6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How quickly can you attend for emergency IT repairs or callouts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer fast, same-day local emergency callouts and telephone diagnosis across North West London, typically arriving within a few hours for critical hardware, network, or security issues."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you assist domestic households as well as businesses?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We support both private residential households (Wi-Fi dead zones, computer repairs, smart TV and audio, Ring doorbells) and local commercial enterprises (office networks, servers, POS systems, secure data backups)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you charge for your IT services?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer a free initial telephone consultation to assess your technical requirements. Work is carried out at transparent, competitive hourly rates or fixed project fees quoted in advance with no hidden surprises."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the relationship between IToldYouSo Computing and Heath & City Technology?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "IToldYouSo Computing delivers day-to-day hands-on IT support, hardware maintenance, and network engineering. Our sister practice, Heath & City Technology (heathandcity.com), provides institutional sovereign data systems, private document retrieval, and fractional Chief Technology Officer (CTO) advisory for boutique legal, financial, and medical practices."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -148,7 +265,8 @@
         @media (min-width: 769px) {
             .hero,
             .services-grid,
-            .consulting-section {
+            .consulting-section,
+            .faq-section {
                 width: 70%;
                 max-width: none;
             }
@@ -453,6 +571,90 @@
             transform: translateY(-2px);
         }
 
+        /*
+         * Frequently Asked Questions (FAQ) section styling.
+         * Step 1: Layout container matching the consulting section architecture.
+         * Step 2: Clear typographic hierarchy for questions and answers.
+         * Step 3: Accessible, structured question-and-answer cards.
+         */
+        .faq-section {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto 60px auto;
+            background: #FFFBF3;
+            border-radius: 32px;
+            padding: 48px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 0.6s ease-in;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .faq-badge {
+            display: inline-block;
+            background: #1d1d1d;
+            color: #f7b318;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .faq-section h2 {
+            font-size: 2.2rem;
+            color: #1d1d1d;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .faq-intro {
+            font-size: 1.1rem;
+            color: #4a4a4e;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 36px auto;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            text-align: left;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 28px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #ede8dc;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-item h3 {
+            font-size: 1.2rem;
+            color: #1d1d1d;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .faq-item p {
+            font-size: 1rem;
+            color: #4a4a4e;
+            line-height: 1.6;
+            margin: 0;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -589,6 +791,33 @@
                 margin: 0 auto;
             }
 
+            .faq-section {
+                padding: 32px 20px;
+                border-radius: 20px;
+                margin-bottom: 40px;
+            }
+
+            .faq-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .faq-intro {
+                font-size: 0.95rem;
+                margin-bottom: 24px;
+            }
+
+            .faq-item {
+                padding: 20px 16px;
+            }
+
+            .faq-item h3 {
+                font-size: 1.05rem;
+            }
+
+            .faq-item p {
+                font-size: 0.92rem;
+            }
+
         }
 
         @media (max-width: 360px) {
@@ -602,6 +831,10 @@
 
             .consulting-cta-box {
                 padding: 20px 14px;
+            }
+
+            .faq-section {
+                padding: 24px 14px;
             }
         }
 
@@ -935,6 +1168,50 @@
             <div class="consulting-cta-actions">
                 <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" class="btn-consulting-primary">🌐 Visit heathandcity.com</a>
                 <a href="mailto:contactus@heathandcity.com" class="btn-consulting-secondary">✉️ Email Advisory Desk</a>
+            </div>
+        </div>
+    </section>
+
+    <!--
+      Frequently Asked Questions (FAQ) Section
+      Answers key queries regarding service areas, emergency response,
+      pricing structure, domestic vs commercial coverage, and relationship
+      with sister practice Heath & City Technology.
+      Step 1: Section wrapper with accessibility label.
+      Step 2: Section header and explanatory subtitle.
+      Step 3: Responsive question-and-answer grid matching JSON-LD verbatim.
+    -->
+    <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+        <div class="faq-badge">Common Questions</div>
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <p class="faq-intro">
+            Quick, transparent answers about our local Information Technology (IT) support, coverage across North West London, response speeds, and rates.
+        </p>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>What areas in North West London do you cover?</h3>
+                <p>We provide on-site callouts and remote support across North West London, specialising in Hampstead (NW3), Belsize Park, Swiss Cottage, West Hampstead (NW6), St John's Wood (NW8), Golders Green (NW11), and Highgate (N6).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How quickly can you attend for emergency IT repairs or callouts?</h3>
+                <p>We offer fast, same-day local emergency callouts and telephone diagnosis across North West London, typically arriving within a few hours for critical hardware, network, or security issues.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do you assist domestic households as well as businesses?</h3>
+                <p>Yes. We support both private residential households (Wi-Fi dead zones, computer repairs, smart TV and audio, Ring doorbells) and local commercial enterprises (office networks, servers, POS systems, secure data backups).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do you charge for your IT services?</h3>
+                <p>We offer a free initial telephone consultation to assess your technical requirements. Work is carried out at transparent, competitive hourly rates or fixed project fees quoted in advance with no hidden surprises.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What is the relationship between IToldYouSo Computing and Heath & City Technology?</h3>
+                <p>IToldYouSo Computing delivers day-to-day hands-on IT support, hardware maintenance, and network engineering. Our sister practice, Heath & City Technology (heathandcity.com), provides institutional sovereign data systems, private document retrieval, and fractional Chief Technology Officer (CTO) advisory for boutique legal, financial, and medical practices.</p>
             </div>
         </div>
     </section>
