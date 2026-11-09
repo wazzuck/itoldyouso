@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Square Register Till Setup & Training Documentation for George, provided by IToldYouSo Computing.">
+  <title>Square Till Setup &amp; Training Documentation | IToldYouSo Computing</title>
+  <style>
+    /* -------------------------------------------------------------------------
+       Base Typography & Reset
+       ------------------------------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      color: #1a1a1a;
+      background-color: #f8fafc;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #1a1a1a;
+      background-color: #f8fafc;
+    }
+
+    /* -------------------------------------------------------------------------
+       Password Gate Modal / Screen
+       ------------------------------------------------------------------------- */
+    #auth-gate {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      background: linear-gradient(135deg, #0f766e 0%, #134e4a 100%);
+      color: #ffffff;
+    }
+
+    .auth-card {
+      background-color: #ffffff;
+      color: #1a1a1a;
+      max-width: 480px;
+      width: 100%;
+      padding: 36px 32px;
+      border-radius: 12px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .auth-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background-color: #ccfbf1;
+      color: #0f766e;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+
+    .auth-card h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .auth-card p {
+      font-size: 1rem;
+      color: #4b5563;
+      margin-bottom: 24px;
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .auth-form label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .auth-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 1.1rem;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .auth-input:focus {
+      border-color: #0f766e;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
+    }
+
+    .auth-btn {
+      padding: 14px 20px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #0f766e;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .auth-btn:hover {
+      background-color: #115e59;
+    }
+
+    .auth-btn:active {
+      transform: scale(0.99);
+    }
+
+    .auth-error {
+      display: none;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #991b1b;
+      background-color: #fee2e2;
+      border: 1px solid #fecaca;
+      border-radius: 6px;
+      margin-top: 4px;
+    }
+
+    .auth-hint {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* -------------------------------------------------------------------------
+       Document Content & Layout
+       ------------------------------------------------------------------------- */
+    #document-content {
+      display: none;
+      width: 100%;
+    }
+
+    .on-screen-banner {
+      background-color: #f0fdf4;
+      border-bottom: 1px solid #bbf7d0;
+      color: #166534;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    header.site-header {
+      background-color: #ffffff;
+      border-bottom: 2px solid #e5e7eb;
+      padding: 24px 24px 20px 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .header-titles h1 {
+      font-size: 1.85rem;
+      color: #0f766e;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .header-titles .subtitle {
+      font-size: 1.05rem;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #f3f4f6;
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+
+    .meta-item strong {
+      color: #1f2937;
+    }
+
+    .print-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0f766e;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .print-button:hover {
+      background-color: #115e59;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+    }
+
+    /* -------------------------------------------------------------------------
+       Sticky Navigation Bar
+       ------------------------------------------------------------------------- */
+    nav.doc-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d1d5db;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      padding: 10px 24px;
+    }
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #374151;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: #0f766e;
+      background-color: #f0fdf4;
+    }
+
+    /* -------------------------------------------------------------------------
+       Main Article Container
+       ------------------------------------------------------------------------- */
+    main.doc-main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 24px 64px 24px;
+      width: 100%;
+    }
+
+    article.doc-article {
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Document Title Headers */
+    .article-header {
+      border-bottom: 3px solid #0f766e;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+
+    .article-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .badge-internal {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+
+    .badge-client {
+      background-color: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .badge-quick {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+
+    .article-header h2 {
+      font-size: 2rem;
+      color: #0f766e;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .article-header p.article-lead {
+      font-size: 1.1rem;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+
+    /* Typography inside articles */
+    h3 {
+      font-size: 1.35rem;
+      color: #111827;
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #f3f4f6;
+      padding-bottom: 6px;
+    }
+
+    h4 {
+      font-size: 1.15rem;
+      color: #0f766e;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+      color: #374151;
+      line-height: 1.65;
+    }
+
+    ul, ol {
+      margin-bottom: 18px;
+      padding-left: 28px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      color: #374151;
+      line-height: 1.55;
+    }
+
+    /* Checkbox Lists */
+    ul.check-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.check-list li {
+      position: relative;
+      padding-left: 32px;
+      margin-bottom: 10px;
+    }
+
+    ul.check-list li::before {
+      content: "☐";
+      position: absolute;
+      left: 2px;
+      top: -1px;
+      font-size: 1.25rem;
+      color: #0f766e;
+      font-weight: bold;
+    }
+
+    /* Callout & Warning Boxes */
+    .callout {
+      border-left: 5px solid #0f766e;
+      background-color: #f0fdfa;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+    }
+
+    .callout.warning {
+      border-left-color: #dc2626;
+      background-color: #fef2f2;
+    }
+
+    .callout.info {
+      border-left-color: #2563eb;
+      background-color: #eff6ff;
+    }
+
+    .callout h4 {
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .callout.warning h4 {
+      color: #991b1b;
+    }
+
+    .callout.info h4 {
+      color: #1e40af;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px 0;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f3f4f6;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f9fafb;
+    }
+
+    /* Table of Contents */
+    .toc-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0 32px 0;
+    }
+
+    .toc-box h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #0f766e;
+      padding-bottom: 6px;
+      font-size: 1.2rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px 24px;
+    }
+
+    .toc-list li {
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .toc-list a {
+      color: #0f766e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .toc-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* -------------------------------------------------------------------------
+       Cheat Sheet Special Styling (Screen & Print)
+       ------------------------------------------------------------------------- */
+    #cheatsheet {
+      background-color: #ffffff;
+      border: 2px solid #0f766e;
+    }
+
+    .cheatsheet-banner {
+      background-color: #0f766e;
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: 6px 6px 0 0;
+      text-align: center;
+      margin: -40px -40px 24px -40px;
+    }
+
+    .cheatsheet-banner h2 {
+      color: #ffffff;
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .cheatsheet-banner p {
+      color: #ccfbf1;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .cheatsheet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .cheatsheet-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 16px 18px;
+      background-color: #ffffff;
+    }
+
+    .cheatsheet-card h3 {
+      font-size: 1.2rem;
+      color: #0f766e;
+      margin-top: 0;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #0f766e;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .cheatsheet-card ol, .cheatsheet-card ul {
+      margin-bottom: 0;
+      padding-left: 22px;
+    }
+
+    .cheatsheet-card li {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      line-height: 1.45;
+    }
+
+    .cheatsheet-warning-box {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background-color: #fef2f2;
+      border: 2px solid #dc2626;
+      border-radius: 6px;
+      color: #991b1b;
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.98rem;
+    }
+
+    .cheatsheet-phone-box {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background-color: #f0fdf4;
+      border: 2px solid #16a34a;
+      border-radius: 6px;
+      color: #166534;
+      font-weight: 700;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    /* -------------------------------------------------------------------------
+       Footer
+       ------------------------------------------------------------------------- */
+    footer.site-footer {
+      background-color: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      padding: 24px;
+      text-align: center;
+      margin-top: auto;
+      font-size: 0.92rem;
+      color: #6b7280;
+    }
+
+    footer.site-footer p {
+      margin-bottom: 4px;
+      font-size: 0.92rem;
+    }
+
+    /* -------------------------------------------------------------------------
+       Print Stylesheet (@media print)
+       ------------------------------------------------------------------------- */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 18mm;
+      }
+
+      body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt;
+        line-height: 1.4;
+      }
+
+      #auth-gate,
+      nav.doc-nav,
+      .no-print,
+      .on-screen-banner,
+      .print-button {
+        display: none !important;
+      }
+
+      #document-content {
+        display: block !important;
+      }
+
+      main.doc-main {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      article.doc-article {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 0 30mm 0 !important;
+        background: transparent !important;
+      }
+
+      /* Page Breaks between separate printable documents */
+      #handbook {
+        page-break-before: always !important;
+        break-before: page !important;
+      }
+
+      #cheatsheet {
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      /* Headings and table controls */
+      h2, h3, h4 {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        color: #000000 !important;
+      }
+
+      table {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        width: 100% !important;
+        border-color: #000000 !important;
+      }
+
+      th, td {
+        border-color: #333333 !important;
+        background-color: transparent !important;
+        color: #000000 !important;
+      }
+
+      th {
+        font-weight: bold !important;
+        border-bottom: 2px solid #000000 !important;
+      }
+
+      .callout {
+        border-left: 3px solid #000000 !important;
+        background: #f9f9f9 !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+      }
+
+      .article-header {
+        border-bottom: 2px solid #000000 !important;
+      }
+
+      /* Special tight layout for the one-page A4 Cheat Sheet */
+      #cheatsheet {
+        border: 2px solid #000000 !important;
+        padding: 12px !important;
+        font-size: 16pt !important;
+        line-height: 1.5 !important;
+      }
+
+      .cheatsheet-banner {
+        background-color: transparent !important;
+        color: #000000 !important;
+        border-bottom: 2px solid #000000 !important;
+        padding: 8px 0 12px 0 !important;
+        margin: 0 0 14px 0 !important;
+      }
+
+      .cheatsheet-banner h2 {
+        color: #000000 !important;
+        font-size: 20pt !important;
+      }
+
+      .cheatsheet-banner p {
+        color: #000000 !important;
+        font-size: 15pt !important;
+      }
+
+      .cheatsheet-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+      }
+
+      .cheatsheet-card {
+        border: 1px solid #444444 !important;
+        padding: 10px 12px !important;
+      }
+
+      .cheatsheet-card h3 {
+        font-size: 15pt !important;
+        border-bottom: 1.5px solid #000000 !important;
+        margin-bottom: 6px !important;
+      }
+
+      .cheatsheet-card li {
+        font-size: 13.5pt !important;
+        line-height: 1.4 !important;
+        margin-bottom: 4px !important;
+      }
+
+      .cheatsheet-warning-box {
+        border: 2px solid #000000 !important;
+        background-color: transparent !important;
+        color: #000000 !important;
+        font-size: 13pt !important;
+        padding: 6px !important;
+      }
+
+      .cheatsheet-phone-box {
+        border: 2px solid #000000 !important;
+        background-color: transparent !important;
+        color: #000000 !important;
+        font-size: 14pt !important;
+        padding: 8px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =======================================================================
+       1. Authentication Gate (Password: kingston)
+       ======================================================================= -->
+  <div id="auth-gate">
+    <div class="auth-card">
+      <span class="auth-badge">Client Portal</span>
+      <h1>Square Register Documentation</h1>
+      <p>Prepared for George &bull; IToldYouSo Computing</p>
+
+      <form class="auth-form" id="password-form" onsubmit="handleAuth(event)">
+        <div class="auth-input-group">
+          <label for="password-input">Please enter your access password:</label>
+          <input
+            type="password"
+            id="password-input"
+            class="auth-input"
+            placeholder="Enter password"
+            autocomplete="current-password"
+            required
+            autofocus
+          >
+          <div id="auth-error" class="auth-error" role="alert">
+            Incorrect password. Please try again or call Neville on [Phone].
+          </div>
+        </div>
+        <button type="submit" class="auth-btn">Unlock Documentation</button>
+      </form>
+
+      <div class="auth-hint">
+        Hint: Supplied during your training handover. Case-insensitive.
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       2. Unlocked Complete Documentation Container
+       ======================================================================= -->
+  <div id="document-content">
+
+    <!-- Screen-only convenience notification -->
+    <div class="on-screen-banner no-print">
+      Use your browser's Print &rarr; Save as PDF. Print each document separately, or print all and split.
+    </div>
+
+    <!-- Master Header -->
+    <header class="site-header">
+      <div class="header-top">
+        <div class="header-titles">
+          <h1>Square Register Setup &amp; Training Documentation</h1>
+          <div class="subtitle">Complete Technical Reference, Client Handbook &amp; Countertop Cheat Sheet</div>
+        </div>
+        <button type="button" class="print-button no-print" onclick="window.print()">
+          Print / Save as PDF
+        </button>
+      </div>
+
+      <div class="header-meta">
+        <div class="meta-item">Service: <strong>Square Register Setup &amp; Training</strong></div>
+        <div class="meta-item">Client Name: <strong>[Client Name]</strong></div>
+        <div class="meta-item">Trainer: <strong>[Your Name]</strong></div>
+        <div class="meta-item">Session Date: <strong>[Date]</strong></div>
+      </div>
+    </header>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="doc-nav no-print" aria-label="Document Navigation">
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="#trainer">1. Trainer's Guide</a></li>
+          <li><a href="#handbook">2. Client Handbook</a></li>
+          <li><a href="#cheatsheet">3. Cheat Sheet</a></li>
+        </ul>
+        <button type="button" class="print-button" style="padding: 6px 14px; font-size: 0.9rem;" onclick="window.print()">
+          Print / Save as PDF
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="doc-main">
+
+      <!-- ===================================================================
+           DOCUMENT 1: TRAINER'S GUIDE (Internal)
+           =================================================================== -->
+      <article id="trainer" class="doc-article">
+        <div class="article-header">
+          <span class="article-badge badge-internal">Internal Training Script &amp; Checklist</span>
+          <h2>Trainer's Guide &mdash; Square Register Delivery</h2>
+          <p class="article-lead">
+            Authoritative delivery script, technical verification checklist, and session plan for the Point of Sale (POS) setup and client training service.
+          </p>
+        </div>
+
+        <section>
+          <h3>1. Document Identification &amp; Purpose</h3>
+          <p>
+            <strong>Document Version:</strong> 1.0<br>
+            <strong>Purpose:</strong> Internal procedural guide and step-by-step checklist for the trainer ([Your Name]) delivering on-site hardware installation, network configuration, and empathetic Point of Sale (POS) instruction for an elderly client (early 60s).<br>
+            <strong>Date:</strong> [Date]
+          </p>
+        </section>
+
+        <section>
+          <h3>2. Pre-Visit Preparation</h3>
+          <p>
+            Verify every item on this pre-flight checklist prior to setting off for the client premises. Do not begin travel until account verification is confirmed.
+          </p>
+
+          <h4>Client Account Checks</h4>
+          <ul class="check-list">
+            <li>☐ Square online merchant account registered and primary email address verified.</li>
+            <li>☐ Client UK settlement bank account linked for automated transfers.</li>
+            <li>☐ Identity verification documentation submitted and approved by Square.</li>
+            <li>☐ Two-Factor Authentication (2FA) configured with emergency recovery codes recorded securely.</li>
+            <li>☐ Business details, Value Added Tax (VAT) rate, and trading address configured in online portal.</li>
+          </ul>
+
+          <h4>Hardware Checks</h4>
+          <ul class="check-list">
+            <li>☐ Square Register unit unboxed, inspected, and free of cosmetic defects.</li>
+            <li>☐ Customer-facing display and genuine Universal Serial Bus (USB) interconnect cable present.</li>
+            <li>☐ Mains power adapter and United Kingdom (UK) three-pin plug cable packed.</li>
+            <li>☐ Category 6 Ethernet patch cable (minimum 3 metres) packed in kit.</li>
+            <li>☐ Minimum 3 spare rolls of 57mm thermal receipt paper verified in training kit.</li>
+          </ul>
+
+          <h4>Network Checks</h4>
+          <ul class="check-list">
+            <li>☐ Client Wireless Fidelity (Wi-Fi) network name (SSID) and security password verified in advance.</li>
+            <li>☐ Mobile phone 4G/5G mobile hotspot fully charged to serve as backup internet connectivity.</li>
+            <li>☐ Router location and spare Ethernet Local Area Network (LAN) port identified at premises.</li>
+          </ul>
+
+          <h4>Logistics</h4>
+          <ul class="check-list">
+            <li>☐ Route planned across London; travel time buffered for 30 minutes contingency.</li>
+            <li>☐ Client primary telephone contact saved in phone: [Phone].</li>
+            <li>☐ Laminated A4 Cheat Sheet and spiral-bound Client Handbook printed and packed.</li>
+            <li>☐ Personal debit card packed for live £1.00 test transaction and immediate refund verification.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>3. Session Plan &amp; Timing</h3>
+          <p>
+            The session is structured for an unhurried, reassuring delivery lasting between 2 and 3 hours (target: 2.5 hours / 150 minutes).
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 20%;">Phase</th>
+                <th style="width: 60%;">Content &amp; Objectives</th>
+                <th style="width: 20%;">Allocated Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Phase 1</strong></td>
+                <td>Welcome, setup workspace, hardware positioning, cable routing, customer display alignment.</td>
+                <td>25 minutes</td>
+              </tr>
+              <tr>
+                <td><strong>Phase 2</strong></td>
+                <td>Network connectivity (Wi-Fi/Ethernet), Square sign-in, display accessibility adjustments.</td>
+                <td>25 minutes</td>
+              </tr>
+              <tr>
+                <td><strong>Phase 3</strong></td>
+                <td>Core checkout training, item library entry, card payments, cash change, test refund.</td>
+                <td>45 minutes</td>
+              </tr>
+              <tr>
+                <td><strong>Phase 4</strong></td>
+                <td>Daily management, paper roll replacement, sales reports, error recovery drills.</td>
+                <td>30 minutes</td>
+              </tr>
+              <tr>
+                <td><strong>Phase 5</strong></td>
+                <td>Review &amp; close, cheat sheet handover, remote-support boundaries, invoicing.</td>
+                <td>25 minutes</td>
+              </tr>
+              <tr>
+                <td><strong>Total Duration</strong></td>
+                <td><strong>Comprehensive on-site setup and hands-on client training</strong></td>
+                <td><strong>2 hours 30 mins</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h3>4. Phase 1 &mdash; Welcome &amp; Hardware Setup</h3>
+          <h4>Script Talking Points</h4>
+          <p>
+            <em>"Good morning [Client Name]. It is wonderful to meet you. Today is all about getting your new till in place and making sure you feel completely relaxed, confident, and in control. We are not in any rush whatsoever. There is nothing you can tap or press that can break this till. Everything we do can be cancelled or undone, and we will practice each step as many times as you like until it feels completely second nature."</em>
+          </p>
+
+          <h4>Checkbox Actions</h4>
+          <ul class="check-list">
+            <li>☐ Survey counter area; agree on placement within easy reach of power and client's dominant hand.</li>
+            <li>☐ Position Square Register securely on level counter surface.</li>
+            <li>☐ Connect customer-facing display using the micro-USB cable and position at customer eye level.</li>
+            <li>☐ Route power lead cleanly, ensuring no trailing wires present a trip hazard behind the till.</li>
+            <li>☐ Connect power and observe boot sequence to ensure both displays initialise smoothly.</li>
+          </ul>
+
+          <h4>Watch-Outs</h4>
+          <ul>
+            <li>Avoid positioning the display directly opposite bright south-facing window glare.</li>
+            <li>Ensure the customer screen is angled comfortably so customers do not need to lean over counter.</li>
+            <li>Never pinch or strain the display interconnect cable behind sharp counter edges.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>5. Phase 2 &mdash; Network, Account, Accessibility</h3>
+          <h4>Checkbox Actions</h4>
+          <ul class="check-list">
+            <li>☐ Connect to client's primary Wireless Fidelity (Wi-Fi) network (or Ethernet if router is adjacent).</li>
+            <li>☐ Sign in with client's authorised Square login credentials.</li>
+            <li>☐ Verify business location profile, Great British Pounds (GBP) currency, and receipt header text.</li>
+          </ul>
+
+          <h4>Accessibility Settings</h4>
+          <ul class="check-list">
+            <li>☐ Navigate to <strong>Settings &rarr; Accessibility</strong> on the main screen.</li>
+            <li>☐ Enable <strong>Triple-Tap Magnification</strong>: demonstrate how tapping three times enlarges text.</li>
+            <li>☐ Navigate to <strong>Settings &rarr; Display</strong>: set font size to Large and brightness to 80%.</li>
+            <li>☐ Have client test the touch responsiveness using their normal finger touch.</li>
+          </ul>
+
+          <div class="callout warning">
+            <h4>Critical Watch-Out: No Hardware Sandbox Mode</h4>
+            <p>
+              <strong>Important technical constraint:</strong> Square Register hardware does not offer an offline sandbox or mock demonstration mode. All transactions conducted on the hardware are live transactions. Clearly communicate this to the client so they understand why we perform a real £1.00 card payment and immediate refund.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h3>6. Phase 3 &mdash; Core Checkout Training</h3>
+          <h4>Teaching Sequence</h4>
+          <ol>
+            <li><strong>Keypad Familiarisation:</strong> Show keypad grid, decimal placement, and preset item tiles.</li>
+            <li><strong>Custom Amounts:</strong> Demonstrate typing £5.00 manually vs tapping a programmed item button.</li>
+            <li><strong>Customer Screen Visibility:</strong> Walk around the counter to show client what customers see.</li>
+            <li><strong>Payment Methods:</strong> Explain Near Field Communication (NFC) contactless tap, Chip and Personal Identification Number (PIN) insertion, and magnetic stripe swipe.</li>
+            <li><strong>Cash Handling:</strong> Demonstrate entering tender, reading change calculation, and closing drawer.</li>
+            <li><strong>Receipt Delivery:</strong> Explain printed thermal receipts vs SMS/email digital receipts.</li>
+          </ol>
+
+          <h4>Practice Plan (Minimum 3 Live Exercises)</h4>
+          <ul>
+            <li><strong>Transaction 1 (Card &amp; Refund):</strong> Ring up a live £1.00 test sale. Trainer taps debit card. Confirm payment chime and green tick. Immediately navigate to <em>Transactions &rarr; Issue Refund &rarr; £1.00</em>, tapping the trainer's card to return funds.</li>
+            <li><strong>Transaction 2 (Cash Sale):</strong> Ring up a £4.20 item. Tender £10.00 cash. Observe the screen display £5.80 change due. Physically count out mock change and close cash drawer.</li>
+            <li><strong>Transaction 3 (Split / Custom):</strong> Ring up two items, add custom note, print thermal paper receipt, and hand receipt to client to inspect print clarity.</li>
+          </ul>
+
+          <h4>Watch-Outs</h4>
+          <ul>
+            <li>Clients often rush when handling the payment card. Encourage pausing to let the customer follow prompts.</li>
+            <li>Ensure the refund receipt is printed or viewed so the client sees the transaction has returned to zero.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>7. Phase 4 &mdash; Daily Management &amp; Troubleshooting</h3>
+          <h4>Teach List</h4>
+          <ul class="check-list">
+            <li>☐ How to access end-of-day sales reports (<strong>Reports &rarr; Sales</strong>) and print daily summary.</li>
+            <li>☐ How to manually open the cash drawer for float adjustments or emergency key opening.</li>
+            <li>☐ How to load thermal receipt paper (demonstrate correct curl direction: paper feeds from underneath).</li>
+            <li>☐ How to safely restart the till if the screen ever freezes (hold power button 10 seconds).</li>
+            <li>☐ How to verify network connectivity status via the top status bar icons.</li>
+          </ul>
+
+          <h4>Cheat Sheet Handover</h4>
+          <p>
+            Present the laminated, large-print countertop Cheat Sheet. Affix it directly beside the till screen using non-marking adhesive so it remains visible at all times during trading hours.
+          </p>
+        </section>
+
+        <section>
+          <h3>8. Phase 5 &mdash; Close &amp; Follow-Up</h3>
+          <h4>Summary</h4>
+          <p>
+            Reiterate client success. Review the three core rules: take your time, watch the green tick on screen, and pick up the phone if in doubt.
+          </p>
+
+          <h4>Follow-Up Call</h4>
+          <p>
+            Agree on a scheduled check-in call for the morning following the client's first live trading day ([Date]).
+          </p>
+
+          <h4>Honest Remote-Support Explanation</h4>
+          <p>
+            Explain clearly to the client that while Neville cannot take remote control of the physical till screen (due to hardware security architecture), Neville can access the Square online web Dashboard to edit item pricing, inspect transaction logs, and patiently guide the client step-by-step over the telephone or via video call.
+          </p>
+
+          <h4>Invoicing</h4>
+          <p>
+            Present the written session invoice or confirm electronic dispatch per agreed pricing schedule.
+          </p>
+        </section>
+
+        <section>
+          <h3>9. Known Limitations to State Clearly</h3>
+          <p>
+            Review these six documented operational constraints with the client to establish accurate expectations:
+          </p>
+          <ol>
+            <li><strong>No Remote Control:</strong> Square Register hardware does not support remote desktop takeover or screen-sharing software. Remote support is delivered via phone consultation and web Dashboard adjustments.</li>
+            <li><strong>No Sandbox on Hardware:</strong> The physical device runs solely in live production mode; practice transactions must be refunded live.</li>
+            <li><strong>No Captive-Portal Wi-Fi:</strong> The till cannot connect to public or commercial Wi-Fi requiring a web browser sign-in or splash page agreement. Private WPA2/WPA3 password networks or Ethernet are mandatory.</li>
+            <li><strong>Region-Locked Hardware:</strong> Square hardware purchased in the United Kingdom is permanently locked to United Kingdom merchant accounts and Great British Pounds (GBP) settlement.</li>
+            <li><strong>Dedicated Appliance Firmware:</strong> The device operates locked Point of Sale (POS) software; secondary third-party Android apps or web browsers cannot be installed.</li>
+            <li><strong>Bank Verification Delay:</strong> Initial settlement payouts to the client's linked bank account require 1 to 3 business days for bank verification before regular automated deposits commence.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>10. Post-Visit Checklist</h3>
+          <ul class="check-list">
+            <li>☐ Live test card transaction (£1.00) and immediate refund verified on Square online Dashboard.</li>
+            <li>☐ Client contact details, emergency support number [Phone], and email [Email] recorded.</li>
+            <li>☐ Client observed executing a complete independent transaction without prompt.</li>
+            <li>☐ Laminated A4 Cheat Sheet installed in agreed location beside the till.</li>
+            <li>☐ Follow-up telephone review booked in calendar for [Date].</li>
+            <li>☐ Session completed, invoice delivered, and travel log finalised.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>11. Pricing Reference (Internal)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Service Element</th>
+                <th>Standard Rate</th>
+                <th>Details &amp; Billing Rules</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>On-Site Training &amp; Setup</strong></td>
+                <td>£50 per hour</td>
+                <td>Standard on-site rate. Minimum 2-hour call-out booking.</td>
+              </tr>
+              <tr>
+                <td><strong>Travel Allowance</strong></td>
+                <td>£[X] flat fee</td>
+                <td>Flat rate round trip across Greater London (suggested range: £30 to £50).</td>
+              </tr>
+              <tr>
+                <td><strong>Typical Session Package</strong></td>
+                <td>~£190 estimate</td>
+                <td>Comprising 2.5 to 3 hours comprehensive on-site delivery plus agreed travel fee.</td>
+              </tr>
+              <tr>
+                <td><strong>Billing Terms</strong></td>
+                <td>7 days net</td>
+                <td>Electronic bank transfer or on-site card payment; invoice issued upon completion.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </article>
+
+
+      <!-- ===================================================================
+           DOCUMENT 2: CLIENT HANDBOOK (For the Client)
+           =================================================================== -->
+      <article id="handbook" class="doc-article">
+        <div class="article-header">
+          <span class="article-badge badge-client">Client Reference Handbook</span>
+          <h2>Your Square Till Handbook</h2>
+          <p class="article-lead">
+            A plain-English, step-by-step guide to using your new till with total confidence.
+          </p>
+        </div>
+
+        <section>
+          <h3>A Note Before We Start</h3>
+          <p>
+            Welcome to your new Square till! First of all, please take a deep breath and relax. Technology can sometimes feel a little overwhelming when it is brand new, but this machine was chosen especially because it is designed to be friendly, clear, and very simple to use.
+          </p>
+          <p>
+            The most important thing to know is: <strong>you cannot break this till</strong>. There is no button you can press by accident that will ruin anything or lose your money. Every sale can be cancelled, any mistake can be corrected, and every transaction can be refunded in seconds.
+          </p>
+          <p>
+            We have also provided a large-print <strong>Cheat Sheet</strong> to keep right beside your counter for quick daily reminders. Keep this handbook in a drawer near the till, and remember that I am always here to support you whenever you have a question.
+          </p>
+        </section>
+
+        <!-- Table of Contents -->
+        <div class="toc-box">
+          <h3>Handbook Contents</h3>
+          <ul class="toc-list">
+            <li><a href="#hb-what-it-does">1. What Your Till Does</a></li>
+            <li><a href="#hb-parts">2. The Parts of Your Till</a></li>
+            <li><a href="#hb-power">3. Turning It On &amp; Internet</a></li>
+            <li><a href="#hb-card-payment">4. Taking a Payment &mdash; Step by Step</a></li>
+            <li><a href="#hb-cash-payment">5. Taking a Cash Payment</a></li>
+            <li><a href="#hb-refund">6. Giving a Refund</a></li>
+            <li><a href="#hb-sales">7. Seeing How Much You've Sold</a></li>
+            <li><a href="#hb-readability">8. Making the Screen Easier to Read</a></li>
+            <li><a href="#hb-trouble">9. When Something Goes Wrong</a></li>
+            <li><a href="#hb-remote">10. What I Can Help With Remotely</a></li>
+            <li><a href="#hb-care">11. Looking After Your Till</a></li>
+            <li><a href="#hb-contacts">12. Useful Contacts</a></li>
+            <li><a href="#hb-glossary">13. Glossary of Terms</a></li>
+            <li><a href="#hb-final">14. A Final Word</a></li>
+          </ul>
+        </div>
+
+        <section id="hb-what-it-does">
+          <h3>1. What Your Till Does</h3>
+          <p>
+            Your Square Register is a modern Point of Sale (POS) system. In plain English, that means it is a computerised till designed to handle all your daily sales cleanly and reliably:
+          </p>
+          <ul>
+            <li>It adds up your customer's purchases so you never have to do mental arithmetic under pressure.</li>
+            <li>It accepts card payments (contactless tap, chip and PIN, Apple Pay, and Google Pay).</li>
+            <li>It records cash payments and works out the exact change to hand back to the customer.</li>
+            <li>It prints tidy paper receipts or sends receipts by text message or email.</li>
+            <li>It automatically totals up all your daily takings, saving you hours of paperwork at the end of each trading day.</li>
+          </ul>
+        </section>
+
+        <section id="hb-parts">
+          <h3>2. The Parts of Your Till</h3>
+          <p>
+            Your till consists of a few simple, high-quality components:
+          </p>
+          <ul>
+            <li><strong>The Main Screen (facing you):</strong> This is your control centre. You touch the screen to type amounts, select items, and see what the customer owes.</li>
+            <li><strong>The Customer Screen (facing the buyer):</strong> This smaller screen shows the customer the total bill and guides them through tapping or inserting their card.</li>
+            <li><strong>The Card Reader Slot &amp; Tap Zone:</strong> Built straight into the customer screen. The top edge is for tapping contactless cards or phones; the bottom slot is for inserting chip cards.</li>
+            <li><strong>The Receipt Printer:</strong> A compact box loaded with thermal paper that prints receipts without messy ink cartridges.</li>
+            <li><strong>The Cash Drawer:</strong> Connected directly to the till. It clicks open automatically whenever you complete a cash sale.</li>
+            <li><strong>The Power Cables:</strong> Plugs neatly into your mains wall socket to keep the till powered and ready throughout the day.</li>
+          </ul>
+        </section>
+
+        <section id="hb-power">
+          <h3>3. Turning It On and Connecting to the Internet</h3>
+          <h4>Turning On the Till</h4>
+          <ol>
+            <li>Ensure the mains power plug at the wall is switched on.</li>
+            <li>Locate the discreet power button on the back or edge of the main screen.</li>
+            <li>Press and hold the power button for 2 seconds until the screen lights up with the Square logo.</li>
+            <li>Wait approximately 30 seconds while the system loads your checkout screen.</li>
+          </ol>
+
+          <h4>Checking the Internet Connection</h4>
+          <p>
+            Look at the very top right-hand corner of your screen:
+          </p>
+          <ul>
+            <li>A white <strong>Wi-Fi fan symbol</strong> (curved bars) or an <strong>Ethernet symbol</strong> means your till is connected to the internet and ready to trade.</li>
+            <li>If you see a grey symbol or an exclamation mark, the till is temporarily disconnected. Check your shop broadband router or see Section 9 for simple fixes.</li>
+          </ul>
+        </section>
+
+        <section id="hb-card-payment">
+          <h3>4. Taking a Payment &mdash; Step by Step</h3>
+          <p>
+            Taking a card payment takes just a few calm seconds. Follow these steps:
+          </p>
+          <ol>
+            <li><strong>Enter the amount:</strong> Type the price using the keypad (for example, type <code>1 5 0 0</code> for £15.00) or tap the item tile on your screen.</li>
+            <li><strong>Check your screen:</strong> Glance at the top right of your screen to confirm the total matches what you intend to charge.</li>
+            <li><strong>Tap the blue Charge button:</strong> Tap the big blue button that says <strong>Charge £[Amount]</strong>.</li>
+            <li><strong>Customer pays:</strong> The customer screen will light up with the amount. The customer can pay in one of three easy ways:
+              <ul>
+                <li><strong>Tap (Contactless):</strong> They hold their card, smartphone, or smartwatch against the top edge of the customer screen.</li>
+                <li><strong>Insert (Chip and PIN):</strong> They push their card into the bottom slot with the gold chip facing up, then type their secret 4-digit Personal Identification Number (PIN) on the customer screen.</li>
+                <li><strong>Swipe:</strong> For older or international cards without a chip, they slide the magnetic stripe through the side slot.</li>
+              </ul>
+            </li>
+            <li><strong>Listen for the chime:</strong> When the payment is accepted, you will hear a cheerful chime and see a big <strong>green tick</strong> on your screen. That means the money is safely in the bank!</li>
+            <li><strong>Receipt:</strong> Ask the customer: <em>"Would you like a receipt?"</em> If they say yes, tap <strong>Print Receipt</strong>. If they say no, tap <strong>No Receipt</strong>.</li>
+            <li><strong>Ready for next:</strong> Tap <strong>New Sale</strong> to clear the screen for your next customer.</li>
+          </ol>
+        </section>
+
+        <section id="hb-cash-payment">
+          <h3>5. Taking a Cash Payment</h3>
+          <p>
+            The till handles all the change arithmetic so you never need to calculate figures in your head:
+          </p>
+          <ol>
+            <li>Type the amount or choose the item on your keypad as normal.</li>
+            <li>Tap the blue <strong>Charge £[Amount]</strong> button.</li>
+            <li>On the payment screen, tap the <strong>Cash</strong> button.</li>
+            <li>Tap the note button the customer handed you (such as £10 or £20), or type the exact amount of cash given.</li>
+            <li>The screen will instantly display in big bold numbers the <strong>Change Due</strong>, and your cash drawer will click open.</li>
+            <li>Count out the change, hand it to the customer, push the cash drawer firmly shut until it clicks, and tap <strong>Done</strong>.</li>
+          </ol>
+        </section>
+
+        <section id="hb-refund">
+          <h3>6. Giving a Refund</h3>
+          <p>
+            If a customer returns an item or an error was entered, giving a refund is straightforward:
+          </p>
+          <ol>
+            <li>Tap the menu button or tap <strong>Transactions</strong> (the little clock icon at the bottom of the screen).</li>
+            <li>Find the sale from the list (you can identify it by the time or the amount) and tap it.</li>
+            <li>Tap the button that says <strong>Issue Refund</strong>.</li>
+            <li>Select the items or type the refund amount, then tap <strong>Next</strong>.</li>
+            <li>Select the reason (such as "Returned Goods" or "Incorrect Amount"), then tap <strong>Refund</strong>.</li>
+            <li>The customer screen will invite the customer to tap or insert the card they used to buy the item. The money is automatically returned to their account.</li>
+          </ol>
+
+          <div class="callout warning">
+            <h4>Golden Refund Rule</h4>
+            <p>
+              <strong>If you are ever unsure, stop and call me first on [Phone].</strong> We can easily complete the refund together over the phone while you are at the till.
+            </p>
+          </div>
+        </section>
+
+        <section id="hb-sales">
+          <h3>7. Seeing How Much You've Sold</h3>
+          <h4>On Your Till Screen</h4>
+          <p>
+            At any time of the day or at closing time:
+          </p>
+          <ol>
+            <li>Tap the menu lines at the top of your screen and select <strong>Reports</strong>.</li>
+            <li>Tap <strong>Sales</strong>.</li>
+            <li>You will see your total takings for today, broken down cleanly into card payments and cash.</li>
+            <li>You can tap <strong>Print</strong> to print a tidy paper summary slip for your banking records.</li>
+          </ol>
+
+          <h4>On Your Home Computer</h4>
+          <p>
+            You can also view all your sales from the comfort of your home computer:
+          </p>
+          <ol>
+            <li>Open your computer's internet browser (such as Google Chrome, Safari, or Microsoft Edge).</li>
+            <li>Visit the website <strong>squareup.com/dashboard</strong>.</li>
+            <li>Type your email address and password to log in.</li>
+            <li>Here you can see weekly reports, monthly totals, and print out financial summaries in large print.</li>
+          </ol>
+        </section>
+
+        <section id="hb-readability">
+          <h3>8. Making the Screen Easier to Read</h3>
+          <p>
+            Your till has built-in features to make text and numbers clear and easy on the eyes:
+          </p>
+
+          <h4>The Triple-Tap Magnifier</h4>
+          <p>
+            If any number or text looks small, simply <strong>tap the screen 3 times quickly</strong> with one finger. The screen will instantly zoom in large. You can drag two fingers across the glass to slide around. When you are finished, tap 3 times quickly again to return to normal size.
+          </p>
+
+          <h4>Screen Brightness &amp; Text Size</h4>
+          <p>
+            Tap menu &rarr; <strong>Settings</strong> &rarr; <strong>Display</strong>. Here you can slide the brightness slider up or down to suit the lighting in your shop, and ensure text scaling is set to Large.
+          </p>
+        </section>
+
+        <section id="hb-trouble">
+          <h3>9. When Something Goes Wrong</h3>
+          <p>
+            If something unexpected happens, remain calm. Follow these simple numbered fixes:
+          </p>
+
+          <h4>1. Internet Dropped Out</h4>
+          <ol>
+            <li>Do not worry. Your till has an automatic <strong>Offline Mode</strong> that lets you continue taking card payments even if broadband is temporarily disconnected.</li>
+            <li>Look at your shop internet router on the wall to check that the power light is green.</li>
+            <li>Switch the router off at the wall socket, count slowly to 30, and switch it back on.</li>
+            <li>Once the broadband reconnects, the till will automatically process any queued payments.</li>
+          </ol>
+
+          <h4>2. The Screen Is Frozen</h4>
+          <ol>
+            <li>Sales data is saved safely in the cloud, so you will not lose anything.</li>
+            <li>Press and hold the power button on the back of the screen firmly for <strong>10 full seconds</strong> until the screen turns completely black.</li>
+            <li>Wait 5 seconds, then press the power button once to turn it back on. The till will reboot cleanly.</li>
+          </ol>
+
+          <h4>3. A Customer's Card Won't Go Through</h4>
+          <ol>
+            <li>Ask the customer to gently wipe the gold chip on their sleeve and insert it once more.</li>
+            <li>Suggest they try tapping the card contactlessly, or using Apple Pay / Google Pay on their phone.</li>
+            <li>If the card still declines, the customer's bank has declined the transaction. Politely say: <em>"The machine says this card was declined by your bank. Would you like to try another card or cash?"</em></li>
+          </ol>
+
+          <h4>4. The Receipt Printer Won't Print</h4>
+          <ol>
+            <li>Check if the paper has run out (a pink stripe along the paper means the roll is nearly empty).</li>
+            <li>Open the printer latch.</li>
+            <li>Ensure the paper feeds from <strong>underneath</strong> the roll (not over the top). Thermal paper only prints on one side!</li>
+            <li>Pull 2 inches of paper out past the cutter and push the lid down firmly until it clicks.</li>
+          </ol>
+
+          <h4>5. Something Else Unfamiliar</h4>
+          <ol>
+            <li>Pick up your mobile phone and take a clear photograph of what is showing on the screen.</li>
+            <li>Note down the approximate time.</li>
+            <li>Ring me directly on <strong>[Phone]</strong>. A photo lets me see exactly what you are seeing!</li>
+          </ol>
+        </section>
+
+        <section id="hb-remote">
+          <h3>10. What I Can Help With Remotely &mdash; and What I Can't</h3>
+          <p>
+            I believe in complete honesty so you know exactly how support works:
+          </p>
+
+          <h4>What I Cannot Do Remotely</h4>
+          <p>
+            Because of strict UK banking and security laws, Square does not allow anyone to take remote control of the physical till screen from another computer. I cannot move your screen cursor or view your live screen while you are standing at the counter.
+          </p>
+
+          <h4>What I Can Do Remotely</h4>
+          <ul>
+            <li>I can sign into your Square web Dashboard from my computer to update your product list, adjust prices, and configure tax settings.</li>
+            <li>I can look at your transaction history and explain any payment queries.</li>
+            <li>I can guide you step-by-step over the telephone, or via a quick WhatsApp video call where you point your phone at the till and I talk you through it!</li>
+          </ul>
+        </section>
+
+        <section id="hb-care">
+          <h3>11. Looking After Your Till</h3>
+          <ul>
+            <li><strong>Keep drinks away:</strong> Keep tea, coffee, and water bottles away from the counter and screens.</li>
+            <li><strong>Cleaning the glass:</strong> Wipe the screens with a clean, dry microfibre cloth (like the cloth used for spectacles). Never spray water or cleaning chemicals directly onto the till.</li>
+            <li><strong>Cables:</strong> Ensure the power leads stay untangled and are never trapped beneath heavy boxes.</li>
+          </ul>
+        </section>
+
+        <section id="hb-contacts">
+          <h3>12. Useful Contacts</h3>
+          <p>
+            Keep these emergency numbers handy by your counter:
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Contact</th>
+                <th>Telephone &amp; Details</th>
+                <th>When to Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Neville [Your Name]</strong><br>(Your Dedicated IT Specialist)</td>
+                <td>
+                  Phone: <strong>[Phone]</strong><br>
+                  Email: <strong>[Email]</strong>
+                </td>
+                <td>Available 7 days a week for any questions, training refreshers, or till issues.</td>
+              </tr>
+              <tr>
+                <td><strong>Square Customer Support</strong></td>
+                <td>
+                  Official Help: <strong>[Square support details]</strong><br>
+                  Web: squareup.com/help/gb/en
+                </td>
+                <td>Hardware warranty replacements or official merchant account queries.</td>
+              </tr>
+              <tr>
+                <td><strong>Your Business Bank</strong></td>
+                <td>
+                  Telephone: <strong>[Bank details]</strong><br>
+                  Branch: Local branch
+                </td>
+                <td>Enquiries regarding your bank account, settlement deposits, and bank statements.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="hb-glossary">
+          <h3>13. Glossary of Terms</h3>
+          <ul>
+            <li><strong>Point of Sale (POS):</strong> The modern name for a computerised shop till.</li>
+            <li><strong>Contactless (Tap):</strong> Paying by touching a card, phone, or smartwatch near the screen without entering a PIN.</li>
+            <li><strong>Chip and PIN:</strong> Paying by slotting a card into the reader and typing a 4-digit secret number.</li>
+            <li><strong>Receipt:</strong> A paper slip or digital message showing proof of purchase.</li>
+            <li><strong>Refund:</strong> Returning money directly to a customer's card when an item is returned.</li>
+            <li><strong>Square Dashboard:</strong> The website you can open on your home computer to view sales totals.</li>
+            <li><strong>Offline Mode:</strong> A safety feature that lets the till store card payments even if broadband briefly fails.</li>
+          </ul>
+        </section>
+
+        <section id="hb-final">
+          <h3>14. A Final Word</h3>
+          <p>
+            Dear [Client Name],
+          </p>
+          <p>
+            You are now fully equipped to run your till with pride and confidence. Like driving a car or learning a new recipe, it may feel a little unfamiliar on the very first morning, but within a few days it will be completely automatic.
+          </p>
+          <p>
+            Take your time with every customer. Customers are always happy to wait a moment while you ring up their sale. And remember: <strong>no question is ever too small</strong>. If you ever feel stuck, pick up the phone and ring me on <strong>[Phone]</strong>. I am always happy to help you.
+          </p>
+          <p style="margin-top: 24px;">
+            Warmest regards,<br>
+            <strong>Neville [Your Name]</strong><br>
+            IToldYouSo Computing
+          </p>
+        </section>
+      </article>
+
+
+      <!-- ===================================================================
+           DOCUMENT 3: CHEAT SHEET (Large Print, One Page A4)
+           =================================================================== -->
+      <article id="cheatsheet" class="doc-article">
+        <div class="cheatsheet-banner">
+          <h2>YOUR SQUARE TILL &mdash; QUICK CHEAT SHEET</h2>
+          <p>Keep this by the till &bull; My number: [Phone]</p>
+        </div>
+
+        <div class="cheatsheet-grid">
+          <!-- Column 1 -->
+          <div class="cheatsheet-col">
+            <div class="cheatsheet-card" style="margin-bottom: 16px;">
+              <h3>1. Take a Payment</h3>
+              <ol>
+                <li>Enter amount or tap item tile.</li>
+                <li>Tap blue <strong>Charge</strong> button.</li>
+                <li>Customer taps, inserts, or phones card.</li>
+                <li>Wait for green tick and chime.</li>
+                <li>Ask if customer wants receipt.</li>
+                <li>Tap <strong>New Sale</strong> for next customer.</li>
+              </ol>
+            </div>
+
+            <div class="cheatsheet-card" style="margin-bottom: 16px;">
+              <h3>2. Take Cash</h3>
+              <ol>
+                <li>Enter amount or tap item tile.</li>
+                <li>Tap blue <strong>Charge</strong> button.</li>
+                <li>Tap <strong>Cash</strong> and select amount handed.</li>
+                <li>Till shows change due &mdash; drawer opens.</li>
+                <li>Give change and tap <strong>Done</strong>.</li>
+              </ol>
+            </div>
+
+            <div class="cheatsheet-card">
+              <h3>3. Give a Refund</h3>
+              <ol>
+                <li>Tap <strong>Transactions</strong> (clock icon).</li>
+                <li>Tap the sale to refund.</li>
+                <li>Tap <strong>Issue Refund</strong>.</li>
+                <li>Select item or amount &rarr; tap <strong>Refund</strong>.</li>
+                <li>Customer taps or inserts original card.</li>
+              </ol>
+              <div class="cheatsheet-warning-box">
+                Not sure? STOP and call me first.
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="cheatsheet-col">
+            <div class="cheatsheet-card" style="margin-bottom: 16px;">
+              <h3>4. See Your Sales</h3>
+              <ul>
+                <li><strong>On till:</strong> Tap <strong>Reports &rarr; Sales</strong> for today's total.</li>
+                <li><strong>On computer:</strong> Visit <strong>squareup.com/dashboard</strong> to view history.</li>
+              </ul>
+            </div>
+
+            <div class="cheatsheet-card" style="margin-bottom: 16px;">
+              <h3>5. Make the Screen Bigger</h3>
+              <ul>
+                <li>Tap screen <strong>3 times quickly</strong> to zoom in.</li>
+                <li>Drag with 2 fingers to move around.</li>
+                <li>Tap <strong>3 times quickly</strong> to return to normal.</li>
+              </ul>
+            </div>
+
+            <div class="cheatsheet-card" style="margin-bottom: 16px;">
+              <h3>6. If Something Goes Wrong</h3>
+              <ul>
+                <li><strong>Internet down:</strong> Keep ringing sales; transactions process once back online.</li>
+                <li><strong>Screen frozen:</strong> Hold power button for 10 seconds until screen restarts.</li>
+                <li><strong>Card won't work:</strong> Ask customer for another card or cash.</li>
+                <li><strong>Anything else:</strong> Take a photo of the screen and call me immediately.</li>
+              </ul>
+            </div>
+
+            <div class="cheatsheet-card">
+              <h3>7. Remember</h3>
+              <ul>
+                <li>I cannot see your till screen remotely, but I can guide you by phone.</li>
+                <li>Your sales and money are always safe and recorded.</li>
+                <li>No question is too small &mdash; ring me anytime!</li>
+              </ul>
+              <div class="cheatsheet-phone-box">
+                My number: [Phone]
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- Master Footer -->
+    <footer class="site-footer">
+      <p>Square Register Setup &amp; Training Documentation &bull; Version 1.0 &bull; [Date]</p>
+      <p>Prepared for [Client Name] by [Your Name] &bull; IToldYouSo Computing &bull; Tel: [Phone] &bull; Email: [Email]</p>
+      <p>&copy; 2026 IToldYouSo Computing (itoldyouso.tech). All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <!-- =======================================================================
+       3. Password Authentication Script (Offline Capable, Zero Dependencies)
+       ======================================================================= -->
+  <script>
+    (function() {
+      // Configuration constants
+      const AUTH_STORAGE_KEY = 'itoldyouso_george_auth_state';
+      const VALID_PASSWORD = 'kingston';
+
+      const authGate = document.getElementById('auth-gate');
+      const docContent = document.getElementById('document-content');
+      const passwordInput = document.getElementById('password-input');
+      const authError = document.getElementById('auth-error');
+
+      // Function to reveal the unlocked documentation
+      function revealDocumentation() {
+        if (authGate) authGate.style.display = 'none';
+        if (docContent) docContent.style.display = 'block';
+      }
+
+      // Check URL query parameters (?pwd=kingston)
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryPwd = urlParams.get('pwd');
+      if (queryPwd && queryPwd.trim().toLowerCase() === VALID_PASSWORD) {
+        sessionStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
+      }
+
+      // Check if previously unlocked during this browsing session
+      if (sessionStorage.getItem(AUTH_STORAGE_KEY) === 'unlocked') {
+        revealDocumentation();
+      }
+
+      // Password form submission handler
+      window.handleAuth = function(event) {
+        event.preventDefault();
+        const enteredPassword = passwordInput.value.trim().toLowerCase();
+
+        if (enteredPassword === VALID_PASSWORD) {
+          sessionStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
+          if (authError) authError.style.display = 'none';
+          revealDocumentation();
+        } else {
+          if (authError) {
+            authError.style.display = 'block';
+          }
+          passwordInput.focus();
+          passwordInput.select();
+        }
+      };
+    })();
+  </script>
+</body>
+</html>
