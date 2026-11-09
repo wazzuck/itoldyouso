@@ -323,9 +323,11 @@
       margin-bottom: 8px;
     }
 
-    .badge-internal {
-      background-color: #fee2e2;
-      color: #991b1b;
+    .badge-internal,
+    .badge-spec {
+      background-color: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
     }
 
     .badge-client {
@@ -511,6 +513,99 @@
 
     .toc-list a:hover {
       text-decoration: underline;
+    }
+
+    /* Pricing Tiers & Value Justification */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 24px 0 32px 0;
+    }
+
+    .pricing-tier-card {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pricing-tier-card.featured {
+      border-color: #0f766e;
+      background: #f0fdfa;
+    }
+
+    .pricing-tier-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      align-self: flex-start;
+      background: #ccfbf1;
+      color: #0f766e;
+    }
+
+    .pricing-tier-card h4 {
+      font-size: 1.3rem;
+      color: #111827;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .pricing-tier-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0f766e;
+      margin-bottom: 4px;
+    }
+
+    .pricing-tier-price span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .pricing-tier-subtitle {
+      font-size: 0.92rem;
+      color: #4b5563;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .pricing-tier-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    .pricing-tier-card li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.95rem;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .pricing-tier-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #0f766e;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* -------------------------------------------------------------------------
@@ -787,7 +882,9 @@
        ======================================================================= -->
   <div id="auth-gate">
     <div class="auth-card">
-      <span class="auth-badge">Client Portal</span>
+      <span class="auth-badge">Client Proposal &amp; Technical Portal</span>
+      <h1>Welcome, George</h1>
+      <p>Square Register Setup Specification, Commercial Pricing &amp; Reference Handbook</p>
 
       <form class="auth-form" id="password-form" onsubmit="handleAuth(event)">
         <div class="auth-input-group">
@@ -802,10 +899,10 @@
             autofocus
           >
           <div id="auth-error" class="auth-error" role="alert">
-            Incorrect password. Please try again or call Neville on [Phone].
+            Incorrect password. Please try again or call Neville on <a href="tel:02045209114" style="color: inherit; text-decoration: underline;">020 4520 9114</a>.
           </div>
         </div>
-        <button type="submit" class="auth-btn">Login</button>
+        <button type="submit" class="auth-btn">View Proposal &amp; Documents</button>
       </form>
     </div>
   </div>
@@ -834,9 +931,9 @@
 
       <div class="header-meta">
         <div class="meta-item">Service: <strong>Square Register Setup &amp; Training</strong></div>
-        <div class="meta-item">Client Name: <strong>[Client Name]</strong></div>
-        <div class="meta-item">Trainer: <strong>[Your Name]</strong></div>
-        <div class="meta-item">Session Date: <strong>[Date]</strong></div>
+        <div class="meta-item">Client Name: <strong>George</strong></div>
+        <div class="meta-item">Engineer &amp; Trainer: <strong>Neville Bryce</strong></div>
+        <div class="meta-item">Date: <strong>November 2026</strong></div>
       </div>
     </header>
 
@@ -844,9 +941,10 @@
     <nav class="doc-nav no-print" aria-label="Document Navigation">
       <div class="nav-container">
         <ul class="nav-links">
-          <li><a href="#trainer">1. Trainer's Guide</a></li>
+          <li><a href="#trainer">1. Service Specification</a></li>
           <li><a href="#handbook">2. Client Handbook</a></li>
-          <li><a href="#cheatsheet">3. Cheat Sheet</a></li>
+          <li><a href="#hb-pricing">3. Pricing &amp; Value</a></li>
+          <li><a href="#cheatsheet">4. Cheat Sheet</a></li>
         </ul>
         <button type="button" class="print-button" style="padding: 6px 14px; font-size: 0.9rem;" onclick="window.print()">
           Print / Save as PDF
@@ -858,23 +956,25 @@
     <main class="doc-main">
 
       <!-- ===================================================================
-           DOCUMENT 1: TRAINER'S GUIDE (Internal)
+           DOCUMENT 1: SERVICE SPECIFICATION & QUALITY PLAN
            =================================================================== -->
       <article id="trainer" class="doc-article">
         <div class="article-header">
-          <span class="article-badge badge-internal">Internal Training Script &amp; Checklist</span>
-          <h2>Trainer's Guide &mdash; Square Register Delivery</h2>
+          <span class="article-badge badge-spec">Service Specification &amp; Quality Plan</span>
+          <h2>Service Specification &amp; Quality Plan &mdash; Square Register Delivery</h2>
           <p class="article-lead">
-            Authoritative delivery script, technical verification checklist, and session plan for the Point of Sale (POS) setup and client training service.
+            Authoritative delivery specification, technical verification checklist, and session plan for the Point of Sale (POS) setup and client training service.
           </p>
         </div>
 
         <section>
-          <h3>1. Document Identification &amp; Purpose</h3>
+          <h3>1. Service Identification &amp; Purpose</h3>
           <p>
             <strong>Document Version:</strong> 1.0<br>
-            <strong>Purpose:</strong> Internal procedural guide and step-by-step checklist for the trainer ([Your Name]) delivering on-site hardware installation, network configuration, and empathetic Point of Sale (POS) instruction for an elderly client (early 60s).<br>
-            <strong>Date:</strong> [Date]
+            <strong>Service Title:</strong> On-Site Hardware Installation, Network Configuration, and Guided Point of Sale (POS) Training.<br>
+            <strong>Prepared For:</strong> George<br>
+            <strong>Technical Lead &amp; Trainer:</strong> Neville Bryce (Senior Software Engineer)<br>
+            <strong>Date:</strong> November 2026
           </p>
         </section>
 
@@ -912,7 +1012,7 @@
           <h4>Logistics</h4>
           <ul class="check-list">
             <li>☐ Route planned across London; travel time buffered for 30 minutes contingency.</li>
-            <li>☐ Client primary telephone contact saved in phone: [Phone].</li>
+            <li>☐ Client primary telephone contact saved in phone: George.</li>
             <li>☐ Laminated A4 Cheat Sheet and spiral-bound Client Handbook printed and packed.</li>
             <li>☐ Personal debit card packed for live £1.00 test transaction and immediate refund verification.</li>
           </ul>
@@ -968,9 +1068,9 @@
 
         <section>
           <h3>4. Phase 1 &mdash; Welcome &amp; Hardware Setup</h3>
-          <h4>Script Talking Points</h4>
+          <h4>Key Onboarding &amp; Reassurance Principles</h4>
           <p>
-            <em>"Good morning [Client Name]. It is wonderful to meet you. Today is all about getting your new till in place and making sure you feel completely relaxed, confident, and in control. We are not in any rush whatsoever. There is nothing you can tap or press that can break this till. Everything we do can be cancelled or undone, and we will practice each step as many times as you like until it feels completely second nature."</em>
+            <em>"Good morning George. It is wonderful to meet you. Today is all about getting your new till in place and making sure you feel completely relaxed, confident, and in control. We are not in any rush whatsoever. There is nothing you can tap or press that can break this till. Everything we do can be cancelled or undone, and we will practice each step as many times as you like until it feels completely second nature."</em>
           </p>
 
           <h4>Checkbox Actions</h4>
@@ -1029,7 +1129,7 @@
 
           <h4>Practice Plan (Minimum 3 Live Exercises)</h4>
           <ul>
-            <li><strong>Transaction 1 (Card &amp; Refund):</strong> Ring up a live £1.00 test sale. Trainer taps debit card. Confirm payment chime and green tick. Immediately navigate to <em>Transactions &rarr; Issue Refund &rarr; £1.00</em>, tapping the trainer's card to return funds.</li>
+            <li><strong>Transaction 1 (Card &amp; Refund):</strong> Ring up a live £1.00 test sale. We tap a test debit card. Confirm payment chime and green tick. Immediately navigate to <em>Transactions &rarr; Issue Refund &rarr; £1.00</em>, tapping the card to return the test funds.</li>
             <li><strong>Transaction 2 (Cash Sale):</strong> Ring up a £4.20 item. Tender £10.00 cash. Observe the screen display £5.80 change due. Physically count out mock change and close cash drawer.</li>
             <li><strong>Transaction 3 (Split / Custom):</strong> Ring up two items, add custom note, print thermal paper receipt, and hand receipt to client to inspect print clarity.</li>
           </ul>
@@ -1067,7 +1167,7 @@
 
           <h4>Follow-Up Call</h4>
           <p>
-            Agree on a scheduled check-in call for the morning following the client's first live trading day ([Date]).
+            Agree on a scheduled check-in call for the morning following the client's first live trading day (e.g. following morning at 10:00).
           </p>
 
           <h4>Honest Remote-Support Explanation</h4>
@@ -1100,16 +1200,16 @@
           <h3>10. Post-Visit Checklist</h3>
           <ul class="check-list">
             <li>☐ Live test card transaction (£1.00) and immediate refund verified on Square online Dashboard.</li>
-            <li>☐ Client contact details, emergency support number [Phone], and email [Email] recorded.</li>
+            <li>☐ Client contact details, emergency support number (<a href="tel:02045209114">020 4520 9114</a>), and email (<a href="mailto:contactus@itoldyouso.tech">contactus@itoldyouso.tech</a>) recorded.</li>
             <li>☐ Client observed executing a complete independent transaction without prompt.</li>
             <li>☐ Laminated A4 Cheat Sheet installed in agreed location beside the till.</li>
-            <li>☐ Follow-up telephone review booked in calendar for [Date].</li>
+            <li>☐ Follow-up telephone review booked in calendar for morning following first live trade.</li>
             <li>☐ Session completed, invoice delivered, and travel log finalised.</li>
           </ul>
         </section>
 
         <section>
-          <h3>11. Pricing Reference (Internal)</h3>
+          <h3>11. Pricing &amp; Delivery Structure Reference</h3>
           <table>
             <thead>
               <tr>
@@ -1120,19 +1220,19 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>On-Site Training &amp; Setup</strong></td>
-                <td>£50 per hour</td>
-                <td>Standard on-site rate. Minimum 2-hour call-out booking.</td>
+                <td><strong>Tier 1: Compact Setup (Terminal/Stand)</strong></td>
+                <td>£165 flat fee</td>
+                <td>All-inclusive onboarding for compact units, practice drills, and London travel.</td>
               </tr>
               <tr>
-                <td><strong>Travel Allowance</strong></td>
-                <td>£[X] flat fee</td>
-                <td>Flat rate round trip across Greater London (suggested range: £30 to £50).</td>
+                <td><strong>Tier 2: Commercial Suite (Register/Drawer)</strong></td>
+                <td>£235 flat fee</td>
+                <td>Complete dual-screen installation, drawer &amp; printer setup, extended training &amp; London travel.</td>
               </tr>
               <tr>
-                <td><strong>Typical Session Package</strong></td>
-                <td>~£190 estimate</td>
-                <td>Comprising 2.5 to 3 hours comprehensive on-site delivery plus agreed travel fee.</td>
+                <td><strong>Standard Hourly / Travel Baseline</strong></td>
+                <td>£50/hr + £30–£50 travel</td>
+                <td>Hourly benchmark (£50/hr + £30–£50 travel allowance across London).</td>
               </tr>
               <tr>
                 <td><strong>Billing Terms</strong></td>
@@ -1187,7 +1287,8 @@
             <li><a href="#hb-care">11. Looking After Your Till</a></li>
             <li><a href="#hb-contacts">12. Useful Contacts</a></li>
             <li><a href="#hb-glossary">13. Glossary of Terms</a></li>
-            <li><a href="#hb-final">14. A Final Word</a></li>
+            <li><a href="#hb-pricing">14. Transparent Pricing &amp; Engineering Value</a></li>
+            <li><a href="#hb-final">15. A Final Word</a></li>
           </ul>
         </div>
 
@@ -1248,7 +1349,7 @@
           <ol>
             <li><strong>Enter the amount:</strong> Type the price using the keypad (for example, type <code>1 5 0 0</code> for £15.00) or tap the item tile on your screen.</li>
             <li><strong>Check your screen:</strong> Glance at the top right of your screen to confirm the total matches what you intend to charge.</li>
-            <li><strong>Tap the blue Charge button:</strong> Tap the big blue button that says <strong>Charge £[Amount]</strong>.</li>
+            <li><strong>Tap the blue Charge button:</strong> Tap the big blue button that says <strong>Charge £15.00</strong>.</li>
             <li><strong>Customer pays:</strong> The customer screen will light up with the amount. The customer can pay in one of three easy ways:
               <ul>
                 <li><strong>Tap (Contactless):</strong> They hold their card, smartphone, or smartwatch against the top edge of the customer screen.</li>
@@ -1269,7 +1370,7 @@
           </p>
           <ol>
             <li>Type the amount or choose the item on your keypad as normal.</li>
-            <li>Tap the blue <strong>Charge £[Amount]</strong> button.</li>
+            <li>Tap the blue <strong>Charge £15.00</strong> button.</li>
             <li>On the payment screen, tap the <strong>Cash</strong> button.</li>
             <li>Tap the note button the customer handed you (such as £10 or £20), or type the exact amount of cash given.</li>
             <li>The screen will instantly display in big bold numbers the <strong>Change Due</strong>, and your cash drawer will click open.</li>
@@ -1294,7 +1395,7 @@
           <div class="callout warning">
             <h4>Golden Refund Rule</h4>
             <p>
-              <strong>If you are ever unsure, stop and call me first on [Phone].</strong> We can easily complete the refund together over the phone while you are at the till.
+              <strong>If you are ever unsure, stop and call me first on <a href="tel:02045209114">020 4520 9114</a>.</strong> We can easily complete the refund together over the phone while you are at the till.
             </p>
           </div>
         </section>
@@ -1381,7 +1482,7 @@
           <ol>
             <li>Pick up your mobile phone and take a clear photograph of what is showing on the screen.</li>
             <li>Note down the approximate time.</li>
-            <li>Ring me directly on <strong>[Phone]</strong>. A photo lets me see exactly what you are seeing!</li>
+            <li>Ring me directly on <strong><a href="tel:02045209114">020 4520 9114</a></strong>. A photo lets me see exactly what you are seeing!</li>
           </ol>
         </section>
 
@@ -1428,17 +1529,17 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>Neville [Your Name]</strong><br>(Your Dedicated IT Specialist)</td>
+                <td><strong>Neville Bryce</strong><br>(Your Dedicated IT Specialist)</td>
                 <td>
-                  Phone: <strong>[Phone]</strong><br>
-                  Email: <strong>[Email]</strong>
+                  Phone: <strong><a href="tel:02045209114">020 4520 9114</a></strong><br>
+                  Email: <strong><a href="mailto:contactus@itoldyouso.tech">contactus@itoldyouso.tech</a></strong>
                 </td>
                 <td>Available 7 days a week for any questions, training refreshers, or till issues.</td>
               </tr>
               <tr>
                 <td><strong>Square Customer Support</strong></td>
                 <td>
-                  Official Help: <strong>[Square support details]</strong><br>
+                  Official Help: <strong>0800 047 8450</strong><br>
                   Web: squareup.com/help/gb/en
                 </td>
                 <td>Hardware warranty replacements or official merchant account queries.</td>
@@ -1446,7 +1547,7 @@
               <tr>
                 <td><strong>Your Business Bank</strong></td>
                 <td>
-                  Telephone: <strong>[Bank details]</strong><br>
+                  Telephone: <strong>Your business banking branch / telephone banking</strong><br>
                   Branch: Local branch
                 </td>
                 <td>Enquiries regarding your bank account, settlement deposits, and bank statements.</td>
@@ -1468,20 +1569,119 @@
           </ul>
         </section>
 
+        <section id="hb-pricing">
+          <h3>14. Transparent Pricing &amp; Why You Are Investing in a Software Engineer</h3>
+          <p>
+            I believe in total financial transparency with zero hidden extras or surprise invoices. Setting up a till should never feel like a taxi meter ticking away while you ask questions. That is why all my on-site onboarding packages are offered at <strong>guaranteed, all-inclusive fixed prices</strong> that fully cover travel across Greater London, hands-on hardware installation, and unhurried personal training.
+          </p>
+
+          <div class="pricing-grid">
+            <!-- Tier 1 -->
+            <div class="pricing-tier-card">
+              <span class="pricing-tier-badge">Tier 1 · Compact Systems</span>
+              <h4>Essential Onboarding &amp; Setup</h4>
+              <div class="pricing-tier-price">£165 <span>flat fee</span></div>
+              <p class="pricing-tier-subtitle">For Square Terminal, Square Stand (with iPad), or Square Reader</p>
+              <ul>
+                <li>Complete unboxing, physical placement &amp; neat cable routing</li>
+                <li>Wi-Fi network configuration &amp; bank settlement setup</li>
+                <li>Item library configuration (up to 20 key products or custom amounts)</li>
+                <li>One-on-one checkout, cash handling &amp; refund drills</li>
+                <li>Laminated countertop Quick Cheat Sheet</li>
+                <li><strong>All Greater London travel fully included</strong></li>
+                <li>Estimated duration: 1.5 to 2 hours unhurried on-site</li>
+              </ul>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="pricing-tier-card featured">
+              <span class="pricing-tier-badge">Tier 2 · Complete Till Suite</span>
+              <h4>Commercial Register Installation</h4>
+              <div class="pricing-tier-price">£235 <span>flat fee</span></div>
+              <p class="pricing-tier-subtitle">For Square Register (dual-screen), cash drawer &amp; receipt printer</p>
+              <ul>
+                <li>Dual-screen alignment (merchant screen + customer display)</li>
+                <li>Automated cash drawer pairing &amp; thermal printer setup</li>
+                <li>Display accessibility zoom &amp; network resilience checks</li>
+                <li>Full catalogue organisation, VAT settings &amp; receipt branding</li>
+                <li>Comprehensive hands-on training (card, cash, receipts &amp; refunds)</li>
+                <li>Laminated Cheat Sheet + spiral-bound Client Handbook</li>
+                <li><strong>All Greater London travel fully included</strong></li>
+                <li>Estimated duration: 2.5 to 3 hours comprehensive on-site</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4>Why Investing in a Software Engineer Gives You Superior Long-Term Value</h4>
+          <p>
+            Square couriers a cardboard box to your door and leaves independent merchants to figure out the cables, settings, and manuals on their own. It is natural to ask: <em>why hire a professional software engineer to configure a shop till?</em>
+          </p>
+          <div class="callout info">
+            <h4>The Difference Between an Equipment Courier and a Software Engineer</h4>
+            <p>
+              <strong>1. Engineered Reliability, Not Just "Plugging in Wires":</strong> Anyone can connect a cable into a wall socket, but till failures almost always happen because of local Wi-Fi channel congestion, network latency, or sync errors. As a software engineer, I configure your network and device so you never suffer an embarrassing payment freeze mid-transaction during a busy Saturday rush.
+            </p>
+            <p style="margin-top: 10px;">
+              <strong>2. Unhurried, Empathetic Training:</strong> Because our pricing is fixed-fee, you are never watching the clock. We stay until you have practiced card payments, cash change, and refunds multiple times and feel completely comfortable and in control.
+            </p>
+            <p style="margin-top: 10px;">
+              <strong>3. Tailored Countertop Materials:</strong> You receive a large-print, laminated countertop Cheat Sheet prepared specifically for your till, so you never have to search through confusing instruction manuals when serving a customer.
+            </p>
+            <p style="margin-top: 10px;">
+              <strong>4. A Trusted Long-Term Technology Partner:</strong> By working with me, you gain an experienced, local software engineer based right here in London. Whether you need help with your shop Wi-Fi dead zones, office computers, cybersecurity, accounting data exports, or a modern website down the road, you have someone you know and trust on call.
+            </p>
+          </div>
+
+          <h4>Long-Term Support &amp; Peace of Mind</h4>
+          <p>
+            Once your till is up and running, you have complete flexibility in how we stay in touch:
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 28%;">Support Programme</th>
+                <th style="width: 20%;">Investment</th>
+                <th style="width: 52%;">What Is Covered</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Priority Till Care<br>(Monthly Retainer)</strong></td>
+                <td><strong>£39</strong> / month</td>
+                <td>
+                  • Direct telephone &amp; WhatsApp access 7 days a week for immediate till or card queries.<br>
+                  • Remote web Dashboard management (updating item prices, changing menu items, or checking sales reports from home).<br>
+                  • Bi-annual on-site counter health check (inspecting cables, cleaning thermal printer heads, updating software).<br>
+                  • 25% discount on any emergency same-day call-outs.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Pay-As-You-Go<br>(Ad-Hoc Support)</strong></td>
+                <td>Standard rates</td>
+                <td>
+                  • <strong>On-Site Call-Out:</strong> £75 for the first hour (including London travel), then £45/hour thereafter.<br>
+                  • <strong>Remote Phone &amp; Web Help:</strong> £25 per 20-minute incident (first 5 minutes free for quick queries).<br>
+                  • <strong>Seasonal Menu / Catalogue Overhaul:</strong> £75 flat fee to update prices or products for Christmas/sales.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
         <section id="hb-final">
-          <h3>14. A Final Word</h3>
+          <h3>15. A Final Word</h3>
           <p>
-            Dear [Client Name],
+            Dear George,
           </p>
           <p>
-            You are now fully equipped to run your till with pride and confidence. Like driving a car or learning a new recipe, it may feel a little unfamiliar on the very first morning, but within a few days it will be completely automatic.
+            With this setup and guide in place, you will be fully equipped to run your till with pride and confidence. Like driving a car or learning a new recipe, it might feel slightly unfamiliar on the very first morning, but within a few days it becomes second nature.
           </p>
           <p>
-            Take your time with every customer. Customers are always happy to wait a moment while you ring up their sale. And remember: <strong>no question is ever too small</strong>. If you ever feel stuck, pick up the phone and ring me on <strong>[Phone]</strong>. I am always happy to help you.
+            Take your time with every customer. Customers are always happy to wait a moment while you ring up their sale. And remember: <strong>no question is ever too small</strong>. Whenever you need a hand or have a quick query, you can always pick up the phone and ring me on <strong><a href="tel:02045209114">020 4520 9114</a></strong>. I am always happy to help.
           </p>
           <p style="margin-top: 24px;">
             Warmest regards,<br>
-            <strong>Neville [Your Name]</strong><br>
+            <strong>Neville Bryce</strong><br>
             IToldYouSo Computing
           </p>
         </section>
@@ -1494,7 +1694,7 @@
       <article id="cheatsheet" class="doc-article">
         <div class="cheatsheet-banner">
           <h2>YOUR SQUARE TILL &mdash; QUICK CHEAT SHEET</h2>
-          <p>Keep this by the till &bull; My number: [Phone]</p>
+          <p>Keep this by the till &bull; My number: <a href="tel:02045209114" style="color: inherit; text-decoration: underline;">020 4520 9114</a></p>
         </div>
 
         <div class="cheatsheet-grid">
@@ -1575,7 +1775,7 @@
                 <li>No question is too small &mdash; ring me anytime!</li>
               </ul>
               <div class="cheatsheet-phone-box">
-                My number: [Phone]
+                My number: <a href="tel:02045209114" style="color: inherit; text-decoration: underline;">020 4520 9114</a>
               </div>
             </div>
           </div>
@@ -1586,8 +1786,8 @@
 
     <!-- Master Footer -->
     <footer class="site-footer">
-      <p>Square Register Setup &amp; Training Documentation &bull; Version 1.0 &bull; [Date]</p>
-      <p>Prepared for [Client Name] by [Your Name] &bull; IToldYouSo Computing &bull; Tel: [Phone] &bull; Email: [Email]</p>
+      <p>Square Register Setup &amp; Training Documentation &bull; Version 1.0 &bull; November 2026</p>
+      <p>Prepared for George by Neville Bryce &bull; IToldYouSo Computing &bull; Tel: <a href="tel:02045209114">020 4520 9114</a> &bull; Email: <a href="mailto:contactus@itoldyouso.tech">contactus@itoldyouso.tech</a></p>
       <p>&copy; 2026 IToldYouSo Computing (itoldyouso.tech). All rights reserved.</p>
     </footer>
 
@@ -1613,15 +1813,18 @@
         if (docContent) docContent.style.display = 'block';
       }
 
-      // Check URL query parameters (?pwd=kingston)
+      // Check if previously unlocked
+      const isUnlocked = sessionStorage.getItem(AUTH_STORAGE_KEY) === 'unlocked' ||
+                         localStorage.getItem(AUTH_STORAGE_KEY) === 'unlocked';
+
+      // Check URL query parameters (?pwd=kingston or ?password=kingston)
       const urlParams = new URLSearchParams(window.location.search);
-      const queryPwd = urlParams.get('pwd');
+      const queryPwd = urlParams.get('pwd') || urlParams.get('pass') || urlParams.get('password') || urlParams.get('p');
       if (queryPwd && queryPwd.trim().toLowerCase() === VALID_PASSWORD) {
         sessionStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
-      }
-
-      // Check if previously unlocked during this browsing session
-      if (sessionStorage.getItem(AUTH_STORAGE_KEY) === 'unlocked') {
+        localStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
+        revealDocumentation();
+      } else if (isUnlocked) {
         revealDocumentation();
       }
 
@@ -1632,6 +1835,7 @@
 
         if (enteredPassword === VALID_PASSWORD) {
           sessionStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
+          localStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
           if (authError) authError.style.display = 'none';
           revealDocumentation();
         } else {
