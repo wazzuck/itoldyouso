@@ -602,11 +602,7 @@
       font-weight: bold;
     }
 
-    @media (max-width: 768px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+
 
     /* Terms & Conditions Acceptance Module */
     .terms-card {
@@ -798,6 +794,285 @@
     footer.site-footer p {
       margin-bottom: 4px;
       font-size: 0.92rem;
+    }
+
+    /* -------------------------------------------------------------------------
+       Comprehensive Responsive Mobile Stylesheet (@media (max-width: 768px))
+       ------------------------------------------------------------------------- */
+    @media (max-width: 768px) {
+      /* Base & Shell */
+      body {
+        font-size: 16px;
+      }
+
+      main.doc-main {
+        padding: 16px 12px 48px 12px;
+      }
+
+      article.doc-article {
+        padding: 20px 16px;
+        margin-bottom: 24px;
+        border-radius: 8px;
+      }
+
+      /* Header */
+      header.site-header {
+        padding: 18px 16px 14px 16px;
+      }
+
+      .header-titles h1 {
+        font-size: 1.45rem;
+        line-height: 1.25;
+      }
+
+      .header-titles .subtitle {
+        font-size: 0.92rem;
+        line-height: 1.35;
+      }
+
+      .header-top {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .header-top .print-button {
+        display: none;
+      }
+
+      .header-meta {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 0.88rem;
+        padding-top: 10px;
+        margin-top: 10px;
+      }
+
+      /* Sticky Mobile Navigation (Horizontal Touch Scroll) */
+      nav.doc-nav {
+        padding: 8px 12px;
+      }
+
+      .nav-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        justify-content: flex-start;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 8px;
+        width: 100%;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links a {
+        white-space: nowrap;
+        font-size: 0.85rem;
+        padding: 6px 12px;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        color: #0f766e;
+      }
+
+      .nav-container .print-button {
+        display: none;
+      }
+
+      /* Article Headings & Text */
+      .article-header {
+        padding-bottom: 14px;
+        margin-bottom: 20px;
+      }
+
+      .article-header h2 {
+        font-size: 1.45rem;
+        line-height: 1.25;
+      }
+
+      .article-header p.article-lead {
+        font-size: 0.98rem;
+        line-height: 1.5;
+      }
+
+      h3 {
+        font-size: 1.18rem;
+        margin-top: 24px;
+        margin-bottom: 10px;
+      }
+
+      h4 {
+        font-size: 1.02rem;
+        margin-top: 16px;
+        margin-bottom: 6px;
+      }
+
+      p, li {
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      ul, ol {
+        padding-left: 20px;
+        margin-bottom: 14px;
+      }
+
+      ul.check-list li {
+        padding-left: 26px;
+        font-size: 0.95rem;
+      }
+
+      ul.check-list li::before {
+        font-size: 1.1rem;
+      }
+
+      /* Callouts */
+      .callout {
+        padding: 12px 14px;
+        margin: 16px 0;
+      }
+
+      /* Tables Scrollable Wrapper */
+      table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 0.88rem;
+        margin: 14px 0 20px 0;
+      }
+
+      th, td {
+        padding: 8px 10px;
+        min-width: 110px;
+      }
+
+      /* Table of Contents */
+      .toc-box {
+        padding: 14px 16px;
+        margin: 16px 0 24px 0;
+      }
+
+      .toc-list {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      /* Pricing Grid */
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 18px 0 24px 0;
+      }
+
+      .pricing-tier-card {
+        padding: 20px 16px;
+      }
+
+      .pricing-tier-price {
+        font-size: 1.85rem;
+      }
+
+      /* Terms Acceptance Card */
+      .terms-card {
+        padding: 18px 16px;
+        margin: 24px 0 20px 0;
+      }
+
+      .terms-card h4 {
+        font-size: 1.15rem;
+      }
+
+      .terms-list {
+        padding-left: 16px;
+        font-size: 0.9rem;
+      }
+
+      .terms-checkbox-label {
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      .terms-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 18px;
+        font-size: 0.98rem;
+      }
+
+      /* Cheat Sheet Mobile Stacking */
+      .cheatsheet-banner {
+        margin: -20px -16px 16px -16px;
+        padding: 14px 16px;
+        border-radius: 6px 6px 0 0;
+      }
+
+      .cheatsheet-banner h2 {
+        font-size: 1.3rem;
+      }
+
+      .cheatsheet-banner p {
+        font-size: 0.98rem;
+      }
+
+      .cheatsheet-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .cheatsheet-card {
+        padding: 14px 14px;
+      }
+
+      .cheatsheet-card h3 {
+        font-size: 1.05rem;
+      }
+
+      .cheatsheet-card li {
+        font-size: 0.92rem;
+      }
+
+      .cheatsheet-phone-box {
+        font-size: 1.02rem;
+        padding: 8px 10px;
+      }
+
+      /* Auth Overlay Mobile */
+      .auth-card {
+        padding: 28px 20px;
+        margin: 16px;
+      }
+
+      .auth-card h1 {
+        font-size: 1.35rem;
+      }
+
+      .auth-card p {
+        font-size: 0.9rem;
+        margin-bottom: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-titles h1 {
+        font-size: 1.25rem;
+      }
+      .article-header h2 {
+        font-size: 1.28rem;
+      }
+      .pricing-tier-price {
+        font-size: 1.65rem;
+      }
     }
 
     /* -------------------------------------------------------------------------
