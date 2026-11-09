@@ -323,3 +323,25 @@ explanations, and step-by-step embedded code documentation.
 
 The exchange-specific policies from that repository are deliberately
 absent. Add project-specific rules only where they apply.
+
+---
+
+## 9. Project facts
+
+1. **Language and spelling**:
+   All user-facing copy, documentation, code comments, commit messages
+   and pull requests must use British English conventions (e.g.
+   "optimisation", "customisation", "prioritisation", "synchronise",
+   "colour", "licence" for noun, "practice" for noun, "programme").
+   This policy is binding and applies across the entire repository.
+
+2. **Technology stack**:
+   Static HyperText Markup Language (HTML5), Cascading Style Sheets
+   (CSS3), vanilla JavaScript (JS), and Python 3 for validation.
+   Zero external JavaScript frameworks or tracking scripts are permitted.
+
+3. **Verification command**:
+   Run `python3 scripts/verify_site.py` before committing. All tests,
+   link checks, Extensible Markup Language (XML) sitemaps, JSON-LD,
+   and 80-column line-length rules must pass with code 0.
+
