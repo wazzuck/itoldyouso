@@ -1011,6 +1011,11 @@
         background-color: #ffffff;
       }
     }
+
+    /* Hide completed intake questionnaire while retaining data in DOM */
+    #questionnaire {
+      display: none !important;
+    }
   </style>
 </head>
 <body>
@@ -1078,10 +1083,10 @@
       <div class="nav-container">
         <ul class="nav-links">
           <li><a href="#trainer">1. Service Contract &amp; Scope</a></li>
-          <li><a href="#questionnaire">2. Technical Intake</a></li>
-          <li><a href="#handbook">3. Cafe Client Handbook</a></li>
-          <li><a href="#hb-pricing">4. Pricing &amp; Terms</a></li>
-          <li><a href="#cheatsheet">5. Cheat Sheet</a></li>
+          <li style="display: none;" aria-hidden="true"><a href="#questionnaire">Technical Intake</a></li>
+          <li><a href="#handbook">2. Cafe Client Handbook</a></li>
+          <li><a href="#hb-pricing">3. Pricing &amp; Terms</a></li>
+          <li><a href="#cheatsheet">4. Cheat Sheet</a></li>
         </ul>
       </div>
     </nav>
@@ -1164,9 +1169,9 @@
       </article>
 
       <!-- ===================================================================
-           DOCUMENT 2: TECHNICAL INTAKE QUESTIONNAIRE
+           DOCUMENT 2: TECHNICAL INTAKE QUESTIONNAIRE (HIDDEN IN BACKGROUND)
            =================================================================== -->
-      <article id="questionnaire" class="doc-article">
+      <article id="questionnaire" class="doc-article" style="display: none;" aria-hidden="true">
         <div class="article-header">
           <span class="article-badge badge-questionnaire">Initial Intake Questionnaire</span>
           <h2>Initial Setup &amp; Software Assessment Questionnaire</h2>
