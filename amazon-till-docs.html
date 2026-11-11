@@ -1012,8 +1012,13 @@
       }
     }
 
-    /* Hide completed intake questionnaire while retaining data in DOM */
-    #questionnaire {
+    /* Hide completed intake questionnaire, Cafe Client Handbook, and
+       Countertop Cheat Sheet for now while retaining all content in the
+       background DOM.
+       NOTE: Neville requested restoring #handbook and #cheatsheet later. */
+    #questionnaire,
+    #handbook,
+    #cheatsheet {
       display: none !important;
     }
   </style>
@@ -1064,7 +1069,7 @@
         <div class="header-titles">
           <h1>SumUp 13&rdquo; Touchscreen Register &amp; Cafe Till Documentation</h1>
           <div class="subtitle">
-            13-Inch Full HD Countertop Register + SumUp Solo Card Reader &bull; Turnkey Setup, Handbook &amp; Cheat Sheet
+            13-Inch Full HD Countertop Register + SumUp Solo Card Reader &bull; Service Contract, Scope &amp; Pricing
           </div>
         </div>
       </div>
@@ -1084,9 +1089,10 @@
         <ul class="nav-links">
           <li><a href="#trainer">1. Service Contract &amp; Scope</a></li>
           <li style="display: none;" aria-hidden="true"><a href="#questionnaire">Technical Intake</a></li>
-          <li><a href="#handbook">2. Cafe Client Handbook</a></li>
-          <li><a href="#hb-pricing">3. Pricing &amp; Terms</a></li>
-          <li><a href="#cheatsheet">4. Cheat Sheet</a></li>
+          <!-- NOTE: Restore Cafe Client Handbook and Cheat Sheet nav items later when unhiding #handbook and #cheatsheet -->
+          <li style="display: none;" aria-hidden="true"><a href="#handbook">Cafe Client Handbook</a></li>
+          <li><a href="#hb-pricing">2. Pricing &amp; Terms</a></li>
+          <li style="display: none;" aria-hidden="true"><a href="#cheatsheet">Cheat Sheet</a></li>
         </ul>
       </div>
     </nav>
@@ -1489,8 +1495,12 @@ Primary Priorities:
 
       <!-- ===================================================================
            DOCUMENT 3: CAFE CLIENT REFERENCE HANDBOOK
+           NOTE (RESTORE LATER): Hidden temporarily per Neville's request.
+           To bring the handbook back later, remove #handbook from the
+           display:none CSS rule, remove style="display: none;" below, and
+           un-hide the #handbook link in .nav-links.
            =================================================================== -->
-      <article id="handbook" class="doc-article">
+      <article id="handbook" class="doc-article" style="display: none;" aria-hidden="true">
         <div class="article-header">
           <span class="article-badge badge-client">Cafe Client Handbook</span>
           <h2>Your Cafe &amp; Brunch Till Handbook</h2>
@@ -1723,8 +1733,40 @@ Primary Priorities:
           </ul>
         </section>
 
-        <section id="hb-pricing">
-          <h3>16. Transparent Pricing &amp; Why You Are Investing in a Software Engineer</h3>
+        <section id="hb-final">
+          <h3>17. A Final Word</h3>
+          <p>
+            Dear Migena team,
+          </p>
+          <p>
+            With this setup, configuration, and guide in place, you will be fully equipped to run your cafe till with total pride and confidence. Sourcing till hardware from Amazon is a smart, budget-conscious decision, and with our engineering diligence behind it, it will serve your North London cafe and brunch spot faithfully through the busiest morning coffee rushes and weekend brunch services.
+          </p>
+          <p>
+            Take your time with every customer. Customers love visiting a welcoming cafe, and a moment's pause at the counter is completely natural. And remember: <strong>no question is ever too small</strong>. Whenever you need a hand or have a quick query, you can always pick up the phone and ring me on <strong><a href="tel:02045209114">020 4520 9114</a></strong>. I am always happy to help.
+          </p>
+          <p style="margin-top: 24px;">
+            Warmest regards,<br>
+            <strong>Neville Bryce</strong><br>
+            IToldYouSo Computing<br>
+            Corringham Court, Corringham Road, London NW11 7BY
+          </p>
+        </section>
+      </article>
+
+      <!-- ===================================================================
+           DOCUMENT 3B: COMMERCIAL PRICING & SERVICE TERMS (VISIBLE)
+           =================================================================== -->
+      <article id="hb-pricing" class="doc-article">
+        <div class="article-header">
+          <span class="article-badge badge-spec">Pricing &amp; Commercial Terms</span>
+          <h2>Transparent Pricing &amp; Service Terms</h2>
+          <p class="article-lead">
+            Fixed-fee turn-key Electronic Point of Sale (EPOS) installation, menu programming, and 1-on-1 manager handover training for Client Migena (345 Green Lanes, London N13 4JG).
+          </p>
+        </div>
+
+        <section>
+          <h3>Transparent Pricing &amp; Why You Are Investing in a Software Engineer</h3>
           <p>
             I believe in total financial transparency with zero hidden extras or surprise invoices. All work is based upon a professional software engineering rate of <strong>&pound;50 per hour</strong>. Rather than rushing through the setup, our fixed packages are priced to give you substantial, unhurried time on-site so that you and your cafe team never feel watched by the clock and can practice every till routine until you feel 100% in control. <strong>Please note that you will be billed for the quoted headline package price (&pound;245 for Tier 1 / &pound;350 for Tier 2) as a fixed minimum regardless of whether the installation is finished early. Any remaining allocated time will be dedicated on-site to offering additional operational advice, further training, or helping you with other relevant technology matters across your cafe.</strong> If a job takes longer than the allocated package duration (for example, if you request extra staff training, extensive food and drink catalogue entry, or complex Wi-Fi router troubleshooting), any extended time is charged at the standard agreed rate of <strong>&pound;50 per hour</strong> (billed in straightforward 30-minute increments of &pound;25), always agreed with you on-site before continuing.
           </p>
@@ -1879,31 +1921,16 @@ Primary Priorities:
             </div>
           </div>
         </section>
-
-        <section id="hb-final">
-          <h3>17. A Final Word</h3>
-          <p>
-            Dear Migena team,
-          </p>
-          <p>
-            With this setup, configuration, and guide in place, you will be fully equipped to run your cafe till with total pride and confidence. Sourcing till hardware from Amazon is a smart, budget-conscious decision, and with our engineering diligence behind it, it will serve your North London cafe and brunch spot faithfully through the busiest morning coffee rushes and weekend brunch services.
-          </p>
-          <p>
-            Take your time with every customer. Customers love visiting a welcoming cafe, and a moment's pause at the counter is completely natural. And remember: <strong>no question is ever too small</strong>. Whenever you need a hand or have a quick query, you can always pick up the phone and ring me on <strong><a href="tel:02045209114">020 4520 9114</a></strong>. I am always happy to help.
-          </p>
-          <p style="margin-top: 24px;">
-            Warmest regards,<br>
-            <strong>Neville Bryce</strong><br>
-            IToldYouSo Computing<br>
-            Corringham Court, Corringham Road, London NW11 7BY
-          </p>
-        </section>
       </article>
 
       <!-- ===================================================================
            DOCUMENT 4: RECEPTION COUNTERTOP CHEAT SHEET
+           NOTE (RESTORE LATER): Hidden temporarily per Neville's request.
+           To bring the cheat sheet back later, remove #cheatsheet from the
+           display:none CSS rule, remove style="display: none;" below, and
+           un-hide the #cheatsheet link in .nav-links.
            =================================================================== -->
-      <article id="cheatsheet" class="doc-article">
+      <article id="cheatsheet" class="doc-article" style="display: none;" aria-hidden="true">
         <div class="cheatsheet-banner">
           <h2>CAFE &amp; BRUNCH SPOT TILL &mdash; COUNTERTOP QUICK CHEAT SHEET</h2>
           <p>Keep this by the till &bull; My number: <a href="tel:02045209114" style="color: inherit; text-decoration: underline;">020 4520 9114</a></p>
