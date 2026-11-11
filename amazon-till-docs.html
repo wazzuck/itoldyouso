@@ -1126,7 +1126,7 @@
           <ul>
             <li><strong>Register &amp; Card Reader Setup:</strong> Configure your <strong>13-inch Full HD countertop touchscreen register</strong> and companion <strong>SumUp Solo handheld card reader</strong>.</li>
             <li><strong>Dual-Printer &amp; Cash Drawer Integration:</strong> Pair your front-of-house checkout printer and kitchen order ticket printer, and verify cash drawer solenoid compatibility.</li>
-            <li><strong>Complete Menu &amp; Catalogue Programming:</strong> Programme your full item catalogue (10&ndash;20 brunch items, 10&ndash;20 lunch items, London cafe coffees with modifiers, soft drinks, beers, and wine).</li>
+            <li><strong>Complete Menu, Modifiers &amp; Gratuity Programming:</strong> Programme your full item catalogue (10&ndash;20 brunch items, 10&ndash;20 lunch items, London cafe coffees with modifiers, soft drinks, beers, and wine), including customer gratuity/tipping prompts, eat-in vs takeaway tags, and receipt branding.</li>
             <li><strong>Staff Accounts &amp; Sales Attribution:</strong> Set up 4 individual staff PIN accounts with separate sales tracking.</li>
             <li><strong>Manager Handover Training (Single Session):</strong> Provide unhurried 1-on-1 handover training in 1 single session for the manager (who will then train the rest of the staff) so the team feels 100% confident taking card and cash payments during morning coffee and lunchtime rushes.</li>
             <li><strong>Post-Installation Website Documentation:</strong> Release custom operational documentation on this website upon completion &mdash; factoring in findings from the installation and requests from the owner &mdash; free for you to view, print, or download for later reproduction.</li>
@@ -1163,7 +1163,7 @@
             <li>☐ Unpack and mount hardware on your counter / service area with tidy, concealed cable management away from liquids.</li>
             <li>☐ Connect the till to the dedicated cafe broadband connection.</li>
             <li>☐ Pair your SumUp Solo handheld card reader with the 13-inch countertop register.</li>
-            <li>☐ Configure your food and drink menu, categories (10&ndash;20 brunch items, 10&ndash;20 lunch items, artisan coffee, teas, soft drinks, beers, and wine), and item modifiers (oat milk, almond milk, soya milk, extra shot, decaf, syrups).</li>
+            <li>☐ Configure your food and drink menu, categories (10&ndash;20 brunch items, 10&ndash;20 lunch items, artisan coffee, teas, soft drinks, beers, and wine), item modifiers (oat milk, almond milk, soya milk, extra shot, decaf, syrups), customer gratuity/tipping prompts, receipt header/footer details, and eat-in vs takeaway tax tags.</li>
             <li>☐ Configure 4 individual staff Personal Identification Number (PIN) accounts with separate sales attribution and shift reporting.</li>
             <li>☐ Run end-to-end test transactions: card tap, phone pay, chip and PIN, cash change, split bills, and refunds.</li>
           </ul>
@@ -1177,7 +1177,7 @@
           <ul>
             <li><strong>Morning Opening Routine:</strong> Powering up the terminal, checking network status, verifying printer paper, and opening the cash float.</li>
             <li><strong>Ringing Up Food &amp; Drinks:</strong> Selecting hot beverages, applying drink modifiers (milks, shots, syrups), assigning table numbers or takeaway bags, and fast counter queue busting.</li>
-            <li><strong>Card Payments:</strong> Handing off to the customer, waiting for the green confirmation chime, and handling declined cards gracefully (plus optional gratuity/tipping prompts if selected).</li>
+            <li><strong>Card Payments &amp; Gratuity:</strong> Handing off to the customer, prompting for tips/gratuity, waiting for the green confirmation chime, and handling declined cards gracefully.</li>
             <li><strong>Cash Handling:</strong> Calculating exact change and securing the cash drawer.</li>
             <li><strong>Split Bills &amp; Custom Orders:</strong> Splitting brunch checks across multiple cards or combining cash and card payments.</li>
             <li><strong>Evening Close-Out (Z-Reports):</strong> Cashing up, reconciling card totals against merchant payouts, and preparing the till for the next morning.</li>
@@ -1778,14 +1778,14 @@ Primary Priorities:
         </div>
 
         <section>
-          <h3>Transparent Pricing &amp; Why You Are Investing in a Software Engineer</h3>
+          <h3>Transparent Pricing</h3>
           <p>
-            I believe in total financial transparency with zero hidden extras or surprise invoices. All work is based upon a professional software engineering rate of <strong>&pound;50 per hour</strong>. Rather than rushing through the setup, our fixed packages are priced to give you substantial, unhurried time on-site so that you and your cafe team never feel watched by the clock and can practice every till routine until you feel 100% in control. <strong>Please note that you will be billed for the quoted headline package price (&pound;245 for Tier 1 / &pound;350 for Tier 2) as a fixed minimum regardless of whether the installation is finished early. Any remaining allocated time will be dedicated on-site to offering additional operational advice, further training, or helping you with other relevant technology matters across your cafe.</strong> If a job takes longer than the allocated package duration (for example, if you request extra staff training, extensive food and drink catalogue entry, or complex Wi-Fi router troubleshooting), any extended time is charged at the standard agreed rate of <strong>&pound;50 per hour</strong> (billed in straightforward 30-minute increments of &pound;25), always agreed with you on-site before continuing.
+            I believe in total financial transparency with zero hidden extras or surprise invoices. All work is based upon a professional software engineering rate of <strong>&pound;50 per hour</strong>. Rather than rushing through the setup, our fixed package is priced to give you substantial, unhurried time on-site so that you never feel watched by the clock and can practice every till routine until you feel 100% in control. <strong>Please note that you will be billed for the quoted headline package price (&pound;350) as a fixed minimum regardless of whether the installation is finished early. Any remaining allocated time will be dedicated on-site to offering additional operational advice, further training, or helping you with other relevant technology matters across your cafe.</strong> If a job takes longer than the allocated package duration (for example, if you request extra staff training, extensive food and drink catalogue entry, or complex Wi-Fi router troubleshooting), any extended time is charged at the standard agreed rate of <strong>&pound;50 per hour</strong> (billed in straightforward 30-minute increments of &pound;25), always agreed with you on-site before continuing.
           </p>
 
           <div class="pricing-grid">
-            <!-- Tier 1 -->
-            <div class="pricing-tier-card">
+            <!-- Tier 1 (Hidden in background per Neville's instruction) -->
+            <div class="pricing-tier-card" style="display: none;" aria-hidden="true">
               <span class="pricing-tier-badge">Tier 1 &middot; Essential Setup</span>
               <h4>Bench Audit &amp; Countertop Onboarding</h4>
               <div class="pricing-tier-price">&pound;245 <span>flat fee</span></div>
@@ -1804,12 +1804,12 @@ Primary Priorities:
               </ul>
             </div>
 
-            <!-- Tier 2 -->
-            <div class="pricing-tier-card featured">
-              <span class="pricing-tier-badge">Tier 2 &middot; Complete Cafe Suite (Recommended)</span>
+            <!-- Single Featured Package -->
+            <div class="pricing-tier-card featured" style="grid-column: 1 / -1;">
+              <span class="pricing-tier-badge">Complete Cafe Suite</span>
               <h4>Turnkey Cafe EPOS Deployment</h4>
               <div class="pricing-tier-price">&pound;350 <span>flat fee</span></div>
-              <p class="pricing-tier-subtitle">Complete turn-key deployment for SumUp register, Solo reader, dual printers &amp; cash drawer</p>
+              <p class="pricing-tier-subtitle">Complete turn-key deployment for 13-inch SumUp register, Solo card reader, dual printers &amp; cash drawer</p>
               <ul>
                 <li>Complete on-site setup, cable routing &amp; counter power stabilisation</li>
                 <li>Premises deployment at 345 Green Lanes, London N13 4JG ahead of Sunday 22nd Nov opening</li>
@@ -1817,124 +1817,16 @@ Primary Priorities:
                 <li>Dual-printer pairing (Front checkout receipt printer + Kitchen ticket printer)</li>
                 <li>SumUp Cash Drawer solenoid verification and automated pop-trigger test</li>
                 <li>Full item catalogue programming: 10&ndash;20 brunch items, 10&ndash;20 lunch items, coffees + modifiers, soft drinks, beers &amp; wine</li>
+                <li>Basic hospitality features configured: customer gratuity/tipping prompts, receipt header/footer details, and eat-in vs takeaway tags</li>
                 <li>4 staff PIN accounts configured with individual sales tracking &amp; Z-reports</li>
                 <li>1-on-1 manager handover training in 1 single session (equipping the manager to train other staff)</li>
                 <li>Custom Cafe Client Handbook &amp; Countertop Cheat Sheet released on this website at completion (factoring in installation findings &amp; owner requests; free to print or download for reproduction)</li>
-                <li><strong>Dedicated time:</strong> Up to 5.5 hours of unhurried on-site training (&pound;275 at &pound;50/hr)</li>
+                <li><strong>Dedicated time:</strong> Up to 5.5 hours of unhurried on-site setup &amp; training (&pound;275 at &pound;50/hr)</li>
                 <li><strong>All North London travel (Palmers Green N13) fully included</strong></li>
                 <li><strong>Overtime rate:</strong> &pound;50/hr (&pound;25 per 30 mins) if session exceeds 5.5 hours</li>
               </ul>
             </div>
           </div>
-
-          <h4>Optional Cafe Feature Add-Ons (Priced Individually)</h4>
-          <p>
-            If you would like additional hospitality features configured on installation day (such as customer tipping prompts, discretionary service charges, or extended menu items beyond the standard scope), these can be added transparently at our standard <strong>&pound;50/hour</strong> engineering rate (&pound;25 per 30-minute block):
-          </p>
-          <table>
-            <thead>
-              <tr>
-                <th style="width: 34%;">Optional Feature Add-On</th>
-                <th style="width: 18%;">Fixed Price</th>
-                <th style="width: 48%;">What Is Configured</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Gratuity, Tipping Prompts &amp; Service Charge Setup</strong></td>
-                <td><strong>&pound;25</strong><br><span style="font-size: 0.85rem; color: #64748b;">(30 mins)</span></td>
-                <td>
-                  &bull; Enable automatic customer tipping prompts on the SumUp Solo card reader (e.g. 10%, 12.5%, 15%, or Custom amount).<br>
-                  &bull; Configure optional eat-in discretionary service charge buttons on the 13-inch register.<br>
-                  &bull; Set up separate gratuity reporting on daily Z-reports for staff tip pooling.
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Custom Receipt Logo &amp; Cafe Footer Branding</strong></td>
-                <td><strong>&pound;25</strong><br><span style="font-size: 0.85rem; color: #64748b;">(30 mins)</span></td>
-                <td>
-                  &bull; Upload and format your cafe logo onto printed customer receipts.<br>
-                  &bull; Add custom header/footer lines (Instagram handle, customer Wi-Fi password, thank-you message, and VAT number).
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Eat-In vs Takeaway Differential VAT Tagging</strong></td>
-                <td><strong>&pound;25</strong><br><span style="font-size: 0.85rem; color: #64748b;">(30 mins)</span></td>
-                <td>
-                  &bull; Configure split tax rates (20% standard VAT for eat-in and hot food vs 0% zero-rated cold takeaway items) for accountant-ready reporting.
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Extended Menu Catalogue Entry</strong></td>
-                <td><strong>&pound;25</strong> per 15 items<br><span style="font-size: 0.85rem; color: #64748b;">(30 mins)</span></td>
-                <td>
-                  &bull; Programme additional food or drink items beyond the included 10&ndash;20 brunch and 10&ndash;20 lunch items (e.g. extended pastry cabinet, seasonal specials, or full wine list).
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Direct Staff Training (Beyond Manager Handover)</strong></td>
-                <td><strong>&pound;50</strong> / hour<br><span style="font-size: 0.85rem; color: #64748b;">(&pound;25 per 30 mins)</span></td>
-                <td>
-                  &bull; Additional hands-on coaching directly with baristas or floor servers if you prefer us to train staff alongside the manager.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h4>Why Investing in a Software Engineer Gives You Superior Long-Term Value</h4>
-          <p>
-            Amazon couriers a cardboard box to your cafe and leaves independent business owners to figure out the cables, Android firmware, and printer drivers on their own. It is natural to ask: <em>why hire a professional software engineer to configure a cafe till?</em>
-          </p>
-          <div class="callout info">
-            <h4>The Difference Between an Equipment Box and an Engineered Solution</h4>
-            <p>
-              <strong>1. Engineered Reliability, Not Just "Plugging in Wires":</strong> Anyone can plug a cable into a wall socket, but till failures almost always happen because of local Wi-Fi channel congestion, conflicting IP addresses, or unmetered solenoid voltages that fry cash drawers. As a software engineer, I configure your network and hardware so you never suffer an embarrassing payment freeze mid-transaction during a busy weekend brunch rush.
-            </p>
-            <p style="margin-top: 10px;">
-              <strong>2. Unhurried, Empathetic Training:</strong> Because our pricing is fixed-fee, you are never watching the clock. We stay until you and your staff have practiced coffee orders, food modifiers, card payments, cash change, and refunds multiple times and feel completely comfortable and in control.
-            </p>
-            <p style="margin-top: 10px;">
-              <strong>3. Custom Post-Installation Documentation (Released at Completion):</strong> Comprehensive operational documentation &mdash; including your Cafe Client Handbook and Countertop Quick Cheat Sheet &mdash; will be released on this website upon completion of the setup. It will factor in specific findings from the on-site installation and requests from the owner, and you are completely free to view, print, or download it for later reproduction.
-            </p>
-            <p style="margin-top: 10px;">
-              <strong>4. A Trusted Local Technology Partner:</strong> By working with me, you gain an experienced, local software engineer based right here in London NW11. Whether you need help with cafe Wi-Fi dead zones, counter tablet repairs, cybersecurity, accounting exports, or your cafe website down the road, you have someone you know and trust on call.
-            </p>
-          </div>
-
-          <h4>Long-Term Support &amp; Peace of Mind</h4>
-          <p>
-            Once your till is up and running, you have complete flexibility in how we stay in touch:
-          </p>
-          <table>
-            <thead>
-              <tr>
-                <th style="width: 28%;">Support Programme</th>
-                <th style="width: 20%;">Investment</th>
-                <th style="width: 52%;">What Is Covered</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Priority Cafe Care<br>(Monthly Retainer)</strong></td>
-                <td><strong>&pound;59</strong> / month</td>
-                <td>
-                  &bull; Direct telephone &amp; WhatsApp access 7 days a week for immediate till or card queries.<br>
-                  &bull; Remote web Dashboard management (updating food/drink prices, seasonal specials, or checking sales reports).<br>
-                  &bull; Bi-annual on-site counter health check (inspecting cables, cleaning thermal printer heads, updating software).<br>
-                  &bull; 25% discount on any emergency same-day weekend call-outs.
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Pay-As-You-Go<br>(Ad-Hoc Support)</strong></td>
-                <td>Standard rates</td>
-                <td>
-                  &bull; <strong>On-Site Call-Out:</strong> &pound;115 for the first hour (including London travel), then &pound;75/hour thereafter.<br>
-                  &bull; <strong>Remote Phone &amp; Web Help:</strong> &pound;38 per 20-minute incident (first 5 minutes free for quick queries).<br>
-                  &bull; <strong>Seasonal Menu Overhaul:</strong> &pound;115 flat fee to update prices or brunch items for Summer/Winter menu changes.
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
           <!-- Terms & Conditions Acceptance Module -->
           <div id="terms-acceptance-card" class="terms-card">
@@ -1948,9 +1840,9 @@ Primary Priorities:
 
             <ul class="terms-list">
               <li><strong>Baseline Technical Rate:</strong> All on-site engineering, configuration, and training are calculated at a professional software engineering rate of <strong>&pound;50 per hour</strong>.</li>
-              <li><strong>Allocated Package Duration:</strong> The fixed onboarding fee includes the dedicated on-site time specified in your chosen package (up to 3.5 hours for Tier 1; up to 5.5 hours for Tier 2) with all London travel and hardware pre-configuration fully included.</li>
-              <li><strong>Minimum Billing &amp; Unused Time Policy:</strong> You will be billed for the quoted headline package price (&pound;245 for Tier 1 / &pound;350 for Tier 2) as a fixed minimum regardless of whether the work is finished early. Any unused time will be spent with you on-site either offering additional operational advice, further training, or assistance with other cafe technology matters.</li>
-              <li><strong>Extended Duration Policy:</strong> If the on-site job takes longer than the allocated package duration due to client request, extra hardware, extensive menu/modifier entry, or local network router troubleshooting, any additional time will be charged at the standard agreed rate of <strong>&pound;50 per hour</strong> (billed pro-rata in 30-minute increments of &pound;25), agreed verbally with you on-site prior to proceeding.</li>
+              <li><strong>Allocated Package Duration:</strong> The fixed &pound;350 onboarding fee includes up to 5.5 hours of dedicated on-site setup and training time with all London travel and hardware configuration fully included.</li>
+              <li><strong>Minimum Billing &amp; Unused Time Policy:</strong> You will be billed for the quoted headline package price (&pound;350) as a fixed minimum regardless of whether the work is finished early. Any unused time will be spent with you on-site either offering additional operational advice, further training, or assistance with other cafe technology matters.</li>
+              <li><strong>Extended Duration Policy:</strong> If the on-site job takes longer than the allocated 5.5-hour package duration due to client request, extra hardware, extensive menu/modifier entry, or local network router troubleshooting, any additional time will be charged at the standard agreed rate of <strong>&pound;50 per hour</strong> (billed pro-rata in 30-minute increments of &pound;25), agreed verbally with you on-site prior to proceeding.</li>
               <li><strong>Settlement Terms:</strong> Payment is due immediately upon completion of on-site delivery and handover, payable via direct on-site card payment or instant electronic bank transfer (BACS). An electronic invoice and receipt are issued immediately upon payment.</li>
             </ul>
 
