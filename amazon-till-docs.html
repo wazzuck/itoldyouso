@@ -1065,8 +1065,8 @@
       </div>
 
       <div class="header-meta">
-        <div class="meta-item">Service: <strong>Amazon UK Till Setup &amp; Cafe EPOS Deployment</strong></div>
-        <div class="meta-item">Client Name: <strong>Migena</strong></div>
+        <div class="meta-item">Service: <strong>SumUp POS Lite &amp; Cafe Till Deployment</strong></div>
+        <div class="meta-item">Client Name: <strong>Migena Lika &amp; Egzon Quilia</strong></div>
         <div class="meta-item">Sector: <strong>Cafe &amp; Brunch / Lunch Spot (North London)</strong></div>
         <div class="meta-item">Engineer &amp; Trainer: <strong>Neville Bryce</strong></div>
         <div class="meta-item">Date: <strong>November 2026</strong></div>
@@ -1106,9 +1106,9 @@
           <p>
             <strong>Service Provider:</strong> IToldYouSo Computing &mdash; Neville Bryce, Senior Software Engineer (Director)<br>
             <strong>Address:</strong> Corringham Court, Corringham Road, London NW11 7BY<br>
-            <strong>Client:</strong> Migena ('the Client' &mdash; North London Cafe &amp; Brunch / Lunch Spot)<br>
+            <strong>Client:</strong> Migena Lika (Primary Contact) &amp; Egzon Quilia ('the Client' &mdash; North London Cafe &amp; Brunch / Lunch Spot)<br>
             <strong>Date of Agreement:</strong> November 2026<br>
-            <strong>Core Commitment:</strong> I will deliver a complete, turn-key Electronic Point of Sale (EPOS) installation for your cafe and brunch spot, audit your Amazon UK till hardware and firmware, eliminate bloatware, ensure your card machine pairs reliably, configure your thermal receipt printer for genuine British currency symbols (&pound;), programme your hot drinks, brunch plates, and takeaway items with order modifiers (milks, syrups, table numbers/takeaway flags), provide unhurried 1-on-1 training so you and your team feel 100% confident taking card and cash payments during morning coffee and lunchtime rushes, and provide ongoing direct telephone support.
+            <strong>Core Commitment:</strong> I will deliver a complete, turn-key Electronic Point of Sale (EPOS) installation for your cafe and brunch spot, configure your SumUp Point of Sale Lite (13-inch Full HD) touchscreen register and SumUp Solo card terminal, pair your front-of-house checkout printer and kitchen order ticket printer, verify cash drawer solenoid compatibility, programme your hot drinks, brunch plates, and takeaway items with order modifiers (milks, syrups, table numbers/takeaway flags), provide unhurried 1-on-1 training so you and your team feel 100% confident taking card and cash payments during morning coffee and lunchtime rushes, and provide ongoing direct telephone support.
           </p>
         </section>
 
@@ -1226,13 +1226,19 @@
               <textarea
                 id="q1"
                 class="intake-textarea"
-                rows="3"
+                rows="5"
                 placeholder="Enter model number, Amazon link, Android version, or physical description..."
                 oninput="handleFieldChange('q1')"
-              ></textarea>
+              >Owners: Migena Lika (Primary Contact), Egzon Quilia
+
+Equipment: SumUp Point of Sale Lite Payment Terminal/Register + SumUp Solo Credit Card Reader – 13” Full HD Touchscreen, Speedy Set Up, Fast &amp; Flexible Checkout, No Contracts and now with End-of-Day Z Reports
+
+Printers: 2 printers (1 for checkout, 1 for the kitchen)
+
+Cash drawer: To be confirmed (require compatibility recommendation)</textarea>
               <div class="input-footer">
-                <span id="q1-saved-time">Not yet modified</span>
-                <span id="q1-count">0 characters</span>
+                <span id="q1-saved-time">Pre-filled from intake</span>
+                <span id="q1-count">Recorded</span>
               </div>
             </div>
           </div>
@@ -2066,7 +2072,7 @@
           const data = JSON.parse(raw);
           questionIds.forEach(function(qid) {
             const textarea = document.getElementById(qid);
-            if (textarea && data[qid] !== undefined) {
+            if (textarea && data[qid] !== undefined && data[qid].trim().length > 0) {
               textarea.value = data[qid];
               updateCounts(qid);
             }
