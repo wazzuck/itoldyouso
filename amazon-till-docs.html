@@ -1157,7 +1157,7 @@
             <li>☐ Connect the till to the dedicated cafe broadband connection.</li>
             <li>☐ Pair your card payment terminal (Dojo, Square Reader, Zettle, SumUp, or standalone bank Personal Identification Number [PIN] entry device).</li>
             <li>☐ Configure your food and drink menu, categories (artisan coffee, teas, brunch specials, lunch sandwiches, bakery, soft drinks), item modifiers (oat milk, extra shot, decaf, syrups, allergy flags), and eat-in vs takeaway tax tags.</li>
-            <li>☐ Configure staff PIN accounts and tip / gratuity pooling rules.</li>
+            <li>☐ Configure 4 individual staff PIN accounts with separate sales attribution and shift reporting.</li>
             <li>☐ Run end-to-end test transactions: card tap, phone pay, chip and PIN, cash change, split bills, and refunds.</li>
           </ul>
         </section>
@@ -1378,10 +1378,10 @@ Workflow: Automated kitchen order ticket printing to kitchen printer on food ord
                 rows="3"
                 placeholder="Describe your broadband provider (BT/Virgin/Sky), router location, and Wi-Fi signal at the till..."
                 oninput="handleFieldChange('q5')"
-              ></textarea>
+              >On-premise Wi-Fi network is already active and available across the premises for connecting the till register and wireless peripherals.</textarea>
               <div class="input-footer">
-                <span id="q5-saved-time">Not yet modified</span>
-                <span id="q5-count">0 characters</span>
+                <span id="q5-saved-time">Pre-filled from intake</span>
+                <span id="q5-count">Recorded</span>
               </div>
             </div>
           </div>
@@ -1412,10 +1412,10 @@ Workflow: Automated kitchen order ticket printing to kitchen printer on food ord
                 rows="3"
                 placeholder="Number of staff, menu categories, drink modifiers, takeaway food items, and VAT details..."
                 oninput="handleFieldChange('q6')"
-              ></textarea>
+              >Staff Logins: 4 team members require individual employee accounts and PIN codes for individual sales tracking and end-of-day reporting.</textarea>
               <div class="input-footer">
-                <span id="q6-saved-time">Not yet modified</span>
-                <span id="q6-count">0 characters</span>
+                <span id="q6-saved-time">Pre-filled from intake</span>
+                <span id="q6-count">Recorded</span>
               </div>
             </div>
           </div>
