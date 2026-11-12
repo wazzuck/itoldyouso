@@ -236,24 +236,70 @@
 
     .nav-links {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       list-style: none;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       text-decoration: none;
-      color: #374151;
-      font-weight: 600;
+      color: #ffffff;
+      background-color: #0f766e;
+      border: 2px solid #0f766e;
+      font-weight: 700;
       font-size: 0.92rem;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: color 0.15s ease, background-color 0.15s ease;
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(15, 118, 110, 0.2);
+      transition: transform 0.15s ease, background-color 0.15s ease,
+        border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .nav-links a:hover {
-      color: #0f766e;
-      background-color: #f0fdf4;
+      color: #ffffff;
+      background-color: #115e59;
+      border-color: #115e59;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(15, 118, 110, 0.28);
+    }
+
+    .nav-links a:active {
+      transform: translateY(0);
+    }
+
+    .nav-links .nav-disabled {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #64748b;
+      background-color: #e2e8f0;
+      border: 2px solid #cbd5e1;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06);
+      opacity: 0.75;
+      cursor: not-allowed;
+      user-select: none;
+    }
+
+    .nav-links .nav-disabled em {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    .nav-post-deploy-note {
+      width: 100%;
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: #64748b;
     }
 
     /* -------------------------------------------------------------------------
@@ -273,6 +319,9 @@
       padding: 40px;
       margin-bottom: 48px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+      scroll-margin-top: 96px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     .article-header {
@@ -949,32 +998,191 @@
     }
 
     /* -------------------------------------------------------------------------
-       Responsive Breakpoints
+       Responsive Breakpoints (Tablet & Mobile Phones)
        ------------------------------------------------------------------------- */
     @media (max-width: 768px) {
-      main.doc-main {
-        padding: 20px 14px 48px 14px;
+      #auth-gate {
+        padding: 16px;
       }
 
-      article.doc-article {
-        padding: 24px 16px;
-        margin-bottom: 28px;
+      .auth-card {
+        padding: 28px 20px;
+      }
+
+      .auth-card h1 {
+        font-size: 1.4rem;
       }
 
       header.site-header {
-        padding: 20px 16px;
+        padding: 18px 16px;
       }
 
       .header-titles h1 {
-        font-size: 1.55rem;
+        font-size: 1.4rem;
+        line-height: 1.3;
+      }
+
+      .header-titles .subtitle {
+        font-size: 0.92rem;
+      }
+
+      .header-meta {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 0.88rem;
+      }
+
+      /* Prevent the navigation bar from sticking and covering a third of a
+         mobile phone screen while scrolling; stack buttons cleanly */
+      nav.doc-nav {
+        position: static;
+        padding: 12px 14px;
+      }
+
+      .nav-links {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .nav-links li {
+        margin-bottom: 0;
+        width: 100%;
+      }
+
+      .nav-links a,
+      .nav-links .nav-disabled {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 0.88rem;
+        line-height: 1.35;
+        flex-wrap: wrap;
+      }
+
+      .nav-post-deploy-note {
+        font-size: 0.78rem;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      main.doc-main {
+        padding: 16px 12px 40px 12px;
+      }
+
+      article.doc-article {
+        padding: 20px 15px;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        scroll-margin-top: 16px;
+      }
+
+      .article-header {
+        padding-bottom: 14px;
+        margin-bottom: 20px;
+      }
+
+      .article-header h2 {
+        font-size: 1.45rem;
+        line-height: 1.3;
+      }
+
+      .article-header p.article-lead {
+        font-size: 0.98rem;
+      }
+
+      h3 {
+        font-size: 1.18rem;
+        margin-top: 24px;
+      }
+
+      h4 {
+        font-size: 1.05rem;
+      }
+
+      p, li {
+        font-size: 0.96rem;
+        line-height: 1.55;
+      }
+
+      ul, ol {
+        padding-left: 20px;
+      }
+
+      .callout {
+        padding: 14px 14px;
+        margin: 16px 0;
+      }
+
+      table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 0.88rem;
+      }
+
+      th, td {
+        padding: 10px 12px;
       }
 
       .pricing-grid, .cheatsheet-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .pricing-tier-card {
+        padding: 20px 16px;
+      }
+
+      .pricing-tier-price {
+        font-size: 1.85rem;
+      }
+
+      .terms-card {
+        padding: 18px 14px;
+        margin: 24px 0 20px 0;
+      }
+
+      .terms-card h4 {
+        font-size: 1.15rem;
+      }
+
+      .terms-list {
+        padding-left: 18px;
+        font-size: 0.92rem;
+      }
+
+      .terms-btn,
+      #terms-accept-btn,
+      #terms-email-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+      }
+
+      #terms-form label[style*="border-radius: 6px"] {
+        width: 100%;
+      }
+
+      #terms-confirmed-box {
+        padding: 14px 14px !important;
+      }
+
+      #terms-confirmed-box button,
+      #terms-confirmed-box a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
       }
 
       .cheatsheet-banner {
-        margin: -24px -16px 20px -16px;
+        margin: -20px -15px 18px -15px;
       }
 
       .question-card {
@@ -1087,13 +1295,18 @@
     <nav class="doc-nav" aria-label="Document Navigation">
       <div class="nav-container">
         <ul class="nav-links">
-          <li><a href="#trainer">1. Service Contract &amp; Scope</a></li>
+          <li><a href="#trainer">&#128196; 1. Service Contract &amp; Scope</a></li>
           <li style="display: none;" aria-hidden="true"><a href="#questionnaire">Technical Intake</a></li>
+          <li><a href="#hb-pricing">&#128179; 2. Pricing &amp; Terms</a></li>
           <!-- NOTE: Restore Cafe Client Handbook and Cheat Sheet nav items later when unhiding #handbook and #cheatsheet -->
           <li style="display: none;" aria-hidden="true"><a href="#handbook">Cafe Client Handbook</a></li>
-          <li><a href="#hb-pricing">2. Pricing &amp; Terms</a></li>
           <li style="display: none;" aria-hidden="true"><a href="#cheatsheet">Cheat Sheet</a></li>
+          <li><span class="nav-disabled" aria-disabled="true" title="Custom documentation and cheat sheet will be unlocked after deployment">&#128274; 3. Documentation <em>(Available After Deployment)</em></span></li>
+          <li><span class="nav-disabled" aria-disabled="true" title="Follow-up support options will be available after deployment">&#128274; 4. Follow-Up Support <em>(Available After Deployment)</em></span></li>
         </ul>
+        <div class="nav-post-deploy-note">
+          <strong>Note:</strong> Custom cafe documentation, printable cheat sheets, and follow-up support options will be unlocked here after on-site deployment.
+        </div>
       </div>
     </nav>
 
