@@ -1916,6 +1916,9 @@ Primary Priorities:
                 <a id="terms-email-btn" href="mailto:contactus@itoldyouso.tech?subject=Accepted%20Terms%20-%20SumUp%20Till%20Setup%20-%20Migena&amp;body=Hi%20Neville,%20I%20have%20reviewed%20and%20accepted%20the%20terms%20and%20pricing%20for%20the%20SumUp%20till%20setup." class="terms-btn" style="display: inline-block; text-decoration: none; padding: 10px 22px; font-size: 0.95rem; background-color: #0f766e; color: #ffffff;">
                   ✉ Send Confirmation to Neville via Email &rarr;
                 </a>
+                <button type="button" onclick="copyContractToClipboard()" style="background: #ffffff; border: 1px solid #0f766e; color: #0f766e; padding: 9px 14px; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 600;">
+                  📋 Copy Full Contract Text
+                </button>
                 <button type="button" onclick="resetTermsSelection()" style="background: transparent; border: 1px solid #15803d; color: #166534; padding: 9px 14px; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 600;">
                   Change Selected Date
                 </button>
@@ -2285,6 +2288,80 @@ Primary Priorities:
         }
       }
 
+      function buildContractEmailText(dateStr, selectedDay) {
+        const dayText = selectedDay || 'Wednesday 18th or Thursday 19th November 2026';
+        return [
+          'Hi Neville,',
+          '',
+          'I have reviewed and accepted the £450 package terms, service contract, and pricing for the SumUp 13" Touchscreen Register & Solo Card Reader setup at 345 Green Lanes, London N13 4JG, and I agree to provide all of the details in the Action Required section ahead of the installation date.',
+          '',
+          '==================================================',
+          'BOOKING & ACCEPTANCE SUMMARY',
+          '==================================================',
+          'Client: Migena Lika (Primary Contact) & Egzon Quilia',
+          'Premises: 345 Green Lanes, London N13 4JG',
+          'Preferred Installation Date: ' + dayText,
+          'Target Cafe Opening Date: Sunday 22nd November 2026',
+          'Agreed Package Fee: £450 flat fee (Complete Cafe Suite)',
+          'Acceptance Recorded: ' + (dateStr || new Date().toLocaleString('en-GB')),
+          '',
+          '==================================================',
+          '1. AGREEMENT PARTIES & CORE COMMITMENT',
+          '==================================================',
+          'Service Provider: IToldYouSo Computing — Neville Bryce, Senior Software Engineer (Director), Corringham Court, Corringham Road, London NW11 7BY',
+          'Client: Migena Lika (Primary Contact) & Egzon Quilia — 345 Green Lanes, London N13 4JG',
+          'ASAP before Target Launch Date: Sunday 22nd November 2026 (Rapid turnaround deployment)',
+          '',
+          'Core Commitment:',
+          '- Register & Card Reader Setup: Configure your SumUp 13-inch Full HD countertop touchscreen register and companion SumUp Solo handheld card reader.',
+          '- Dual-Printer & Cash Drawer Integration: Pair your front-of-house checkout printer and kitchen order ticket printer, and verify cash drawer solenoid compatibility.',
+          '- Complete Menu, Modifiers & Gratuity Programming: Programme your full item catalogue (10–20 brunch items, 10–20 lunch items, London cafe coffees with modifiers, soft drinks, beers, and wine), including customer gratuity/tipping prompts, eat-in vs takeaway tags, and receipt branding.',
+          '- Staff Accounts & Sales Attribution: Set up 4 individual staff PIN accounts with separate sales tracking.',
+          '- Manager Handover Training (Single Session): Provide unhurried 1-on-1 handover training in 1 single session for the manager (who will then train the rest of the staff) so the team feels 100% confident taking card and cash payments during morning coffee and lunchtime rushes.',
+          '- Post-Installation Website Documentation: Release custom operational documentation on this website upon completion — factoring in findings from the installation and requests from the owner — free for you to view, print, or download for later reproduction.',
+          '',
+          '==================================================',
+          'ACTION REQUIRED AHEAD OF ON-SITE INSTALLATION DAY',
+          '==================================================',
+          '1. Official SumUp Cash Drawer (Please Order Ahead of the Job): Purchase the official SumUp Cash Drawer (330A) directly from SumUp for £69.00 (£82.80 incl. VAT) ahead of the installation day so it is on-site for the single visit (https://store.sumup.com/en-GB/website/product-selection/accessory.cash_drawer_330A?prc=GBBF112026-s-GBBF112026-s-GBBF112026-s-GBBF112026-s-GBBF112026S-s-GBBF112026-s-GBBF112026).',
+          '2. Mandatory Device & Printer Model Details Required (As Soon As Possible): Clarify exact details of all devices — including exact model numbers and full printer specifications for both the checkout printer and the kitchen printer — as soon as possible so detailed technical planning can be carried out and in case any specialist cables or devices are required. Mandatory prior to installation day.',
+          '3. Detailed Cafe Layout Plan for Cabling: Provide a detailed plan of the layout of the cafe (showing the front checkout counter, kitchen printer position, broadband router location, and nearby power sockets) ahead of the visit so that any additional required cabling can be planned for.',
+          '4. Written Menu & Price List Sent Before Arrival: Send the full list of menu items and prices (10–20 brunch items, 10–20 lunch items, coffees, modifiers, soft drinks, beers, and wine, plus the 4 staff names for PIN logins) in writing before arrival on-site.',
+          '5. SumUp Account Details & Thermal Paper Rolls Ready to Go: Ensure SumUp merchant login details (username, password, and account holder mobile phone for verification codes) are ready to go upon arrival, and that thermal paper rolls are on-site for both printers.',
+          '',
+          '==================================================',
+          '2. PRE-FLIGHT CHECKS & 3. DAY OF INSTALLATION PROTOCOL',
+          '==================================================',
+          '- Check 5GHz Wi-Fi SSID signal strength and routing to separate cafe till traffic and card readers from customer guest devices.',
+          '- Unpack and mount hardware on counter / service area with tidy, concealed cable management away from liquids.',
+          '- Connect the till to the dedicated cafe broadband connection.',
+          '- Pair SumUp Solo handheld card reader with the 13-inch countertop register.',
+          '- Configure food and drink menu, categories (10–20 brunch items, 10–20 lunch items, artisan coffee, teas, soft drinks, beers, and wine), item modifiers (oat milk, almond milk, soya milk, extra shot, decaf, syrups), customer gratuity/tipping prompts, receipt header/footer details, and eat-in vs takeaway tax tags.',
+          '- Configure 4 individual staff PIN accounts with separate sales attribution and shift reporting.',
+          '- Run end-to-end test transactions: card tap, phone pay, chip and PIN, cash change, split bills, and refunds.',
+          '',
+          '==================================================',
+          '4. MANAGER HANDOVER TRAINING SYLLABUS (SINGLE SESSION)',
+          '==================================================',
+          '- Morning Opening Routine, Ringing Up Food & Drinks, Card Payments & Gratuity, Cash Handling, Split Bills & Custom Orders, Evening Close-Out (Z-Reports), and Post-Installation Website Documentation & Cheat Sheet.',
+          '',
+          '==================================================',
+          '5. PRICING, DISCLAIMERS & SERVICE TERMS',
+          '==================================================',
+          '- Package Price: £450 flat fee (Complete Cafe Suite — Turnkey Cafe EPOS Deployment).',
+          '- Baseline Technical Rate: £50 per hour.',
+          '- Allocated Package Scope & Duration: The fixed £450 onboarding fee includes substantial off-site planning, technical research, and preparation ahead of the visit to ensure that installation goes smoothly on the day, plus up to 5.5 hours of dedicated on-site setup and training time, post-installation documentation, and all North London travel (Palmers Green N13).',
+          '- Minimum Billing & Full 5.5-Hour Window Policy: If the engineer finishes the primary installation before 5.5 hours, the £450 fee is still fully payable as a fixed minimum; however, the full 5.5-hour window will be filled on-site by providing information about, setting up, or working on any related services for the client.',
+          '- Extended Duration Policy: Any additional time beyond the allocated 5.5-hour on-site package duration is charged at £50 per hour (billed pro-rata in 30-minute increments of £25), agreed verbally on-site prior to proceeding.',
+          '- On-Site Familiarisation & Exploratory Work: Some of this work is exploratory on the engineer\'s behalf as the engineer does not possess the equipment personally and will need to familiarise himself with the specific details of the system on-site; however, as a competent and mature engineer, he will work as fast as possible.',
+          '- Software-Defined Device Disclaimer & Follow-Up Visits: As these are software-defined devices, their behaviour can change over time. We do not accept liability for any teething issues after the initial handover. Any follow-up visits will be charged at the regular rate (£50/hour, 1-hour minimum) plus a £35 London call-out charge.',
+          '- Mandatory Pre-Installation Details ("Action Required" Section): The client agrees to provide all information and complete all items listed in the Action Required Ahead of On-Site Installation Day section ahead of the installation date.',
+          '- Settlement Terms: Payment is due immediately upon completion of on-site delivery and handover via direct on-site card payment or instant electronic bank transfer (BACS).',
+          '',
+          'Signed & Accepted by: Migena Lika & Egzon Quilia (345 Green Lanes, London N13 4JG)'
+        ].join('\n');
+      }
+
       function showTermsAccepted(dateStr, selectedDay) {
         const form = document.getElementById('terms-form');
         const confirmedBox = document.getElementById('terms-confirmed-box');
@@ -2294,20 +2371,33 @@ Primary Priorities:
         if (form) form.style.display = 'none';
         if (confirmedBox) confirmedBox.style.display = 'block';
         if (acceptedDateSpan) acceptedDateSpan.textContent = dateStr;
+        const dayText = selectedDay || 'Wednesday 18th or Thursday 19th November 2026';
         if (selectedDaySpan) {
-          selectedDaySpan.textContent = selectedDay || 'Wednesday 18th or Thursday 19th November 2026';
+          selectedDaySpan.textContent = dayText;
         }
-        if (emailBtn && selectedDay) {
+        if (emailBtn) {
           const subject = encodeURIComponent(
-            'Accepted Terms & Booking (' + selectedDay + ') - SumUp Till Setup - Migena'
+            'Accepted Contract & Booking (' + dayText + ') - SumUp Till Setup - Migena (345 Green Lanes)'
           );
-          const body = encodeURIComponent(
-            'Hi Neville,\n\nI have reviewed and accepted the £450 package terms and pricing for the SumUp 13" till setup at 345 Green Lanes, London N13 4JG, and I agree to provide all of the details in the Action Required section ahead of the installation date.\n\nPreferred Installation Date: ' +
-            selectedDay + '\n\nBest regards,\nMigena'
-          );
+          const body = encodeURIComponent(buildContractEmailText(dateStr, dayText));
           emailBtn.href = 'mailto:contactus@itoldyouso.tech?subject=' + subject + '&body=' + body;
         }
       }
+
+      window.copyContractToClipboard = function() {
+        const termsDate = localStorage.getItem(TERMS_STORAGE_KEY) || new Date().toLocaleString('en-GB');
+        const termsDay = localStorage.getItem(TERMS_DAY_STORAGE_KEY) || 'Wednesday 18th or Thursday 19th November 2026';
+        const fullText = buildContractEmailText(termsDate, termsDay);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(fullText).then(function() {
+            alert('Full accepted contract copied to clipboard!');
+          }).catch(function() {
+            prompt('Copy the full contract text below:', fullText);
+          });
+        } else {
+          prompt('Copy the full contract text below:', fullText);
+        }
+      };
 
       window.handleTermsAcceptance = function(event) {
         event.preventDefault();
