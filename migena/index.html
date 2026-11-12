@@ -1864,19 +1864,19 @@ Primary Priorities:
             <form id="terms-form" onsubmit="handleTermsAcceptance(event)" style="margin-top: 20px;">
               <div style="margin-bottom: 18px; padding: 16px 18px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                 <div style="font-weight: 700; font-size: 1rem; color: #0f172a; margin-bottom: 6px;">
-                  Select Your Preferred Installation Slot (Next Available Availability &mdash; This Weekend)
+                  Select Your Preferred Installation Date (Next Week &mdash; Allowing for Cash Drawer Delivery)
                 </div>
                 <p style="font-size: 0.92rem; color: #475569; margin-bottom: 12px;">
-                  The next available slots I can perform this on-site installation and handover at 345 Green Lanes are <strong>Friday (9:00am &ndash; 5:00pm)</strong> or <strong>Saturday Afternoon</strong> this weekend. Please choose which slot works best for you:
+                  To allow time for delivery of the recommended SumUp Cash Drawer ahead of your Sunday 22nd November opening, I have availability on <strong>Wednesday 18th November 2026</strong> and <strong>Thursday 19th November 2026</strong> next week. Please choose which date works best for you:
                 </p>
                 <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                   <label style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: #ffffff; border: 1px solid #94a3b8; border-radius: 6px; cursor: pointer; font-weight: 600; color: #1e293b;">
-                    <input type="radio" name="preferred-install-day" value="Friday 9:00am - 5:00pm (This Weekend)" required>
-                    <span>Friday 9:00am &ndash; 5:00pm (This Weekend)</span>
+                    <input type="radio" name="preferred-install-day" value="Wednesday 18th November 2026" required>
+                    <span>Wednesday 18th November 2026</span>
                   </label>
                   <label style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: #ffffff; border: 1px solid #94a3b8; border-radius: 6px; cursor: pointer; font-weight: 600; color: #1e293b;">
-                    <input type="radio" name="preferred-install-day" value="Saturday Afternoon (This Weekend)" required>
-                    <span>Saturday Afternoon (This Weekend)</span>
+                    <input type="radio" name="preferred-install-day" value="Thursday 19th November 2026" required>
+                    <span>Thursday 19th November 2026</span>
                   </label>
                 </div>
               </div>
@@ -1893,17 +1893,17 @@ Primary Priorities:
                   ✓ Accept Terms &amp; Confirm Booking
                 </button>
                 <span id="terms-status-indicator" style="font-size: 0.9rem; color: #64748b;">
-                  Select a day above and click to record your confirmation
+                  Select a date above and click to record your confirmation
                 </span>
               </div>
             </form>
 
             <div id="terms-confirmed-box" style="display: none; margin-top: 20px; padding: 16px 20px; background-color: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; color: #166534;">
               <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.05rem;">
-                <span style="font-size: 1.3rem;">✓</span> Terms Accepted &amp; Installation Day Selected
+                <span style="font-size: 1.3rem;">✓</span> Terms Accepted &amp; Installation Date Selected
               </div>
               <p style="margin: 8px 0 6px 0; font-size: 0.95rem; color: #15803d; line-height: 1.5;">
-                <strong>Preferred Installation Day:</strong> <span id="terms-selected-day">Not specified</span>
+                <strong>Preferred Installation Date:</strong> <span id="terms-selected-day">Not specified</span>
               </p>
               <p style="margin: 0 0 14px 0; font-size: 0.95rem; color: #15803d; line-height: 1.5;">
                 Thank you! Your acceptance of the &pound;50/hour rate and &pound;350 package terms was recorded on <strong id="terms-accepted-date"></strong>.
@@ -2288,14 +2288,14 @@ Primary Priorities:
         if (confirmedBox) confirmedBox.style.display = 'block';
         if (acceptedDateSpan) acceptedDateSpan.textContent = dateStr;
         if (selectedDaySpan) {
-          selectedDaySpan.textContent = selectedDay || 'This Weekend (to be confirmed)';
+          selectedDaySpan.textContent = selectedDay || 'Wednesday 18th or Thursday 19th November 2026';
         }
         if (emailBtn && selectedDay) {
           const subject = encodeURIComponent(
             'Accepted Terms & Booking (' + selectedDay + ') - SumUp Till Setup - Migena'
           );
           const body = encodeURIComponent(
-            'Hi Neville,\n\nI have reviewed and accepted the £350 package terms and pricing for the SumUp 13" till setup at 345 Green Lanes, London N13 4JG.\n\nPreferred Installation Day: ' +
+            'Hi Neville,\n\nI have reviewed and accepted the £350 package terms and pricing for the SumUp 13" till setup at 345 Green Lanes, London N13 4JG.\n\nPreferred Installation Date: ' +
             selectedDay + '\n\nBest regards,\nMigena'
           );
           emailBtn.href = 'mailto:contactus@itoldyouso.tech?subject=' + subject + '&body=' + body;
