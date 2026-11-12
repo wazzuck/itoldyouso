@@ -1861,6 +1861,7 @@ Primary Priorities:
               <li><strong>Extended Duration Policy:</strong> If the on-site job takes longer than the allocated 5.5-hour package duration due to client request, extra hardware, extensive menu/modifier entry, or local network router troubleshooting, any additional time will be charged at the standard agreed rate of <strong>&pound;50 per hour</strong> (billed pro-rata in 30-minute increments of &pound;25), agreed verbally with you on-site prior to proceeding.</li>
               <li><strong>On-Site Familiarisation &amp; Exploratory Work:</strong> Some of this work is exploratory on the engineer's behalf as the engineer does not possess the equipment personally and will need to familiarise himself with the specific details of the system on-site; however, as a competent and mature engineer, he will work as fast as possible.</li>
               <li><strong>Software-Defined Device Disclaimer &amp; Follow-Up Visits:</strong> As these are software-defined devices, their behaviour can change over time. We do not accept liability for any teething issues after the initial handover. Any follow-up visits will be charged at the regular rate (&pound;50/hour, 1-hour minimum) plus a &pound;35 London call-out charge.</li>
+              <li><strong>Mandatory Pre-Installation Details (&ldquo;Action Required&rdquo; Section):</strong> By accepting below, the client agrees to provide all information and complete all items listed in the <strong>Action Required Ahead of On-Site Installation Day</strong> section ahead of the installation date.</li>
               <li><strong>Settlement Terms:</strong> Payment is due immediately upon completion of on-site delivery and handover, payable via direct on-site card payment or instant electronic bank transfer (BACS). An electronic invoice and receipt are issued immediately upon payment.</li>
             </ul>
 
@@ -1887,7 +1888,7 @@ Primary Priorities:
               <div class="terms-checkbox-group">
                 <label class="terms-checkbox-label">
                   <input type="checkbox" id="terms-agree-checkbox" required>
-                  <span>I, on behalf of <strong>Migena Lika &amp; Egzon Quilia</strong> (345 Green Lanes, London N13 4JG), have read and agree to these service terms, the &pound;50/hour engineering rate, and the &pound;450 package conditions ahead of our opening on Sunday 22nd November 2026.</span>
+                  <span>I, on behalf of <strong>Migena Lika &amp; Egzon Quilia</strong> (345 Green Lanes, London N13 4JG), have read and agree to these service terms, the &pound;50/hour engineering rate, and the &pound;450 package conditions, and I agree to provide all of the details in the <strong>Action Required Ahead of On-Site Installation Day</strong> section ahead of the installation date.</span>
                 </label>
               </div>
 
@@ -1909,7 +1910,7 @@ Primary Priorities:
                 <strong>Preferred Installation Date:</strong> <span id="terms-selected-day">Not specified</span>
               </p>
               <p style="margin: 0 0 14px 0; font-size: 0.95rem; color: #15803d; line-height: 1.5;">
-                Thank you! Your acceptance of the &pound;50/hour rate and &pound;450 package terms was recorded on <strong id="terms-accepted-date"></strong>. Please ensure you send the confirmation email below (or call/text Neville on <strong>020 4520 9114</strong>) so your chosen date is locked in:
+                Thank you! Your acceptance of the &pound;50/hour rate, the &pound;450 package terms, and your agreement to provide all details in the <strong>Action Required</strong> section ahead of the installation date was recorded on <strong id="terms-accepted-date"></strong>. Please ensure you send the confirmation email below (or call/text Neville on <strong>020 4520 9114</strong>) so your chosen date is locked in:
               </p>
               <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
                 <a id="terms-email-btn" href="mailto:contactus@itoldyouso.tech?subject=Accepted%20Terms%20-%20SumUp%20Till%20Setup%20-%20Migena&amp;body=Hi%20Neville,%20I%20have%20reviewed%20and%20accepted%20the%20terms%20and%20pricing%20for%20the%20SumUp%20till%20setup." class="terms-btn" style="display: inline-block; text-decoration: none; padding: 10px 22px; font-size: 0.95rem; background-color: #0f766e; color: #ffffff;">
@@ -2301,7 +2302,7 @@ Primary Priorities:
             'Accepted Terms & Booking (' + selectedDay + ') - SumUp Till Setup - Migena'
           );
           const body = encodeURIComponent(
-            'Hi Neville,\n\nI have reviewed and accepted the £450 package terms and pricing for the SumUp 13" till setup at 345 Green Lanes, London N13 4JG.\n\nPreferred Installation Date: ' +
+            'Hi Neville,\n\nI have reviewed and accepted the £450 package terms and pricing for the SumUp 13" till setup at 345 Green Lanes, London N13 4JG, and I agree to provide all of the details in the Action Required section ahead of the installation date.\n\nPreferred Installation Date: ' +
             selectedDay + '\n\nBest regards,\nMigena'
           );
           emailBtn.href = 'mailto:contactus@itoldyouso.tech?subject=' + subject + '&body=' + body;
