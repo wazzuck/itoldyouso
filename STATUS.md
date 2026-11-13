@@ -31,6 +31,11 @@ installation.
 - **Automated verification (`9f67114`)**: Extended `scripts/verify_site.py`
   to check all 32 service pages, `llms-full.txt`, and major AI crawler
   rules.
+- **IndexNow instant push notifications**: Added key file
+  `4cd63bf4d0be4b3ca44d92ba5c1e37ad.txt`, submission script
+  `scripts/submit_indexnow.py`, and `.github/workflows/indexnow.yml` so
+  Microsoft Bing and IndexNow-participating AI search engines are notified
+  whenever GitHub Pages deploys `main`.
 
 ---
 
@@ -96,6 +101,3 @@ indexes, business profiles, and external consensus across the web.
   whether to add `<meta name="robots" content="noindex, nofollow">` and
   `robots.txt` `Disallow:` rules so client installation notes do not appear
   in public AI search snippets.
-- [ ] **IndexNow automation key**: Decide whether to add an `IndexNow`
-  verification key file at repository root to notify Bing and participating
-  AI crawlers immediately on push.
