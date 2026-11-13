@@ -255,7 +255,7 @@
          * Modern Responsive Home Page Stylesheet
          * =====================================================================
          * 1. Reset & base readable architectural colour system
-         * 2. Split Hero + Dark Flagship Point of Sale (POS) Showcase panel
+         * 2. Full-width Editorial Hero covering all London computing services
          * 3. Filterable 32-Service Bento Grid (mobile-first single column)
          * 4. Sovereign Consultancy & Sticky 2-Column Editorial Frequently
          *    Asked Questions (FAQ)
@@ -307,13 +307,9 @@
             margin: 0 auto;
         }
 
-        /* 1. Split Hero Architecture */
+        /* 1. Full-Width Editorial Hero */
         .hero-shell {
-            display: grid;
-            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
-            gap: 24px;
-            align-items: stretch;
-            margin-bottom: 56px;
+            margin-bottom: 44px;
             animation: fadeIn 0.4s ease-out;
         }
 
@@ -321,7 +317,7 @@
             background: #ffffff;
             border: 1px solid rgba(15, 23, 42, 0.08);
             border-radius: 20px;
-            padding: 40px 38px 34px 38px;
+            padding: 36px 40px 30px 40px;
             box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04),
                 0 1px 3px rgba(15, 23, 42, 0.03);
             display: flex;
@@ -355,12 +351,13 @@
         }
 
         .hero-main h1 {
-            font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+            font-size: clamp(1.85rem, 3.2vw, 2.65rem);
             font-weight: 800;
             letter-spacing: -0.035em;
             line-height: 1.12;
             color: #0b1220;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
+            max-width: 24ch;
         }
 
         .hero-highlight {
@@ -374,9 +371,9 @@
         .hero-sub {
             font-size: 1.06rem;
             color: #475569;
-            max-width: 56ch;
+            max-width: 68ch;
             line-height: 1.65;
-            margin-bottom: 26px;
+            margin-bottom: 24px;
         }
 
         .hero-actions {
@@ -461,129 +458,6 @@
             font-size: 0.83rem;
             color: #64748b;
             line-height: 1.4;
-        }
-
-        /* Flagship POS Dark Panel inside Split Hero */
-        .pos-panel {
-            background: linear-gradient(160deg, #0b1220 0%, #162033 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 32px 30px;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 20px 36px -14px rgba(11, 18, 32, 0.35);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pos-panel::after {
-            content: "";
-            position: absolute;
-            top: -80px;
-            right: -80px;
-            width: 240px;
-            height: 240px;
-            background: radial-gradient(
-                circle,
-                rgba(245, 158, 11, 0.18) 0%,
-                transparent 70%
-            );
-            pointer-events: none;
-        }
-
-        .pos-panel-badge {
-            display: inline-block;
-            background: rgba(245, 158, 11, 0.15);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.35);
-            font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 0.9px;
-            padding: 5px 12px;
-            border-radius: 9999px;
-            margin-bottom: 14px;
-            text-transform: uppercase;
-            align-self: flex-start;
-        }
-
-        .pos-panel h2 {
-            font-size: clamp(1.32rem, 2.1vw, 1.6rem);
-            color: #ffffff;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            line-height: 1.25;
-            margin-bottom: 10px;
-        }
-
-        .pos-panel p {
-            color: #cbd5e1;
-            font-size: 0.94rem;
-            line-height: 1.6;
-            margin-bottom: 18px;
-        }
-
-        .pos-chips {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 8px;
-            list-style: none;
-            margin-bottom: 22px;
-        }
-
-        .pos-chips li {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 9px;
-            padding: 8px 11px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #f1f5f9;
-            line-height: 1.35;
-        }
-
-        .pos-links-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .pos-row-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 12px 14px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            font-size: 0.92rem;
-            font-weight: 700;
-            min-height: 46px;
-            transition: background 0.18s ease, border-color 0.18s ease,
-                transform 0.15s ease;
-        }
-
-        .pos-row-link--primary {
-            background: #d97706;
-            border-color: #d97706;
-            color: #ffffff;
-        }
-
-        .pos-row-link:hover {
-            background: rgba(255, 255, 255, 0.14);
-            border-color: rgba(255, 255, 255, 0.28);
-            transform: translateX(2px);
-        }
-
-        .pos-row-link--primary:hover {
-            background: #b45309;
-            border-color: #b45309;
         }
 
         /* 2. Services Directory Section */
@@ -1114,12 +988,6 @@
         }
 
         @media (max-width: 959px) {
-            .hero-shell {
-                grid-template-columns: 1fr;
-                gap: 18px;
-                margin-bottom: 40px;
-            }
-
             .faq-section {
                 grid-template-columns: 1fr;
                 gap: 24px;
@@ -1135,6 +1003,10 @@
             body {
                 padding: 12px 12px 36px 12px;
                 padding-top: 84px;
+            }
+
+            .hero-shell {
+                margin-bottom: 32px;
             }
 
             .hero-main {
@@ -1170,15 +1042,6 @@
                 gap: 2px;
                 border-left: 2px solid #e2e8f0;
                 padding-left: 12px;
-            }
-
-            .pos-panel {
-                padding: 24px 18px;
-                border-radius: 16px;
-            }
-
-            .pos-chips {
-                grid-template-columns: 1fr;
             }
 
             .services-section,
@@ -1268,8 +1131,8 @@
     <header>
         <a href="index.html" class="logo"><img src="/assets/glasses.png" alt="IToldYouSo" /> <span><i>IT</i>oldYouSo Computing</span></a>
         <nav class="header-nav" aria-label="Primary sections">
-            <a href="#pos-spotlight">POS &amp; Tills</a>
-            <a href="#services">All Services</a>
+            <a href="#services">Services</a>
+            <a href="services/pos-payment.html">POS &amp; Tills</a>
             <a href="#consulting">Advisory</a>
             <a href="#faq">FAQ</a>
         </nav>
@@ -1281,17 +1144,17 @@
     </header>
 
     <main class="container">
-        <!-- Split Editorial Hero & Commercial POS Spotlight -->
-        <section class="hero-shell" aria-label="Introduction and Flagship POS Services">
+        <!-- Full-Width Editorial Hero -->
+        <section class="hero-shell" aria-label="Introduction and London Services">
             <div class="hero-main">
                 <div>
                     <span class="status-pill"><span class="status-dot" aria-hidden="true"></span> Hampstead Base · Serving Greater London</span>
-                    <h1>POS &amp; Till Installation and IT Support Across <span class="hero-highlight">London</span></h1>
+                    <h1>IT Support, Networks &amp; POS Systems Across <span class="hero-highlight">London</span></h1>
                     <p class="hero-sub">
-                        Based in Hampstead, serving London-wide commercial and residential sites — from turnkey Point of Sale (POS) till installations to fast, same-day Information Technology (IT) support.
+                        Based in Hampstead, serving London-wide commercial and residential sites — covering repairs, Wi-Fi and networking, cyber security, cloud and software engineering, alongside turnkey Point of Sale (POS) till installations.
                     </p>
                     <div class="hero-actions">
-                        <a href="services/pos-payment.html" class="btn-primary">POS &amp; Till Setup →</a>
+                        <a href="#services" class="btn-primary">Browse All Services ↓</a>
                         <a href="tel:02045209114" class="btn-outline">Call 020 4520 9114</a>
                     </div>
                     <p class="hero-email-note">
@@ -1314,39 +1177,6 @@
                     </div>
                 </div>
             </div>
-
-            <aside id="pos-spotlight" class="pos-panel" aria-labelledby="pos-spotlight-heading">
-                <div>
-                    <span class="pos-panel-badge">Flagship Commercial Service</span>
-                    <h2 id="pos-spotlight-heading">Turnkey Till, POS &amp; EPOS System Installation</h2>
-                    <p>
-                        Opening a café, restaurant, shop, salon, or market stall anywhere in Greater London? From our Hampstead base, we travel to sites across Central, North, West, East, and South London for pre-opening and out-of-hours cutovers.
-                    </p>
-                    <ul class="pos-chips">
-                        <li>Square, SumUp &amp; Zettle</li>
-                        <li>Clover, Lightspeed &amp; Shopify</li>
-                        <li>Stripe &amp; Card Terminals</li>
-                        <li>Receipt Printers &amp; Drawers</li>
-                        <li>Kitchen Display Systems (KDS)</li>
-                        <li>Menu &amp; Stock Pre-Loading</li>
-                    </ul>
-                </div>
-
-                <div class="pos-links-stack">
-                    <a href="services/pos-payment.html" class="pos-row-link pos-row-link--primary">
-                        <span>POS &amp; Till System Installation</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                    <a href="services/pos-payments.html" class="pos-row-link">
-                        <span>Card Terminals &amp; Integrated Payments</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                    <a href="services/restaurant-order-management.html" class="pos-row-link">
-                        <span>Restaurant Order &amp; Kitchen Tills</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </div>
-            </aside>
         </section>
 
         <!-- Filterable Complete Service Directory -->
