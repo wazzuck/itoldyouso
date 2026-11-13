@@ -255,6 +255,19 @@ only; two uncommitted edits to one file can still lose one of them.
       prompts, reports, documentation or commit messages, standardise on
       British English spelling and idioms.
 
+16. **Keep Search Engine Optimisation (SEO) and AI optimisation up to date.**
+    - Every new or edited page or service must always keep SEO, Artificial
+      Intelligence (AI) search optimisation, and discovery artefacts up to
+      date in the same task: `sitemap.xml`, `robots.txt`, `llms.txt`,
+      `llms-full.txt`, service counts across `index.html`, `404.html`, and
+      `services/*.html`, canonical and sitemap `<link>` tags, Open Graph
+      (OG) and Twitter metadata, Schema.org JavaScript Object Notation for
+      Linked Data (JSON-LD) (`hasOfferCatalog`, `Service`, `BreadcrumbList`,
+      and `FAQPage` matched verbatim to visible HTML), sibling cross-links,
+      and IndexNow readiness.
+    - Keep `scripts/verify_site.py` updated to enforce all new pages, URLs,
+      counts, and indexing checks automatically.
+
 ---
 
 ## 5. Definition of done

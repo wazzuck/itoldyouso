@@ -43,6 +43,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # Canonical base Uniform Resource Locator (URL) for production hosting.
 BASE_URL = "https://itoldyouso.tech"
 
+# Total number of public service detail pages expected in services/.
+# Consumed by: check_required_files(), check_sitemap_urls(), main().
+EXPECTED_SERVICE_COUNT = 34
+
 
 class SiteHTMLValidator(HTMLParser):
     """
@@ -53,6 +57,7 @@ class SiteHTMLValidator(HTMLParser):
         element_ids (Set[str]): Set of all id="..." values encountered.
         meta_tags (List[dict]): List of attribute dictionaries for meta tags.
         canonical_href (str | None): Target href of canonical link tag.
+        sitemap_href (str | None): Target href of XML sitemap link tag.
         alternate_hrefs (List[str]): Target hrefs of alternate link tags.
     """
 
@@ -62,6 +67,7 @@ class SiteHTMLValidator(HTMLParser):
         self.element_ids: Set[str] = set()
         self.meta_tags: List[Dict[str, str]] = []
         self.canonical_href: str | None = None
+        self.sitemap_href: str | None = None
         self.alternate_hrefs: List[str] = []
 
     def handle_starttag(
@@ -83,6 +89,8 @@ class SiteHTMLValidator(HTMLParser):
             rel_val = attr_map.get("rel", "")
             if rel_val == "canonical":
                 self.canonical_href = attr_map.get("href")
+            elif rel_val == "sitemap":
+                self.sitemap_href = attr_map.get("href")
             elif rel_val == "alternate" and attr_map.get("href"):
                 self.alternate_hrefs.append(attr_map["href"])
 
@@ -150,7 +158,20 @@ def _validate_page_metadata_and_jsonld(
             f"(expected '{expected_canonical}')"
         )
 
-    # 3. Verify meta description, Open Graph, and Twitter Card tags.
+    expected_sitemap_href = f"{BASE_URL}/sitemap.xml"
+    if validator.sitemap_href != expected_sitemap_href:
+        errors.append(
+            f"{label} sitemap link invalid: '{validator.sitemap_href}' "
+            f"(expected '{expected_sitemap_href}')"
+        )
+
+    for required_alt in (f"{BASE_URL}/llms.txt", f"{BASE_URL}/llms-full.txt"):
+        if required_alt not in validator.alternate_hrefs:
+            errors.append(
+                f"{label} missing alternate LLM link: '{required_alt}'"
+            )
+
+    # 3. Verify meta description, robots, Open Graph, and Twitter Card tags.
     meta_props = {
         m.get("property"): m.get("content") for m in validator.meta_tags
     }
@@ -160,6 +181,12 @@ def _validate_page_metadata_and_jsonld(
 
     if not meta_names.get("description"):
         errors.append(f"{label} missing non-empty <meta name='description'>")
+
+    robots_content = (meta_names.get("robots") or "").lower()
+    if "index" not in robots_content or "follow" not in robots_content:
+        errors.append(
+            f"{label} <meta name='robots'> must allow 'index, follow'"
+        )
 
     required_og = (
         "og:title",
@@ -322,15 +349,15 @@ def check_required_files() -> List[str]:
             f"filename stem"
         )
 
-    # 3. Verify all 32 service HTML pages exist cleanly.
+    # 3. Verify the expected number of service HTML pages exist cleanly.
     services_dir = REPO_ROOT / "services"
     if not services_dir.is_dir():
         errors.append("Services directory missing: services/")
     else:
         service_htmls = list(services_dir.glob("*.html"))
-        if len(service_htmls) != 32:
+        if len(service_htmls) != EXPECTED_SERVICE_COUNT:
             errors.append(
-                f"Expected exactly 32 service HTML files, "
+                f"Expected exactly {EXPECTED_SERVICE_COUNT} service HTML files, "
                 f"found {len(service_htmls)}"
             )
         for sfile in service_htmls:
@@ -383,10 +410,11 @@ def check_sitemap_urls() -> List[str]:
                     f"sitemap.xml missing service page: {expected_url}"
                 )
 
-    # 5. Confirm total indexed URL count matches 33 (1 home + 32 services).
-    if len(urls) != 33:
+    # 5. Verify total URL count (home + services).
+    expected_total = 1 + EXPECTED_SERVICE_COUNT
+    if len(urls) != expected_total:
         errors.append(
-            f"sitemap.xml expected 33 URLs (home + 32 services), "
+            f"sitemap.xml expected {expected_total} URLs (home + services), "
             f"found {len(urls)}"
         )
 

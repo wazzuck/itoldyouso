@@ -83,6 +83,8 @@ practice:
 - [Server Administration & Linux Management](https://itoldyouso.tech/services/server-administration.html)
 - [Cloud Services Migration & Cost Optimisation](https://itoldyouso.tech/services/cloud-services.html)
 - [Artificial Intelligence Tools Setup & Training](https://itoldyouso.tech/services/ai-tools.html)
+- [AI Intelligence for Automotive Mechanics & Custom Garage Systems](https://itoldyouso.tech/services/automotive-ai.html)
+- [Lectures, Education & Modern Technology Training](https://itoldyouso.tech/services/lectures-training.html)
 - [Custom Software Development](https://itoldyouso.tech/services/custom-software.html)
 - [Custom Technology Solutions](https://itoldyouso.tech/services/custom-solutions.html)
 - [Specialist Industry Software Installation](https://itoldyouso.tech/services/specialist-software.html)

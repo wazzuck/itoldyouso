@@ -171,6 +171,21 @@ Flex migrations (base £70), websites, and custom software.
   ChatGPT, Anthropic Claude (Claude Desktop & Claude Code), Microsoft
   Copilot, Google Gemini, automated customer service chatbots (Chatwoot),
   and practical workflow automation for London businesses and individuals.
+- AI Intelligence for Automotive Mechanics
+  (https://itoldyouso.tech/services/automotive-ai.html):
+  End-to-end setup, networking, and running of Autodata, HaynesPro
+  WorkshopData, Bosch ESI[tronic], Snap-on Intelligent Diagnostics, ALLDATA
+  Repair, Opus IVS, Autel/Launch, Garage Hive, TechMan, BOOKAR, Tekmetric,
+  WorkshopEase, MechIQ, Driver and Vehicle Licensing Agency (DVLA) / Ministry
+  of Transport (MOT) lookups, Automatic Number Plate Recognition (ANPR) bay
+  check-in, plus custom systems and bespoke integrations built and run for the
+  client.
+- Lectures, Education & Modern Technology Training
+  (https://itoldyouso.tech/services/lectures-training.html):
+  Plain-English talks, seminars, academic/community lectures, and hands-on team
+  training across any modern technology including AI, cyber security, cloud,
+  software engineering, Linux, networking, Point of Sale (POS), and custom
+  company syllabi.
 - Custom Software Development (https://itoldyouso.tech/services/custom-software.html)
   and Custom Solutions (https://itoldyouso.tech/services/custom-solutions.html):
   Bespoke desktop/web apps, databases, workflow scripts, and system
