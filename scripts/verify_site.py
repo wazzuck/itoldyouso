@@ -394,6 +394,8 @@ def check_robots_txt() -> List[str]:
         "User-agent: OAI-SearchBot",
         "User-agent: Claude-SearchBot",
         "User-agent: PerplexityBot",
+        "User-agent: DeepSeekBot",
+        "User-agent: GrokBot",
     )
     for agent in required_agents:
         if agent not in content:

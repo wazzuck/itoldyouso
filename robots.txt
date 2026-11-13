@@ -78,5 +78,29 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: DeepSeek-User
+Allow: /
+
+User-agent: Grok
+Allow: /
+
+User-agent: GrokBot
+Allow: /
+
+User-agent: Grok-DeepSearch
+Allow: /
+
+User-agent: xAI-Grok
+Allow: /
+
+User-agent: QwenBot
+Allow: /
+
+User-agent: TongyiBot
+Allow: /
+
 # Canonical Extensible Markup Language (XML) Sitemap
 Sitemap: https://itoldyouso.tech/sitemap.xml
