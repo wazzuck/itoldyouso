@@ -36,9 +36,10 @@ installation.
   `scripts/submit_indexnow.py`, and `.github/workflows/indexnow.yml` so
   Microsoft Bing and IndexNow-participating AI search engines are notified
   whenever GitHub Pages deploys `main`.
-- **Modern responsive layout (`049e2bd`)**: Reworked `index.html`,
+- **Modern responsive layout (`049e2bd`, `69a8c8f`)**: Reworked `index.html`,
   `header.css`, and `services/styles.css` with a slate-and-amber visual
-  system, split hero with flagship POS panel, filterable 32-service catalogue
+  system, streamlined full-width hero welcoming all IT and POS work,
+  filterable 32-service catalogue keeping POS cards first above the fold and
   collapsing to single-column cards on phones, split FAQ section, and wrapped
   mobile breadcrumbs and call buttons.
 
