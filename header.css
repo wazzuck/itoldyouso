@@ -2,7 +2,41 @@
  * Shared sticky header styles for IToldYouSo Computing.
  * Keeps top-of-page brand identity and contact actions readable across desktop
  * and narrow mobile viewports without horizontal overflow.
+ *
+ * This file is also the shared home of the @font-face rule below, because it
+ * is the one stylesheet every public page loads: index.html links it directly
+ * and services/styles.css pulls it in with @import. Declaring the face here
+ * means one definition instead of one per page.
  */
+
+/*
+ * Inter, the single site typeface.
+ *
+ * Purpose: gives every page the same modern, high-legibility sans serif so
+ * the brand reads consistently from the home page to the service pages.
+ *
+ * Why it is self-hosted: site policy forbids third-party scripts and
+ * trackers, and a Google Fonts <link> would send a request to a third party
+ * on every page load. A local file keeps that request on our own origin.
+ *
+ * File: assets/fonts/inter-latin-wght-normal.woff2 (48 KB, latin subset,
+ * variable weight 100-900, so one file covers normal and bold text).
+ *
+ * Licence: SIL Open Font License 1.1, which permits redistribution and
+ * web embedding. The full licence text ships beside the font file as
+ * assets/fonts/OFL.txt, as the licence requires. Source and regeneration
+ * notes live in assets/fonts/README.md.
+ *
+ * font-display: swap paints fallback text immediately, then replaces it when
+ * the file arrives, so a slow font never blocks the first render.
+ */
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+}
 
 header {
     position: fixed;

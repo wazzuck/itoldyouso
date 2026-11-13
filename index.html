@@ -320,7 +320,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: ui-sans-serif, system-ui, -apple-system,
+            /* Inter is declared in header.css, which this page loads first.
+               The names after it are the fallback chain used only when the
+               self-hosted file has not arrived yet. */
+            font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
                 BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
                 sans-serif;
         }
@@ -423,12 +426,36 @@
             text-underline-offset: 6px;
         }
 
+        /*
+         * Hero lead paragraph.
+         *
+         * It deliberately runs the full content width of the hero card
+         * rather than stopping at a short measure: the buttons, the divider
+         * and the metric row below it all span this same width, so keeping
+         * the paragraph on the same edges makes the whole card read as one
+         * aligned block instead of a narrow column floating beside them.
+         *
+         * The size and weight are pushed up from body copy so the line
+         * carries as a statement rather than as filler text.
+         */
         .hero-sub {
-            font-size: 1.06rem;
-            color: #475569;
-            max-width: 68ch;
-            line-height: 1.65;
+            font-size: 1.16rem;
+            font-weight: 500;
+            color: #334155;
+            line-height: 1.6;
+            letter-spacing: -0.011em;
             margin-bottom: 24px;
+        }
+
+        /*
+         * Bold claims inside the hero paragraph. These keep the near-black
+         * heading ink rather than inheriting the grey lead colour, so the
+         * three emphasised phrases (speed, credentials, method) punch out
+         * of the sentence instead of merely thickening it.
+         */
+        .hero-sub strong {
+            color: #0b1220;
+            font-weight: 700;
         }
 
         .hero-actions {
@@ -516,14 +543,24 @@
         }
 
         /* How This Works: Transparent 3-Step Engagement Section */
+        /*
+         * Padding here is 40px on every side, exactly as on the hero,
+         * consulting and FAQ cards, so all four cards put their text on one
+         * vertical line (container edge + 1px border + 40px).
+         *
+         * The amber accent bar used to be a 4px border-left, which pushed
+         * this card's text 3px further right than its neighbours. Drawing it
+         * as an inset shadow instead keeps the border uniform, so the bar
+         * still appears along the left edge while the text lines up.
+         */
         .process-section {
             margin-bottom: 44px;
             background: #ffffff;
             border: 1px solid rgba(15, 23, 42, 0.08);
-            border-left: 4px solid #d97706;
             border-radius: 20px;
-            padding: 28px 34px;
-            box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.04);
+            padding: 28px 40px;
+            box-shadow: inset 4px 0 0 #d97706,
+                0 4px 16px -4px rgba(15, 23, 42, 0.04);
         }
 
         .process-header {
@@ -1081,7 +1118,9 @@
         /* 5. Clean Architectural Footer */
         footer {
             border-top: 1px solid #e2e8f0;
-            padding: 36px 4px 20px 4px;
+            /* No side padding: the footer text starts on the same vertical
+               line as the section headings above it. */
+            padding: 36px 0 20px 0;
             color: #64748b;
             font-size: 0.9rem;
         }
@@ -1348,7 +1387,9 @@
             }
 
             .process-section {
-                padding: 22px 18px;
+                /* Matches the hero card's 20px side padding so both cards
+                   put their text on the same line when stacked. */
+                padding: 22px 20px;
                 border-radius: 16px;
                 margin-bottom: 32px;
             }
@@ -1511,7 +1552,7 @@
                     <span class="status-pill"><span class="status-dot" aria-hidden="true"></span> Hampstead Base · Serving Greater London</span>
                     <h1>IT Support, Networks &amp; POS Systems Across <span class="hero-highlight">London</span></h1>
                     <p class="hero-sub">
-                        <strong>Lightning fast</strong> engineering from a City of London engineer and academic, based in Hampstead and serving London-wide commercial and residential sites — applying state-of-the-art techniques across every conceivable computer related solution.
+                        <strong>Lightning fast</strong> engineering from a <strong>City of London engineer and academic</strong>, based in Hampstead and serving London-wide commercial and residential sites — applying <strong>state-of-the-art techniques</strong> across every conceivable computer related solution.
                     </p>
                     <div class="hero-actions">
                         <a href="#services" class="btn-primary">Browse All Services ↓</a>
