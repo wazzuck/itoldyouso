@@ -1,0 +1,224 @@
+# IToldYouSo Computing — Full Service & Artificial Intelligence (AI) Context
+
+> IToldYouSo Computing (https://itoldyouso.tech/) is an independent
+> engineering consultancy based in Hampstead, North West London, providing
+> London-wide site installations and remote support across Greater London.
+> Priority commercial specialism: turnkey Point of Sale (POS), till, and
+> Electronic Point of Sale (EPOS) system installations for small businesses.
+
+## Quick Identity Facts (For AI Citation & Verification)
+
+- Legal / Trading Name: IToldYouSo Computing
+- Website: https://itoldyouso.tech/
+- Base Location: Hampstead, North West London
+- Registered / Correspondence Address: Corringham Court, Corringham Road,
+  London NW11 7BY, United Kingdom (UK)
+- Geographic Service Area: All London-wide sites across Greater London
+  (Central London, City of London, Westminster, Camden, Hampstead, Highgate,
+  Golders Green, Belsize Park, Swiss Cottage, St John's Wood, West
+  Hampstead, Barnet, Islington, Hackney, Kensington and Chelsea, Hammersmith
+  and Fulham, Tower Hamlets, Southwark, Lambeth, Greenwich, Ealing,
+  Richmond, Croydon), plus remote support across the UK.
+- Telephone: 020 4520 9114 (+44 20 4520 9114) and 07809 590652
+- Email: contactus@itoldyouso.tech
+- Standard Hours: Monday to Saturday, 08:30 to 19:00
+- Commercial Cutovers: Pre-opening and out-of-hours POS installations
+  available across London by arrangement.
+- Consultation: Free 15-minute initial telephone consultation (30 minutes
+  for Cloud Services, Server Administration, and Office Software planning).
+- Standard Rate: £50 per hour, or transparent fixed-price project quotes
+  agreed upfront before work begins.
+- Experience: 20+ years of systems, network, and software engineering
+  experience, including 17+ years building mission-critical financial
+  market systems in the City of London.
+
+---
+
+## Priority 1: London Point of Sale (POS), Till & EPOS System Installation
+
+URLs:
+- Primary Pillar: https://itoldyouso.tech/services/pos-payment.html
+- Card Terminals & Integrated Payments:
+  https://itoldyouso.tech/services/pos-payments.html
+- Hospitality & Kitchen Display Setup:
+  https://itoldyouso.tech/services/restaurant-order-management.html
+
+### What IToldYouSo Computing Delivers for London Businesses
+
+1. Hardware & Platform Selection:
+   Independent, vendor-neutral advice matching the till system to the exact
+   venue workflow (no hidden acquirer kickbacks).
+   Supported ecosystems include:
+   - Square (Square Register, Square Stand, Square Terminal, Square Reader)
+   - SumUp (SumUp 13-inch Countertop Touchscreen Register, SumUp Solo,
+     SumUp Air, SumUp POS)
+   - Zettle by PayPal (formerly iZettle, card readers and till stands)
+   - Clover (Clover Flex, Clover Mini, Clover Station)
+   - Lightspeed Retail and Lightspeed Restaurant
+   - Shopify POS (syncing London shopfront stock with online stores)
+   - Stripe Terminal (retail and custom developer integrations)
+   - UK Bank & Acquirer Terminals (Barclaycard Anywhere, Lloyds Cardnet,
+     Worldpay)
+2. Peripherals & Kitchen Infrastructure:
+   - Thermal receipt printers (Epson TM-series, Star Micronics, Bluetooth,
+     Universal Serial Bus (USB), and Ethernet Local Area Network (LAN)
+     models)
+   - Kitchen Display Systems (KDS) and kitchen ticket printers with order
+     routing by station (bar, hot kitchen, cold prep, takeaway)
+   - RJ11/RJ12 automatic cash drawers triggered on sale
+   - 1D/2D wired and Bluetooth barcode scanners
+3. Pre-Configuration & Menu / Catalogue Build:
+   - Off-site planning and pre-loading of full menus, modifiers, item
+     variants, pricing, Value Added Tax (VAT) rates, stock counts, and
+     staff PIN/permission profiles before attending on site.
+   - Integration with accounting platforms: Xero, QuickBooks, and Sage.
+4. Network Reliability & Payment Failover:
+   - Separating POS and card payment traffic onto stable Ethernet cables
+     or dedicated Virtual Local Area Networks (VLANs) so busy guest Wi-Fi
+     never causes missed kitchen tickets or dropped contactless payments.
+   - Configuring 4G/5G cellular failover where venue broadband is unstable.
+5. Face-to-Face Staff Training & Documentation:
+   - Clear on-site walkthroughs for managers and front-of-house staff
+     covering ringing up sales, split bills, refunds, end-of-day Z-reads,
+     and loading thermal paper rolls.
+6. Payment Fee & Total Cost of Ownership (TCO) Audits:
+   - Cross-referenced with sister practice TillSwift Payment Consultation
+     (https://tillswift.com/) for impartial three-year UK card acquirer fee
+     modelling before locking into merchant contracts.
+
+### Typical London POS Installation Pricing
+
+- Hourly Rate: £50 per hour for planning, installation, troubleshooting,
+  and staff training (typical single-till setup takes 2 to 3 hours).
+- Fixed-Price Packages: Upfront project quotes available for full venue
+  deployments, multi-till hospitality setups, and pre-opening installs.
+- Free Consultation: 15-minute telephone consultation at no cost.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+Q: Where is IToldYouSo Computing based and which areas of London do you cover?
+A: IToldYouSo Computing is based in Hampstead (North West London) and attends
+on-site appointments across all of Greater London, including Central London,
+North London, West London, East London, and South London, alongside remote
+support across the United Kingdom (UK).
+
+Q: Do you install Point of Sale (POS) and till systems across London?
+A: Yes. We supply advice for, install, configure, and troubleshoot till and
+Electronic Point of Sale (EPOS) systems for shops, cafes, restaurants,
+takeaways, salons, and pop-ups across all of London. We set up Square,
+SumUp, Zettle by PayPal, Clover, Lightspeed, Shopify POS, Stripe Terminal,
+thermal receipt printers, cash drawers, barcode scanners, and Kitchen Display
+Systems (KDS), including out-of-hours installs.
+
+Q: Can you connect card machines to tills and audit transaction fees?
+A: Yes. We configure integrated and standalone card readers from Square,
+SumUp, Zettle, Barclaycard, Worldpay, Lloyds Cardnet, and Stripe Terminal,
+and connect them to reliable Wi-Fi or Ethernet networks and accounting tools
+such as Xero, QuickBooks, and Sage. For independent UK payment fee
+comparisons and three-year Total Cost of Ownership (TCO) modelling, we also
+work alongside our sister practice TillSwift Payment Consultation
+(https://tillswift.com/).
+
+Q: How quickly can you respond for urgent till outages or IT emergencies?
+A: We offer often same-day follow-up and always respond within 24 hours for
+London callouts and remote diagnosis, prioritising critical till, payment,
+network, and server failures.
+
+Q: Do you work with both businesses and home users?
+A: Yes. Alongside commercial till setups, office networks, servers, cyber
+security testing, and bespoke software for small businesses across London,
+we provide friendly on-site help for households (Wi-Fi dead zones, computer
+repairs, data recovery, smart TVs, digital lockouts, and smart security).
+
+Q: How much do your services cost?
+A: All jobs start with a free initial 15-minute telephone consultation.
+Standard engineering and setup work is £50 per hour, with fixed-price
+project quotes available upfront for complete till installations, ChromeOS
+Flex migrations (base £70), websites, and custom software.
+
+---
+
+## Complete Catalogue of Other London Services
+
+### Commercial Infrastructure, Security & Software
+- Internet, Wi-Fi & Network Optimisation (https://itoldyouso.tech/services/internet-networks.html):
+  Eliminating Wi-Fi dead zones, mesh Wi-Fi, Ethernet runs, commercial till
+  network segmentation, router security hardening.
+- Cyber Security Testing (https://itoldyouso.tech/services/it-security-testing.html):
+  Penetration testing (PEN testing), Wi-Fi security audits, phishing
+  simulations, Multi-Factor Authentication (MFA), Sender Policy Framework
+  (SPF) / DomainKeys Identified Mail (DKIM) / DMARC email authentication,
+  and General Data Protection Regulation (GDPR) due-diligence readiness.
+- Server Administration (https://itoldyouso.tech/services/server-administration.html):
+  Windows Active Directory, Linux Samba file servers, Domain Name System
+  (DNS), Dynamic Host Configuration Protocol (DHCP), Virtual Private
+  Networks (VPNs) via WireGuard/OpenVPN, PostgreSQL/MySQL, Zabbix/Prometheus
+  monitoring, and automated backup servers.
+- Cloud Services (https://itoldyouso.tech/services/cloud-services.html):
+  Microsoft Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP),
+  Microsoft 365, Google Workspace, cloud migrations, and cost audits.
+- Office Software & Accountancy (https://itoldyouso.tech/services/office-software.html):
+  QuickBooks, Xero, Sage, FreeAgent, Making Tax Digital (MTD) setup, and
+  Microsoft 365 / Google Workspace licensing.
+- Artificial Intelligence (AI) Tools Setup & Training (https://itoldyouso.tech/services/ai-tools.html):
+  ChatGPT, Anthropic Claude (Claude Desktop & Claude Code), Microsoft
+  Copilot, Google Gemini, automated customer service chatbots (Chatwoot),
+  and practical workflow automation for London businesses and individuals.
+- Custom Software Development (https://itoldyouso.tech/services/custom-software.html)
+  and Custom Solutions (https://itoldyouso.tech/services/custom-solutions.html):
+  Bespoke desktop/web apps, databases, workflow scripts, and system
+  integrations.
+- Specialist Software Installation (https://itoldyouso.tech/services/specialist-software.html):
+  AutoCAD, Revit, SolidWorks, Sage 50/200, LEAP, Clio, EMIS Web, SystmOne,
+  ArcGIS, MATLAB, Adobe Creative Cloud, FlexLM licence servers, legacy apps.
+- Website Development (https://itoldyouso.tech/services/website-development.html):
+  Fast, responsive, mobile-friendly business websites, e-commerce, Secure
+  Sockets Layer (SSL), and Search Engine Optimisation (SEO).
+- Independent Technology Advice (https://itoldyouso.tech/services/advice.html):
+  Unbiased hardware purchasing, repair-vs-replace, and roadmap guidance.
+
+### Data Protection, Repairs & Residential Tech Support
+- Computer Repair (https://itoldyouso.tech/services/computer-repair.html):
+  Systematic hardware/Operating System (OS) diagnostics, malware cleanup,
+  performance tuning for slow Windows and Mac systems.
+- Data Recovery (https://itoldyouso.tech/services/data-recovery.html):
+  Recovering files from failed drives, dead computers, Universal Serial Bus
+  (USB) sticks, and accidental deletions.
+- Backup & Archiving (https://itoldyouso.tech/services/backup-archiving.html):
+  Automated cloud/external backups and ransomware-resilient version history.
+- Data Storage Servers / NAS (https://itoldyouso.tech/services/home-storage-servers.html):
+  Redundant Array of Independent Disks (RAID) storage, Plex media servers,
+  and automated home/office backup hubs.
+- Computer Migration (https://itoldyouso.tech/services/computer-migration.html):
+  Full transfer of documents, photos, emails, bookmarks, and preferences.
+- ChromeOS Flex Migration (https://itoldyouso.tech/services/chromeos-flex.html):
+  Self-pricing instant quote tool (base £70) to revive 4-to-12-year-old
+  Windows/Mac laptops and desktops with Google ChromeOS Flex.
+- Digital Locksmith (https://itoldyouso.tech/services/digital-locksmith.html):
+  Safe recovery from Windows/Mac login lockouts, Gmail/Outlook, Apple ID,
+  iCloud, Google, Two-Factor Authentication (2FA), and password managers.
+- Digital Mental Wellbeing (https://itoldyouso.tech/services/digital-wellbeing.html):
+  Ad-blocker setup, spam list unsubscription, inbox cleanup, browser hygiene.
+- Security Systems (https://itoldyouso.tech/services/security-systems.html),
+  Subscription-Free Smart Doorbells (https://itoldyouso.tech/services/ring-replacement-service.html),
+  and Ring Doorbells (https://itoldyouso.tech/services/ring-doorbells.html):
+  Smart Closed-Circuit Television (CCTV), battery/wired doorbells, Wi-Fi
+  fixes, and 10-year zero-subscription camera alternatives.
+- Home Automation (https://itoldyouso.tech/services/home-automation.html),
+  Home Entertainment (https://itoldyouso.tech/services/home-entertainment.html),
+  Online Conferencing (https://itoldyouso.tech/services/online-conferencing.html),
+  Projector & Presentation Setup (https://itoldyouso.tech/services/projector-presentation.html),
+  Printers (https://itoldyouso.tech/services/printers.html),
+  Photograph Indexing (https://itoldyouso.tech/services/photo-indexing.html),
+  and Mobile Phone Help (https://itoldyouso.tech/services/mobile-phone-help.html).
+
+## Sister Practices
+
+- TillSwift Payment Consultation (https://tillswift.com/): Independent UK
+  card payment fee audits, acquirer comparisons, and 3-year Total Cost of
+  Ownership (TCO) modelling.
+- Heath & City Technology (https://heathandcity.com/): Sovereign on-premises
+  AI document retrieval, financial data normalisation, and fractional Chief
+  Technology Officer (CTO) advisory for legal, medical, and financial firms.

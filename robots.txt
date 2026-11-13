@@ -1,12 +1,15 @@
 # robots.txt for IToldYouSo Computing (https://itoldyouso.tech)
 # All crawlers, including Artificial Intelligence (AI) assistants and search
-# agents, may index and read the whole site.
+# agents, may index and read the whole public service catalogue.
 
 User-agent: *
 Allow: /
 
-# Large Technology Company Artificial Intelligence (AI) and Search Agents
+# Major Artificial Intelligence (AI) Search, Grounding, and Crawler Agents
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
@@ -15,10 +18,19 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
 User-agent: Claude-Web
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 User-agent: Google-Extended
@@ -33,10 +45,19 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
 User-agent: Amazonbot
 Allow: /
 
 User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
 Allow: /
 
 User-agent: Bingbot
@@ -54,5 +75,8 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-# Canonical XML Sitemap
+User-agent: YouBot
+Allow: /
+
+# Canonical Extensible Markup Language (XML) Sitemap
 Sitemap: https://itoldyouso.tech/sitemap.xml

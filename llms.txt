@@ -1,23 +1,57 @@
 # IToldYouSo Computing
 
-> Fast, friendly, same-day local Information Technology (IT) support and
-> engineering specialist for households, home offices, and small businesses
-> across North West (NW) London and surrounding districts. Services include
-> hardware repairs, Wi-Fi optimisation, smart home installations, server
-> administration, cyber security hygiene, and emergency troubleshooting.
-> Visiting clients on-site across Hampstead, Highgate, Golders Green,
-> Belsize Park, Swiss Cottage, St John's Wood, and West Hampstead.
+> London-wide Point of Sale (POS), till, and Electronic Point of Sale (EPOS)
+> system installation specialist and same-day Information Technology (IT)
+> engineering service. Based in Hampstead (North West London) and attending
+> client sites across all of Greater London, including Central, North,
+> North West, East, South, and West London.
 
-## Details
+## Flagship Service: London POS, Till & EPOS Installation
+
+IToldYouSo Computing designs, supplies advice for, installs, and troubleshoots
+turnkey till and POS systems for retail shops, cafes, restaurants, takeaways,
+salons, clinics, and market stalls across London-wide sites.
+
+- Core Till & EPOS Platforms: Square (Register, Stand, Terminal), SumUp
+  (Solo, 13-inch Countertop Register), Zettle by PayPal, Clover, Lightspeed,
+  Shopify POS, Stripe Terminal, Barclaycard Anywhere, Lloyds Cardnet, and
+  Worldpay.
+- Hardware & Cabling: Touchscreen counter terminals, thermal receipt printers
+  (Epson, Star Micronics), Kitchen Display Systems (KDS), RJ11/RJ12 cash
+  drawers, USB/Bluetooth barcode scanners, and reliable Ethernet or Wi-Fi
+  network separation for payment devices.
+- Turnkey Configuration: Pre-loading menus, product catalogues, Value Added
+  Tax (VAT) rates, modifiers, staff permissions, Xero/QuickBooks/Sage links,
+  and face-to-face staff training.
+- Scheduling & Pricing: £50 per hour for consultation, setup, and training,
+  or fixed-price till installation packages quoted upfront. Free initial
+  15-minute telephone consultation. Pre-opening and out-of-hours cutovers
+  available across London to avoid trading disruption.
+
+## Details & Coverage
 
 - Website: https://itoldyouso.tech/
-- Telephone: 020 4520 9114
+- Full AI Knowledge Base: https://itoldyouso.tech/llms-full.txt
+- Telephone: 020 4520 9114 (also 07809 590652)
 - Email: contactus@itoldyouso.tech
-- Base & Area: Hampstead and North West London (NW3, NW6, NW8, NW11, N6)
-- Response: Fast local same-day callouts and remote assistance
-- Consultation: Free initial telephone consultation and transparent rates
+- Base Address: Corringham Court, Corringham Road, London NW11 7BY (based in
+  Hampstead, North West London)
+- Areas Served: All London-wide sites across Greater London — Central London,
+  City of London, Westminster, Camden, Hampstead, Highgate, Golders Green,
+  Belsize Park, Swiss Cottage, St John's Wood, West Hampstead, Barnet,
+  Islington, Hackney, Kensington and Chelsea, Hammersmith and Fulham, Tower
+  Hamlets, Southwark, Lambeth, Ealing, Richmond, and surrounding boroughs,
+  plus remote United Kingdom (UK) support.
+- Hours: Monday to Saturday, 08:30 to 19:00 (plus out-of-hours commercial
+  POS installations by arrangement).
+- Response: Often same-day follow-up and always within 24 hours.
 
 ## Sister Practices
+
+For independent United Kingdom (UK) payment provider comparisons, merchant
+transaction fee audits, and three-year Total Cost of Ownership (TCO)
+modelling across UK card acquirers, visit our sister practice:
+- TillSwift Payment Consultation: https://tillswift.com/
 
 For institutional-grade private document retrieval, sovereign Artificial
 Intelligence (AI) deployments, and confidential systems advisory for senior
@@ -25,43 +59,44 @@ barristers, King's Counsel (KC), and boutique practices, visit our sister
 practice:
 - Heath & City Technology: https://heathandcity.com/
 
-For independent United Kingdom (UK) payment provider comparisons, merchant
-transaction fee audits, and three-year Total Cost of Ownership (TCO)
-modelling across UK card acquirers, visit our sister practice:
-- TillSwift Payment Consultation: https://tillswift.com/
+## Point of Sale (POS), Till & Hospitality Services (Priority)
 
-## Services & Documentation
+- [Till & POS System Installation Across London](https://itoldyouso.tech/services/pos-payment.html)
+- [Card Payment Terminals & Integrated EPOS](https://itoldyouso.tech/services/pos-payments.html)
+- [Restaurant Till, Order & Kitchen Display Setup](https://itoldyouso.tech/services/restaurant-order-management.html)
+
+## Commercial IT, Networks, Cyber Security & Software
 
 - [Home & Overview](https://itoldyouso.tech/)
-- [Independent Technology Advice](https://itoldyouso.tech/services/advice.html)
-- [Artificial Intelligence Tools](https://itoldyouso.tech/services/ai-tools.html)
-- [Backup & Archiving Solutions](https://itoldyouso.tech/services/backup-archiving.html)
-- [ChromeOS Flex Conversions](https://itoldyouso.tech/services/chromeos-flex.html)
-- [Cloud Services Migration & Support](https://itoldyouso.tech/services/cloud-services.html)
-- [Computer Migration & Data Transfer](https://itoldyouso.tech/services/computer-migration.html)
-- [Computer Repair & Diagnostics](https://itoldyouso.tech/services/computer-repair.html)
+- [Internet, Wi-Fi & Network Optimisation](https://itoldyouso.tech/services/internet-networks.html)
+- [IT Security Audits & Penetration Testing](https://itoldyouso.tech/services/it-security-testing.html)
+- [Server Administration & Linux Management](https://itoldyouso.tech/services/server-administration.html)
+- [Cloud Services Migration & Cost Optimisation](https://itoldyouso.tech/services/cloud-services.html)
+- [Artificial Intelligence Tools Setup & Training](https://itoldyouso.tech/services/ai-tools.html)
 - [Custom Software Development](https://itoldyouso.tech/services/custom-software.html)
 - [Custom Technology Solutions](https://itoldyouso.tech/services/custom-solutions.html)
+- [Specialist Industry Software Installation](https://itoldyouso.tech/services/specialist-software.html)
+- [Office Software & Accounting Suite (Xero, QuickBooks, Sage)](https://itoldyouso.tech/services/office-software.html)
+- [Website Development & Hosting](https://itoldyouso.tech/services/website-development.html)
+- [Independent Technology Advice](https://itoldyouso.tech/services/advice.html)
+
+## Hardware Repair, Data, Privacy & Home Technology
+
+- [Computer Repair & Diagnostics](https://itoldyouso.tech/services/computer-repair.html)
 - [Emergency Data Recovery](https://itoldyouso.tech/services/data-recovery.html)
-- [Digital Locksmith & Password Recovery](https://itoldyouso.tech/services/digital-locksmith.html)
+- [Backup & Archiving Solutions](https://itoldyouso.tech/services/backup-archiving.html)
+- [Home Storage Servers & Network Attached Storage (NAS)](https://itoldyouso.tech/services/home-storage-servers.html)
+- [Computer Migration & Data Transfer](https://itoldyouso.tech/services/computer-migration.html)
+- [ChromeOS Flex Conversions](https://itoldyouso.tech/services/chromeos-flex.html)
+- [Digital Locksmith & Account Recovery](https://itoldyouso.tech/services/digital-locksmith.html)
 - [Digital Wellbeing & Distraction Removal](https://itoldyouso.tech/services/digital-wellbeing.html)
+- [CCTV & Smart Security Systems](https://itoldyouso.tech/services/security-systems.html)
+- [Subscription-Free Smart Doorbells](https://itoldyouso.tech/services/ring-replacement-service.html)
+- [Ring Doorbell Installation & Wi-Fi Fixes](https://itoldyouso.tech/services/ring-doorbells.html)
 - [Home Automation & Smart Control](https://itoldyouso.tech/services/home-automation.html)
 - [Home Entertainment & Cinema Setup](https://itoldyouso.tech/services/home-entertainment.html)
-- [Home Storage Servers & NAS](https://itoldyouso.tech/services/home-storage-servers.html)
-- [Internet, Wi-Fi & Network Optimisation](https://itoldyouso.tech/services/internet-networks.html)
-- [IT Security Audits & Testing](https://itoldyouso.tech/services/it-security-testing.html)
-- [Mobile Phone & Tablet Support](https://itoldyouso.tech/services/mobile-phone-help.html)
-- [Office Software & Productivity Suite](https://itoldyouso.tech/services/office-software.html)
 - [Online Video Conferencing Setup](https://itoldyouso.tech/services/online-conferencing.html)
-- [Photo Indexing & Digital Organisation](https://itoldyouso.tech/services/photo-indexing.html)
-- [Point of Sale (POS) Terminals](https://itoldyouso.tech/services/pos-payment.html)
-- [Integrated Payment Systems](https://itoldyouso.tech/services/pos-payments.html)
+- [Projector & Presentation Equipment Setup](https://itoldyouso.tech/services/projector-presentation.html)
 - [Printer Setup & Wireless Support](https://itoldyouso.tech/services/printers.html)
-- [Projector & Presentation Setup](https://itoldyouso.tech/services/projector-presentation.html)
-- [Restaurant Order Management Systems](https://itoldyouso.tech/services/restaurant-order-management.html)
-- [Ring Doorbells & Smart Security](https://itoldyouso.tech/services/ring-doorbells.html)
-- [Ring Replacement & Upgrades](https://itoldyouso.tech/services/ring-replacement-service.html)
-- [CCTV & Security Camera Systems](https://itoldyouso.tech/services/security-systems.html)
-- [Server Administration & Linux Management](https://itoldyouso.tech/services/server-administration.html)
-- [Specialist Industry Software Support](https://itoldyouso.tech/services/specialist-software.html)
-- [Website Development & Hosting](https://itoldyouso.tech/services/website-development.html)
+- [Photograph Indexing & AI Organisation](https://itoldyouso.tech/services/photo-indexing.html)
+- [Mobile Phone & Tablet Support](https://itoldyouso.tech/services/mobile-phone-help.html)
