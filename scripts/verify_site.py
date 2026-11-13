@@ -602,7 +602,7 @@ def check_line_lengths() -> List[str]:
     errors: List[str] = []
 
     # 1. Check Markdown and plain-text LLM documentation files in repository.
-    md_files = ["README.md", "llms.txt", "llms-full.txt"]
+    md_files = ["README.md", "STATUS.md", "llms.txt", "llms-full.txt"]
     for rel_path in md_files:
         path = REPO_ROOT / rel_path
         if not path.is_file():
