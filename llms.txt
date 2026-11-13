@@ -44,7 +44,7 @@ salons, clinics, and market stalls across London-wide sites.
 - Full AI Knowledge Base: https://itoldyouso.tech/llms-full.txt
 - Telephone: 020 4520 9114 (also 07809 590652)
 - Email: contactus@itoldyouso.tech
-- Base Address: Corringham Court, Corringham Road, London NW11 7BY (based in
+- Base Address: 25 Corringham Court, London NW11 7BY (based in
   Hampstead, North West London)
 - Areas Served: All London-wide sites across Greater London — Central London,
   City of London, Westminster, Camden, Hampstead, Highgate, Golders Green,
