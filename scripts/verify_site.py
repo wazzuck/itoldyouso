@@ -268,7 +268,7 @@ def check_required_files() -> List[str]:
     """
     errors: List[str] = []
 
-    # 1. Verify primary root and AI discovery files.
+    # 1. Verify primary root, status, workflow, and AI discovery files.
     core_files = [
         "index.html",
         "header.css",
@@ -278,10 +278,13 @@ def check_required_files() -> List[str]:
         "CNAME",
         "README.md",
         "AGENTS.md",
+        "STATUS.md",
         "robots.txt",
         "sitemap.xml",
         "llms.txt",
         "llms-full.txt",
+        "scripts/submit_indexnow.py",
+        ".github/workflows/indexnow.yml",
     ]
 
     for rel_path in core_files:
@@ -291,7 +294,24 @@ def check_required_files() -> List[str]:
         elif full_path.stat().st_size == 0:
             errors.append(f"Required file is empty: {rel_path}")
 
-    # 2. Verify all 32 service HTML pages exist cleanly.
+    # 2. Verify a valid 32-character IndexNow verification key file exists.
+    key_files = [
+        p
+        for p in sorted(REPO_ROOT.glob("*.txt"))
+        if re.match(r"^[0-9a-f]{32}$", p.stem)
+    ]
+    if len(key_files) != 1:
+        errors.append(
+            f"Expected 1 IndexNow hex key file at repo root, "
+            f"found {len(key_files)}"
+        )
+    elif key_files[0].read_text(encoding="utf-8").strip() != key_files[0].stem:
+        errors.append(
+            f"IndexNow key file {key_files[0].name} contents do not match "
+            f"filename stem"
+        )
+
+    # 3. Verify all 32 service HTML pages exist cleanly.
     services_dir = REPO_ROOT / "services"
     if not services_dir.is_dir():
         errors.append("Services directory missing: services/")
@@ -615,8 +635,12 @@ def check_line_lengths() -> List[str]:
                     f"({len(line)} chars)"
                 )
 
-    # 2. Check code comments in Python verification script.
-    code_files = ["scripts/verify_site.py"]
+    # 2. Check code comments in Python scripts and workflow YAML.
+    code_files = [
+        "scripts/verify_site.py",
+        "scripts/submit_indexnow.py",
+        ".github/workflows/indexnow.yml",
+    ]
     for rel_path in code_files:
         path = REPO_ROOT / rel_path
         if not path.is_file():
