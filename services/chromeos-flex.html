@@ -68,6 +68,35 @@
               "item": "https://itoldyouso.tech/services/chromeos-flex.html"
             }
           ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Which laptops and desktops can run ChromeOS Flex in London?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most 64-bit Intel or AMD laptops and desktops made between roughly 2012 and 2020 (typically 4 to 12 years old), including older Apple Intel MacBooks and iMacs, run ChromeOS Flex smoothly. Based in Hampstead, we check model compatibility and Wi-Fi/audio drivers before migration."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I lose my files or Windows licence during ChromeOS Flex migration?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Installing ChromeOS Flex wipes the internal drive, so we strongly recommend backing up files beforehand or choosing our data migration (+£30) or full reversible system clone (+£100) option so your original Windows or Mac setup can be restored if needed."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does ChromeOS Flex work across Greater London with collection and return?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can drop your laptop or desktop at our Hampstead base (London NW11) at no extra charge, book £10 local collection and return within a 20-minute drive, or request an engineer visit across Greater London."
+              }
+            }
+          ]
         }
       ]
     }
@@ -75,210 +104,112 @@
     <!-- EmailJS library -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="../header.css">
-    <!-- Apple-inspired design · fully responsive · optimised for mobile -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Scoped quote calculator styles harmonised with slate-and-amber theme -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background: #f7b318;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 12px;
-            padding-top: 110px;
-        }
-
-        /* main card adapts for all screen sizes */
-        .quote-card {
-            max-width: 600px;
-            width: 100%;
-            background: #FFFBF3;
-            border-radius: 36px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.02) inset;
-            padding: 24px 20px;
-            transition: all 0.25s ease;
-            border: 1px solid rgba(255,255,255,0.7);
-        }
-
-        /* laptop: more breathing room */
-        @media (min-width: 768px) {
-            body { padding: 20px; padding-top: 110px; }
-            .quote-card {
-                max-width: 70%;
-                border-radius: 48px;
-                padding: 36px 32px;
-            }
-        }
-
-        /* mobile: ensure header doesn't overlap */
-        @media (max-width: 768px) {
-            
-        }
-
-        /* very small phones */
-        @media (max-width: 380px) {
-            .quote-card {
-                padding: 18px 14px;
-                border-radius: 28px;
-            }
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            font-weight: 650;
-            letter-spacing: -0.02em;
-            background: linear-gradient(155deg, #1c1c1e 20%, #3a3a3c 90%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-            margin-bottom: 6px;
-            text-align: left;
-        }
-        .subheadline {
-            text-align: left;
-            color: #3a3a3c;
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-            font-weight: 400;
-            line-height: 1.4;
-            padding: 0 8px;
-        }
-        @media (min-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .subheadline { font-size: 1.1rem; }
-        }
-
-        /* link section */
         .links-section {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-            margin: 12px 0 16px 0;
+            gap: 10px;
+            margin: 12px 0 22px 0;
         }
+
         .info-link {
-            background: #f0f7ff;
-            border-radius: 40px;
+            background: #f8fafc;
+            border-radius: 10px;
             padding: 10px 16px;
             text-decoration: none;
-            color: #007aff;
-            font-weight: 500;
-            font-size: 0.85rem;
-            border: 1px solid #007aff30;
-            transition: all 0.15s;
+            color: #0b1220;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid #cbd5e1;
+            transition: background 0.15s ease, border-color 0.15s ease;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            flex: 0 1 auto;
-        }
-        @media (min-width: 768px) {
-            .info-link { font-size: 0.95rem; padding: 12px 20px; }
+            gap: 6px;
+            min-height: 44px;
         }
 
-        .consult-banner {
-            background: #e9f0fe;
-            border-radius: 28px;
-            padding: 14px 16px;
-            margin: 16px 0 16px 0;
-            border-left: 6px solid #007aff;
-            box-shadow: 0 2px 8px rgba(0,122,255,0.1);
+        .info-link:hover {
+            background: #fffbeb;
+            border-color: #d97706;
+            color: #92400e;
+        }
+
+        .base-price {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #d97706;
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin: 12px 0 24px 0;
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
             justify-content: space-between;
-            gap: 10px;
-        }
-        .consult-banner span:first-child {
-            font-weight: 550;
-            font-size: 1rem;
-            color: #1c1c1e;
-        }
-        .phone-badge {
-            font-size: 1.2rem;
+            align-items: center;
             font-weight: 700;
-            color: #007aff;
-            background: #FFFBF3;
-            padding: 6px 16px;
-            border-radius: 40px;
-            border: 1px solid #007aff30;
-            letter-spacing: -0.5px;
-            cursor: pointer;
-        }
-        @media (min-width: 768px) {
-            .consult-banner { padding: 18px 22px; }
-            .consult-banner span:first-child { font-size: 1.2rem; }
-            .phone-badge { font-size: 1.5rem; padding: 8px 24px; }
+            color: #0b1220;
         }
 
-        /* eligibility section - more compact */
+        .base-price span:last-child {
+            color: #b45309;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
         .eligibility-section,
         .prerequisites-section,
         .options-section,
         .additional-options-section,
         .customer-details-section,
         .computer-details-section {
-            background: #FFFBF3;
-            border-radius: 24px;
-            padding: 18px 16px;
-            margin: 16px 0 16px 0;
-            border: 2px solid #007aff;
-            box-shadow: 0 4px 12px rgba(0,122,255,0.08);
-        }
-        @media (min-width: 768px) {
-            .eligibility-section,
-            .prerequisites-section,
-            .options-section,
-            .additional-options-section,
-            .customer-details-section,
-            .computer-details-section {
-                padding: 24px 22px;
-                margin: 24px 0 20px 0;
-            }
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 22px 22px;
+            margin: 20px 0;
+            border: 1px solid #e2e8f0;
         }
 
         .eligibility-title,
         .options-title,
         .additional-options-title,
         .customer-details-title,
-        .computer-details-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-align: center;
-            background: linear-gradient(135deg, #007aff 0%, #005bbf 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .computer-details-title,
         .prerequisites-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-align: center;
+            font-size: 1.18rem;
+            font-weight: 800;
+            color: #0b1220;
+            margin-bottom: 14px;
+            letter-spacing: -0.015em;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
         }
-        .prerequisites-title span { font-size: 1.5rem; }
 
-        .eligibility-question {
-            font-size: 1.1rem;
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #b45309;
+            margin-bottom: 6px;
+        }
+
+        .section-label small {
             font-weight: 600;
-            margin: 16px 0 10px 0;
-            color: #1c1c1e;
-            line-height: 1.3;
-        }
-        @media (max-width: 380px) {
-            .eligibility-question { font-size: 1rem; }
+            text-transform: none;
+            color: #64748b;
+            margin-left: 6px;
         }
 
-        /* radio cards - optimised for mobile */
+        .eligibility-question,
+        .question-text {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 14px 0 10px 0;
+            color: #0b1220;
+            line-height: 1.45;
+        }
+
         .eligibility-radio-group,
         .radio-grid {
             display: flex;
@@ -289,277 +220,293 @@
 
         .eligibility-radio-card,
         .radio-card {
-            background: #FFFBF3;
-            border-radius: 18px;
+            background: #ffffff;
+            border-radius: 12px;
             padding: 14px 16px;
-            border: 1.5px solid #e1e1e6;
+            border: 1.5px solid #cbd5e1;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: border-color 0.15s ease, background 0.15s ease,
+                box-shadow 0.15s ease;
             font-size: 0.95rem;
-            line-height: 1.4;
-        }
-        @media (min-width: 768px) {
-            .eligibility-radio-card,
-            .radio-card {
-                padding: 16px 20px;
-                font-size: 1rem;
-            }
-        }
-
-        .radio-card {
+            line-height: 1.45;
             display: flex;
             align-items: flex-start;
-            justify-content: space-between;
             gap: 10px;
         }
-        .radio-card label {
-            font-size: 0.95rem;
-            font-weight: 480;
-            color: #1c1c1e;
-            cursor: pointer;
-            flex: 1;
-            line-height: 1.4;
-        }
-        .price-chip {
-            background: #1c1c1e;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            flex-shrink: 0;
-            margin-left: 8px;
-        }
-        @media (min-width: 768px) {
-            .radio-card label { font-size: 1.1rem; }
-            .price-chip { font-size: 1rem; padding: 6px 16px; }
+
+        .eligibility-radio-card:hover,
+        .radio-card:hover {
+            border-color: #94a3b8;
         }
 
-        /* compact radio inputs */
+        .eligibility-radio-card.selected,
+        .radio-card.selected {
+            background: #fffbeb;
+            border-color: #d97706;
+            box-shadow: 0 2px 8px rgba(217, 119, 6, 0.12);
+        }
+
+        .eligibility-radio-card label,
+        .radio-card label {
+            font-size: 0.96rem;
+            font-weight: 500;
+            color: #1e293b;
+            cursor: pointer;
+            flex: 1;
+            line-height: 1.45;
+        }
+
+        .price-chip {
+            background: #0b1220;
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+
         .eligibility-radio-card input[type="radio"],
         .radio-card input[type="radio"] {
             appearance: none;
             width: 20px;
             height: 20px;
-            border: 2px solid #b8b8c9;
-            border-radius: 20px;
-            margin-right: 12px;
+            border: 2px solid #94a3b8;
+            border-radius: 9999px;
+            margin-top: 2px;
             flex-shrink: 0;
+            background: #ffffff;
         }
+
         .eligibility-radio-card input[type="radio"]:checked,
         .radio-card input[type="radio"]:checked {
-            border-color: #007aff;
-            background: #007aff;
-            box-shadow: inset 0 0 0 5px white;
+            border-color: #d97706;
+            background: #d97706;
+            box-shadow: inset 0 0 0 4px #ffffff;
         }
 
         .eligibility-feedback {
-            background: #f1f3f6;
-            border-radius: 14px;
-            padding: 12px 16px;
-            margin: 8px 0 16px 0;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            border-left: 4px solid #007aff;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin: 8px 0 14px 0;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            border: 1px solid #cbd5e1;
+            border-left: 4px solid #d97706;
+            color: #1e293b;
         }
 
-        /* conditional sections */
         .conditional-section {
-            background: #f0f7ff;
-            border-radius: 18px;
-            padding: 16px 16px;
-            margin: 16px 0 12px 0;
-            border: 2px solid #007aff;
-        }
-        .conditional-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #1c1c1e;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 14px 0 10px 0;
+            border: 1px solid #cbd5e1;
+            border-left: 4px solid #0b1220;
         }
 
-        /* customer details form */
+        .conditional-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0b1220;
+        }
+
         .customer-input-group,
         .computer-input-group {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 8px;
-        }
-        .customer-input,
-        .computer-input {
-            background: #f8f8fa;
-            border: 1.5px solid #c6c6c8;
-            border-radius: 30px;
-            padding: 14px 18px;
-            font-size: 0.95rem;
-            width: 100%;
-            outline: none;
-        }
-        .customer-input:focus,
-        .computer-input:focus {
-            border-color: #007aff;
-            box-shadow: 0 0 0 4px #007aff20;
-        }
-        .input-label {
-            font-weight: 500;
-            margin-bottom: 4px;
-            color: #2c2c2e;
-            font-size: 0.95rem;
-        }
-        .computer-textarea {
-            background: #f8f8fa;
-            border: 1.5px solid #c6c6c8;
-            border-radius: 24px;
-            padding: 14px 18px;
-            font-size: 0.95rem;
-            width: 100%;
-            outline: none;
-            min-height: 80px;
-            resize: vertical;
-            font-family: inherit;
-        }
-        .computer-textarea:focus {
-            border-color: #007aff;
-            box-shadow: 0 0 0 4px #007aff20;
+            gap: 14px;
         }
 
-        /* summary panel */
-        .summary-panel {
-            background: #f1f3f6;
-            border-radius: 24px;
-            padding: 18px 16px;
-            margin: 24px 0 20px 0;
-            border: 1px solid #d9d9e3;
+        .customer-input,
+        .computer-input,
+        .computer-textarea {
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 0.96rem;
+            width: 100%;
+            outline: none;
+            color: #0b1220;
+            font-family: inherit;
         }
+
+        .computer-textarea {
+            min-height: 88px;
+            resize: vertical;
+        }
+
+        .customer-input:focus,
+        .computer-input:focus,
+        .computer-textarea:focus {
+            border-color: #d97706;
+            box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.16);
+        }
+
+        .input-label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #0b1220;
+            font-size: 0.92rem;
+        }
+
+        .summary-panel {
+            background: #0b1220;
+            color: #f1f5f9;
+            border-radius: 16px;
+            padding: 22px 24px;
+            margin: 24px 0 20px 0;
+        }
+
         .summary-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            gap: 12px;
+            padding: 9px 0;
             font-size: 0.95rem;
-            border-bottom: 1px dashed #b0b0bb;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
+
+        .placeholder-text {
+            color: #94a3b8;
+        }
+
         .total-row {
-            font-weight: 700;
-            font-size: 2rem;
-            color: #007aff;
+            font-weight: 800;
+            font-size: clamp(1.75rem, 3.5vw, 2.2rem);
+            color: #fbbf24;
             text-align: right;
-            margin-top: 12px;
-        }
-        @media (min-width: 768px) {
-            .total-row { font-size: 2.4rem; }
+            margin-top: 14px;
         }
 
-        /* email form */
-        .email-flex form {
-            width: 100%;
-        }
-        .send-btn {
-            background: #007aff;
-            border: none;
-            border-radius: 40px;
-            padding: 16px 20px;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-            width: 100%;
-            cursor: pointer;
-            transition: 0.15s;
-        }
-        .send-btn:hover {
-            background: #005bbf;
-        }
-        .send-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-
-        /* disclaimer */
         .disclaimer {
-            background: #fff3cd;
-            border-radius: 20px;
+            background: #fffbeb;
+            border-radius: 12px;
             padding: 14px 16px;
-            margin: 16px 0 16px;
-            border-left: 6px solid #ffc107;
-            font-size: 0.9rem;
-            line-height: 1.4;
+            margin: 16px 0;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #d97706;
+            font-size: 0.92rem;
+            line-height: 1.5;
             display: flex;
             align-items: flex-start;
             gap: 10px;
+            color: #451a03;
         }
-        .disclaimer span { font-size: 1.2rem; }
 
-        /* utility classes */
-        .placeholder-text { color: #8e8e93; font-style: italic; }
-        .hidden { display: none; }
         .requirements-note {
-            background: #fff9e6;
-            border-radius: 20px;
-            padding: 12px 16px;
-            margin: 16px 0 12px;
-            border-left: 6px solid #ffb340;
-            font-weight: 500;
-            font-size: 0.9rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin: 16px 0;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #d97706;
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: #0b1220;
         }
+
         .requirements-list {
-            margin-top: 8px;
-            padding-left: 20px;
+            margin-top: 10px;
+            padding-left: 4px;
         }
+
         .requirements-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin: 4px 0;
-            font-size: 0.85rem;
+            margin: 5px 0;
+            font-size: 0.88rem;
+            font-weight: 500;
         }
+
         .requirements-item.missing {
-            color: #ff3b30;
+            color: #b91c1c;
         }
+
         .requirements-item.complete {
-            color: #28a745;
+            color: #15803d;
         }
+
         .requirements-item .status-icon {
-            font-size: 1rem;
             width: 20px;
             text-align: center;
+            flex-shrink: 0;
         }
-        .base-price {
-            background: #e9f0fe;
-            border-radius: 20px;
-            padding: 12px 16px;
-            margin: 8px 0 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        .hidden {
+            display: none;
+        }
+
+        .email-area {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 20px;
+            margin: 18px 0 24px 0;
+        }
+
+        .email-label {
+            font-weight: 700;
+            color: #0b1220;
+            margin-bottom: 12px;
+            font-size: 0.96rem;
+        }
+
+        .send-btn {
+            background: #d97706;
+            border: none;
+            border-radius: 10px;
+            padding: 14px 20px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1rem;
+            min-height: 48px;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.18s ease, transform 0.15s ease;
+        }
+
+        .send-btn:hover {
+            background: #b45309;
+            transform: translateY(-1px);
+        }
+
+        .send-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status-msg {
+            margin-top: 10px;
             font-weight: 600;
-        }
-        .base-price span:last-child {
-            color: #007aff;
-            font-size: 1.3rem;
+            font-size: 0.94rem;
         }
 
-        /* Breadcrumb navigation */
-        .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            text-align: center;
-        }
+        @media (max-width: 768px) {
+            .eligibility-section,
+            .prerequisites-section,
+            .options-section,
+            .additional-options-section,
+            .customer-details-section,
+            .computer-details-section {
+                padding: 18px 16px;
+            }
 
-        .breadcrumb a {
-            color: #007aff;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
+            .eligibility-radio-card,
+            .radio-card {
+                flex-wrap: wrap;
+            }
 
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        @media (min-width: 768px) {
-            .breadcrumb {
-                text-align: left;
-                margin-bottom: 24px;
+            .info-link {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -588,21 +535,24 @@
         </div>
     </header>
 
-    <div class="quote-card">
+    <div class="service-container">
         <div class="breadcrumb">
-            <a href="../index.html">Services</a> → ChromeOS Flex
+            <a href="../index.html">Services</a> → ChromeOS Flex Migration (London)
         </div>
 
-        <span class="service-icon" style="font-size: 4rem; display: block; text-align: left; margin-bottom: 16px;">🐧</span>
-        <h1>ChromeOS Flex Migration<br>Self‑Pricing Made Simple</h1>
-        <div class="subheadline">This is a short questionnaire on getting an instant quote for moving an older computer over to using ChromeOS Flex as its operating system. It's suitable for computers between 4 - 12 years!</div>
+        <span class="service-icon">🐧</span>
+        <h1>ChromeOS Flex Migration Across London</h1>
+        <p class="service-tagline">Instant self-pricing quote for revamping 4-to-12-year-old laptops and desktops — based in Hampstead, serving London-wide sites</p>
+        <div class="divider"></div>
+
+        <p class="service-description">This interactive estimator calculates an instant quote for converting an older Windows laptop, desktop, or Intel Mac to run Google ChromeOS Flex as its fast, lightweight operating system. Best suited for computers between 4 and 12 years old.</p>
 
         <!-- Links section at the top -->
         <div class="links-section">
-            <a href="https://support.google.com/chromebook/answer/3265094?hl=en-GB#zippy=%2Cdoes-microsoft-office-work-on-a-chromebook" target="_blank" class="info-link">
+            <a href="https://support.google.com/chromebook/answer/3265094?hl=en-GB#zippy=%2Cdoes-microsoft-office-work-on-a-chromebook" target="_blank" rel="noopener noreferrer" class="info-link">
                 <span>📚</span> ChromeOS FAQ
             </a>
-            <a href="https://www.youtube.com/watch?v=OXaHt9pZCa8" target="_blank" class="info-link youtube-link">
+            <a href="https://www.youtube.com/watch?v=OXaHt9pZCa8" target="_blank" rel="noopener noreferrer" class="info-link">
                 <span>▶️</span> Explainer Video
             </a>
         </div>
@@ -984,8 +934,33 @@
             <div id="emailStatus" class="status-msg"></div>
         </div>
 
-        <hr>
+        <div class="service-faq">
+            <h2>ChromeOS Flex Migration FAQ</h2>
+            <div class="service-faq-item">
+                <h3>Which laptops and desktops can run ChromeOS Flex in London?</h3>
+                <p>Most 64-bit Intel or AMD laptops and desktops made between roughly 2012 and 2020 (typically 4 to 12 years old), including older Apple Intel MacBooks and iMacs, run ChromeOS Flex smoothly. Based in Hampstead, we check model compatibility and Wi-Fi/audio drivers before migration.</p>
+            </div>
+            <div class="service-faq-item">
+                <h3>Do I lose my files or Windows licence during ChromeOS Flex migration?</h3>
+                <p>Installing ChromeOS Flex wipes the internal drive, so we strongly recommend backing up files beforehand or choosing our data migration (+£30) or full reversible system clone (+£100) option so your original Windows or Mac setup can be restored if needed.</p>
+            </div>
+            <div class="service-faq-item">
+                <h3>Does ChromeOS Flex work across Greater London with collection and return?</h3>
+                <p>Yes. You can drop your laptop or desktop at our Hampstead base (London NW11) at no extra charge, book £10 local collection and return within a 20-minute drive, or request an engineer visit across Greater London.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="tel:02045209114" class="call-button">Call Now: 020 4520 9114</a>
+            <a href="computer-repair.html" class="cta-secondary">Computer Repair</a>
+            <a href="data-recovery.html" class="cta-secondary">Data Recovery</a>
+            <a href="../index.html" class="cta-secondary">View All Services</a>
+        </div>
     </div>
+
+    <footer>
+        © IToldYouSo Computing | London ChromeOS Flex Migration (Based in Hampstead)
+    </footer>
 
     <script>
         (function() {
@@ -1552,7 +1527,12 @@
                 }
             });
 
-            document.querySelector('.phone-badge').addEventListener('click', () => window.location.href = 'tel:02045209114');
+            const phoneBadge = document.querySelector('.phone-badge');
+            if (phoneBadge) {
+                phoneBadge.addEventListener('click', () => {
+                    window.location.href = 'tel:02045209114';
+                });
+            }
         })();
     </script>
 </body>
