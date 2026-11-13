@@ -42,6 +42,19 @@ installation.
   filterable 32-service catalogue keeping POS cards first above the fold and
   collapsing to single-column cards on phones, split FAQ section, and wrapped
   mobile breadcrumbs and call buttons.
+- **Header logo & ChromeOS Flex harmonisation (`ef6af71`, `7e3046e`)**:
+  Compressed `assets/glasses.png` from 574 kilobytes to a 7-kilobyte
+  256x256 circular Portable Network Graphics (PNG) badge and harmonised
+  `services/chromeos-flex.html` onto the shared Cascading Style Sheets (CSS)
+  design system and FAQ schema.
+- **Process section, cross-links & Search Engine Optimisation (`403c35f`)**:
+  Added the three-step `#how-it-works` process section (initial consultation,
+  written statement of work with fixed no-obligation up-front price, and zero
+  sales chasing) across `index.html`, `llms.txt`, and `llms-full.txt`. Added
+  `favicon.ico`, Apple touch icon, `1200x630` `assets/social-card.png`,
+  custom `404.html`, 32-page `FAQPage` structured data, and three-card
+  sibling service cross-links across every `services/*.html` page, enforced
+  by `scripts/verify_site.py`.
 
 ---
 
