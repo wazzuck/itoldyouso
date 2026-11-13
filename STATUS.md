@@ -55,11 +55,11 @@ installation.
   custom `404.html`, 32-page `FAQPage` structured data, and three-card
   sibling service cross-links across every `services/*.html` page, enforced
   by `scripts/verify_site.py`.
-- **Call & consultation dialogue (`e08f543`)**: Updated the FAQ `Speak With
-  an Engineer` action on `index.html` to open an accessible `#call-dialog`
-  on desktop and Chromebook browsers (showing `020 4520 9114`, one-click copy,
-  mobile `07809 590652`, direct call links, and email option) while keeping
-  native one-tap `tel:` dialling on mobile phones.
+- **Call & consultation dialogue (`e08f543`, `33ab7ff`)**: Updated the FAQ
+  `Speak With an Engineer` action on `index.html` to open an accessible
+  `#call-dialog` on desktop and Chromebook browsers (showing `020 4520 9114`,
+  one-click copy, direct call link, and email option) while keeping native
+  one-tap `tel:` dialling on mobile phones.
 
 ---
 
