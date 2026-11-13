@@ -153,11 +153,14 @@ header.hide {
 }
 
 .phone-number:hover {
-    background: #d97706;
-    border-color: #d97706;
-    color: #ffffff;
+    /* Logo yellow #F3B428 with a near-black label, matching the primary
+       buttons. The resting state is near-black, so the hover flips the
+       text to dark to stay readable on the light yellow. */
+    background: #f3b428;
+    border-color: #f3b428;
+    color: #0b1220;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+    box-shadow: 0 4px 12px rgba(243, 180, 40, 0.4);
 }
 
 .email-address {

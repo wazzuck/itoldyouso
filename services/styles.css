@@ -347,17 +347,20 @@ h1 {
 }
 
 .call-button {
-    background: #d97706;
-    color: #ffffff;
-    border: 1px solid #d97706;
-    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.25);
+    /* Logo yellow #F3B428 with the logo's near-black label. White on this
+       yellow measures about 1.9:1 and fails contrast, so the text follows
+       the logo: black glasses on a yellow disc. */
+    background: #f3b428;
+    color: #0b1220;
+    border: 1px solid #f3b428;
+    box-shadow: 0 2px 8px rgba(243, 180, 40, 0.35);
 }
 
 .call-button:hover {
-    background: #b45309;
-    border-color: #b45309;
+    background: #dda316;
+    border-color: #dda316;
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(217, 119, 6, 0.3);
+    box-shadow: 0 6px 16px rgba(243, 180, 40, 0.45);
 }
 
 .cta-button {

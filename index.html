@@ -459,17 +459,21 @@
         }
 
         .btn-primary {
-            background: #d97706;
-            color: #ffffff;
-            border: 1px solid #d97706;
-            box-shadow: 0 2px 10px rgba(217, 119, 6, 0.28);
+            /* Logo yellow sampled from assets/glasses.png (#F3B428). The
+               label is the logo's near-black instead of white: white on
+               this yellow measures about 1.9:1 and is unreadable, while
+               #0b1220 on it measures about 10:1 and passes AAA. */
+            background: #f3b428;
+            color: #0b1220;
+            border: 1px solid #f3b428;
+            box-shadow: 0 2px 10px rgba(243, 180, 40, 0.35);
         }
 
         .btn-primary:hover {
-            background: #b45309;
-            border-color: #b45309;
+            background: #dda316;
+            border-color: #dda316;
             transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(217, 119, 6, 0.32);
+            box-shadow: 0 6px 16px rgba(243, 180, 40, 0.45);
         }
 
         .btn-outline {
@@ -989,12 +993,14 @@
         }
 
         .btn-consulting-primary {
-            background: #d97706;
-            color: #ffffff;
+            /* Logo yellow #F3B428 with the logo's near-black label, for the
+               same contrast reason as .btn-primary above. */
+            background: #f3b428;
+            color: #0b1220;
         }
 
         .btn-consulting-primary:hover {
-            background: #b45309;
+            background: #dda316;
             transform: translateY(-1px);
         }
 
