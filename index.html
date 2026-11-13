@@ -1508,7 +1508,7 @@
             <a href="#faq">FAQ</a>
         </nav>
         <div class="phone-info">
-            <a href="tel:02045209114" class="phone-number">020 4520 9114</a>
+            <a href="tel:02045209114" class="phone-number" id="header-phone-trigger" aria-haspopup="dialog" aria-controls="call-dialog">020 4520 9114</a>
             <a href="mailto:contactus@itoldyouso.tech" class="email-address">contactus@itoldyouso.tech</a>
             <p class="consultation-text">Free consultation</p>
         </div>
@@ -2156,14 +2156,24 @@
          * Mobile phones keep direct one-tap native tel: calling.
          */
         (function initCallDialog() {
-            const trigger = document.getElementById('speak-engineer-trigger');
+            /*
+             * Two entry points open this same dialogue: the "Speak With an
+             * Engineer" link in the FAQ section, and the phone number button
+             * fixed in the top-right of the header. Both keep their tel:
+             * href so that no scripting at all, or a mobile dialer, still
+             * places the call; scripting only swaps in the dialogue where a
+             * dialer is absent.
+             */
+            const triggers = document.querySelectorAll(
+                '#speak-engineer-trigger, #header-phone-trigger'
+            );
             const dialog = document.getElementById('call-dialog');
             const closeBtn = document.getElementById('call-dialog-close');
             const copyBtn = document.getElementById('copy-phone-btn');
             const statusEl = document.getElementById('copy-phone-status');
 
             if (
-                !trigger ||
+                !triggers.length ||
                 !dialog ||
                 typeof dialog.showModal !== 'function'
             ) {
@@ -2184,13 +2194,15 @@
                 }
             }
 
-            trigger.addEventListener('click', function (event) {
-                if (isMobileDialer) {
-                    return;
-                }
-                event.preventDefault();
-                resetCopyFeedback();
-                dialog.showModal();
+            triggers.forEach(function (trigger) {
+                trigger.addEventListener('click', function (event) {
+                    if (isMobileDialer) {
+                        return;
+                    }
+                    event.preventDefault();
+                    resetCopyFeedback();
+                    dialog.showModal();
+                });
             });
 
             if (closeBtn) {
