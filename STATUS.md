@@ -60,6 +60,46 @@ installation.
   `#call-dialog` on desktop and Chromebook browsers (showing `020 4520 9114`,
   one-click copy, direct call link, and email option) while keeping native
   one-tap `tel:` dialling on mobile phones.
+- **Property address correction (`a927e32`)**: Set the house number to
+  `25 Corringham Court` across the home page JSON-LD and footer, the flagship
+  POS page, `llms.txt`, and `llms-full.txt`, matching the Google Business
+  Profile listing for Name, Address, Phone (NAP) consistency. Client document
+  pages were left untouched (see Blocked below).
+
+---
+
+## Done (Off-Site / Browser Actions, 13 Nov 2026)
+
+Actions completed in the browser against the live search-engine consoles.
+
+- **Google Search Console**: Added the URL-prefix property
+  `https://itoldyouso.tech/`; ownership auto-verified through the existing
+  Google Analytics (`gtag.js`) tag. Submitted `sitemap.xml`, then ran
+  **Request Indexing** on the four priority URLs. `/` and
+  `/services/restaurant-order-management.html` were already indexed and were
+  re-queued for a fresh crawl; `/services/pos-payment.html` and
+  `/services/pos-payments.html` were unknown to Google and are now queued.
+  The sitemap row may briefly show "Couldn't fetch" until Google retries.
+- **Bing Webmaster Tools**: Signed in and imported the site from Google
+  Search Console (no manual verification needed). Sitemap registered with
+  35 URLs discovered and 0 errors; reports may take up to 48 hours to fill.
+- **Google Business Profile**: Completed the existing managed profile:
+  - uploaded three photos (`assets/social-card.png`,
+    `assets/glasses_square.png`, `assets/network.png` — `glasses.png` at
+    7 kilobytes is below Google's ~10 kilobyte minimum),
+  - changed the business name from `itoldyouso.tech` to
+    `IToldYouSo Computing`,
+  - set the primary category to `IT support and services` with additional
+    `Computer repair service` (Google's UK list has no POS / till category),
+  - replaced the description with POS / EPOS / London keyword copy
+    (421 of 750 characters; URLs are rejected in this field),
+  - set the service area to London (Google does not accept
+    "Greater London" as a term), and
+  - corrected the street address to `25 Corringham Court` (Google had
+    canonicalised it to `7 Corringham Court`).
+  Phone `020 4520 9114` and website verified correct. All edits show
+  "pending", usually reviewed within 10 minutes. The £400 Google Ads credit
+  and Google Workspace trial offers were declined, not the paid products.
 
 ---
 
@@ -69,32 +109,19 @@ Note: ChatGPT Search, DeepSeek, Claude, Perplexity, and Grok do not offer
 direct business directory forms. They rely on web crawlers, search-engine
 indexes, business profiles, and external consensus across the web.
 
-### 1. Search Console & Indexing Submissions (Immediate)
+### 1. Business Profiles & Map Entities (High Impact)
 
-- [ ] **Google Search Console (`search.google.com/search-console`)**: Verify
-  ownership of `itoldyouso.tech`, submit `https://itoldyouso.tech/sitemap.xml`,
-  and run **Request Indexing** on `/`, `/services/pos-payment.html`,
-  `/services/pos-payments.html`, and
-  `/services/restaurant-order-management.html`.
-- [ ] **Bing Webmaster Tools (`bing.com/webmastertools`)**: Verify site
-  ownership (or import from Google Search Console) and submit
-  `https://itoldyouso.tech/sitemap.xml`. Feeds Microsoft Copilot, Yahoo,
-  DuckDuckGo, and secondary search pipelines.
-
-### 2. Business Profiles & Map Entities (High Impact)
-
-- [ ] **Google Business Profile (GBP)**: Confirm business name
-  (`IToldYouSo Computing`), Hampstead base (`Corringham Court, Corringham Road,
-  London NW11 7BY`), phone (`020 4520 9114`), Greater London service area,
-  POS / EPOS installation categories, and product/service cards linking to
+- [ ] **Google Business Profile follow-up**: Confirm the pending edits
+  (name, categories, description, service area, address) were approved after
+  10 minutes, then add product / service cards linking to
   `/services/pos-payment.html`.
 - [ ] **Bing Places for Business**: Claim/update listing with identical Name,
   Address, and Phone (NAP) details and Greater London service coverage.
 - [ ] **Apple Business Connect (`businessconnect.apple.com`)**: Register or
   update listing for Apple Maps, Siri, and Spotlight recommendations across
-  London.
+  London. Requires a free Apple Account (no Apple device needed).
 
-### 3. External Citations, Partner Listings & Reviews (Key for AI Consensus)
+### 2. External Citations, Partner Listings & Reviews (Key for AI Consensus)
 
 - [ ] **Consistent UK directory profiles**: Publish identical NAP details and
   backlinks to `https://itoldyouso.tech/services/pos-payment.html` on:
