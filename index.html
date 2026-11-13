@@ -250,32 +250,50 @@
     }
     </script>
     <style>
+        /*
+         * =====================================================================
+         * Modern Responsive Home Page Stylesheet
+         * =====================================================================
+         * 1. Reset & base readable architectural colour system
+         * 2. Split Hero + Dark Flagship Point of Sale (POS) Showcase panel
+         * 3. Filterable 32-Service Bento Grid (mobile-first single column)
+         * 4. Sovereign Consultancy & Sticky 2-Column Editorial Frequently
+         *    Asked Questions (FAQ)
+         * 5. Clean two-column footer & strict mobile breakpoints
+         */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: ui-sans-serif, system-ui, -apple-system,
+                BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+                sans-serif;
         }
 
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            background-color: #f8fafc;
-            background-image: 
-                radial-gradient(at 50% 0%, rgba(245, 158, 11, 0.1) 0px, transparent 650px);
+            background-color: #f6f7f9;
+            background-image: radial-gradient(
+                at 50% 0%,
+                rgba(245, 158, 11, 0.08) 0px,
+                transparent 560px
+            );
             color: #1e293b;
             min-height: 100vh;
-            padding: 24px;
-            padding-top: 110px;
+            padding: 20px clamp(14px, 3vw, 28px) 48px clamp(14px, 3vw, 28px);
+            padding-top: 104px;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(12px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -283,311 +301,478 @@
             }
         }
 
-        /* Hero Section */
-        .hero {
+        .container {
             width: 100%;
-            max-width: 1280px;
-            margin: 0 auto 52px auto;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 1. Split Hero Architecture */
+        .hero-shell {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+            gap: 24px;
+            align-items: stretch;
+            margin-bottom: 56px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .hero-main {
             background: #ffffff;
-            border: 1px solid rgba(226, 232, 240, 0.85);
-            border-radius: 28px;
-            padding: 56px 40px 48px 40px;
-            text-align: center;
-            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 20px;
+            padding: 40px 38px 34px 38px;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04),
+                0 1px 3px rgba(15, 23, 42, 0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             position: relative;
-            overflow: hidden;
-            animation: fadeIn 0.5s ease-in;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #f59e0b, #d97706);
-        }
-
-        .hero h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-            margin-bottom: 18px;
-            color: #0f172a;
-        }
-
-        .hero-highlight {
-            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-sub {
-            font-size: 1.25rem;
-            color: #475569;
-            max-width: 720px;
-            margin: 0 auto 28px auto;
-            line-height: 1.6;
-            font-weight: 450;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-
-        .btn-primary, .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 15px 34px;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.02rem;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
-        }
-
-        .btn-secondary {
-            background: #0f172a;
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
-        }
-
-        .btn-secondary:hover {
-            background: #1e293b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
-        }
-
-        .trust-badge {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
-            font-size: 0.92rem;
-            color: #475569;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 24px;
-            margin-top: 6px;
-        }
-
-        .trust-badge span {
+        .status-pill {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 8px 18px;
+            color: #0b1220;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 6px 14px;
             border-radius: 9999px;
-            font-weight: 500;
+            margin-bottom: 20px;
+            align-self: flex-start;
         }
 
-        /* Flagship London POS & Till Spotlight */
-        .pos-spotlight {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto 48px auto;
-            background: linear-gradient(135deg, #fffbeb 0%, #ffffff 55%, #f8fafc 100%);
-            border: 1px solid #fde68a;
-            border-left: 5px solid #d97706;
-            border-radius: 24px;
-            padding: 36px 40px;
-            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+            flex-shrink: 0;
+        }
+
+        .hero-main h1 {
+            font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1.12;
+            color: #0b1220;
+            margin-bottom: 18px;
+        }
+
+        .hero-highlight {
+            color: #d97706;
+            text-decoration: underline;
+            text-decoration-color: rgba(217, 119, 6, 0.35);
+            text-decoration-thickness: 4px;
+            text-underline-offset: 6px;
+        }
+
+        .hero-sub {
+            font-size: 1.06rem;
+            color: #475569;
+            max-width: 56ch;
+            line-height: 1.65;
+            margin-bottom: 26px;
+        }
+
+        .hero-actions {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
-            gap: 28px;
-            animation: fadeIn 0.55s ease-in;
-        }
-
-        .pos-spotlight-copy {
-            flex: 1 1 540px;
-        }
-
-        .pos-spotlight-badge {
-            display: inline-block;
-            background: #fef3c7;
-            color: #b45309;
-            border: 1px solid #fcd34d;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.1px;
-            padding: 5px 14px;
-            border-radius: 9999px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .pos-spotlight h2 {
-            font-size: 1.9rem;
-            color: #0f172a;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.25;
-            margin-bottom: 10px;
-        }
-
-        .pos-spotlight p {
-            color: #334155;
-            font-size: 1.02rem;
-            line-height: 1.65;
+            gap: 12px;
             margin-bottom: 14px;
         }
 
-        .pos-spotlight-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .pos-spotlight-list li {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 9999px;
-            padding: 6px 14px;
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: #0f172a;
-        }
-
-        .pos-spotlight-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            min-width: 260px;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto 64px auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @media (max-width: 1200px) and (min-width: 900px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 899px) and (min-width: 600px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 599px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .service-card {
-            background: #ffffff;
-            border: 1px solid rgba(226, 232, 240, 0.85);
-            border-radius: 20px;
-            padding: 32px 24px;
-            text-align: center;
-            box-shadow: 0 2px 6px -1px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
+        .btn-primary,
+        .btn-outline {
+            display: inline-flex;
             align-items: center;
-            width: 100%;
-            box-sizing: border-box;
-            min-width: 0;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.96rem;
+            min-height: 48px;
+            transition: background 0.18s ease, transform 0.15s ease,
+                box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .btn-primary {
+            background: #d97706;
+            color: #ffffff;
+            border: 1px solid #d97706;
+            box-shadow: 0 2px 10px rgba(217, 119, 6, 0.28);
+        }
+
+        .btn-primary:hover {
+            background: #b45309;
+            border-color: #b45309;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(217, 119, 6, 0.32);
+        }
+
+        .btn-outline {
+            background: #0b1220;
+            color: #ffffff;
+            border: 1px solid #0b1220;
+        }
+
+        .btn-outline:hover {
+            background: #1e293b;
+            transform: translateY(-1px);
+        }
+
+        .hero-email-note {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin-bottom: 26px;
+        }
+
+        .hero-email-note a {
+            color: #0b1220;
+            font-weight: 600;
+            text-underline-offset: 2px;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            padding-top: 22px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .metric-item strong {
+            display: block;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0b1220;
+            letter-spacing: -0.015em;
+        }
+
+        .metric-item span {
+            display: block;
+            font-size: 0.83rem;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
+        /* Flagship POS Dark Panel inside Split Hero */
+        .pos-panel {
+            background: linear-gradient(160deg, #0b1220 0%, #162033 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px 30px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 20px 36px -14px rgba(11, 18, 32, 0.35);
             position: relative;
             overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
+        .pos-panel::after {
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #f59e0b, #d97706);
-            opacity: 0;
-            transition: opacity 0.25s ease;
+            top: -80px;
+            right: -80px;
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(
+                circle,
+                rgba(245, 158, 11, 0.18) 0%,
+                transparent 70%
+            );
+            pointer-events: none;
+        }
+
+        .pos-panel-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.9px;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+
+        .pos-panel h2 {
+            font-size: clamp(1.32rem, 2.1vw, 1.6rem);
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .pos-panel p {
+            color: #cbd5e1;
+            font-size: 0.94rem;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .pos-chips {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            list-style: none;
+            margin-bottom: 22px;
+        }
+
+        .pos-chips li {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9px;
+            padding: 8px 11px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            line-height: 1.35;
+        }
+
+        .pos-links-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pos-row-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.92rem;
+            font-weight: 700;
+            min-height: 46px;
+            transition: background 0.18s ease, border-color 0.18s ease,
+                transform 0.15s ease;
+        }
+
+        .pos-row-link--primary {
+            background: #d97706;
+            border-color: #d97706;
+            color: #ffffff;
+        }
+
+        .pos-row-link:hover {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.28);
+            transform: translateX(2px);
+        }
+
+        .pos-row-link--primary:hover {
+            background: #b45309;
+            border-color: #b45309;
+        }
+
+        /* 2. Services Directory Section */
+        .services-section {
+            margin-bottom: 64px;
+        }
+
+        .section-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .section-eyebrow {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b45309;
+            margin-bottom: 6px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.55rem, 2.8vw, 2.1rem);
+            color: #0b1220;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            color: #64748b;
+            font-size: 0.96rem;
+            max-width: 52ch;
+        }
+
+        /* Filter Pill Bar */
+        .service-filters {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .service-filters::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-btn {
+            appearance: none;
+            background: #ffffff;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            border-radius: 9999px;
+            padding: 8px 16px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+            min-height: 40px;
+            transition: background 0.15s ease, color 0.15s ease,
+                border-color 0.15s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: #0b1220;
+            color: #0b1220;
+        }
+
+        .filter-btn[aria-pressed="true"] {
+            background: #0b1220;
+            color: #ffffff;
+            border-color: #0b1220;
+        }
+
+        /* Clean 3-Column Bento Grid -> 2-Column Tablet -> 1-Column Phone */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 16px;
+            padding: 22px 22px 20px 22px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            min-width: 0;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .service-card.is-hidden {
+            display: none;
+        }
+
+        .service-card--featured {
+            background: linear-gradient(180deg, #fffdf7 0%, #ffffff 60%);
+            border-color: #fcd34d;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            border-color: #cbd5e1;
-            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+            transform: translateY(-3px);
+            border-color: #94a3b8;
+            box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.09);
         }
 
-        .service-card:hover::before {
-            opacity: 1;
+        .service-card--featured:hover {
+            border-color: #d97706;
+        }
+
+        .service-card-top {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
         }
 
         .service-icon {
-            width: 72px;
-            height: 72px;
-            background: #fef3c7;
-            border-radius: 18px;
-            display: flex;
+            width: 44px;
+            height: 44px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 11px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            transition: transform 0.25s ease;
+            font-size: 1.45rem;
+            flex-shrink: 0;
         }
 
-        .service-card:hover .service-icon {
-            transform: scale(1.08);
+        .service-card--featured .service-icon {
+            background: #fef3c7;
+            border-color: #fde68a;
         }
 
         .service-icon img {
-            height: 48px;
+            height: 28px;
             width: auto;
             object-fit: contain;
         }
 
+        .service-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            color: #475569;
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            white-space: nowrap;
+        }
+
+        .service-card--featured .service-tag {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
         .service-card h3 {
-            font-size: 1.35rem;
-            color: #0f172a;
-            margin-bottom: 12px;
+            font-size: 1.12rem;
+            color: #0b1220;
+            margin-bottom: 8px;
             font-weight: 700;
             letter-spacing: -0.015em;
             line-height: 1.3;
         }
 
         .service-card p {
-            font-size: 0.98rem;
-            font-weight: 450;
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 24px;
+            font-size: 0.93rem;
+            color: #475569;
+            line-height: 1.55;
+            margin-bottom: 16px;
             flex-grow: 1;
         }
 
@@ -595,538 +780,476 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: #f8fafc;
-            color: #0f172a;
-            border: 1px solid #e2e8f0;
-            padding: 8px 20px;
-            border-radius: 9999px;
-            text-decoration: none;
+            color: #0b1220;
             font-size: 0.88rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
+            font-weight: 700;
             margin-top: auto;
+            transition: color 0.15s ease;
+        }
+
+        .service-card--featured .service-link {
+            color: #b45309;
         }
 
         .service-card:hover .service-link {
-            background: #0f172a;
-            color: #ffffff;
-            border-color: #0f172a;
+            color: #d97706;
         }
 
-        /*
-         * Specialist Business Consultancy section styling for the sister
-         * advisory practice: Heath & City Systems Advisory (heathandcity.com).
-         */
+        /* 3. Specialist Business Consultancy & Sister Practices */
         .consulting-section {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto 64px auto;
-            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 32px;
-            padding: 60px 48px;
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+            margin-bottom: 64px;
+            background: linear-gradient(175deg, #0b1220 0%, #162033 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 48px 40px;
+            box-shadow: 0 20px 40px -15px rgba(11, 18, 32, 0.28);
             color: #ffffff;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            animation: fadeIn 0.6s ease-in;
-            box-sizing: border-box;
+        }
+
+        .consulting-header {
+            max-width: 820px;
+            margin-bottom: 32px;
         }
 
         .consulting-badge {
             display: inline-block;
-            background: rgba(245, 158, 11, 0.15);
+            background: rgba(245, 158, 11, 0.14);
             color: #fbbf24;
             border: 1px solid rgba(245, 158, 11, 0.3);
-            font-size: 0.8rem;
+            font-size: 0.76rem;
             font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 6px 18px;
+            letter-spacing: 1px;
+            padding: 5px 14px;
             border-radius: 9999px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-transform: uppercase;
         }
 
         .consulting-section h2 {
-            font-size: 2.4rem;
+            font-size: clamp(1.6rem, 3vw, 2.25rem);
             color: #ffffff;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             font-weight: 800;
             letter-spacing: -0.025em;
-            line-height: 1.25;
+            line-height: 1.2;
         }
 
         .consulting-lead {
-            font-size: 1.25rem;
-            color: #f1f5f9;
+            font-size: 1.06rem;
+            color: #e2e8f0;
             line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto 14px auto;
-            font-weight: 500;
+            margin-bottom: 10px;
         }
 
         .consulting-intro {
-            font-size: 1.02rem;
+            font-size: 0.96rem;
             color: #94a3b8;
-            line-height: 1.65;
-            max-width: 900px;
-            margin: 0 auto 40px auto;
+            line-height: 1.6;
         }
 
         .consulting-inline-link {
             color: #38bdf8;
             font-weight: 700;
             text-decoration: underline;
-            transition: color 0.2s ease;
-        }
-
-        .consulting-inline-link:hover {
-            color: #7dd3fc;
+            text-underline-offset: 2px;
         }
 
         .consulting-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-bottom: 40px;
-            text-align: left;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
         }
 
         .consulting-card {
             background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 32px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 16px;
+            padding: 26px 24px;
             display: flex;
             flex-direction: column;
-            position: relative;
-            transition: all 0.25s ease;
+            transition: background 0.2s ease, border-color 0.2s ease;
         }
 
         .consulting-card:hover {
             background: rgba(255, 255, 255, 0.07);
-            transform: translateY(-4px);
             border-color: rgba(245, 158, 11, 0.4);
-            box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.3);
         }
 
         .consulting-role-number {
-            font-size: 0.82rem;
+            font-size: 0.76rem;
             font-weight: 800;
-            color: #f59e0b;
-            letter-spacing: 1.2px;
+            color: #fbbf24;
+            letter-spacing: 1px;
             margin-bottom: 8px;
         }
 
         .consulting-card h3 {
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 700;
-            letter-spacing: -0.015em;
         }
 
         .consulting-target {
-            font-size: 0.9rem;
+            font-size: 0.86rem;
             font-weight: 600;
             color: #38bdf8;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .consulting-desc {
-            font-size: 0.96rem;
+            font-size: 0.94rem;
             color: #cbd5e1;
-            line-height: 1.65;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-bottom: 18px;
             flex-grow: 1;
         }
 
         .consulting-tag {
             display: inline-block;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: #fbbf24;
             background: rgba(245, 158, 11, 0.12);
             border: 1px solid rgba(245, 158, 11, 0.25);
-            border-radius: 10px;
-            padding: 5px 12px;
+            border-radius: 8px;
+            padding: 5px 10px;
             align-self: flex-start;
         }
 
         .consulting-cta-box {
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 36px 40px;
+            border-radius: 16px;
+            padding: 26px 28px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 24px;
+            gap: 20px;
             flex-wrap: wrap;
-            text-align: left;
         }
 
         .consulting-cta-text {
             flex: 1;
-            min-width: 280px;
+            min-width: 260px;
         }
 
         .consulting-cta-text h3 {
-            font-size: 1.45rem;
+            font-size: 1.25rem;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 700;
-            letter-spacing: -0.015em;
         }
 
         .consulting-cta-text p {
-            font-size: 0.98rem;
+            font-size: 0.94rem;
             color: #cbd5e1;
-            line-height: 1.6;
-            margin: 0;
+            line-height: 1.55;
         }
 
         .consulting-cta-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 10px;
+        }
+
+        .btn-consulting-primary,
+        .btn-consulting-secondary {
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            min-height: 46px;
+            transition: background 0.18s ease, transform 0.15s ease;
         }
 
         .btn-consulting-primary {
-            display: inline-block;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            background: #d97706;
             color: #ffffff;
-            padding: 14px 30px;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.98rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
         }
 
         .btn-consulting-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+            background: #b45309;
+            transform: translateY(-1px);
         }
 
         .btn-consulting-secondary {
-            display: inline-block;
             background: rgba(255, 255, 255, 0.08);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 13px 26px;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.98rem;
-            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.24);
         }
 
         .btn-consulting-secondary:hover {
             background: rgba(255, 255, 255, 0.16);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
         }
 
-        /* Frequently Asked Questions (FAQ) section */
+        /* 4. Split Editorial FAQ Section */
         .faq-section {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto 64px auto;
+            margin-bottom: 56px;
             background: #ffffff;
-            border: 1px solid rgba(226, 232, 240, 0.85);
-            border-radius: 28px;
-            padding: 56px 44px;
-            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
-            animation: fadeIn 0.6s ease-in;
-            box-sizing: border-box;
-            text-align: center;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 20px;
+            padding: 48px 40px;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+            display: grid;
+            grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+            gap: 44px;
+            align-items: start;
+        }
+
+        .faq-aside {
+            position: sticky;
+            top: 96px;
         }
 
         .faq-badge {
             display: inline-block;
-            background: rgba(245, 158, 11, 0.12);
+            background: #fffbeb;
             color: #b45309;
-            border: 1px solid rgba(245, 158, 11, 0.25);
-            font-size: 0.8rem;
+            border: 1px solid #fde68a;
+            font-size: 0.76rem;
             font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 6px 18px;
+            letter-spacing: 0.9px;
+            padding: 5px 12px;
             border-radius: 9999px;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             text-transform: uppercase;
         }
 
-        .faq-section h2 {
-            font-size: 2.3rem;
-            color: #0f172a;
-            margin-bottom: 16px;
+        .faq-aside h2 {
+            font-size: clamp(1.6rem, 2.6vw, 2.05rem);
+            color: #0b1220;
+            margin-bottom: 12px;
             font-weight: 800;
             letter-spacing: -0.025em;
+            line-height: 1.2;
         }
 
         .faq-intro {
-            font-size: 1.15rem;
-            color: #64748b;
-            line-height: 1.6;
-            max-width: 820px;
-            margin: 0 auto 40px auto;
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.65;
+            margin-bottom: 20px;
         }
 
         .faq-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 18px;
-            text-align: left;
-            max-width: 980px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
         }
 
         .faq-item {
             background: #f8fafc;
-            border-radius: 18px;
-            padding: 26px 30px;
             border: 1px solid #e2e8f0;
-            transition: all 0.25s ease;
-        }
-
-        .faq-item:hover {
-            transform: translateY(-2px);
-            background: #ffffff;
-            border-color: #cbd5e1;
-            box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.06);
+            border-radius: 14px;
+            padding: 20px 24px;
         }
 
         .faq-item h3 {
-            font-size: 1.2rem;
-            color: #0f172a;
-            margin-bottom: 10px;
+            font-size: 1.06rem;
+            color: #0b1220;
+            margin-bottom: 8px;
             font-weight: 700;
-            letter-spacing: -0.015em;
+            line-height: 1.38;
         }
 
         .faq-item p {
-            font-size: 1.02rem;
+            font-size: 0.95rem;
             color: #475569;
             line-height: 1.65;
-            margin: 0;
+            max-width: 66ch;
         }
 
+        /* 5. Clean Architectural Footer */
         footer {
-            text-align: center;
-            padding: 40px 20px 30px 20px;
+            border-top: 1px solid #e2e8f0;
+            padding: 36px 4px 20px 4px;
             color: #64748b;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(226, 232, 240, 0.8);
-            max-width: 1280px;
-            margin: 0 auto;
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin-bottom: 8px;
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand strong {
+            color: #0b1220;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
         }
 
         footer a {
-            color: #0f172a;
+            color: #0b1220;
             text-decoration: underline;
+            text-underline-offset: 2px;
             font-weight: 600;
-            transition: color 0.2s ease;
         }
 
         footer a:hover {
-            color: #f59e0b;
+            color: #d97706;
+        }
+
+        /* Tablet & Mobile Responsive Breakpoints */
+        @media (max-width: 1059px) {
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 959px) {
+            .hero-shell {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                margin-bottom: 40px;
+            }
+
+            .faq-section {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 32px 24px;
+            }
+
+            .faq-aside {
+                position: static;
+            }
         }
 
         @media (max-width: 768px) {
             body {
-                padding: 12px;
+                padding: 12px 12px 36px 12px;
                 padding-top: 84px;
             }
 
-            .hero {
-                padding: 36px 20px 28px 20px;
-                border-radius: 20px;
-                margin-bottom: 32px;
-            }
-
-            .hero h1 {
-                font-size: 1.85rem;
-                line-height: 1.25;
-            }
-
-            .hero-sub {
-                font-size: 1.05rem;
-                margin-bottom: 20px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 12px;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                padding: 14px 20px;
-            }
-
-            .trust-badge {
-                flex-direction: column;
-                gap: 10px;
-                padding-top: 16px;
-            }
-
-            .trust-badge span {
-                width: 100%;
-                justify-content: center;
-                font-size: 0.85rem;
-                padding: 6px 14px;
-            }
-
-            .pos-spotlight {
+            .hero-main {
                 padding: 26px 20px;
-                border-radius: 20px;
-                margin-bottom: 32px;
-            }
-
-            .pos-spotlight h2 {
-                font-size: 1.45rem;
-            }
-
-            .pos-spotlight-actions {
-                width: 100%;
-                min-width: 0;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 12px;
-                margin-bottom: 40px;
-            }
-
-            .service-card {
-                padding: 20px 14px;
                 border-radius: 16px;
             }
 
-            .service-icon {
-                width: 52px;
-                height: 52px;
-                font-size: 1.8rem;
-                margin-bottom: 12px;
-                border-radius: 14px;
+            .hero-sub {
+                font-size: 1rem;
+                margin-bottom: 20px;
             }
 
-            .service-icon img {
-                height: 36px;
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
             }
 
-            .service-card h3 {
-                font-size: 1.08rem;
-                margin-bottom: 6px;
+            .btn-primary,
+            .btn-outline {
+                width: 100%;
             }
 
-            .service-card p {
-                font-size: 0.88rem;
-                line-height: 1.45;
-                margin-bottom: 14px;
+            .hero-metrics {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding-top: 18px;
             }
 
-            .service-link {
-                font-size: 0.8rem;
-                padding: 6px 14px;
+            .metric-item {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+                border-left: 2px solid #e2e8f0;
+                padding-left: 12px;
+            }
+
+            .pos-panel {
+                padding: 24px 18px;
+                border-radius: 16px;
+            }
+
+            .pos-chips {
+                grid-template-columns: 1fr;
+            }
+
+            .services-section,
+            .consulting-section,
+            .faq-section {
+                margin-bottom: 36px;
             }
 
             .consulting-section {
-                padding: 36px 20px;
-                border-radius: 20px;
-                margin-bottom: 40px;
-            }
-
-            .consulting-section h2 {
-                font-size: 1.75rem;
-            }
-
-            .consulting-lead {
-                font-size: 1.05rem;
-            }
-
-            .consulting-intro {
-                font-size: 0.92rem;
-                margin-bottom: 28px;
+                padding: 28px 18px;
+                border-radius: 16px;
             }
 
             .consulting-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
-                margin-bottom: 28px;
             }
 
             .consulting-card {
-                padding: 24px 20px;
+                padding: 20px 18px;
             }
 
             .consulting-cta-box {
-                padding: 28px 20px;
-                flex-direction: column;
-                text-align: center;
+                padding: 20px 18px;
             }
 
             .consulting-cta-text {
-                width: 100%;
                 min-width: 0;
-                text-align: center;
             }
 
             .consulting-cta-actions {
                 width: 100%;
                 flex-direction: column;
-                gap: 10px;
             }
 
             .btn-consulting-primary,
             .btn-consulting-secondary {
                 width: 100%;
-                text-align: center;
             }
 
             .faq-section {
-                padding: 36px 20px;
-                border-radius: 20px;
-                margin-bottom: 40px;
-            }
-
-            .faq-section h2 {
-                font-size: 1.75rem;
-            }
-
-            .faq-intro {
-                font-size: 1rem;
-                margin-bottom: 28px;
+                padding: 26px 18px;
+                border-radius: 16px;
             }
 
             .faq-item {
-                padding: 20px 18px;
-            }
-
-            .faq-item h3 {
-                font-size: 1.08rem;
-            }
-
-            .faq-item p {
-                font-size: 0.94rem;
+                padding: 18px 16px;
             }
         }
 
-        @media (max-width: 420px) {
+        @media (max-width: 639px) {
+            /* Single-column phone cards eliminate narrow 2-col wrapping */
             .services-grid {
-                grid-template-columns: 1fr !important;
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .service-card {
+                padding: 18px 16px;
+            }
+
+            .service-card-top {
+                margin-bottom: 10px;
+            }
+
+            .service-card h3 {
+                font-size: 1.06rem;
+            }
+
+            .service-card p {
+                font-size: 0.94rem;
+                margin-bottom: 12px;
             }
         }
     </style>
@@ -1144,6 +1267,12 @@
 <body>
     <header>
         <a href="index.html" class="logo"><img src="/assets/glasses.png" alt="IToldYouSo" /> <span><i>IT</i>oldYouSo Computing</span></a>
+        <nav class="header-nav" aria-label="Primary sections">
+            <a href="#pos-spotlight">POS &amp; Tills</a>
+            <a href="#services">All Services</a>
+            <a href="#consulting">Advisory</a>
+            <a href="#faq">FAQ</a>
+        </nav>
         <div class="phone-info">
             <a href="tel:02045209114" class="phone-number">020 4520 9114</a>
             <a href="mailto:contactus@itoldyouso.tech" class="email-address">contactus@itoldyouso.tech</a>
@@ -1151,415 +1280,589 @@
         </div>
     </header>
 
-    <!-- Hero section with clear London-wide + Hampstead base + POS priority -->
-    <div class="hero">
-        <h1>POS &amp; Till Installation and IT Support Across <span class="hero-highlight">London</span></h1>
-        <p class="hero-sub">Based in Hampstead, serving London-wide commercial and residential sites — from turnkey Point of Sale (POS) till installations to fast, same-day Information Technology (IT) support.</p>
-        <div class="hero-buttons">
-            <a href="services/pos-payment.html" class="btn-primary">💳 London POS &amp; Till Setup</a>
-            <a href="tel:02045209114" class="btn-secondary">📞 Call Now: 020 4520 9114</a>
-            <a href="mailto:contactus@itoldyouso.tech" class="btn-secondary">✉️ Email Us</a>
-        </div>
-        <div class="trust-badge">
-            <span>✅ Often same‑day follow up, always within 24h</span>
-            <span>📍 Based in Hampstead · Attending London-wide sites</span>
-            <span>🧾 Retail, café &amp; restaurant till / EPOS specialists</span>
-        </div>
-    </div>
+    <main class="container">
+        <!-- Split Editorial Hero & Commercial POS Spotlight -->
+        <section class="hero-shell" aria-label="Introduction and Flagship POS Services">
+            <div class="hero-main">
+                <div>
+                    <span class="status-pill"><span class="status-dot" aria-hidden="true"></span> Hampstead Base · Serving Greater London</span>
+                    <h1>POS &amp; Till Installation and IT Support Across <span class="hero-highlight">London</span></h1>
+                    <p class="hero-sub">
+                        Based in Hampstead, serving London-wide commercial and residential sites — from turnkey Point of Sale (POS) till installations to fast, same-day Information Technology (IT) support.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="services/pos-payment.html" class="btn-primary">POS &amp; Till Setup →</a>
+                        <a href="tel:02045209114" class="btn-outline">Call 020 4520 9114</a>
+                    </div>
+                    <p class="hero-email-note">
+                        Or email <a href="mailto:contactus@itoldyouso.tech">contactus@itoldyouso.tech</a> for a free consultation
+                    </p>
+                </div>
 
-    <!-- Flagship Commercial Spotlight: London POS & Till Installation -->
-    <section class="pos-spotlight" aria-labelledby="pos-spotlight-heading">
-        <div class="pos-spotlight-copy">
-            <span class="pos-spotlight-badge">Flagship Commercial Service · Greater London</span>
-            <h2 id="pos-spotlight-heading">Turnkey Till, POS &amp; EPOS System Installation in London</h2>
-            <p>
-                Opening a café, restaurant, shop, salon, or market stall anywhere in Greater London? From our Hampstead base, we travel to sites across Central, North, West, East, and South London to supply advice for, configure, mount, and network-test complete Point of Sale (POS) and Electronic Point of Sale (EPOS) till setups — including pre-opening and out-of-hours installations.
-            </p>
-            <ul class="pos-spotlight-list">
-                <li>Square, SumUp &amp; Zettle</li>
-                <li>Clover, Lightspeed &amp; Shopify POS</li>
-                <li>Stripe Terminal &amp; Card Machines</li>
-                <li>Receipt Printers &amp; Cash Drawers</li>
-                <li>Kitchen Display Systems (KDS)</li>
-                <li>Menu &amp; Inventory Pre-Loading</li>
-            </ul>
-        </div>
-        <div class="pos-spotlight-actions">
-            <a href="services/pos-payment.html" class="btn-primary">Explore Till &amp; POS Setup</a>
-            <a href="services/pos-payments.html" class="btn-secondary">Card Terminals &amp; Integration</a>
-            <a href="services/restaurant-order-management.html" class="btn-secondary">Restaurant &amp; Kitchen Tills</a>
-        </div>
-    </section>
-
-    <div id="services" class="services-grid">
-        <a href="services/pos-payment.html" class="service-card">
-            <span class="service-icon">💳</span>
-            <h3>POS &amp; Till System Installation</h3>
-            <p>London-wide Square, SumUp, Clover, Lightspeed and EPOS till setup, printers, cash drawers, and menu loading.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/pos-payments.html" class="service-card">
-            <span class="service-icon">🛜</span>
-            <h3>Card Terminals &amp; Integrated Payments</h3>
-            <p>Card reader setup, Barclaycard, Worldpay, Stripe Terminal, Xero/QuickBooks sync, and acquirer migrations across London.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/restaurant-order-management.html" class="service-card">
-            <span class="service-icon">🍽️</span>
-            <h3>Restaurant Order &amp; Till Management</h3>
-            <p>Computerised ordering, kitchen display screens (KDS), ticket printers, and reliable venue Wi-Fi across London.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/internet-networks.html" class="service-card">
-            <span class="service-icon"><img src="assets/network.png" alt="Internet &amp; Networks"></span>
-            <h3>Internet &amp; Networks</h3>
-            <p>Commercial and home Wi-Fi optimisation, Ethernet cabling, and dead-zone elimination across London.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/it-security-testing.html" class="service-card">
-            <span class="service-icon">🛡️</span>
-            <h3>Cyber Security Testing</h3>
-            <p>Penetration testing, Wi-Fi audits, phishing simulations, and General Data Protection Regulation (GDPR) due diligence.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/server-administration.html" class="service-card">
-            <span class="service-icon"><img src="assets/server-admin.jpg" alt="Server Administration"></span>
-            <h3>Server Administration</h3>
-            <p>File servers, domain controllers, mail, Virtual Private Networks (VPN), backups, and monitoring for businesses.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/cloud-services.html" class="service-card">
-            <span class="service-icon">☁️</span>
-            <h3>Cloud Services</h3>
-            <p>Azure, Amazon Web Services (AWS), and Google Cloud setup, migration, and cost optimisation for London firms.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/ai-tools.html" class="service-card">
-            <span class="service-icon"><img src="assets/ai.png" alt="AI Tools"></span>
-            <h3>AI Tools Setup &amp; Training</h3>
-            <p>Harness ChatGPT, Claude, Copilot, Gemini, and automated customer chatbots to save time and work smarter.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/custom-software.html" class="service-card">
-            <span class="service-icon"><img src="assets/coding.png" alt="Custom Software Development"></span>
-            <h3>Custom Software Development</h3>
-            <p>Build custom applications and database tools tailored to your London business workflows.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/specialist-software.html" class="service-card">
-            <span class="service-icon">⚗️</span>
-            <h3>Specialist Software Installation</h3>
-            <p>AutoCAD, Sage, SolidWorks, MATLAB and industry software — correctly installed and licensed first time.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/office-software.html" class="service-card">
-            <span class="service-icon">📊</span>
-            <h3>Office Software</h3>
-            <p>Microsoft 365, Google Workspace, Xero, QuickBooks, Sage, and Making Tax Digital (MTD) setup.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/website-development.html" class="service-card">
-            <span class="service-icon"><img src="assets/website.png" alt="Website Development"></span>
-            <h3>Website Development</h3>
-            <p>Fast, search-optimised business websites and e-commerce builds that attract London customers.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/custom-solutions.html" class="service-card">
-            <span class="service-icon">⚙️</span>
-            <h3>Custom Solutions</h3>
-            <p>Tailored automation scripts, reporting tools, and system integrations for unique requirements.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/advice.html" class="service-card">
-            <span class="service-icon">💡</span>
-            <h3>Technology Advice</h3>
-            <p>Honest, vendor-neutral guidance on technology and till purchases backed by 20 years of engineering.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/computer-repair.html" class="service-card">
-            <span class="service-icon"><img src="assets/computer_repair.png" alt="Computer Repair"></span>
-            <h3>Computer Repair</h3>
-            <p>Systematic diagnosis and repair for slow or failing Windows and Mac computers across London.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/data-recovery.html" class="service-card">
-            <span class="service-icon">💾</span>
-            <h3>Data Recovery</h3>
-            <p>Safe recovery of lost or corrupted files from failed drives, dead computers, and external storage.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/backup-archiving.html" class="service-card">
-            <span class="service-icon"><img src="assets/safe.png" alt="Backup &amp; Archiving"></span>
-            <h3>Backup &amp; Archiving</h3>
-            <p>Automated cloud and local backups with ransomware protection for businesses and households.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/home-storage-servers.html" class="service-card">
-            <span class="service-icon">🗄️</span>
-            <h3>Data Storage Servers</h3>
-            <p>Personal and office Network Attached Storage (NAS) setups for centralised storage and backups.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/computer-migration.html" class="service-card">
-            <span class="service-icon">🔄</span>
-            <h3>Computer Migration</h3>
-            <p>Seamless transfer of files, emails, apps, and preferences to your new machine with minimal downtime.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/chromeos-flex.html" class="service-card">
-            <span class="service-icon">🐧</span>
-            <h3>ChromeOS Flex Migration</h3>
-            <p>Instant quote tool to breathe fast, secure life into older 4-to-12-year-old laptops and desktops.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/digital-locksmith.html" class="service-card">
-            <span class="service-icon">🔑</span>
-            <h3>Digital Locksmith</h3>
-            <p>Locked out of your computer, email, or online accounts? Regain access safely and prevent lockouts.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/digital-wellbeing.html" class="service-card">
-            <span class="service-icon">🪷</span>
-            <h3>Digital Mental Wellbeing</h3>
-            <p>Banish intrusive adverts, pop-ups, and inbox spam for a calmer, cleaner digital life.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/photo-indexing.html" class="service-card">
-            <span class="service-icon">📸</span>
-            <h3>Photograph Indexing &amp; Organisation</h3>
-            <p>Turn thousands of scattered photos into an AI-searchable library indexed by face, place, and date.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/security-systems.html" class="service-card">
-            <span class="service-icon"><img src="assets/security_camera.png" alt="Security Systems"></span>
-            <h3>Security Systems</h3>
-            <p>Protect your property with integrated smart CCTV cameras, locks, and sensors.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/ring-replacement-service.html" class="service-card">
-            <span class="service-icon"><img src="assets/no_ring.png?v=2" alt="Subscription-Free Smart Doorbells"></span>
-            <h3>Subscription-Free Smart Doorbells</h3>
-            <p>Replace Ring with higher quality cameras, private local recording, and zero monthly subscription fees.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/ring-doorbells.html" class="service-card">
-            <span class="service-icon"><img src="assets/ring.png?v=2" alt="Ring Doorbells"></span>
-            <h3>Ring Doorbells</h3>
-            <p>Ring doorbell installation, mounting, chime setup, troubleshooting, and Wi-Fi signal optimisation.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/home-automation.html" class="service-card">
-            <span class="service-icon"><img src="assets/home-automation.png" alt="Home Automation"></span>
-            <h3>Home Automation</h3>
-            <p>Reliable smart home lighting, thermostats, speakers, and automation routines for modern living.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/home-entertainment.html" class="service-card">
-            <span class="service-icon">🎬</span>
-            <h3>Home Entertainment Setup</h3>
-            <p>Smart TVs, soundbars, surround sound, streaming apps, and neat cabling for your living room.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/online-conferencing.html" class="service-card">
-            <span class="service-icon"><img src="assets/webcam.png" alt="Online Conferencing Setup"></span>
-            <h3>Online Conferencing Setup</h3>
-            <p>Crystal-clear Zoom, Microsoft Teams, and Google Meet camera, microphone, and lighting setups.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/projector-presentation.html" class="service-card">
-            <span class="service-icon">📽️</span>
-            <h3>Projector &amp; Presentation Setup</h3>
-            <p>Boardroom projectors, large-format displays, wireless casting, and tidy meeting-room audio.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/printers.html" class="service-card">
-            <span class="service-icon">🖨️</span>
-            <h3>Printer Setup &amp; Support</h3>
-            <p>Office, thermal till, and wireless home printer installation, AirPrint, and driver fixes.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-
-        <a href="services/mobile-phone-help.html" class="service-card">
-            <span class="service-icon">📱</span>
-            <h3>Mobile Phone Help</h3>
-            <p>Friendly setup, data transfer, backup, and troubleshooting for iOS and Android devices.</p>
-            <span class="service-link">Learn More</span>
-        </a>
-    </div>
-
-    <!--
-      Specialist Business Consultancy & Sister Practice Section
-      Presents the high-status local advisory and sovereign engineering practice
-      from Heath & City Systems Advisory (heathandcity.com).
-      Step 1: Anchor section with accessibility label.
-      Step 2: Executive overview with inline link to heathandcity.com.
-      Step 3: Four core specialist roles with institutional background.
-      Step 4: Prominent Call To Action (CTA) panel directing clients to
-              the sister website.
-    -->
-    <section class="consulting-section" id="consulting" aria-labelledby="consulting-heading">
-        <div class="consulting-badge">Sister Practices · Hampstead Base · Serving All London</div>
-        <h2 id="consulting-heading">Specialist Business Consultancy &amp; Sovereign Systems</h2>
-        <p class="consulting-lead">
-            For London principals requiring institutional-grade technology advisory, bespoke workflow automation,
-            or confidential Artificial Intelligence (AI) solutions, visit our sister practice:
-            <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" class="consulting-inline-link">Heath &amp; City Systems Advisory (heathandcity.com)</a>.
-            For independent UK payment fee comparisons and card acquirer audits, visit
-            <a href="https://tillswift.com" target="_blank" rel="noopener noreferrer" class="consulting-inline-link">TillSwift Payment Consultation (tillswift.com)</a>.
-        </p>
-        <p class="consulting-intro">
-            Architected personally from our Hampstead base with over 17 years of experience engineering mission-critical financial market data systems in the City of London. Serving practices across Greater London where data sovereignty, client confidentiality, and operational continuity are essential.
-        </p>
-
-        <div class="consulting-grid">
-            <div class="consulting-card">
-                <span class="consulting-role-number">01 · SOVEREIGN ARCHITECTURE</span>
-                <h3>Sovereign AI &amp; Private Document Retrieval</h3>
-                <p class="consulting-target">Senior Lawyers, King's Counsel (KC), Surgeons &amp; Medico-Legal Experts</p>
-                <p class="consulting-desc">
-                    Private, on-premises document retrieval and AI extraction. Search 20 years of precedents, confidential case bundles, and clinical records in milliseconds with zero bytes leaving your physical premises—ensuring strict regulatory compliance.
-                </p>
-                <span class="consulting-tag">Two-Tower Neural Search · Local Private Hardware</span>
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <strong>Often Same-Day</strong>
+                        <span>Always within 24h across London</span>
+                    </div>
+                    <div class="metric-item">
+                        <strong>Greater London</strong>
+                        <span>Hampstead base, all 32 boroughs</span>
+                    </div>
+                    <div class="metric-item">
+                        <strong>£50 / Hour</strong>
+                        <span>Free initial phone consultation</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="consulting-card">
-                <span class="consulting-role-number">02 · FINANCIAL ENGINEERING</span>
-                <h3>Financial &amp; Document Data Normalisation</h3>
-                <p class="consulting-target">Family Offices, Multi-SPV Property Principals &amp; Insurance Brokers</p>
-                <p class="consulting-desc">
-                    Direct application of ultra-low-latency financial message mapping. Automated pipelines ingest and normalise messy Portable Document Format (PDF) bank disclosures, rent rolls, insurer remittances, and capital calls into unified, reconciled master ledgers.
-                </p>
-                <span class="consulting-tag">Deterministic PDF Extraction · Master Reconciliation</span>
-            </div>
+            <aside id="pos-spotlight" class="pos-panel" aria-labelledby="pos-spotlight-heading">
+                <div>
+                    <span class="pos-panel-badge">Flagship Commercial Service</span>
+                    <h2 id="pos-spotlight-heading">Turnkey Till, POS &amp; EPOS System Installation</h2>
+                    <p>
+                        Opening a café, restaurant, shop, salon, or market stall anywhere in Greater London? From our Hampstead base, we travel to sites across Central, North, West, East, and South London for pre-opening and out-of-hours cutovers.
+                    </p>
+                    <ul class="pos-chips">
+                        <li>Square, SumUp &amp; Zettle</li>
+                        <li>Clover, Lightspeed &amp; Shopify</li>
+                        <li>Stripe &amp; Card Terminals</li>
+                        <li>Receipt Printers &amp; Drawers</li>
+                        <li>Kitchen Display Systems (KDS)</li>
+                        <li>Menu &amp; Stock Pre-Loading</li>
+                    </ul>
+                </div>
 
-            <div class="consulting-card">
-                <span class="consulting-role-number">03 · OPERATIONAL CONTINUITY</span>
-                <h3>Practice Continuity &amp; "One Clean Daily Screen"</h3>
-                <p class="consulting-target">Boutique Practices &amp; Firms Addressing "Single-PA Fragility"</p>
-                <p class="consulting-desc">
-                    Eliminates the vulnerability of critical knowledge living solely inside one Personal Assistant (PA) or office manager's head. Triage shared inboxes into an automated filing clerk and an 8:00 AM daily briefing without disrupting existing email habits.
-                </p>
-                <span class="consulting-tag">Zero Email Disruption · Institutional Memory</span>
-            </div>
+                <div class="pos-links-stack">
+                    <a href="services/pos-payment.html" class="pos-row-link pos-row-link--primary">
+                        <span>POS &amp; Till System Installation</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                    <a href="services/pos-payments.html" class="pos-row-link">
+                        <span>Card Terminals &amp; Integrated Payments</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                    <a href="services/restaurant-order-management.html" class="pos-row-link">
+                        <span>Restaurant Order &amp; Kitchen Tills</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </aside>
+        </section>
 
-            <div class="consulting-card">
-                <span class="consulting-role-number">04 · LONDON EXECUTIVE ADVISORY</span>
-                <h3>Fractional CTO &amp; Private Technologist</h3>
-                <p class="consulting-target">Boutique Partnerships, Chambers &amp; High-Net-Worth Principals</p>
-                <p class="consulting-desc">
-                    Your dedicated Chief Technology Officer (CTO) based in Hampstead and attending sites across Greater London. A flat monthly partnership providing in-person quarterly reviews, cyber security hygiene, sovereign infrastructure maintenance, and rapid response.
-                </p>
-                <span class="consulting-tag">Hampstead Base · London-Wide In-Person Care</span>
-            </div>
-        </div>
-
-        <div class="consulting-cta-box">
-            <div class="consulting-cta-text">
-                <h3>Visit Heath &amp; City Systems Advisory</h3>
-                <p>
-                    Explore interactive workflow simulations, architecture blueprints, and fixed-price diagnostic audits on our sister practice website, or compare UK merchant card rates at TillSwift.
+        <!-- Filterable Complete Service Directory -->
+        <section class="services-section" aria-labelledby="services-heading">
+            <div class="section-header">
+                <div>
+                    <span class="section-eyebrow">Complete Service Catalogue</span>
+                    <h2 id="services-heading">Engineering, Till &amp; Home Support</h2>
+                </div>
+                <p class="section-subtitle">
+                    Filter by category below or browse all 32 specialist services covered from Hampstead across London.
                 </p>
             </div>
-            <div class="consulting-cta-actions">
-                <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" class="btn-consulting-primary">🌐 Visit heathandcity.com</a>
-                <a href="https://tillswift.com" target="_blank" rel="noopener noreferrer" class="btn-consulting-secondary">💳 Visit tillswift.com</a>
-            </div>
-        </div>
-    </section>
 
-    <!--
-      Frequently Asked Questions (FAQ) Section
-      Answers key queries regarding service areas, emergency response,
-      pricing structure, domestic vs commercial coverage, and relationship
-      with sister practice Heath & City Technology.
-      Step 1: Section wrapper with accessibility label.
-      Step 2: Section header and explanatory subtitle.
-      Step 3: Responsive question-and-answer grid matching JSON-LD verbatim.
-    -->
-    <section class="faq-section" id="faq" aria-labelledby="faq-heading">
-        <div class="faq-badge">Common Questions</div>
-        <h2 id="faq-heading">Frequently Asked Questions</h2>
-        <p class="faq-intro">
-            Quick, transparent answers about our Hampstead base, London-wide Point of Sale (POS) and till installations, response speeds, and rates.
-        </p>
-
-        <div class="faq-grid">
-            <div class="faq-item">
-                <h3>Where are you based and which areas of London do you cover?</h3>
-                <p>We are based in Hampstead (North West London) and serve commercial and residential sites across all of Greater London, including Central London, Camden, Westminster, City of London, Hackney, Islington, Barnet, Kensington and Chelsea, West London, East London, and South London, plus remote support nationwide.</p>
+            <div class="service-filters" role="group" aria-label="Filter services by category">
+                <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All Services (32)</button>
+                <button type="button" class="filter-btn" data-filter="pos" aria-pressed="false">POS, Tills &amp; Hospitality</button>
+                <button type="button" class="filter-btn" data-filter="business" aria-pressed="false">Business IT, Cloud &amp; Security</button>
+                <button type="button" class="filter-btn" data-filter="home" aria-pressed="false">Home, Devices &amp; Smart Tech</button>
             </div>
 
-            <div class="faq-item">
-                <h3>Do you install Point of Sale (POS) and till systems across London?</h3>
-                <p>Yes. We provide London-wide on-site till and Electronic Point of Sale (EPOS) installation for cafes, restaurants, takeaways, retail shops, salons, and market stalls. We configure Square, SumUp, Zettle by PayPal, Clover, Lightspeed, Shopify POS, Stripe Terminal, thermal receipt printers, cash drawers, barcode scanners, and Kitchen Display Systems (KDS), including pre-opening and out-of-hours cutovers.</p>
+            <div id="services" class="services-grid">
+                <a href="services/pos-payment.html" class="service-card service-card--featured" data-tags="pos business">
+                    <div class="service-card-top">
+                        <span class="service-icon">💳</span>
+                        <span class="service-tag">POS Priority</span>
+                    </div>
+                    <h3>POS &amp; Till System Installation</h3>
+                    <p>London-wide Square, SumUp, Clover, Lightspeed and EPOS till setup, printers, cash drawers, and menu loading.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/pos-payments.html" class="service-card service-card--featured" data-tags="pos business">
+                    <div class="service-card-top">
+                        <span class="service-icon">🛜</span>
+                        <span class="service-tag">POS Priority</span>
+                    </div>
+                    <h3>Card Terminals &amp; Integrated Payments</h3>
+                    <p>Card reader setup, Barclaycard, Worldpay, Stripe Terminal, Xero/QuickBooks sync, and acquirer migrations across London.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/restaurant-order-management.html" class="service-card service-card--featured" data-tags="pos business">
+                    <div class="service-card-top">
+                        <span class="service-icon">🍽️</span>
+                        <span class="service-tag">Hospitality POS</span>
+                    </div>
+                    <h3>Restaurant Order &amp; Till Management</h3>
+                    <p>Computerised ordering, kitchen display screens (KDS), ticket printers, and reliable venue Wi-Fi across London.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/internet-networks.html" class="service-card" data-tags="pos business home">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/network.png" alt="Internet &amp; Networks"></span>
+                        <span class="service-tag">Commercial &amp; Home</span>
+                    </div>
+                    <h3>Internet &amp; Networks</h3>
+                    <p>Commercial and home Wi-Fi optimisation, Ethernet cabling, and dead-zone elimination across London.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/it-security-testing.html" class="service-card" data-tags="business">
+                    <div class="service-card-top">
+                        <span class="service-icon">🛡️</span>
+                        <span class="service-tag">Cyber Security</span>
+                    </div>
+                    <h3>Cyber Security Testing</h3>
+                    <p>Penetration testing, Wi-Fi audits, phishing simulations, and General Data Protection Regulation (GDPR) due diligence.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/server-administration.html" class="service-card" data-tags="business">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/server-admin.jpg" alt="Server Administration"></span>
+                        <span class="service-tag">Business IT</span>
+                    </div>
+                    <h3>Server Administration</h3>
+                    <p>File servers, domain controllers, mail, Virtual Private Networks (VPN), backups, and monitoring for businesses.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/cloud-services.html" class="service-card" data-tags="business">
+                    <div class="service-card-top">
+                        <span class="service-icon">☁️</span>
+                        <span class="service-tag">Cloud Systems</span>
+                    </div>
+                    <h3>Cloud Services</h3>
+                    <p>Azure, Amazon Web Services (AWS), and Google Cloud setup, migration, and cost optimisation for London firms.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/ai-tools.html" class="service-card" data-tags="business">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/ai.png" alt="AI Tools"></span>
+                        <span class="service-tag">AI Enablement</span>
+                    </div>
+                    <h3>AI Tools Setup &amp; Training</h3>
+                    <p>Harness ChatGPT, Claude, Copilot, Gemini, and automated customer chatbots to save time and work smarter.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/custom-software.html" class="service-card" data-tags="business">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/coding.png" alt="Custom Software Development"></span>
+                        <span class="service-tag">Engineering</span>
+                    </div>
+                    <h3>Custom Software Development</h3>
+                    <p>Build custom applications and database tools tailored to your London business workflows.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/specialist-software.html" class="service-card" data-tags="business">
+                    <div class="service-card-top">
+                        <span class="service-icon">⚗️</span>
+                        <span class="service-tag">Business IT</span>
+                    </div>
+                    <h3>Specialist Software Installation</h3>
+                    <p>AutoCAD, Sage, SolidWorks, MATLAB and industry software — correctly installed and licensed first time.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/office-software.html" class="service-card" data-tags="pos business">
+                    <div class="service-card-top">
+                        <span class="service-icon">📊</span>
+                        <span class="service-tag">Accounts &amp; POS</span>
+                    </div>
+                    <h3>Office Software</h3>
+                    <p>Microsoft 365, Google Workspace, Xero, QuickBooks, Sage, and Making Tax Digital (MTD) setup.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/website-development.html" class="service-card" data-tags="pos business">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/website.png" alt="Website Development"></span>
+                        <span class="service-tag">Web &amp; Commerce</span>
+                    </div>
+                    <h3>Website Development</h3>
+                    <p>Fast, search-optimised business websites and e-commerce builds that attract London customers.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/custom-solutions.html" class="service-card" data-tags="business">
+                    <div class="service-card-top">
+                        <span class="service-icon">⚙️</span>
+                        <span class="service-tag">Engineering</span>
+                    </div>
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored automation scripts, reporting tools, and system integrations for unique requirements.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/advice.html" class="service-card" data-tags="business home">
+                    <div class="service-card-top">
+                        <span class="service-icon">💡</span>
+                        <span class="service-tag">Consultancy</span>
+                    </div>
+                    <h3>Technology Advice</h3>
+                    <p>Honest, vendor-neutral guidance on technology and till purchases backed by 20 years of engineering.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/computer-repair.html" class="service-card" data-tags="home business">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/computer_repair.png" alt="Computer Repair"></span>
+                        <span class="service-tag">Repairs</span>
+                    </div>
+                    <h3>Computer Repair</h3>
+                    <p>Systematic diagnosis and repair for slow or failing Windows and Mac computers across London.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/data-recovery.html" class="service-card" data-tags="home business">
+                    <div class="service-card-top">
+                        <span class="service-icon">💾</span>
+                        <span class="service-tag">Data Recovery</span>
+                    </div>
+                    <h3>Data Recovery</h3>
+                    <p>Safe recovery of lost or corrupted files from failed drives, dead computers, and external storage.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/backup-archiving.html" class="service-card" data-tags="home business">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/safe.png" alt="Backup &amp; Archiving"></span>
+                        <span class="service-tag">Backups</span>
+                    </div>
+                    <h3>Backup &amp; Archiving</h3>
+                    <p>Automated cloud and local backups with ransomware protection for businesses and households.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/home-storage-servers.html" class="service-card" data-tags="home business">
+                    <div class="service-card-top">
+                        <span class="service-icon">🗄️</span>
+                        <span class="service-tag">Storage</span>
+                    </div>
+                    <h3>Data Storage Servers</h3>
+                    <p>Personal and office Network Attached Storage (NAS) setups for centralised storage and backups.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/computer-migration.html" class="service-card" data-tags="home">
+                    <div class="service-card-top">
+                        <span class="service-icon">🔄</span>
+                        <span class="service-tag">Home &amp; Office</span>
+                    </div>
+                    <h3>Computer Migration</h3>
+                    <p>Seamless transfer of files, emails, apps, and preferences to your new machine with minimal downtime.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/chromeos-flex.html" class="service-card" data-tags="home business">
+                    <div class="service-card-top">
+                        <span class="service-icon">🐧</span>
+                        <span class="service-tag">Quote Tool</span>
+                    </div>
+                    <h3>ChromeOS Flex Migration</h3>
+                    <p>Instant quote tool to breathe fast, secure life into older 4-to-12-year-old laptops and desktops.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/digital-locksmith.html" class="service-card" data-tags="home business">
+                    <div class="service-card-top">
+                        <span class="service-icon">🔑</span>
+                        <span class="service-tag">Account Access</span>
+                    </div>
+                    <h3>Digital Locksmith</h3>
+                    <p>Locked out of your computer, email, or online accounts? Regain access safely and prevent lockouts.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/digital-wellbeing.html" class="service-card" data-tags="home">
+                    <div class="service-card-top">
+                        <span class="service-icon">🪷</span>
+                        <span class="service-tag">Home Tech</span>
+                    </div>
+                    <h3>Digital Mental Wellbeing</h3>
+                    <p>Banish intrusive adverts, pop-ups, and inbox spam for a calmer, cleaner digital life.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/photo-indexing.html" class="service-card" data-tags="home">
+                    <div class="service-card-top">
+                        <span class="service-icon">📸</span>
+                        <span class="service-tag">Home Tech</span>
+                    </div>
+                    <h3>Photograph Indexing &amp; Organisation</h3>
+                    <p>Turn thousands of scattered photos into an AI-searchable library indexed by face, place, and date.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/security-systems.html" class="service-card" data-tags="home pos">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/security_camera.png" alt="Security Systems"></span>
+                        <span class="service-tag">Home &amp; Retail</span>
+                    </div>
+                    <h3>Security Systems</h3>
+                    <p>Protect your property with integrated smart CCTV cameras, locks, and sensors.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/ring-replacement-service.html" class="service-card" data-tags="home">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/no_ring.png?v=2" alt="Subscription-Free Smart Doorbells"></span>
+                        <span class="service-tag">Smart Home</span>
+                    </div>
+                    <h3>Subscription-Free Smart Doorbells</h3>
+                    <p>Replace Ring with higher quality cameras, private local recording, and zero monthly subscription fees.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/ring-doorbells.html" class="service-card" data-tags="home">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/ring.png?v=2" alt="Ring Doorbells"></span>
+                        <span class="service-tag">Smart Home</span>
+                    </div>
+                    <h3>Ring Doorbells</h3>
+                    <p>Ring doorbell installation, mounting, chime setup, troubleshooting, and Wi-Fi signal optimisation.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/home-automation.html" class="service-card" data-tags="home">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/home-automation.png" alt="Home Automation"></span>
+                        <span class="service-tag">Smart Home</span>
+                    </div>
+                    <h3>Home Automation</h3>
+                    <p>Reliable smart home lighting, thermostats, speakers, and automation routines for modern living.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/home-entertainment.html" class="service-card" data-tags="home">
+                    <div class="service-card-top">
+                        <span class="service-icon">🎬</span>
+                        <span class="service-tag">Home Tech</span>
+                    </div>
+                    <h3>Home Entertainment Setup</h3>
+                    <p>Smart TVs, soundbars, surround sound, streaming apps, and neat cabling for your living room.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/online-conferencing.html" class="service-card" data-tags="business home">
+                    <div class="service-card-top">
+                        <span class="service-icon"><img src="assets/webcam.png" alt="Online Conferencing Setup"></span>
+                        <span class="service-tag">Audio &amp; Video</span>
+                    </div>
+                    <h3>Online Conferencing Setup</h3>
+                    <p>Crystal-clear Zoom, Microsoft Teams, and Google Meet camera, microphone, and lighting setups.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/projector-presentation.html" class="service-card" data-tags="business">
+                    <div class="service-card-top">
+                        <span class="service-icon">📽️</span>
+                        <span class="service-tag">Boardrooms</span>
+                    </div>
+                    <h3>Projector &amp; Presentation Setup</h3>
+                    <p>Boardroom projectors, large-format displays, wireless casting, and tidy meeting-room audio.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/printers.html" class="service-card" data-tags="pos business home">
+                    <div class="service-card-top">
+                        <span class="service-icon">🖨️</span>
+                        <span class="service-tag">Printers &amp; Tills</span>
+                    </div>
+                    <h3>Printer Setup &amp; Support</h3>
+                    <p>Office, thermal till, and wireless home printer installation, AirPrint, and driver fixes.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+
+                <a href="services/mobile-phone-help.html" class="service-card" data-tags="home pos">
+                    <div class="service-card-top">
+                        <span class="service-icon">📱</span>
+                        <span class="service-tag">Devices</span>
+                    </div>
+                    <h3>Mobile Phone Help</h3>
+                    <p>Friendly setup, data transfer, backup, and troubleshooting for iOS and Android devices.</p>
+                    <span class="service-link">View service →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Sister Practices & Specialist Business Consultancy -->
+        <section class="consulting-section" id="consulting" aria-labelledby="consulting-heading">
+            <div class="consulting-header">
+                <span class="consulting-badge">Sister Practices · Hampstead Base · Serving All London</span>
+                <h2 id="consulting-heading">Specialist Business Consultancy &amp; Sovereign Systems</h2>
+                <p class="consulting-lead">
+                    For London principals requiring institutional-grade technology advisory, bespoke workflow automation, or confidential Artificial Intelligence (AI) solutions, visit our sister practice:
+                    <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" class="consulting-inline-link">Heath &amp; City Systems Advisory (heathandcity.com)</a>.
+                    For independent UK payment fee comparisons and card acquirer audits, visit
+                    <a href="https://tillswift.com" target="_blank" rel="noopener noreferrer" class="consulting-inline-link">TillSwift Payment Consultation (tillswift.com)</a>.
+                </p>
+                <p class="consulting-intro">
+                    Architected personally from our Hampstead base with over 17 years of experience engineering mission-critical financial market data systems in the City of London. Serving practices across Greater London where data sovereignty, client confidentiality, and operational continuity are essential.
+                </p>
             </div>
 
-            <div class="faq-item">
-                <h3>Can you integrate card payment machines and audit processing fees?</h3>
-                <p>Yes. We install and connect card readers from Square, SumUp, Zettle, Barclaycard, Worldpay, Lloyds Cardnet, and Stripe Terminal over reliable Wi-Fi or Ethernet and link sales to Xero, QuickBooks, or Sage. For independent United Kingdom (UK) card acquirer fee audits and three-year Total Cost of Ownership (TCO) modelling, we also partner with our sister practice TillSwift Payment Consultation (tillswift.com).</p>
+            <div class="consulting-grid">
+                <div class="consulting-card">
+                    <span class="consulting-role-number">01 · SOVEREIGN ARCHITECTURE</span>
+                    <h3>Sovereign AI &amp; Private Document Retrieval</h3>
+                    <p class="consulting-target">Senior Lawyers, King's Counsel (KC), Surgeons &amp; Medico-Legal Experts</p>
+                    <p class="consulting-desc">
+                        Private, on-premises document retrieval and AI extraction. Search 20 years of precedents, confidential case bundles, and clinical records in milliseconds with zero bytes leaving your physical premises—ensuring strict regulatory compliance.
+                    </p>
+                    <span class="consulting-tag">Two-Tower Neural Search · Local Private Hardware</span>
+                </div>
+
+                <div class="consulting-card">
+                    <span class="consulting-role-number">02 · FINANCIAL ENGINEERING</span>
+                    <h3>Financial &amp; Document Data Normalisation</h3>
+                    <p class="consulting-target">Family Offices, Multi-SPV Property Principals &amp; Insurance Brokers</p>
+                    <p class="consulting-desc">
+                        Direct application of ultra-low-latency financial message mapping. Automated pipelines ingest and normalise messy Portable Document Format (PDF) bank disclosures, rent rolls, insurer remittances, and capital calls into unified, reconciled master ledgers.
+                    </p>
+                    <span class="consulting-tag">Deterministic PDF Extraction · Master Reconciliation</span>
+                </div>
+
+                <div class="consulting-card">
+                    <span class="consulting-role-number">03 · OPERATIONAL CONTINUITY</span>
+                    <h3>Practice Continuity &amp; "One Clean Daily Screen"</h3>
+                    <p class="consulting-target">Boutique Practices &amp; Firms Addressing "Single-PA Fragility"</p>
+                    <p class="consulting-desc">
+                        Eliminates the vulnerability of critical knowledge living solely inside one Personal Assistant (PA) or office manager's head. Triage shared inboxes into an automated filing clerk and an 8:00 AM daily briefing without disrupting existing email habits.
+                    </p>
+                    <span class="consulting-tag">Zero Email Disruption · Institutional Memory</span>
+                </div>
+
+                <div class="consulting-card">
+                    <span class="consulting-role-number">04 · LONDON EXECUTIVE ADVISORY</span>
+                    <h3>Fractional CTO &amp; Private Technologist</h3>
+                    <p class="consulting-target">Boutique Partnerships, Chambers &amp; High-Net-Worth Principals</p>
+                    <p class="consulting-desc">
+                        Your dedicated Chief Technology Officer (CTO) based in Hampstead and attending sites across Greater London. A flat monthly partnership providing in-person quarterly reviews, cyber security hygiene, sovereign infrastructure maintenance, and rapid response.
+                    </p>
+                    <span class="consulting-tag">Hampstead Base · London-Wide In-Person Care</span>
+                </div>
             </div>
 
-            <div class="faq-item">
-                <h3>How quickly can you attend for urgent till issues or emergency IT callouts?</h3>
-                <p>We provide often same-day follow-up and always respond within 24 hours across London, prioritising urgent Point of Sale (POS) outages, kitchen printer failures, network drops, and critical hardware or security issues.</p>
+            <div class="consulting-cta-box">
+                <div class="consulting-cta-text">
+                    <h3>Visit Heath &amp; City Systems Advisory &amp; TillSwift</h3>
+                    <p>
+                        Explore interactive workflow simulations, architecture blueprints, and fixed-price diagnostic audits on our sister practice website, or compare UK merchant card rates at TillSwift.
+                    </p>
+                </div>
+                <div class="consulting-cta-actions">
+                    <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" class="btn-consulting-primary">Visit heathandcity.com →</a>
+                    <a href="https://tillswift.com" target="_blank" rel="noopener noreferrer" class="btn-consulting-secondary">Visit tillswift.com →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Split Editorial Frequently Asked Questions (FAQ) Section -->
+        <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+            <div class="faq-aside">
+                <span class="faq-badge">Common Questions</span>
+                <h2 id="faq-heading">Frequently Asked Questions</h2>
+                <p class="faq-intro">
+                    Quick, transparent answers about our Hampstead base, London-wide Point of Sale (POS) and till installations, response speeds, and rates.
+                </p>
+                <a href="tel:02045209114" class="btn-outline">Speak With an Engineer</a>
             </div>
 
-            <div class="faq-item">
-                <h3>Do you assist domestic households as well as businesses?</h3>
-                <p>Yes. Alongside commercial till setups, office networks, servers, cyber security testing, and custom software for London businesses, we support private households with Wi-Fi dead zones, computer repairs, data recovery, smart TVs, digital lockouts, and subscription-free smart doorbells.</p>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Where are you based and which areas of London do you cover?</h3>
+                    <p>We are based in Hampstead (North West London) and serve commercial and residential sites across all of Greater London, including Central London, Camden, Westminster, City of London, Hackney, Islington, Barnet, Kensington and Chelsea, West London, East London, and South London, plus remote support nationwide.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do you install Point of Sale (POS) and till systems across London?</h3>
+                    <p>Yes. We provide London-wide on-site till and Electronic Point of Sale (EPOS) installation for cafes, restaurants, takeaways, retail shops, salons, and market stalls. We configure Square, SumUp, Zettle by PayPal, Clover, Lightspeed, Shopify POS, Stripe Terminal, thermal receipt printers, cash drawers, barcode scanners, and Kitchen Display Systems (KDS), including pre-opening and out-of-hours cutovers.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can you integrate card payment machines and audit processing fees?</h3>
+                    <p>Yes. We install and connect card readers from Square, SumUp, Zettle, Barclaycard, Worldpay, Lloyds Cardnet, and Stripe Terminal over reliable Wi-Fi or Ethernet and link sales to Xero, QuickBooks, or Sage. For independent United Kingdom (UK) card acquirer fee audits and three-year Total Cost of Ownership (TCO) modelling, we also partner with our sister practice TillSwift Payment Consultation (tillswift.com).</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How quickly can you attend for urgent till issues or emergency IT callouts?</h3>
+                    <p>We provide often same-day follow-up and always respond within 24 hours across London, prioritising urgent Point of Sale (POS) outages, kitchen printer failures, network drops, and critical hardware or security issues.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do you assist domestic households as well as commercial businesses?</h3>
+                    <p>Yes. Alongside commercial till setups, office networks, servers, cyber security testing, and custom software for London businesses, we support private households with Wi-Fi dead zones, computer repairs, data recovery, smart TVs, digital lockouts, and subscription-free smart doorbells.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do you charge for POS installations and IT services?</h3>
+                    <p>Every enquiry starts with a free initial telephone consultation. Standard engineering, troubleshooting, and training are billed at £50 per hour, with fixed-price project packages quoted upfront for turnkey London till installations, ChromeOS Flex migrations, websites, and bespoke software.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What is the relationship between IToldYouSo Computing, TillSwift, and Heath &amp; City Technology?</h3>
+                    <p>IToldYouSo Computing delivers hands-on London-wide Point of Sale (POS) installations, IT support, and network engineering from our Hampstead base. TillSwift Payment Consultation (tillswift.com) provides independent UK payment acquirer comparisons and merchant fee audits, while Heath &amp; City Technology (heathandcity.com) delivers sovereign on-premises AI document retrieval and fractional Chief Technology Officer (CTO) advisory for legal, financial, and medical practices.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="faq-item">
-                <h3>How do you charge for POS installations and IT services?</h3>
-                <p>Every enquiry starts with a free initial telephone consultation. Standard engineering, troubleshooting, and training are billed at £50 per hour, with fixed-price project packages quoted upfront for turnkey London till installations, ChromeOS Flex migrations, websites, and bespoke software.</p>
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <strong>IToldYouSo Computing</strong>
+                    <span>Based in Hampstead · Serving London-Wide Sites · Corringham Court, Corringham Road, London NW11 7BY · Tel: 020 4520 9114</span>
+                </div>
+                <div class="footer-links">
+                    <a href="services/pos-payment.html">POS &amp; Till Setup</a>
+                    <a href="services/pos-payments.html">Card Terminals</a>
+                    <a href="services/restaurant-order-management.html">Restaurant Tills</a>
+                    <a href="https://tillswift.com" target="_blank" rel="noopener noreferrer">TillSwift</a>
+                    <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer">Heath &amp; City Advisory</a>
+                </div>
             </div>
+            <p>© <i>IT</i>oldYouSo Computing | London-Wide POS, Till Installation &amp; IT Support</p>
+        </footer>
+    </main>
 
-            <div class="faq-item">
-                <h3>What is the relationship between IToldYouSo Computing, TillSwift, and Heath &amp; City Technology?</h3>
-                <p>IToldYouSo Computing delivers hands-on London-wide Point of Sale (POS) installations, IT support, and network engineering from our Hampstead base. TillSwift Payment Consultation (tillswift.com) provides independent UK payment acquirer comparisons and merchant fee audits, while Heath &amp; City Technology (heathandcity.com) delivers sovereign on-premises AI document retrieval and fractional Chief Technology Officer (CTO) advisory for legal, financial, and medical practices.</p>
-            </div>
-        </div>
-    </section>
+    <script>
+        /*
+         * Progressive enhancement category filter for the service directory.
+         * All 32 service links stay in the Document Object Model (DOM) for
+         * crawlers and screen readers while giving mobile and desktop visitors
+         * fast single-tap scoping by category.
+         */
+        (function initServiceFilters() {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.service-card[data-tags]');
+            if (!buttons.length || !cards.length) {
+                return;
+            }
 
-    <footer>
-        <p>© <i>IT</i>oldYouSo Computing | London-Wide POS, Till Installation &amp; IT Support</p>
-        <p style="margin-top: 6px; font-size: 0.9rem; color: #64748b;">
-            Based in Hampstead · Serving London-Wide Sites · Corringham Court, Corringham Road, London NW11 7BY · Tel: 020 4520 9114
-        </p>
-        <p style="margin-top: 8px; font-size: 0.85rem; color: #555;">
-            Sister Practices: <a href="https://tillswift.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">TillSwift Payment Consultation (tillswift.com)</a> · <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Heath &amp; City Systems Advisory (heathandcity.com)</a>
-        </p>
-    </footer>
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const selected = button.getAttribute('data-filter');
 
+                    buttons.forEach(function (btn) {
+                        btn.setAttribute(
+                            'aria-pressed',
+                            btn === button ? 'true' : 'false'
+                        );
+                    });
+
+                    cards.forEach(function (card) {
+                        const tags = (card.getAttribute('data-tags') || '').split(' ');
+                        const match = selected === 'all' || tags.includes(selected);
+                        card.classList.toggle('is-hidden', !match);
+                    });
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
