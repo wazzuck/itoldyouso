@@ -534,4 +534,87 @@ footer {
         margin: 8px 0;
         text-align: center;
     }
+
+}
+
+/*
+ * ============================================================================
+ * Related Services Cross-Links & Action Row
+ * ============================================================================
+ * Purpose:
+ *   Surfaces three contextual sibling service links and accessible call/email
+ *   actions at the bottom of every individual service page.
+ */
+.related-services {
+    margin-top: 32px;
+    margin-bottom: 28px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.related-services h3 {
+    font-size: 1.15rem;
+    color: #0b1220;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.related-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px 14px;
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease,
+        transform 0.15s ease;
+}
+
+.related-card:hover {
+    background: #fffbeb;
+    border-color: #d97706;
+    transform: translateY(-2px);
+}
+
+.related-card strong {
+    color: #0b1220;
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.related-card span {
+    color: #b45309;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.service-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
 }

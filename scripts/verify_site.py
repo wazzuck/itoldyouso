@@ -101,9 +101,16 @@ def _plain_text(markup: str) -> str:
     Returns:
         Text with tags removed, entities decoded, and whitespace collapsed.
     """
-    # 1. Strip all markup tags.
-    no_tags = re.sub(r"<[^>]+>", " ", markup)
-    # 2. Decode HTML entities and collapse multiple whitespace runs.
+    # 1. Strip script and style elements before removing tags.
+    no_blocks = re.sub(
+        r"<(script|style)\b[^>]*>.*?</\1>",
+        " ",
+        markup,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    # 2. Strip all remaining markup tags.
+    no_tags = re.sub(r"<[^>]+>", " ", no_blocks)
+    # 3. Decode entities and collapse multiple whitespace runs.
     return re.sub(r"\s+", " ", html.unescape(no_tags)).strip()
 
 
@@ -271,6 +278,10 @@ def check_required_files() -> List[str]:
     # 1. Verify primary root, status, workflow, and AI discovery files.
     core_files = [
         "index.html",
+        "404.html",
+        "favicon.ico",
+        "assets/apple-touch-icon.png",
+        "assets/social-card.png",
         "header.css",
         "header.js",
         "header-loader.js",
@@ -587,7 +598,8 @@ def check_service_pages() -> List[str]:
             raw_html=raw_html,
             label=label,
             expected_canonical=f"{BASE_URL}/services/{sfile.name}",
-            required_graph_types=("Service", "BreadcrumbList"),
+            required_graph_types=("Service", "BreadcrumbList", "FAQPage"),
+            min_faq_count=3,
         )
         errors.extend(page_errors)
 
@@ -607,6 +619,12 @@ def check_service_pages() -> List[str]:
         # 3. Verify stale Personal/Legacy branding has been removed.
         if re.search(r"\bNeville\b", raw_html):
             errors.append(f"{label} still contains stale 'Neville' branding")
+
+        # 4. Verify at least three sibling cross-link cards are present.
+        if len(re.findall(r'class="related-card"', raw_html)) < 3:
+            errors.append(
+                f"{label} missing 3 sibling cross-link cards (.related-card)"
+            )
 
     return errors
 

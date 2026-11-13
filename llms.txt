@@ -24,9 +24,19 @@ salons, clinics, and market stalls across London-wide sites.
   Tax (VAT) rates, modifiers, staff permissions, Xero/QuickBooks/Sage links,
   and face-to-face staff training.
 - Scheduling & Pricing: £50 per hour for consultation, setup, and training,
-  or fixed-price till installation packages quoted upfront. Free initial
-  15-minute telephone consultation. Pre-opening and out-of-hours cutovers
-  available across London to avoid trading disruption.
+  or fixed-price point of sale till packages quoted upfront. Pre-opening and
+  out-of-hours cutovers available across London to avoid trading disruption.
+
+## How We Work
+
+1. Initial Consultation: A conversation (starting with a free 15-minute
+   telephone call) to gather your exact requirements.
+2. Statement of Work and Fixed Quote: IToldYouSo produces a detailed written
+   plan acting as a statement of work, with a fixed, no-obligation up-front
+   price for the full job.
+3. No Pressure Follow-Up: Once you have the quote, the decision rests with you;
+   simply let us know if you agree to the price and wish to proceed. IToldYouSo
+   will not keep calling or use aggressive or repetitive sales tactics.
 
 ## Details & Coverage
 

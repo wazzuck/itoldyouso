@@ -6,6 +6,8 @@
     <title>London POS &amp; Till Installation + IT Support | IToldYouSo Computing</title>
     <meta name="description" content="London-wide POS, till and EPOS installation plus same-day IT support. Based in Hampstead, serving commercial and home sites across Greater London. Call 020 4520 9114.">
     <link rel="canonical" href="https://itoldyouso.tech/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <link rel="alternate" type="text/plain" href="https://itoldyouso.tech/llms.txt" title="LLM Context for IToldYouSo Computing">
     <link rel="alternate" type="text/plain" href="https://itoldyouso.tech/llms-full.txt" title="Full LLM Knowledge Base for IToldYouSo Computing">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -19,12 +21,14 @@
     <meta property="og:url" content="https://itoldyouso.tech/">
     <meta property="og:title" content="London POS &amp; Till Installation + IT Support | IToldYouSo Computing">
     <meta property="og:description" content="London-wide POS, till and EPOS installation plus same-day IT support. Based in Hampstead, serving commercial and home sites across Greater London. Call 020 4520 9114.">
-    <meta property="og:image" content="https://itoldyouso.tech/assets/network.png">
+    <meta property="og:image" content="https://itoldyouso.tech/assets/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://itoldyouso.tech/">
     <meta name="twitter:title" content="London POS &amp; Till Installation + IT Support | IToldYouSo Computing">
     <meta name="twitter:description" content="London-wide POS, till and EPOS installation plus same-day IT support. Based in Hampstead, serving commercial and home sites across Greater London. Call 020 4520 9114.">
-    <meta name="twitter:image" content="https://itoldyouso.tech/assets/network.png">
+    <meta name="twitter:image" content="https://itoldyouso.tech/assets/social-card.png">
     <link rel="stylesheet" href="header.css">
     <script type="application/ld+json">
     {
@@ -160,6 +164,30 @@
                   "name": "Computer Repair & Emergency Data Recovery",
                   "url": "https://itoldyouso.tech/services/computer-repair.html"
                 }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Server Administration & Cloud Migration",
+                  "url": "https://itoldyouso.tech/services/server-administration.html"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Custom Software & Business Website Development",
+                  "url": "https://itoldyouso.tech/services/custom-software.html"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Subscription-Free Smart Doorbells & Home Security",
+                  "url": "https://itoldyouso.tech/services/ring-replacement-service.html"
+                }
               }
             ]
           },
@@ -238,6 +266,14 @@
             },
             {
               "@type": "Question",
+              "name": "How does the consultation and fixed-price statement of work process work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every project begins with a free initial consultation to gather your requirements. IToldYouSo Computing then produces a detailed written plan acting as a statement of work with a fixed, no-obligation up-front price covering the full job. If you agree on the price, you simply let us know—we never keep calling or use aggressive or repetitive sales tactics."
+              }
+            },
+            {
+              "@type": "Question",
               "name": "What is the relationship between IToldYouSo Computing, TillSwift, and Heath & City Technology?",
               "acceptedAnswer": {
                 "@type": "Answer",
@@ -309,7 +345,7 @@
 
         /* 1. Full-Width Editorial Hero */
         .hero-shell {
-            margin-bottom: 44px;
+            margin-bottom: 24px;
             animation: fadeIn 0.4s ease-out;
         }
 
@@ -458,6 +494,90 @@
             font-size: 0.83rem;
             color: #64748b;
             line-height: 1.4;
+        }
+
+        /* How This Works: Transparent 3-Step Engagement Section */
+        .process-section {
+            margin-bottom: 44px;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-left: 4px solid #d97706;
+            border-radius: 20px;
+            padding: 28px 34px;
+            box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.04);
+        }
+
+        .process-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px 24px;
+            margin-bottom: 20px;
+        }
+
+        .process-eyebrow {
+            display: block;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            color: #b45309;
+            margin-bottom: 4px;
+        }
+
+        .process-header h2 {
+            font-size: clamp(1.38rem, 2.4vw, 1.75rem);
+            color: #0b1220;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        .process-promise {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .process-step {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px 20px;
+        }
+
+        .process-step-num {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #b45309;
+            background: #fef3c7;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            margin-bottom: 10px;
+        }
+
+        .process-step h3 {
+            font-size: 1.04rem;
+            color: #0b1220;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .process-step p {
+            font-size: 0.92rem;
+            color: #475569;
+            line-height: 1.55;
         }
 
         /* 2. Services Directory Section */
@@ -988,6 +1108,11 @@
         }
 
         @media (max-width: 959px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
             .faq-section {
                 grid-template-columns: 1fr;
                 gap: 24px;
@@ -1006,6 +1131,12 @@
             }
 
             .hero-shell {
+                margin-bottom: 20px;
+            }
+
+            .process-section {
+                padding: 22px 18px;
+                border-radius: 16px;
                 margin-bottom: 32px;
             }
 
@@ -1131,6 +1262,7 @@
     <header>
         <a href="index.html" class="logo"><img src="/assets/glasses.png" alt="IToldYouSo" /> <span><i>IT</i>oldYouSo Computing</span></a>
         <nav class="header-nav" aria-label="Primary sections">
+            <a href="#how-it-works">How This Works</a>
             <a href="#services">Services</a>
             <a href="services/pos-payment.html">POS &amp; Tills</a>
             <a href="#consulting">Advisory</a>
@@ -1175,6 +1307,37 @@
                         <strong>£50 / Hour</strong>
                         <span>Free initial phone consultation</span>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How This Works: Calm, Up-Front Statement of Work Process -->
+        <section class="process-section" id="how-it-works" aria-labelledby="how-this-works-heading">
+            <div class="process-header">
+                <div>
+                    <span class="process-eyebrow">Clear Process · Zero Sales Pressure</span>
+                    <h2 id="how-this-works-heading">How This Works</h2>
+                </div>
+                <p class="process-promise">No follow-up chasing, cold callbacks, or aggressive sales tactics.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <span class="process-step-num">Step 01</span>
+                    <h3>Initial Consultation</h3>
+                    <p>Start with a free initial consultation by telephone or email to gather your requirements, clarify what you need done, and discuss your site or devices.</p>
+                </div>
+
+                <div class="process-step">
+                    <span class="process-step-num">Step 02</span>
+                    <h3>Statement of Work &amp; Fixed Price</h3>
+                    <p>IToldYouSo then produces a detailed written plan acting as a statement of work with a fixed, no-obligation up-front price covering the full job.</p>
+                </div>
+
+                <div class="process-step">
+                    <span class="process-step-num">Step 03</span>
+                    <h3>You Decide in Your Own Time</h3>
+                    <p>If you agree on the price, simply let me know when you want to proceed. We never keep calling or use aggressive or repetitive sales tactics.</p>
                 </div>
             </div>
         </section>
@@ -1633,6 +1796,11 @@
                 <div class="faq-item">
                     <h3>How do you charge for POS installations and IT services?</h3>
                     <p>Every enquiry starts with a free initial telephone consultation. Standard engineering, troubleshooting, and training are billed at £50 per hour, with fixed-price project packages quoted upfront for turnkey London till installations, ChromeOS Flex migrations, websites, and bespoke software.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How does the consultation and fixed-price statement of work process work?</h3>
+                    <p>Every project begins with a free initial consultation to gather your requirements. IToldYouSo Computing then produces a detailed written plan acting as a statement of work with a fixed, no-obligation up-front price covering the full job. If you agree on the price, you simply let us know—we never keep calling or use aggressive or repetitive sales tactics.</p>
                 </div>
 
                 <div class="faq-item">
