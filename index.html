@@ -395,11 +395,10 @@
         }
 
         .hero-highlight {
-            /* Text and underline share one gold, #b8860b, so the highlight
-               reads as a single colour instead of a dark word over a pale
-               rule. The underline used to be this gold at 45% opacity,
-               which rendered as #ccba8c (1.91:1 on white) and looked like
-               a different colour from the word above it.
+            /* The London highlight is plain gold text with no underline:
+               the rule was removed at the operator's request, so its
+               decoration properties went with it rather than being left
+               inert in the block.
 
                #b8860b was picked over the earlier, browner tone because
                it reads as gold. The decision is recorded here as well as
@@ -409,10 +408,6 @@
                links) need. Those smaller runs share the tone on purpose,
                so the palette stays consistent. */
             color: #b8860b;
-            text-decoration: underline;
-            text-decoration-color: #b8860b;
-            text-decoration-thickness: 4px;
-            text-underline-offset: 6px;
         }
 
         /*
