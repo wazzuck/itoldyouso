@@ -395,14 +395,22 @@
         }
 
         .hero-highlight {
-            /* Text and underline share one gold, #8f6600, so the highlight
-               reads as a single colour. The underline used to be the same
-               gold at 45% opacity, which rendered as a pale tan (#ccba8c,
-               1.91:1 on white) and looked like a different colour from the
-               word above it. Solid, both measure 5.16:1 on white. */
-            color: #8f6600;
+            /* Text and underline share one gold, #b8860b, so the highlight
+               reads as a single colour instead of a dark word over a pale
+               rule. The underline used to be this gold at 45% opacity,
+               which rendered as #ccba8c (1.91:1 on white) and looked like
+               a different colour from the word above it.
+
+               #b8860b was picked over the earlier, browner tone because
+               it reads as gold. The decision is recorded here as well as
+               in the commit: it measures 3.25:1 on white, which clears
+               the 3:1 minimum for this large heading but sits under the
+               4.5:1 that the smaller accented runs (eyebrows, badges,
+               links) need. Those smaller runs share the tone on purpose,
+               so the palette stays consistent. */
+            color: #b8860b;
             text-decoration: underline;
-            text-decoration-color: #8f6600;
+            text-decoration-color: #b8860b;
             text-decoration-thickness: 4px;
             text-underline-offset: 6px;
         }
@@ -563,7 +571,7 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.9px;
-            color: #8f6600;
+            color: #b8860b;
             margin-bottom: 4px;
         }
 
@@ -594,7 +602,7 @@
             font-weight: 800;
             letter-spacing: 0.8px;
             text-transform: uppercase;
-            color: #8f6600;
+            color: #b8860b;
             background: #fef3c7;
             padding: 3px 10px;
             border-radius: 9999px;
@@ -635,7 +643,7 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #8f6600;
+            color: #b8860b;
             margin-bottom: 6px;
         }
 
@@ -785,7 +793,7 @@
 
         .service-card--featured .service-tag {
             background: #fef3c7;
-            color: #8f6600;
+            color: #b8860b;
         }
 
         .service-card h3 {
@@ -817,11 +825,11 @@
         }
 
         .service-card--featured .service-link {
-            color: #8f6600;
+            color: #b8860b;
         }
 
         .service-card:hover .service-link {
-            color: #8f6600;
+            color: #b8860b;
         }
 
         /* 3. Specialist Business Consultancy & Sister Practices */
@@ -1041,7 +1049,7 @@
         .faq-badge {
             display: inline-block;
             background: #fffbeb;
-            color: #8f6600;
+            color: #b8860b;
             border: 1px solid #fde68a;
             font-size: 0.76rem;
             font-weight: 700;
@@ -1136,7 +1144,7 @@
         }
 
         footer a:hover {
-            color: #8f6600;
+            color: #b8860b;
         }
 
         .faq-direct-meta {
@@ -1193,7 +1201,7 @@
         .call-dialog-badge {
             display: inline-block;
             background: #fffbeb;
-            color: #8f6600;
+            color: #b8860b;
             border: 1px solid #fde68a;
             font-size: 0.74rem;
             font-weight: 700;
@@ -1270,7 +1278,7 @@
         }
 
         .call-dialog-tel:hover {
-            color: #8f6600;
+            color: #b8860b;
         }
 
         .call-dialog-copy {
@@ -1291,7 +1299,7 @@
         .call-dialog-copy:hover {
             background: #fffbeb;
             border-color: #f3b428;
-            color: #8f6600;
+            color: #b8860b;
         }
 
         .call-dialog-copy[data-copied="true"] {

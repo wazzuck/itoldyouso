@@ -89,7 +89,7 @@ body {
 }
 
 .breadcrumb a {
-    color: #8f6600;
+    color: #b8860b;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.15s ease;
@@ -129,7 +129,7 @@ h1 {
 
 .service-tagline {
     font-size: clamp(1.04rem, 1.8vw, 1.18rem);
-    color: #8f6600;
+    color: #b8860b;
     margin-bottom: 24px;
     font-weight: 600;
     line-height: 1.5;
@@ -152,7 +152,7 @@ h1 {
 }
 
 .service-description a {
-    color: #8f6600;
+    color: #b8860b;
     font-weight: 600;
     text-underline-offset: 3px;
 }
@@ -191,7 +191,7 @@ h1 {
 
 .service-benefits li:before {
     content: "✓";
-    color: #8f6600;
+    color: #b8860b;
     font-weight: 800;
     font-size: 1.05rem;
     line-height: 1.45;
@@ -199,7 +199,7 @@ h1 {
 }
 
 .service-benefits li a {
-    color: #8f6600;
+    color: #b8860b;
     font-weight: 600;
 }
 
@@ -212,7 +212,7 @@ h1 {
 }
 
 .pricing-info h4 {
-    color: #8f6600;
+    color: #b8860b;
     margin-bottom: 8px;
     font-size: 1.05rem;
     font-weight: 700;
@@ -285,7 +285,7 @@ h1 {
 
 .comparison-table .total-row td {
     background: #fef3c7;
-    color: #8f6600;
+    color: #b8860b;
     font-weight: 700;
     border-bottom: none;
 }
@@ -323,7 +323,7 @@ h1 {
 }
 
 .assumptions-box a {
-    color: #8f6600;
+    color: #b8860b;
     font-weight: 600;
 }
 
@@ -598,7 +598,7 @@ footer {
 }
 
 .related-card span {
-    color: #8f6600;
+    color: #b8860b;
     font-size: 0.78rem;
     font-weight: 700;
     line-height: 1.4;
