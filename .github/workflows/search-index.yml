@@ -1,0 +1,48 @@
+# ==============================================================================
+# Workflow: Refresh Service Search Index
+# Purpose: Safety net for commits made without the local pre-commit hook
+#          (for example edits in the GitHub web editor). On every push to
+#          main, regenerate assets/search-index.js and commit it if stale.
+# ==============================================================================
+
+name: Refresh Service Search Index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "scripts/build_search_index.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Check out main.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # 2. Regenerate the index with the standard-library-only builder.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - run: python3 scripts/build_search_index.py
+
+      # 3. Commit only if the generated file changed. Commits made with the
+      #    built-in token do not retrigger workflows, so no loop occurs.
+      - name: Commit refreshed index
+        run: |
+          if git diff --quiet -- assets/search-index.js; then
+            echo "Search index already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/search-index.js
+          git commit -m "Refresh service search index"
+          git push

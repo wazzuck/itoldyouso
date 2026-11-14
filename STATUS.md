@@ -17,7 +17,9 @@ installation.
   rank cards by cosine similarity, all client-side on GitHub Pages. After
   editing service cards or the concept lexicon, run
   `python3 scripts/build_search_index.py`; `verify_site.py` fails if the
-  index is stale.
+  index is stale. It refreshes automatically: a pre-commit hook
+  (`sh scripts/install_hooks.sh`, once per clone) and the
+  `search-index.yml` workflow on every push to `main`.
 - **Crawler & AI context files (`f356f8f`, `e210ccf`)**: Updated
   `robots.txt` to allow AI search and retrieval crawlers (`OAI-SearchBot`,
   `ChatGPT-User`, `Claude-SearchBot`, `PerplexityBot`, `DeepSeekBot`,
