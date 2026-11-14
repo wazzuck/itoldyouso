@@ -315,6 +315,31 @@
          * 4. Sovereign Consultancy & Sticky 2-Column Editorial Frequently
          *    Asked Questions (FAQ)
          * 5. Clean two-column footer & strict mobile breakpoints
+         *
+         * Surface ramp (warm, so the gold #b8860b accents stay gold):
+         *
+         *   #fdf4f7  page       the blush described under `body` below
+         *   #ffffff  card       hero, process, service cards, FAQ, dialog
+         *   #fef8fb  inset      tiles nested inside a white card, so they
+         *                       sit between the card and the page
+         *   #f7e9ee  chip       the small pill tags
+         *   #fff6dd  champagne  the amber tiles that carry gold text
+         *
+         * The inset rose is the old #f8fafc with its hue reversed: the two
+         * differ in relative luminance by 0.002 (0.9517 against 0.9536), so
+         * every label that sits on an inset tile keeps the contrast ratio
+         * it had, while the tile reads warm instead of blue.
+         *
+         * Borders follow the same warmth instead of the old cool slate:
+         *
+         *   #f2e6ea  hairline   replaces #e2e8f0
+         *   #e3d0d6  control    replaces #cbd5e1
+         *   #b69ba6  hover      replaces #94a3b8
+         *
+         * Dark text (#0b1220, #1e293b, #334155, #475569, #64748b) is
+         * deliberately unchanged: it is neutral enough to sit on blush, and
+         * the page's small lightness shift moves those ratios by at most
+         * 0.05:1, so none of them changes side on the 4.5:1 threshold.
          */
         * {
             margin: 0;
@@ -333,13 +358,42 @@
             -webkit-text-size-adjust: 100%;
         }
 
+        /*
+         * Page surface: a very pale blush, #fdf4f7, carrying a rose-gold
+         * halo under the hero and a matching rose glow behind the footer.
+         * It replaces the old cool slate #f6f7f9.
+         *
+         * Why this exact tint, not a deeper one:
+         *
+         * 1. Gold #b8860b has relative luminance 0.273, so it cannot reach
+         *    better than 3.25:1 on any background at all. The page's job is
+         *    therefore not to raise gold's contrast but to stop fighting it.
+         * 2. #fdf4f7 has relative luminance 0.923. The gold eyebrows and
+         *    labels set straight onto this surface measure 3.02:1 on it,
+         *    against 3.04:1 on the old #f6f7f9: a rounding error, so no
+         *    accent run loses ground.
+         * 3. What does change is hue. The old slate was blue-grey, which
+         *    pulled the gold towards olive. A warm rose at an equal light
+         *    value leaves the gold reading as gold and lets the white cards
+         *    sit forward of the page instead of flush with it.
+         * 4. The gold halo at the top is the logo yellow #f3b428 fading
+         *    into rose and then to nothing, so the brightest part of the
+         *    page sits behind the hero, where the gold headline is.
+         */
         body {
-            background-color: #f6f7f9;
-            background-image: radial-gradient(
-                at 50% 0%,
-                rgba(243, 180, 40, 0.08) 0px,
-                transparent 560px
-            );
+            background-color: #fdf4f7;
+            background-image:
+                radial-gradient(
+                    at 50% 0%,
+                    rgba(243, 180, 40, 0.11) 0px,
+                    rgba(219, 118, 152, 0.07) 320px,
+                    transparent 620px
+                ),
+                radial-gradient(
+                    at 50% 100%,
+                    rgba(219, 118, 152, 0.09) 0px,
+                    transparent 640px
+                );
             color: #1e293b;
             min-height: 100vh;
             padding: 20px clamp(14px, 3vw, 28px) 48px clamp(14px, 3vw, 28px);
@@ -512,7 +566,7 @@
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 16px;
             padding-top: 22px;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid #f2e6ea;
         }
 
         .metric-item strong {
@@ -585,8 +639,8 @@
         }
 
         .process-step {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: #fef8fb;
+            border: 1px solid #f2e6ea;
             border-radius: 14px;
             padding: 18px 20px;
         }
@@ -598,7 +652,12 @@
             letter-spacing: 0.8px;
             text-transform: uppercase;
             color: #b8860b;
-            background: #fef3c7;
+            /* Champagne, not the old #fef3c7. The gold label sits on this
+               fill, and #b8860b can reach at most 3.25:1 on anything: it
+               measured 2.92:1 on #fef3c7 and measures 3.02:1 here, so the
+               pale fill buys the label back over 3:1 while still reading
+               as an amber tile beside the rose #fef8fb it sits on. */
+            background: #fff6dd;
             padding: 3px 10px;
             border-radius: 9999px;
             margin-bottom: 10px;
@@ -676,7 +735,7 @@
             appearance: none;
             background: #ffffff;
             color: #475569;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #e3d0d6;
             border-radius: 9999px;
             padding: 8px 16px;
             font-size: 0.88rem;
@@ -734,7 +793,7 @@
 
         .service-card:hover {
             transform: translateY(-3px);
-            border-color: #94a3b8;
+            border-color: #b69ba6;
             box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.09);
         }
 
@@ -754,8 +813,8 @@
         .service-icon {
             width: 44px;
             height: 44px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: #fef8fb;
+            border: 1px solid #f2e6ea;
             border-radius: 11px;
             display: inline-flex;
             align-items: center;
@@ -765,7 +824,7 @@
         }
 
         .service-card--featured .service-icon {
-            background: #fef3c7;
+            background: #fff6dd;
             border-color: #fde68a;
         }
 
@@ -780,14 +839,14 @@
             font-weight: 700;
             letter-spacing: 0.3px;
             color: #475569;
-            background: #f1f5f9;
+            background: #f7e9ee;
             padding: 4px 10px;
             border-radius: 9999px;
             white-space: nowrap;
         }
 
         .service-card--featured .service-tag {
-            background: #fef3c7;
+            background: #fff6dd;
             color: #b8860b;
         }
 
@@ -880,7 +939,11 @@
         }
 
         .consulting-inline-link {
-            color: #38bdf8;
+            /* Gold rather than the old sky blue #38bdf8. On this navy the
+               gold measures about 10:1, so the links stay comfortably
+               readable and the dark panel now speaks the same gold as the
+               light half of the page instead of introducing a third hue. */
+            color: #f3b428;
             font-weight: 700;
             text-decoration: underline;
             text-underline-offset: 2px;
@@ -926,7 +989,7 @@
         .consulting-target {
             font-size: 0.86rem;
             font-weight: 600;
-            color: #38bdf8;
+            color: #f3b428;
             margin-bottom: 12px;
         }
 
@@ -1078,8 +1141,8 @@
         }
 
         .faq-item {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: #fef8fb;
+            border: 1px solid #f2e6ea;
             border-radius: 14px;
             padding: 20px 24px;
         }
@@ -1101,7 +1164,7 @@
 
         /* 5. Clean Architectural Footer */
         footer {
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid #f2e6ea;
             /* No side padding: the footer text starts on the same vertical
                line as the section headings above it. */
             padding: 36px 0 20px 0;
@@ -1208,8 +1271,8 @@
 
         .call-dialog-close {
             appearance: none;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: #fef8fb;
+            border: 1px solid #f2e6ea;
             color: #475569;
             width: 36px;
             height: 36px;
@@ -1248,8 +1311,8 @@
         }
 
         .call-dialog-box {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: #fef8fb;
+            border: 1px solid #f2e6ea;
             border-radius: 14px;
             padding: 16px 18px;
             margin-bottom: 18px;
@@ -1279,7 +1342,7 @@
         .call-dialog-copy {
             appearance: none;
             background: #ffffff;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #e3d0d6;
             color: #0b1220;
             border-radius: 8px;
             padding: 7px 13px;
@@ -1409,7 +1472,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 2px;
-                border-left: 2px solid #e2e8f0;
+                border-left: 2px solid #f2e6ea;
                 padding-left: 12px;
             }
 

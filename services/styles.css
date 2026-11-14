@@ -7,6 +7,34 @@
  * Purpose:
  * Provides a clean, modern architectural card layout with generous vertical
  * spacing and comfortable mobile phone readability across all service pages.
+ *
+ * Surface ramp (warm, matching the home page, so the gold #b8860b accents
+ * read as gold rather than olive):
+ *
+ *   #fdf4f7  page       the blush described under `body` below
+ *   #ffffff  card       .service-container
+ *   #fef8fb  inset      tiles nested inside that white card
+ *   #fff6dd  champagne  amber tiles that carry gold text
+ *
+ * The inset rose is the old #f8fafc with its hue reversed: the two differ
+ * in relative luminance by 0.002 (0.9517 against 0.9536), so every label
+ * that sits on an inset tile keeps the contrast ratio it had, while the
+ * tile reads warm instead of blue.
+ *
+ * Borders follow the same warmth instead of the old cool slate:
+ *
+ *   #f2e6ea  hairline   replaces #e2e8f0
+ *   #e3d0d6  control    replaces #cbd5e1
+ *   #b69ba6  hover      replaces #94a3b8
+ *
+ * Dark text (#0b1220, #0f172a, #1e293b, #334155, #451a03, #475569,
+ * #64748b) is deliberately unchanged: it is neutral enough to sit on
+ * blush, and the page's small lightness shift moves those ratios by at
+ * most 0.05:1, so none of them changes side on the 4.5:1 threshold.
+ *
+ * The sky-blue advisory callout was warmed to rose so every service page
+ * holds this one palette. The near-black table header, price chips and
+ * buttons are unchanged, because near-black is neutral on blush.
  */
 
 * {
@@ -23,13 +51,31 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+/*
+ * Page surface.
+ *
+ * A very pale blush, #fdf4f7, with a rose-gold halo at the top edge. It
+ * matches the home page exactly so navigating between the two never reads
+ * as a change of site. See the note under `body` in index.html for the full
+ * reasoning: gold #b8860b measures 3.25:1 on white and cannot do better on
+ * any background, so this surface is chosen to hold gold's contrast steady
+ * (3.02:1 here, against 3.04:1 on the old cool slate #f6f7f9) while
+ * shifting the hue from blue-grey to warm rose.
+ */
 body {
-    background-color: #f6f7f9;
-    background-image: radial-gradient(
-        at 50% 0%,
-        rgba(243, 180, 40, 0.08) 0px,
-        transparent 520px
-    );
+    background-color: #fdf4f7;
+    background-image:
+        radial-gradient(
+            at 50% 0%,
+            rgba(243, 180, 40, 0.11) 0px,
+            rgba(219, 118, 152, 0.07) 300px,
+            transparent 560px
+        ),
+        radial-gradient(
+            at 50% 100%,
+            rgba(219, 118, 152, 0.09) 0px,
+            transparent 600px
+        );
     color: #1e293b;
     min-height: 100vh;
     padding: 20px 16px 48px 16px;
@@ -81,8 +127,8 @@ body {
     font-size: 0.88rem;
     color: #64748b;
     font-weight: 500;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #fef8fb;
+    border: 1px solid #f2e6ea;
     padding: 6px 14px;
     border-radius: 9999px;
     max-width: 100%;
@@ -158,8 +204,8 @@ h1 {
 }
 
 .service-benefits {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #fef8fb;
+    border: 1px solid #f2e6ea;
     border-left: 4px solid #f3b428;
     padding: 24px 26px;
     border-radius: 14px;
@@ -247,7 +293,7 @@ h1 {
     -webkit-overflow-scrolling: touch;
     margin: 18px 0;
     border-radius: 14px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #f2e6ea;
     background: #ffffff;
     box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
 }
@@ -262,7 +308,7 @@ h1 {
 .comparison-table td {
     padding: 14px 16px;
     text-align: left;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #f2e6ea;
     vertical-align: top;
     font-size: 0.95rem;
 }
@@ -280,11 +326,14 @@ h1 {
 }
 
 .comparison-table tbody tr:nth-child(even) {
-    background: #f8fafc;
+    background: #fef8fb;
 }
 
 .comparison-table .total-row td {
-    background: #fef3c7;
+    /* Champagne, not #fef3c7: the gold label here measures 2.92:1 on the
+       old fill and 3.02:1 on this one. See .process-step-num on the home
+       page for the full reasoning. */
+    background: #fff6dd;
     color: #b8860b;
     font-weight: 700;
     border-bottom: none;
@@ -297,8 +346,8 @@ h1 {
 }
 
 .assumptions-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #fef8fb;
+    border: 1px solid #f2e6ea;
     border-radius: 14px;
     padding: 22px 24px;
     margin-bottom: 28px;
@@ -377,12 +426,12 @@ h1 {
 .cta-secondary {
     background: #ffffff;
     color: #0b1220;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #e3d0d6;
 }
 
 .cta-secondary:hover {
-    background: #f8fafc;
-    border-color: #94a3b8;
+    background: #fef8fb;
+    border-color: #b69ba6;
     transform: translateY(-1px);
 }
 
@@ -395,7 +444,7 @@ footer {
     max-width: 880px;
     margin-left: auto;
     margin-right: auto;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #f2e6ea;
 }
 
 /*
@@ -421,8 +470,8 @@ footer {
 }
 
 .service-faq-item {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #fef8fb;
+    border: 1px solid #f2e6ea;
     border-radius: 14px;
     padding: 18px 22px;
     margin-bottom: 12px;
@@ -443,17 +492,31 @@ footer {
     margin: 0;
 }
 
+/*
+ * Sister-practice advisory callout.
+ *
+ * This box used to be sky blue (#f0f9ff with #0284c7 accents), the one
+ * cool accent left in the shared palette. On the blush page background it
+ * read as a foreign element, so it now carries the page's own rose: the
+ * surface is a slightly deeper blush than the #fef8fb inset tiles, which
+ * keeps it legible as a callout, and the deep rose bar (#be185d) does the
+ * job the blue bar did of marking it as advice rather than content.
+ *
+ * Contrast, measured against the #fceef4 surface:
+ *   heading and links  #9d174d   7.0:1  (blue #0369a1 was 5.6:1)
+ *   body copy          #0f172a  15.9:1  unchanged
+ */
 .sister-advisory-box {
-    background: #f0f9ff;
-    border: 1px solid #bae6fd;
-    border-left: 4px solid #0284c7;
+    background: #fceef4;
+    border: 1px solid #f7cfe0;
+    border-left: 4px solid #be185d;
     border-radius: 14px;
     padding: 20px 24px;
     margin-bottom: 28px;
 }
 
 .sister-advisory-box h4 {
-    color: #0369a1;
+    color: #9d174d;
     margin-bottom: 8px;
     font-size: 1.04rem;
     font-weight: 700;
@@ -467,7 +530,7 @@ footer {
 }
 
 .sister-advisory-box a {
-    color: #0369a1;
+    color: #9d174d;
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 2px;
@@ -553,7 +616,7 @@ footer {
     margin-top: 32px;
     margin-bottom: 28px;
     padding-top: 24px;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #f2e6ea;
 }
 
 .related-services h3 {
@@ -575,8 +638,8 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     gap: 6px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #fef8fb;
+    border: 1px solid #f2e6ea;
     border-radius: 12px;
     padding: 15px 14px;
     text-decoration: none;

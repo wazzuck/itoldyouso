@@ -110,7 +110,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="../header.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- Scoped quote calculator styles harmonised with slate-and-amber theme -->
+    <!--
+      Scoped quote calculator styles. These sit on the blush page surface
+      served by styles.css, so they use the same warm ramp as the rest of
+      the site: #fef8fb inset tiles, #f2e6ea hairline borders, #e3d0d6
+      control borders and #b69ba6 hover borders. The amber #fffbeb tiles
+      and the near-black summary panel are unchanged.
+    -->
     <style>
         .links-section {
             display: flex;
@@ -120,14 +126,14 @@
         }
 
         .info-link {
-            background: #f8fafc;
+            background: #fef8fb;
             border-radius: 10px;
             padding: 10px 16px;
             text-decoration: none;
             color: #0b1220;
             font-weight: 600;
             font-size: 0.9rem;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #e3d0d6;
             transition: background 0.15s ease, border-color 0.15s ease;
             display: inline-flex;
             align-items: center;
@@ -167,11 +173,11 @@
         .additional-options-section,
         .customer-details-section,
         .computer-details-section {
-            background: #f8fafc;
+            background: #fef8fb;
             border-radius: 16px;
             padding: 22px 22px;
             margin: 20px 0;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #f2e6ea;
         }
 
         .eligibility-title,
@@ -228,7 +234,7 @@
             background: #ffffff;
             border-radius: 12px;
             padding: 14px 16px;
-            border: 1.5px solid #cbd5e1;
+            border: 1.5px solid #e3d0d6;
             cursor: pointer;
             transition: border-color 0.15s ease, background 0.15s ease,
                 box-shadow 0.15s ease;
@@ -241,7 +247,7 @@
 
         .eligibility-radio-card:hover,
         .radio-card:hover {
-            border-color: #94a3b8;
+            border-color: #b69ba6;
         }
 
         .eligibility-radio-card.selected,
@@ -278,7 +284,7 @@
             appearance: none;
             width: 20px;
             height: 20px;
-            border: 2px solid #94a3b8;
+            border: 2px solid #b69ba6;
             border-radius: 9999px;
             margin-top: 2px;
             flex-shrink: 0;
@@ -299,7 +305,7 @@
             margin: 8px 0 14px 0;
             font-size: 0.92rem;
             line-height: 1.5;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #e3d0d6;
             border-left: 4px solid #f3b428;
             color: #1e293b;
         }
@@ -309,7 +315,7 @@
             border-radius: 12px;
             padding: 16px;
             margin: 14px 0 10px 0;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #e3d0d6;
             border-left: 4px solid #0b1220;
         }
 
@@ -331,7 +337,7 @@
         .computer-input,
         .computer-textarea {
             background: #ffffff;
-            border: 1.5px solid #cbd5e1;
+            border: 1.5px solid #e3d0d6;
             border-radius: 10px;
             padding: 12px 14px;
             font-size: 0.96rem;
@@ -405,11 +411,11 @@
         }
 
         .requirements-note {
-            background: #f8fafc;
+            background: #fef8fb;
             border-radius: 12px;
             padding: 16px 18px;
             margin: 16px 0;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #f2e6ea;
             border-left: 4px solid #f3b428;
             font-weight: 600;
             font-size: 0.92rem;
@@ -449,8 +455,8 @@
         }
 
         .email-area {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: #fef8fb;
+            border: 1px solid #f2e6ea;
             border-radius: 14px;
             padding: 20px;
             margin: 18px 0 24px 0;
@@ -483,7 +489,7 @@
         }
 
         .send-btn:disabled {
-            background: #94a3b8;
+            background: #b69ba6;
             cursor: not-allowed;
             transform: none;
         }
