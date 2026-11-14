@@ -172,29 +172,42 @@
     }
 
     // Typing demo: types example needs into the placeholder (never the
-    // real value, so no search runs) as part of the glow. Stops as soon
-    // as the visitor focuses or types, and is skipped for reduced motion.
+    // real value, so no search runs) as part of the glow. It replays every
+    // time the box scrolls into view. It is cancelled when the box leaves
+    // view or the visitor focuses or types, and skipped for reduced motion.
     var examples = [
         'my till will not print',
         'wifi dead zone in the garden',
         'lost photos from an old laptop'
     ];
     var staticHint = input.getAttribute('placeholder');
-    var demoStopped = false;
+    // Each run gets a number; a stale run notices it was superseded.
+    var currentRun = 0;
+    var reduceMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Cancel any running demo and restore the normal hint text. */
     function stopDemo() {
-        demoStopped = true;
+        currentRun++;
         input.setAttribute('placeholder', staticHint);
     }
-    function typeDemo() {
-        if (window.matchMedia &&
-            window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            return;
-        }
+
+    /* Start a fresh glow plus typing demo from the beginning. */
+    function startDemo() {
+        stopDemo();
+        // Skip if the visitor is already using the box.
+        if (input.value || document.activeElement === input) { return; }
+        // Restart the CSS glow: remove, force a reflow, add again.
+        input.classList.remove('is-attention');
+        void input.offsetWidth;
+        input.classList.add('is-attention');
+        if (reduceMotion) { return; }
+        var run = currentRun;
         var which = 0;
         var pos = 0;
         var deleting = false;
         function tick() {
-            if (demoStopped || input.value) { return; }
+            if (run !== currentRun || input.value) { return; }
             var text = examples[which];
             pos += deleting ? -1 : 1;
             input.setAttribute('placeholder',
@@ -208,7 +221,7 @@
                 deleting = false;
                 which++;
                 if (which === examples.length) {
-                    stopDemo();
+                    input.setAttribute('placeholder', staticHint);
                     return;
                 }
                 delay = 400;
@@ -217,23 +230,22 @@
         }
         tick();
     }
-    input.addEventListener('focus', stopDemo);
+    input.addEventListener('focus', function () {
+        stopDemo();
+        input.classList.remove('is-attention');
+    });
     input.addEventListener('input', stopDemo);
 
-    // Step: glow once when the box is scrolled into view, so visitors
-    // notice it is interactive. Stops after the first time it shows.
+    // Watch the box: play on every entry into view, reset on every exit.
     if ('IntersectionObserver' in window) {
-        var watcher = new IntersectionObserver(function (entries) {
+        new IntersectionObserver(function (entries) {
             if (entries[0].isIntersecting) {
-                input.classList.add('is-attention');
-                watcher.disconnect();
-                typeDemo();
+                startDemo();
+            } else {
+                stopDemo();
+                input.classList.remove('is-attention');
             }
-        }, { threshold: 0.6 });
-        watcher.observe(input);
-        input.addEventListener('focus', function () {
-            input.classList.remove('is-attention');
-        });
+        }, { threshold: 0.6 }).observe(input);
     }
 
     input.addEventListener('input', run);
