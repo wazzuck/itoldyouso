@@ -37,6 +37,10 @@ import xml.etree.ElementTree as ET
 # Value: 80 characters. Consumed by: check_line_lengths().
 MAX_DOC_COLUMNS = 80
 
+# Minimum number of alternative terms every service must list in the llms
+# files. Value: 5. Consumed by: check_synonym_coverage().
+MIN_SYNONYMS = 5
+
 # Root directory of the repository checkout.
 # Consumed by: main() and all verification helper routines.
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -543,6 +547,55 @@ def check_llms_txt() -> List[str]:
     return errors
 
 
+def check_synonym_coverage() -> List[str]:
+    """Check every service page keeps rich alternative wording everywhere.
+
+    Enforces the findability rule: each services/*.html page must have
+    (1) a link in llms.txt followed by an "Also searched as:" line with at
+    least MIN_SYNONYMS comma-separated terms, (2) an entry in the
+    llms-full.txt synonym section with at least MIN_SYNONYMS terms, and
+    (3) a vector in the generated search index (so the site search can
+    find it). The general "Also Known As" glossary must also exist.
+
+    Returns:
+        List of error diagnostic messages (empty if all covered).
+    """
+    errors: List[str] = []
+    llms = (REPO_ROOT / "llms.txt").read_text(encoding="utf-8")
+    full = (REPO_ROOT / "llms-full.txt").read_text(encoding="utf-8")
+    index_js = (REPO_ROOT / "assets/search-index.js").read_text(
+        encoding="utf-8"
+    )
+    for heading in ("## Also Known As", "## General Terminology"):
+        source = llms if "Also" in heading else full
+        if heading not in source:
+            errors.append(f"missing glossary heading: {heading}")
+
+    for sfile in sorted((REPO_ROOT / "services").glob("*.html")):
+        slug = sfile.name
+        # Step 1: llms.txt link line followed by synonym continuation.
+        match = re.search(
+            re.escape(f"{BASE_URL}/services/{slug})")
+            + r"\s*\n\s+Also searched as:(.*?)(?:\n\n|\n- |\n#|\Z)",
+            llms,
+            re.S,
+        )
+        if not match or match.group(1).count(",") + 1 < MIN_SYNONYMS:
+            errors.append(f"llms.txt: {slug} lacks synonym line")
+        # Step 2: llms-full.txt synonym entry.
+        match = re.search(
+            r"- services/" + re.escape(slug) + r"\s*\n(.*?)(?:\n- |\n\n)",
+            full,
+            re.S,
+        )
+        if not match or match.group(1).count(",") + 1 < MIN_SYNONYMS:
+            errors.append(f"llms-full.txt: {slug} lacks synonym entry")
+        # Step 3: search index vector (cards only exist for these).
+        if f'"h":"services/{slug}"' not in index_js:
+            errors.append(f"search index: no vector for {slug}")
+    return errors
+
+
 def check_html_and_jsonld() -> List[str]:
     """
     Verify index.html canonical link, metadata, FAQ section, JSON-LD graph,
@@ -771,6 +824,9 @@ def main() -> int:
 
     # Step 8: Check the smart service search index and wiring.
     all_errors.extend(check_search_index())
+
+    # Step 9: Check synonym coverage for every service (findability rule).
+    all_errors.extend(check_synonym_coverage())
 
     # Report results.
     if all_errors:

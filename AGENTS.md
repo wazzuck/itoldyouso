@@ -265,6 +265,9 @@ only; two uncommitted edits to one file can still lose one of them.
       Linked Data (JSON-LD) (`hasOfferCatalog`, `Service`, `BreadcrumbList`,
       and `FAQPage` matched verbatim to visible HTML), sibling cross-links,
       and IndexNow readiness.
+      Every service must also keep rich alternative wording (synonyms) in
+      `llms.txt`, `llms-full.txt` and the search index, enforced by
+      `check_synonym_coverage()`.
     - Keep `scripts/verify_site.py` updated to enforce all new pages, URLs,
       counts, and indexing checks automatically.
 
