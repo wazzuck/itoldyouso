@@ -11,26 +11,29 @@
  * Surface ramp (warm, matching the home page, so the gold #b8860b accents
  * read as gold rather than olive):
  *
- *   #fdf4f7  page       the blush described under `body` below
+ *   #fceaf1  page       the blush described under `body` below
  *   #ffffff  card       .service-container
- *   #fef8fb  inset      tiles nested inside that white card
+ *   #fef1f7  inset      tiles nested inside that white card
  *   #fff6dd  champagne  amber tiles that carry gold text
  *
- * The inset rose is the old #f8fafc with its hue reversed: the two differ
- * in relative luminance by 0.002 (0.9517 against 0.9536), so every label
- * that sits on an inset tile keeps the contrast ratio it had, while the
- * tile reads warm instead of blue.
+ * These sit one step deeper than the first blush revision so that they
+ * still read on a weak display, which washes out small lightness
+ * differences. #fceaf1 is 0.141 of relative luminance below the white
+ * card where that revision managed 0.077, and the inset tiles are 0.093
+ * below it against 0.048. Gold on a tile therefore measures 2.97:1
+ * rather than 3.11:1; it needed 4.5:1 either way, so nothing crosses a
+ * threshold, and the muted grey was darkened to compensate (below).
  *
  * Borders follow the same warmth instead of the old cool slate:
  *
- *   #f2e6ea  hairline   replaces #e2e8f0
+ *   #f0dce4  on-page    dividers drawn on the blush itself
+ *   #f2e6ea  hairline   replaces #e2e8f0, inside white cards
  *   #e3d0d6  control    replaces #cbd5e1
  *   #b69ba6  hover      replaces #94a3b8
  *
- * Dark text (#0b1220, #0f172a, #1e293b, #334155, #451a03, #475569,
- * #64748b) is deliberately unchanged: it is neutral enough to sit on
- * blush, and the page's small lightness shift moves those ratios by at
- * most 0.05:1, so none of them changes side on the 4.5:1 threshold.
+ * Dark ink is unchanged (#0b1220, #0f172a, #1e293b, #334155, #451a03,
+ * #475569). The muted grey moves from #64748b to #5b6a7d so the
+ * breadcrumb and the page footer clear 4.5:1 on the deeper surface.
  *
  * The sky-blue advisory callout was warmed to rose so every service page
  * holds this one palette. The near-black table header, price chips and
@@ -54,26 +57,28 @@ html {
 /*
  * Page surface.
  *
- * A very pale blush, #fdf4f7, with a rose-gold halo at the top edge. It
- * matches the home page exactly so navigating between the two never reads
- * as a change of site. See the note under `body` in index.html for the full
- * reasoning: gold #b8860b measures 3.25:1 on white and cannot do better on
- * any background, so this surface is chosen to hold gold's contrast steady
- * (3.02:1 here, against 3.04:1 on the old cool slate #f6f7f9) while
- * shifting the hue from blue-grey to warm rose.
+ * A soft blush, #fceaf1, with a rose-gold halo at the top edge. It
+ * matches the home page exactly so navigating between the two never
+ * reads as a change of site. The full reasoning sits under `body` in
+ * index.html; the short version is that this depth is chosen for a weak
+ * display, which would render the earlier #fdf4f7 and the original cool
+ * slate #f6f7f9 as the same flat field as the white cards. Gold
+ * #b8860b measures 3.25:1 on white and cannot do better anywhere, so
+ * this surface is only required not to fight it: 2.82:1 here, for the
+ * single eyebrow set directly on the page.
  */
 body {
-    background-color: #fdf4f7;
+    background-color: #fceaf1;
     background-image:
         radial-gradient(
             at 50% 0%,
-            rgba(243, 180, 40, 0.11) 0px,
-            rgba(219, 118, 152, 0.07) 300px,
+            rgba(243, 180, 40, 0.13) 0px,
+            rgba(219, 118, 152, 0.10) 300px,
             transparent 560px
         ),
         radial-gradient(
             at 50% 100%,
-            rgba(219, 118, 152, 0.09) 0px,
+            rgba(219, 118, 152, 0.12) 0px,
             transparent 600px
         );
     color: #1e293b;
@@ -125,9 +130,9 @@ body {
     gap: 6px 8px;
     margin-bottom: 24px;
     font-size: 0.88rem;
-    color: #64748b;
+    color: #5b6a7d;
     font-weight: 500;
-    background: #fef8fb;
+    background: #fef1f7;
     border: 1px solid #f2e6ea;
     padding: 6px 14px;
     border-radius: 9999px;
@@ -204,7 +209,7 @@ h1 {
 }
 
 .service-benefits {
-    background: #fef8fb;
+    background: #fef1f7;
     border: 1px solid #f2e6ea;
     border-left: 4px solid #f3b428;
     padding: 24px 26px;
@@ -326,7 +331,7 @@ h1 {
 }
 
 .comparison-table tbody tr:nth-child(even) {
-    background: #fef8fb;
+    background: #fef1f7;
 }
 
 .comparison-table .total-row td {
@@ -346,7 +351,7 @@ h1 {
 }
 
 .assumptions-box {
-    background: #fef8fb;
+    background: #fef1f7;
     border: 1px solid #f2e6ea;
     border-radius: 14px;
     padding: 22px 24px;
@@ -430,7 +435,7 @@ h1 {
 }
 
 .cta-secondary:hover {
-    background: #fef8fb;
+    background: #fef1f7;
     border-color: #b69ba6;
     transform: translateY(-1px);
 }
@@ -439,12 +444,12 @@ footer {
     text-align: center;
     margin-top: 32px;
     padding: 20px 16px;
-    color: #64748b;
+    color: #5b6a7d;
     font-size: 0.9rem;
     max-width: 880px;
     margin-left: auto;
     margin-right: auto;
-    border-top: 1px solid #f2e6ea;
+    border-top: 1px solid #f0dce4;
 }
 
 /*
@@ -470,7 +475,7 @@ footer {
 }
 
 .service-faq-item {
-    background: #fef8fb;
+    background: #fef1f7;
     border: 1px solid #f2e6ea;
     border-radius: 14px;
     padding: 18px 22px;
@@ -498,7 +503,7 @@ footer {
  * This box used to be sky blue (#f0f9ff with #0284c7 accents), the one
  * cool accent left in the shared palette. On the blush page background it
  * read as a foreign element, so it now carries the page's own rose: the
- * surface is a slightly deeper blush than the #fef8fb inset tiles, which
+ * surface is a slightly deeper blush than the #fef1f7 inset tiles, which
  * keeps it legible as a callout, and the deep rose bar (#be185d) does the
  * job the blue bar did of marking it as advice rather than content.
  *
@@ -638,7 +643,7 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     gap: 6px;
-    background: #fef8fb;
+    background: #fef1f7;
     border: 1px solid #f2e6ea;
     border-radius: 12px;
     padding: 15px 14px;

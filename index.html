@@ -318,28 +318,40 @@
          *
          * Surface ramp (warm, so the gold #b8860b accents stay gold):
          *
-         *   #fdf4f7  page       the blush described under `body` below
+         *   #fceaf1  page       the blush described under `body` below
          *   #ffffff  card       hero, process, service cards, FAQ, dialog
-         *   #fef8fb  inset      tiles nested inside a white card, so they
+         *   #fef1f7  inset      tiles nested inside a white card, so they
          *                       sit between the card and the page
-         *   #f7e9ee  chip       the small pill tags
+         *   #f7e2ea  chip       the small pill tags
          *   #fff6dd  champagne  the amber tiles that carry gold text
          *
-         * The inset rose is the old #f8fafc with its hue reversed: the two
-         * differ in relative luminance by 0.002 (0.9517 against 0.9536), so
-         * every label that sits on an inset tile keeps the contrast ratio
-         * it had, while the tile reads warm instead of blue.
+         * These are one step deeper than the first blush revision, and the
+         * reason is a display, not a taste: a cheap panel washes out small
+         * lightness differences. #fdf4f7 sat only 0.077 of relative
+         * luminance below the white cards, which such a screen renders as
+         * one flat field. #fceaf1 sits 0.141 below them, roughly double
+         * the separation, and carries 18 units of chroma against the old
+         * 9, so the pink survives being shown badly. The tiles were moved
+         * down in the same way, from 0.048 below white to 0.093.
+         *
+         * What that costs, and why it is affordable: gold on the page
+         * falls from 3.02:1 to 2.82:1 and gold on a tile from 3.11:1 to
+         * 2.97:1. Neither figure ever satisfied the 4.5:1 that small text
+         * needs, so no run crosses a threshold, while the muted grey that
+         * does sit on these surfaces was darkened one step (see below) to
+         * clear 4.5:1 rather than merely approach it.
          *
          * Borders follow the same warmth instead of the old cool slate:
          *
-         *   #f2e6ea  hairline   replaces #e2e8f0
+         *   #f0dce4  on-page    dividers drawn on the blush itself
+         *   #f2e6ea  hairline   replaces #e2e8f0, inside white cards
          *   #e3d0d6  control    replaces #cbd5e1
          *   #b69ba6  hover      replaces #94a3b8
          *
-         * Dark text (#0b1220, #1e293b, #334155, #475569, #64748b) is
-         * deliberately unchanged: it is neutral enough to sit on blush, and
-         * the page's small lightness shift moves those ratios by at most
-         * 0.05:1, so none of them changes side on the 4.5:1 threshold.
+         * Dark ink is unchanged (#0b1220, #1e293b, #334155, #475569); the
+         * muted grey moves from #64748b to #5b6a7d so the runs set
+         * directly on the page, the section subtitle and the footer, still
+         * clear 4.5:1 on the deeper surface.
          */
         * {
             margin: 0;
@@ -359,39 +371,52 @@
         }
 
         /*
-         * Page surface: a very pale blush, #fdf4f7, carrying a rose-gold
-         * halo under the hero and a matching rose glow behind the footer.
-         * It replaces the old cool slate #f6f7f9.
+         * Page surface: a soft blush, #fceaf1, carrying a rose-gold halo
+         * under the hero and a matching rose glow behind the footer. It
+         * replaces the cool slate #f6f7f9 that the site shipped with.
          *
-         * Why this exact tint, not a deeper one:
+         * Why this tint and this depth, in order of what mattered:
          *
-         * 1. Gold #b8860b has relative luminance 0.273, so it cannot reach
-         *    better than 3.25:1 on any background at all. The page's job is
-         *    therefore not to raise gold's contrast but to stop fighting it.
-         * 2. #fdf4f7 has relative luminance 0.923. The gold eyebrows and
-         *    labels set straight onto this surface measure 3.02:1 on it,
-         *    against 3.04:1 on the old #f6f7f9: a rounding error, so no
-         *    accent run loses ground.
-         * 3. What does change is hue. The old slate was blue-grey, which
-         *    pulled the gold towards olive. A warm rose at an equal light
-         *    value leaves the gold reading as gold and lets the white cards
-         *    sit forward of the page instead of flush with it.
-         * 4. The gold halo at the top is the logo yellow #f3b428 fading
-         *    into rose and then to nothing, so the brightest part of the
-         *    page sits behind the hero, where the gold headline is.
+         * 1. It has to survive a weak display. The first blush revision
+         *    was #fdf4f7, elegant on a good screen and invisible on a
+         *    cheap one: only 0.077 of relative luminance separated it
+         *    from the white cards, and such panels crush that to a single
+         *    flat field. #fceaf1 separates by 0.141, roughly double, and
+         *    its chroma is 18 against that revision's 9 and the original
+         *    slate's 3, so the pink is carried by both lightness and hue
+         *    rather than by hue alone.
+         * 2. It must not cost the accents their footing. Gold #b8860b has
+         *    relative luminance 0.273 and cannot reach better than 3.25:1
+         *    on anything, so the surface can only avoid fighting it. On
+         *    this blush the gold set directly on the page measures
+         *    2.82:1, against 3.02:1 on #fdf4f7; that is the section
+         *    eyebrow alone, and it needed 4.5:1 before this change as
+         *    well, so nothing crosses a threshold.
+         * 3. The readable text on this surface was adjusted with it. The
+         *    muted grey moves from #64748b to #5b6a7d, taking the section
+         *    subtitle and the footer from 4.41:1 to 4.71:1, so the runs
+         *    that actually carry meaning here now pass rather than nearly
+         *    pass.
+         * 4. The halo is the logo yellow #f3b428 fading into rose and
+         *    then to nothing, so the brightest part of the page sits
+         *    behind the hero, where the gold headline is. Its stops are
+         *    stronger than they were for the same reason as the base.
+         *
+         * To retune this, change `background-color` below: it is the one
+         * value the whole ramp is measured against.
          */
         body {
-            background-color: #fdf4f7;
+            background-color: #fceaf1;
             background-image:
                 radial-gradient(
                     at 50% 0%,
-                    rgba(243, 180, 40, 0.11) 0px,
-                    rgba(219, 118, 152, 0.07) 320px,
+                    rgba(243, 180, 40, 0.13) 0px,
+                    rgba(219, 118, 152, 0.10) 320px,
                     transparent 620px
                 ),
                 radial-gradient(
                     at 50% 100%,
-                    rgba(219, 118, 152, 0.09) 0px,
+                    rgba(219, 118, 152, 0.12) 0px,
                     transparent 640px
                 );
             color: #1e293b;
@@ -551,7 +576,7 @@
 
         .hero-email-note {
             font-size: 0.88rem;
-            color: #64748b;
+            color: #5b6a7d;
             margin-bottom: 26px;
         }
 
@@ -580,7 +605,7 @@
         .metric-item span {
             display: block;
             font-size: 0.83rem;
-            color: #64748b;
+            color: #5b6a7d;
             line-height: 1.4;
         }
 
@@ -639,7 +664,7 @@
         }
 
         .process-step {
-            background: #fef8fb;
+            background: #fef1f7;
             border: 1px solid #f2e6ea;
             border-radius: 14px;
             padding: 18px 20px;
@@ -656,7 +681,7 @@
                fill, and #b8860b can reach at most 3.25:1 on anything: it
                measured 2.92:1 on #fef3c7 and measures 3.02:1 here, so the
                pale fill buys the label back over 3:1 while still reading
-               as an amber tile beside the rose #fef8fb it sits on. */
+               as an amber tile beside the rose #fef1f7 it sits on. */
             background: #fff6dd;
             padding: 3px 10px;
             border-radius: 9999px;
@@ -710,7 +735,7 @@
         }
 
         .section-subtitle {
-            color: #64748b;
+            color: #5b6a7d;
             font-size: 0.96rem;
             max-width: 52ch;
         }
@@ -813,7 +838,7 @@
         .service-icon {
             width: 44px;
             height: 44px;
-            background: #fef8fb;
+            background: #fef1f7;
             border: 1px solid #f2e6ea;
             border-radius: 11px;
             display: inline-flex;
@@ -839,7 +864,7 @@
             font-weight: 700;
             letter-spacing: 0.3px;
             color: #475569;
-            background: #f7e9ee;
+            background: #f7e2ea;
             padding: 4px 10px;
             border-radius: 9999px;
             white-space: nowrap;
@@ -1141,7 +1166,7 @@
         }
 
         .faq-item {
-            background: #fef8fb;
+            background: #fef1f7;
             border: 1px solid #f2e6ea;
             border-radius: 14px;
             padding: 20px 24px;
@@ -1164,11 +1189,11 @@
 
         /* 5. Clean Architectural Footer */
         footer {
-            border-top: 1px solid #f2e6ea;
+            border-top: 1px solid #f0dce4;
             /* No side padding: the footer text starts on the same vertical
                line as the section headings above it. */
             padding: 36px 0 20px 0;
-            color: #64748b;
+            color: #5b6a7d;
             font-size: 0.9rem;
         }
 
@@ -1208,7 +1233,7 @@
         .faq-direct-meta {
             margin-top: 12px;
             font-size: 0.84rem;
-            color: #64748b;
+            color: #5b6a7d;
             line-height: 1.5;
         }
 
@@ -1271,7 +1296,7 @@
 
         .call-dialog-close {
             appearance: none;
-            background: #fef8fb;
+            background: #fef1f7;
             border: 1px solid #f2e6ea;
             color: #475569;
             width: 36px;
@@ -1311,7 +1336,7 @@
         }
 
         .call-dialog-box {
-            background: #fef8fb;
+            background: #fef1f7;
             border: 1px solid #f2e6ea;
             border-radius: 14px;
             padding: 16px 18px;
@@ -1369,7 +1394,7 @@
         .call-dialog-meta {
             margin-top: 8px;
             font-size: 0.84rem;
-            color: #64748b;
+            color: #5b6a7d;
             line-height: 1.5;
         }
 
@@ -1395,7 +1420,7 @@
 
         .call-dialog-promise {
             font-size: 0.82rem;
-            color: #64748b;
+            color: #5b6a7d;
             line-height: 1.5;
         }
 
