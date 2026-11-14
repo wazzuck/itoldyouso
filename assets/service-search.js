@@ -171,6 +171,55 @@
                 : ' services match, best first.');
     }
 
+    // Typing demo: types example needs into the placeholder (never the
+    // real value, so no search runs) as part of the glow. Stops as soon
+    // as the visitor focuses or types, and is skipped for reduced motion.
+    var examples = [
+        'my till will not print',
+        'wifi dead zone in the garden',
+        'lost photos from an old laptop'
+    ];
+    var staticHint = input.getAttribute('placeholder');
+    var demoStopped = false;
+    function stopDemo() {
+        demoStopped = true;
+        input.setAttribute('placeholder', staticHint);
+    }
+    function typeDemo() {
+        if (window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+        }
+        var which = 0;
+        var pos = 0;
+        var deleting = false;
+        function tick() {
+            if (demoStopped || input.value) { return; }
+            var text = examples[which];
+            pos += deleting ? -1 : 1;
+            input.setAttribute('placeholder',
+                text.slice(0, pos) + (pos < text.length || deleting
+                    ? '|' : ''));
+            var delay = deleting ? 25 : 55;
+            if (!deleting && pos === text.length) {
+                deleting = true;
+                delay = 1400;
+            } else if (deleting && pos === 0) {
+                deleting = false;
+                which++;
+                if (which === examples.length) {
+                    stopDemo();
+                    return;
+                }
+                delay = 400;
+            }
+            setTimeout(tick, delay);
+        }
+        tick();
+    }
+    input.addEventListener('focus', stopDemo);
+    input.addEventListener('input', stopDemo);
+
     // Step: glow once when the box is scrolled into view, so visitors
     // notice it is interactive. Stops after the first time it shows.
     if ('IntersectionObserver' in window) {
@@ -178,6 +227,7 @@
             if (entries[0].isIntersecting) {
                 input.classList.add('is-attention');
                 watcher.disconnect();
+                typeDemo();
             }
         }, { threshold: 0.6 });
         watcher.observe(input);
