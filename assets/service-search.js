@@ -171,6 +171,21 @@
                 : ' services match, best first.');
     }
 
+    // Step: glow once when the box is scrolled into view, so visitors
+    // notice it is interactive. Stops after the first time it shows.
+    if ('IntersectionObserver' in window) {
+        var watcher = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+                input.classList.add('is-attention');
+                watcher.disconnect();
+            }
+        }, { threshold: 0.6 });
+        watcher.observe(input);
+        input.addEventListener('focus', function () {
+            input.classList.remove('is-attention');
+        });
+    }
+
     input.addEventListener('input', run);
     input.closest('form').addEventListener('submit', function (e) {
         e.preventDefault();
