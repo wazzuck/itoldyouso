@@ -71,14 +71,17 @@ STOPWORDS = set(
 # Consumed by both towers; shipped to the browser inside the index.
 CONCEPTS: Dict[str, List[str]] = {
     "payments": "pay payment card reader terminal contactless chip sumup "
-    "square worldpay barclaycard stripe takings checkout acquirer",
+    "square worldpay barclaycard stripe takings checkout acquirer pdq "
+    "chip pin cash merchant zettle",
     "till": "till tills epos pos register cashier retail shop cafe "
-    "restaurant takeaway hospitality kitchen venue drawer menu",
+    "restaurant takeaway hospitality kitchen venue drawer menu salon "
+    "clinic stall counter ecr kds pub bar",
     "printer": "print printer printing printers ink toner label receipt "
     "scanner airprint paper",
     "wifi": "wifi wi-fi wireless internet broadband router network "
     "networks signal ethernet cabling cable mesh connection online "
-    "offline dropout slow buffering",
+    "offline dropout slow buffering booster extender zone dead lan "
+    "broadband",
     "security": "security secure cyber hack hacked hacker virus malware "
     "phishing ransomware scam breach penetration audit gdpr safe protect",
     "cctv": "cctv camera cameras alarm sensor sensors lock locks "
@@ -101,7 +104,8 @@ CONCEPTS: Dict[str, List[str]] = {
     "quickbooks sage accounts accounting tax mtd bookkeeping workspace",
     "software": "software program application app install installation "
     "licence license autocad solidworks matlab sage custom bespoke "
-    "develop developer development code coding script automation",
+    "develop developer development code coding script automation "
+    "programmer database",
     "web": "website web site webpage ecommerce shop online seo domain "
     "hosting wordpress",
     "ai": "ai chatgpt claude copilot gemini chatbot chatbots artificial "

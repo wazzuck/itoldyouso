@@ -153,7 +153,7 @@
             ranked.push({ href: doc.h, s: s });
             if (s > top) { top = s; }
         });
-        var cutoff = Math.max(0.12, top * 0.35);
+        var cutoff = Math.max(0.08, top * 0.35);
         ranked.sort(function (a, b) { return b.s - a.s; });
         var shown = 0;
         ranked.forEach(function (r, i) {

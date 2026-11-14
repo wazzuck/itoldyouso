@@ -69,46 +69,178 @@ barristers, King's Counsel (KC), and boutique practices, visit our sister
 practice:
 - Heath & City Technology: https://heathandcity.com/
 
+## Also Known As: Search Terms and Synonyms
+
+People describe the same thing in many ways. These are equivalent terms:
+
+- Till = checkout = cash register = register = EPOS = ePOS = POS = point of
+  sale = card till = takings machine = counter terminal = retail system.
+- Card machine = card reader = card terminal = payment terminal = PDQ =
+  chip and PIN machine = contactless reader.
+- Wi-Fi = wifi = wireless internet = broadband = router = mesh network =
+  dead zone fix = signal booster.
+- Computer = PC = laptop = desktop = Mac = notebook = machine.
+- Repair = fix = mend = troubleshoot = diagnose = sort out = get working.
+- Install = set up = fit = configure = commission = get running.
+- Cyber security = IT security = hacking protection = penetration testing =
+  pen test = security audit = virus and malware protection.
+- Backup = back up = archive = copy = restore = disaster recovery.
+- Smart home = home automation = connected home = Alexa and Google Home.
+- Doorbell camera = video doorbell = Ring = CCTV doorbell.
+- Engineer = technician = IT support = IT consultant = fitter = specialist.
+- Quote = estimate = price = fixed price = statement of work = proposal.
+- Small business = shop = cafe = restaurant = takeaway = salon = clinic =
+  market stall = office = sole trader = independent retailer.
+
 ## Point of Sale (POS), Till & Hospitality Services (Priority)
 
 - [Till & POS System Installation Across London](https://itoldyouso.tech/services/pos-payment.html)
+  Also searched as: till, checkout, cash register, tills, EPOS, ePOS, POS
+  terminal, point of sale, till system, electronic cash register (ECR),
+  takings machine, counter terminal, shop till, retail till, cafe till,
+  takeaway till, till fitter, till installer, till engineer, new till setup,
+  Square, SumUp, Zettle, Clover, Lightspeed.
 - [Card Payment Terminals & Integrated EPOS](https://itoldyouso.tech/services/pos-payments.html)
+  Also searched as: card machine, card reader, card terminal, chip and pin
+  machine, PDQ machine, contactless payments, take card payments, accept
+  cards, payment terminal, merchant services, merchant account, card acquirer,
+  Barclaycard, Worldpay, Stripe, switch card provider, Xero or QuickBooks card
+  sync.
 - [Restaurant Till, Order & Kitchen Display Setup](https://itoldyouso.tech/services/restaurant-order-management.html)
+  Also searched as: restaurant till, cafe EPOS, takeaway ordering system,
+  kitchen display screen (KDS), kitchen printer, order screen, table ordering,
+  waiter ordering, food ordering system, hospitality tech, pub till, bar till,
+  venue Wi-Fi.
 
 ## Commercial IT, Networks, Cyber Security & Software
 
 - [Home & Overview](https://itoldyouso.tech/)
 - [Internet, Wi-Fi & Network Optimisation](https://itoldyouso.tech/services/internet-networks.html)
+  Also searched as: Wi-Fi, wifi, wireless, internet, broadband, router, mesh
+  network, dead zone, weak signal, slow internet, buffering, dropouts,
+  Ethernet cabling, network cable, office network, LAN, access points,
+  extender, booster, connection problems.
 - [IT Security Audits & Penetration Testing](https://itoldyouso.tech/services/it-security-testing.html)
+  Also searched as: cyber security, cybersecurity, penetration testing, pen
+  test, ethical hacking, security audit, vulnerability scan, phishing test,
+  GDPR compliance, data protection check, hacked, breach, malware, virus,
+  ransomware protection, staff awareness.
 - [Server Administration & Linux Management](https://itoldyouso.tech/services/server-administration.html)
+  Also searched as: server, file server, domain controller, Active Directory,
+  mail server, VPN (virtual private network), remote access, Linux admin,
+  Windows Server, sysadmin, system administrator, IT support, managed IT,
+  monitoring, backups.
 - [Cloud Services Migration & Cost Optimisation](https://itoldyouso.tech/services/cloud-services.html)
+  Also searched as: cloud, Azure, AWS, Amazon Web Services, Google Cloud, move
+  to the cloud, cloud migration, hosting, cloud costs, SaaS, virtual servers,
+  Microsoft 365 hosting.
 - [Artificial Intelligence Tools Setup & Training](https://itoldyouso.tech/services/ai-tools.html)
+  Also searched as: AI, artificial intelligence, ChatGPT, Claude, Copilot,
+  Gemini, chatbot, customer chatbot, prompt training, automate tasks, AI
+  assistant, AI for business, work smarter, save time with AI.
 - [AI Intelligence for Automotive Mechanics & Custom Garage Systems](https://itoldyouso.tech/services/automotive-ai.html)
+  Also searched as: garage software, mechanic diagnostics, car diagnostic
+  tools, vehicle repair data, Autodata, HaynesPro, Bosch ESI[tronic], Snap-on,
+  ALLDATA, workshop software, MOT garage IT, car repair information.
 - [Lectures, Education & Modern Technology Training](https://itoldyouso.tech/services/lectures-training.html)
+  Also searched as: training, lecture, seminar, workshop, tutor, teach me,
+  learn computers, IT course, class, talk, education, staff training,
+  presentation on technology.
 - [Custom Software Development](https://itoldyouso.tech/services/custom-software.html)
+  Also searched as: bespoke software, custom app, software developer,
+  programmer, database tool, business application, build me an app, coding,
+  automation, internal tool.
 - [Custom Technology Solutions](https://itoldyouso.tech/services/custom-solutions.html)
+  Also searched as: custom solution, automation script, reporting tool, system
+  integration, connect systems, bespoke tech, something unusual, tailored fix,
+  problem solving.
 - [Specialist Industry Software Installation](https://itoldyouso.tech/services/specialist-software.html)
+  Also searched as: install software, AutoCAD, SolidWorks, MATLAB, Sage,
+  licensed software, industry software, CAD, engineering software, software
+  licence, software setup.
 - [Office Software & Accounting Suite (Xero, QuickBooks, Sage)](https://itoldyouso.tech/services/office-software.html)
+  Also searched as: Microsoft 365, Office 365, Word, Excel, Outlook, email
+  setup, Google Workspace, Gmail for business, Xero, QuickBooks, Sage,
+  accounts software, bookkeeping, accounting, Making Tax Digital (MTD), tax
+  software.
 - [Website Development & Hosting](https://itoldyouso.tech/services/website-development.html)
+  Also searched as: website, web design, web designer, web developer,
+  e-commerce, online shop, webshop, SEO, search engine optimisation, hosting,
+  domain name, WordPress, new website for my business.
 - [Independent Technology Advice](https://itoldyouso.tech/services/advice.html)
+  Also searched as: advice, consultant, consultancy, what should I buy,
+  recommendation, buying guide, independent advice, vendor-neutral, second
+  opinion, which till, which laptop, quote check.
 
 ## Hardware Repair, Data, Privacy & Home Technology
 
 - [Computer Repair & Diagnostics](https://itoldyouso.tech/services/computer-repair.html)
+  Also searched as: computer repair, laptop repair, PC repair, Mac repair, fix
+  my computer, slow computer, broken laptop, won't turn on, virus removal,
+  crashing, freezing, blue screen, screen, battery, upgrade, tune-up.
 - [Emergency Data Recovery](https://itoldyouso.tech/services/data-recovery.html)
+  Also searched as: data recovery, recover files, lost files, deleted files,
+  corrupted drive, dead hard drive, SSD recovery, USB recovery, memory card
+  recovery, lost photos, retrieve data, undelete.
 - [Backup & Archiving Solutions](https://itoldyouso.tech/services/backup-archiving.html)
+  Also searched as: backup, back up, archive, restore, cloud backup, local
+  backup, ransomware protection, protect my files, copy my data, disaster
+  recovery, automatic backup.
 - [Home Storage Servers & Network Attached Storage (NAS)](https://itoldyouso.tech/services/home-storage-servers.html)
+  Also searched as: NAS, network attached storage, home server, file server,
+  storage server, shared drive, central storage, Synology, QNAP, private
+  cloud, personal cloud.
 - [Computer Migration & Data Transfer](https://itoldyouso.tech/services/computer-migration.html)
+  Also searched as: new computer setup, transfer files, move to new PC,
+  migrate data, copy old computer, new laptop setup, Windows upgrade, switch
+  Mac, move emails, transfer apps.
 - [ChromeOS Flex Conversions](https://itoldyouso.tech/services/chromeos-flex.html)
+  Also searched as: ChromeOS Flex, Chrome OS, Chromebook conversion, revive
+  old laptop, old PC new life, refurbish laptop, slow old computer, extend
+  laptop life, instant quote.
 - [Digital Locksmith & Account Recovery](https://itoldyouso.tech/services/digital-locksmith.html)
+  Also searched as: locked out, forgot password, password reset, account
+  recovery, hacked account, lost access, unlock laptop, email locked, regain
+  access, login problems.
 - [Digital Wellbeing & Distraction Removal](https://itoldyouso.tech/services/digital-wellbeing.html)
+  Also searched as: pop-ups, adverts, ads, spam, junk email, inbox clean-up,
+  unwanted notifications, digital detox, distractions, calm technology, online
+  safety.
 - [CCTV & Smart Security Systems](https://itoldyouso.tech/services/security-systems.html)
+  Also searched as: CCTV, security camera, alarm, burglar alarm, smart locks,
+  sensors, home security, shop security, surveillance, camera installation,
+  protect property.
 - [Subscription-Free Smart Doorbells](https://itoldyouso.tech/services/ring-replacement-service.html)
+  Also searched as: Ring alternative, doorbell no subscription, doorbell
+  camera, video doorbell, local recording, no monthly fee, replace Ring,
+  private doorbell.
 - [Ring Doorbell Installation & Wi-Fi Fixes](https://itoldyouso.tech/services/ring-doorbells.html)
+  Also searched as: Ring doorbell, video doorbell, doorbell install, chime,
+  doorbell not working, doorbell Wi-Fi, mount doorbell, Ring camera setup.
 - [Home Automation & Smart Control](https://itoldyouso.tech/services/home-automation.html)
+  Also searched as: smart home, home automation, smart lighting, thermostat,
+  Hive, Nest, Alexa, Google Home, smart speakers, voice control, automation
+  routines, smart plugs.
 - [Home Entertainment & Cinema Setup](https://itoldyouso.tech/services/home-entertainment.html)
+  Also searched as: TV setup, smart TV, television, soundbar, surround sound,
+  home cinema, streaming, Netflix, Sky, wall mount, cabling, living room tech.
 - [Online Video Conferencing Setup](https://itoldyouso.tech/services/online-conferencing.html)
+  Also searched as: Zoom, Teams, Google Meet, video call, webcam, microphone,
+  lighting, home office video, remote meeting, conference room, video
+  conferencing.
 - [Projector & Presentation Equipment Setup](https://itoldyouso.tech/services/projector-presentation.html)
+  Also searched as: projector, presentation, boardroom, meeting room, large
+  screen, display, screen casting, wireless casting, HDMI, conference audio,
+  AV.
 - [Printer Setup & Wireless Support](https://itoldyouso.tech/services/printers.html)
+  Also searched as: printer, printing, wireless printer, AirPrint, scanner,
+  receipt printer, label printer, thermal printer, printer drivers, printer
+  offline, ink, copier.
 - [Photograph Indexing & AI Organisation](https://itoldyouso.tech/services/photo-indexing.html)
+  Also searched as: photo organising, photograph library, sort photos, find
+  photos, face recognition, scan old photos, digitise photos, family albums,
+  photo archive, searchable pictures.
 - [Mobile Phone & Tablet Support](https://itoldyouso.tech/services/mobile-phone-help.html)
+  Also searched as: mobile phone, smartphone, iPhone, Android, iPad, tablet,
+  phone setup, transfer data to new phone, phone backup, phone
+  troubleshooting, new phone help.

@@ -1,6 +1,8 @@
 # robots.txt for IToldYouSo Computing (https://itoldyouso.tech)
 # All crawlers, including Artificial Intelligence (AI) assistants and search
-# agents, may index and read the whole public service catalogue.
+# agents, may index and read the whole public service catalogue: tills,
+# checkouts, cash registers, EPOS, card machines, Wi-Fi, computer repair,
+# data recovery, CCTV, smart home and more. See llms.txt for synonyms.
 
 User-agent: *
 Allow: /
