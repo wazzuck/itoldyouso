@@ -9,6 +9,15 @@ installation.
 
 ## Done (In-Repository)
 
+- **Smart service search**: replaced the category buttons on `index.html`
+  with a free-text box. A two-tower-style retrieval pair: the document
+  tower (`scripts/build_search_index.py` writes `assets/search-index.js`)
+  and the query tower (`assets/service-search.js`) share one hashed
+  vector space (words, meaning concepts, typo-tolerant trigrams) and
+  rank cards by cosine similarity, all client-side on GitHub Pages. After
+  editing service cards or the concept lexicon, run
+  `python3 scripts/build_search_index.py`; `verify_site.py` fails if the
+  index is stale.
 - **Crawler & AI context files (`f356f8f`, `e210ccf`)**: Updated
   `robots.txt` to allow AI search and retrieval crawlers (`OAI-SearchBot`,
   `ChatGPT-User`, `Claude-SearchBot`, `PerplexityBot`, `DeepSeekBot`,

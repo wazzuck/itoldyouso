@@ -740,63 +740,56 @@
             max-width: 52ch;
         }
 
-        /* Filter Pill Bar */
-        .service-filters {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        /* Smart Service Search (replaces the old category buttons) */
+        .service-search {
             margin-bottom: 24px;
-            /* Wrap onto extra rows so every category is visible at
-               once; no sideways scrolling on any screen width. */
-            flex-wrap: wrap;
         }
 
-        /* Phones: tidy 2-column grid of equal-width, wrapping pills. */
-        @media (max-width: 639px) {
-            .service-filters {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .service-filters .filter-btn {
-                white-space: normal;
-                text-align: center;
-                line-height: 1.25;
-                padding: 8px 12px;
-                border-radius: 14px;
-            }
-
-            /* "All Services" spans the full first row. */
-            .service-filters .filter-btn:first-child {
-                grid-column: 1 / -1;
-            }
-        }
-
-        .filter-btn {
-            appearance: none;
-            background: #ffffff;
-            color: #475569;
-            border: 1px solid #e3d0d6;
-            border-radius: 9999px;
-            padding: 8px 16px;
-            font-size: 0.88rem;
+        .service-search-label {
+            display: block;
+            font-size: 0.85rem;
             font-weight: 700;
-            white-space: nowrap;
-            cursor: pointer;
-            min-height: 40px;
-            transition: background 0.15s ease, color 0.15s ease,
-                border-color 0.15s ease;
+            color: #475569;
+            margin-bottom: 8px;
         }
 
-        .filter-btn:hover {
+        .service-search-input {
+            appearance: none;
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 52px;
+            padding: 12px 18px;
+            font: inherit;
+            font-size: 1rem; /* 16px+ stops iOS zooming on focus */
+            color: #0b1220;
+            background: #ffffff;
+            border: 1.5px solid #e3d0d6;
+            border-radius: 14px;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .service-search-input:focus {
+            outline: none;
             border-color: #0b1220;
+            box-shadow: 0 0 0 3px rgba(11, 18, 32, 0.12);
+        }
+
+        .service-search-status {
+            margin: 8px 2px 0;
+            font-size: 0.85rem;
+            color: #64748b;
+            min-height: 1.2em;
+        }
+
+        .service-search-empty {
+            margin: 8px 2px 0;
+            font-weight: 700;
             color: #0b1220;
         }
 
-        .filter-btn[aria-pressed="true"] {
-            background: #0b1220;
-            color: #ffffff;
-            border-color: #0b1220;
+        .services-grid .service-card {
+            order: 0;
         }
 
         /* Clean 3-Column Bento Grid -> 2-Column Tablet -> 1-Column Phone */
@@ -1704,16 +1697,28 @@
                     <h2 id="services-heading">Engineering, Retail &amp; Office Support</h2>
                 </div>
                 <p class="section-subtitle">
-                    Filter by category below or browse all 34 specialist services covered from Hampstead across London.
+                    Describe what you need below, in your own words, or browse all 34 specialist services covered from Hampstead across London.
                 </p>
             </div>
 
-            <div class="service-filters" role="group" aria-label="Filter services by category">
-                <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All Services (34)</button>
-                <button type="button" class="filter-btn" data-filter="pos" aria-pressed="false">POS, Tills &amp; Hospitality</button>
-                <button type="button" class="filter-btn" data-filter="business" aria-pressed="false">Business IT, Cloud &amp; Security</button>
-                <button type="button" class="filter-btn" data-filter="home" aria-pressed="false">Home, Devices &amp; Smart Tech</button>
-            </div>
+            <form class="service-search" role="search"
+                  aria-label="Search services">
+                <label class="service-search-label"
+                       for="service-search-input">
+                    Describe what you need
+                </label>
+                <input type="search" id="service-search-input"
+                       class="service-search-input" autocomplete="off"
+                       spellcheck="false" enterkeyhint="search"
+                       placeholder="e.g. my till will not print, wifi dead zone, lost photos">
+                <p id="service-search-status" class="service-search-status"
+                   role="status" aria-live="polite"></p>
+                <p id="service-search-empty" class="service-search-empty"
+                   hidden>
+                    No close match. Try other words, or
+                    <a href="tel:02045209114">call for a free chat</a>.
+                </p>
+            </form>
 
             <div id="services" class="services-grid">
                 <a href="services/pos-payment.html" class="service-card service-card--featured" data-tags="pos business">
@@ -2235,39 +2240,6 @@
 
     <script>
         /*
-         * Progressive enhancement category filter for the service directory.
-         * All 34 service links stay in the Document Object Model (DOM) for
-         * crawlers and screen readers while giving mobile and desktop visitors
-         * fast single-tap scoping by category.
-         */
-        (function initServiceFilters() {
-            const buttons = document.querySelectorAll('.filter-btn');
-            const cards = document.querySelectorAll('.service-card[data-tags]');
-            if (!buttons.length || !cards.length) {
-                return;
-            }
-
-            buttons.forEach(function (button) {
-                button.addEventListener('click', function () {
-                    const selected = button.getAttribute('data-filter');
-
-                    buttons.forEach(function (btn) {
-                        btn.setAttribute(
-                            'aria-pressed',
-                            btn === button ? 'true' : 'false'
-                        );
-                    });
-
-                    cards.forEach(function (card) {
-                        const tags = (card.getAttribute('data-tags') || '').split(' ');
-                        const match = selected === 'all' || tags.includes(selected);
-                        card.classList.toggle('is-hidden', !match);
-                    });
-                });
-            });
-        })();
-
-        /*
          * Progressive enhancement Call & Consultation dialogue for desktop and
          * Chromebook browsers lacking a configured tel: protocol handler.
          * Mobile phones keep direct one-tap native tel: calling.
@@ -2379,5 +2351,7 @@
             }
         })();
     </script>
+    <script src="assets/search-index.js" defer></script>
+    <script src="assets/service-search.js" defer></script>
 </body>
 </html>

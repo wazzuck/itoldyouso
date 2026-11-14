@@ -27,6 +27,7 @@ from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
+import subprocess
 import sys
 from typing import Dict, List, Set, Tuple
 import xml.etree.ElementTree as ET
@@ -322,6 +323,9 @@ def check_required_files() -> List[str]:
         "llms.txt",
         "llms-full.txt",
         "scripts/submit_indexnow.py",
+        "scripts/build_search_index.py",
+        "assets/search-index.js",
+        "assets/service-search.js",
         ".github/workflows/indexnow.yml",
     ]
 
@@ -685,6 +689,7 @@ def check_line_lengths() -> List[str]:
     code_files = [
         "scripts/verify_site.py",
         "scripts/submit_indexnow.py",
+        "scripts/build_search_index.py",
         ".github/workflows/indexnow.yml",
     ]
     for rel_path in code_files:
@@ -701,6 +706,33 @@ def check_line_lengths() -> List[str]:
                     f"{MAX_DOC_COLUMNS} cols ({len(line)} chars)"
                 )
 
+    return errors
+
+
+def check_search_index() -> List[str]:
+    """Check the smart service search index is fresh and wired in.
+
+    Returns:
+        Error messages: stale generated index, or index.html missing the
+        search input or script tags.
+    """
+    errors: List[str] = []
+    result = subprocess.run(
+        [sys.executable, str(REPO_ROOT / "scripts/build_search_index.py"),
+         "--check"],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        errors.append("assets/search-index.js is stale (rerun builder).")
+    page = (REPO_ROOT / "index.html").read_text(encoding="utf-8")
+    for needle in (
+        'id="service-search-input"',
+        'src="assets/search-index.js"',
+        'src="assets/service-search.js"',
+    ):
+        if needle not in page:
+            errors.append(f"index.html is missing {needle}")
     return errors
 
 
@@ -733,6 +765,9 @@ def main() -> int:
 
     # Step 7: Check 80-column line length restrictions.
     all_errors.extend(check_line_lengths())
+
+    # Step 8: Check the smart service search index and wiring.
+    all_errors.extend(check_search_index())
 
     # Report results.
     if all_errors:
