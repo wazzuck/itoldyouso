@@ -65,18 +65,24 @@ installation.
   POS page, `llms.txt`, and `llms-full.txt`, matching the Google Business
   Profile listing for Name, Address, Phone (NAP) consistency. Client document
   pages were left untouched (see Blocked below).
-- **Blush page surface (`bff620f`)**: Replaced the cool slate `#f6f7f9`
-  background with a very pale blush `#fdf4f7` in `index.html` and
+- **Blush page surface (`bff620f`, `763b894`)**: Replaced the cool slate
+  `#f6f7f9` background with a rose ramp in `index.html` and
   `services/styles.css`, plus a rose-gold halo under the header and a
-  rose glow behind the footer. Reworked the cool-slate inset tiles,
-  borders and tag chips into a matching warm ramp (`#fef8fb`,
-  `#f2e6ea`, `#e3d0d6`, `#b69ba6`, `#f7e9ee`), lightened the amber
-  tile `#fef3c7` to champagne `#fff6dd` so the gold labels on it rise
-  from 2.92:1 to 3.02:1, warmed the sky-blue sister-practice callout
-  to rose, and changed the consultancy panel's two cyan accents to
-  gold. Gold `#b8860b` holds 3.25:1 on white and 3.02:1 on the page
-  (3.04:1 before), so no accent run regresses. `404.html` inherits the
-  new surface from `services/styles.css`.
+  rose glow behind the footer. The final values are one step deeper
+  than the first pass because a cheap panel washes out small
+  lightness differences: the page is `#fceaf1`, sitting 0.141 of
+  relative luminance below the white cards against the first pass's
+  0.077, with inset tiles at `#fef1f7`. The cool-slate tiles, borders
+  and chips became `#fef1f7`, `#f0dce4`, `#f2e6ea`, `#e3d0d6`,
+  `#b69ba6` and `#f7e2ea`, and the muted grey moved to `#5b6a7d` so
+  text on those surfaces clears 4.5:1 (4.41:1 before). The amber tile
+  `#fef3c7` became champagne `#fff6dd`, lifting the gold labels on it
+  from 2.92:1 to 3.02:1; the sky-blue sister-practice callout became
+  rose (heading and links 5.6:1 to 7.0:1); and the consultancy panel's
+  two cyan accents became gold. Gold `#b8860b` holds 3.25:1 on white,
+  2.82:1 on the page and 2.96:1 on a tile, and the latter two needed
+  4.5:1 before this work as well, so nothing crosses a threshold.
+  `404.html` inherits the new surface from `services/styles.css`.
 
 ---
 
