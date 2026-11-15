@@ -23,8 +23,8 @@
  * Step 1: Query the document for the top-level <header> container element.
  * Step 2: Verify that the current page is indeed located inside the /services/
  *         directory path, skipping execution otherwise.
- * Step 3: Populate the inner HTML of the header element with the brand logo,
- *         telephone contact link, and email address.
+ * Step 3: Populate the inner HTML of the header element with the brand logo and
+ *         telephone contact link.
  *
  * @returns {void}
  */
@@ -46,7 +46,6 @@ function updateHeader() {
             <a href="../index.html" class="logo"><img src="/assets/glasses.png" alt="IToldYouSo" /> <span><i>IT</i>oldYouSo Computing</span></a>
             <div class="phone-info">
                 <a href="tel:02045209114" class="phone-number">020 4520 9114</a>
-                <a href="mailto:contactus@itoldyouso.tech" class="email-address">contactus@itoldyouso.tech</a>
             </div>
         `;
     }

@@ -163,19 +163,6 @@ header.hide {
     box-shadow: 0 4px 12px rgba(243, 180, 40, 0.4);
 }
 
-.email-address {
-    font-size: 0.8rem;
-    color: #64748b;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    font-weight: 500;
-}
-
-.email-address:hover {
-    color: #0b1220;
-    text-decoration: underline;
-}
-
 @media (max-width: 960px) {
     .header-nav {
         display: none;
@@ -207,10 +194,6 @@ header.hide {
         padding: 6px 12px;
         min-height: 40px;
         border-radius: 9px;
-    }
-
-    .email-address {
-        display: none;
     }
 }
 
