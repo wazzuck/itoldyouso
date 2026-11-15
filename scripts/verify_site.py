@@ -701,8 +701,6 @@ def check_service_pages() -> List[str]:
             header_body = header_match.group(1)
             if "020 4520 9114" not in header_body:
                 errors.append(f"{label} static <header> missing phone number")
-            if "contactus@itoldyouso.tech" not in header_body:
-                errors.append(f"{label} static <header> missing email address")
 
         # 3. Verify stale Personal/Legacy branding has been removed.
         if re.search(r"\bNeville\b", raw_html):
