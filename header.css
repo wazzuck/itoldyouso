@@ -176,14 +176,6 @@ header.hide {
     text-decoration: underline;
 }
 
-.consultation-text {
-    font-size: 0.7rem;
-    color: #059669;
-    font-weight: 700;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-}
-
 @media (max-width: 960px) {
     .header-nav {
         display: none;
@@ -217,8 +209,7 @@ header.hide {
         border-radius: 9px;
     }
 
-    .email-address,
-    .consultation-text {
+    .email-address {
         display: none;
     }
 }

@@ -24,7 +24,7 @@
  * Step 2: Verify that the current page is indeed located inside the /services/
  *         directory path, skipping execution otherwise.
  * Step 3: Populate the inner HTML of the header element with the brand logo,
- *         telephone contact link, email address, and consultation note.
+ *         telephone contact link, and email address.
  *
  * @returns {void}
  */
@@ -47,7 +47,6 @@ function updateHeader() {
             <div class="phone-info">
                 <a href="tel:02045209114" class="phone-number">020 4520 9114</a>
                 <a href="mailto:contactus@itoldyouso.tech" class="email-address">contactus@itoldyouso.tech</a>
-                <p class="consultation-text">Free consultation</p>
             </div>
         `;
     }
