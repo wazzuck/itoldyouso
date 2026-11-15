@@ -2,7 +2,8 @@
 # All crawlers, including Artificial Intelligence (AI) assistants and search
 # agents, may index and read the whole public service catalogue: tills,
 # checkouts, cash registers, EPOS, card machines, Wi-Fi, computer repair,
-# data recovery, CCTV, smart home and more. See llms.txt for synonyms.
+# data recovery, CCTV, smart home, automotive and garage AI for cars, vans
+# and other vehicles, and more. See llms.txt for synonyms.
 
 User-agent: *
 Allow: /
