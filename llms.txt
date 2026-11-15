@@ -140,8 +140,10 @@ People describe the same thing in many ways. These are equivalent terms:
   assistant, AI for business, work smarter, save time with AI.
 - [AI Intelligence for Automotive Mechanics & Custom Garage Systems](https://itoldyouso.tech/services/automotive-ai.html)
   Also searched as: garage software, mechanic diagnostics, car diagnostic
-  tools, vehicle repair data, Autodata, HaynesPro, Bosch ESI[tronic], Snap-on,
-  ALLDATA, workshop software, MOT garage IT, car repair information.
+  tools, van diagnostics, commercial vehicle and fleet workshop software,
+  cars, vans, motorbikes, lorries and other vehicles, vehicle repair data,
+  Autodata, HaynesPro, Bosch ESI[tronic], Snap-on, ALLDATA, workshop
+  software, MOT garage IT, car and van repair information.
 - [Lectures, Education & Modern Technology Training](https://itoldyouso.tech/services/lectures-training.html)
   Also searched as: training, lecture, seminar, workshop, tutor, teach me,
   learn computers, IT course, class, talk, education, staff training,

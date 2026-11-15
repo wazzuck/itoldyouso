@@ -178,8 +178,8 @@ Flex migrations (base £70), websites, and custom software.
   Repair, Opus IVS, Autel/Launch, Garage Hive, TechMan, BOOKAR, Tekmetric,
   WorkshopEase, MechIQ, Driver and Vehicle Licensing Agency (DVLA) / Ministry
   of Transport (MOT) lookups, Automatic Number Plate Recognition (ANPR) bay
-  check-in, plus custom systems and bespoke integrations built and run for the
-  client.
+  check-in for cars, vans, motorcycles, commercial fleets and other vehicles,
+  plus custom systems and bespoke integrations built and run for the client.
 - Lectures, Education & Modern Technology Training
   (https://itoldyouso.tech/services/lectures-training.html):
   Plain-English talks, seminars, academic/community lectures, and hands-on team

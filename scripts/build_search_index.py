@@ -110,8 +110,10 @@ CONCEPTS: Dict[str, List[str]] = {
     "hosting wordpress",
     "ai": "ai chatgpt claude copilot gemini chatbot chatbots artificial "
     "intelligence machine learning prompt automate",
-    "car": "car cars garage mechanic mechanics automotive vehicle "
-    "diagnostics autodata haynes bosch",
+    "car": "car cars van vans vehicle vehicles motor motors motorbike "
+    "motorbikes motorcycle motorcycles lorry lorries truck trucks fleet "
+    "garage garages workshop workshops mechanic mechanics automotive "
+    "diagnostic diagnostics mot autodata haynes bosch",
     "training": "training train lecture lectures lesson learn teach "
     "tutor seminar course education workshop class",
     "advice": "advice advise consultancy consultant guidance recommend "
