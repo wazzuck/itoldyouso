@@ -193,6 +193,18 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://itoldyouso.tech/services/audio-production.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://itoldyouso.tech/services/video-production.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://itoldyouso.tech/services/photo-indexing.html</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>

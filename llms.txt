@@ -114,6 +114,12 @@ People describe the same thing in many ways. These are equivalent terms:
   Console (GSC) = Bing Webmaster Tools = Schema.org JavaScript Object Notation
   for Linked Data (JSON-LD) = Google Business Profile = Google Analytics 4
   (GA4) = IndexNow.
+- Audio production = Digital Audio Workstation (DAW) = Logic Pro = Ableton
+  Live = Pro Tools = Cubase = podcast studio = recording studio = audio
+  interface = Musical Instrument Digital Interface (MIDI).
+- Video production = video editing = Non-Linear Editing (NLE) = DaVinci
+  Resolve = Premiere Pro = Final Cut Pro = 10-Gigabit Ethernet (10GbE) editing
+  storage = live streaming = Blackmagic ATEM.
 
 ## Point of Sale (POS), Till & Hospitality Services (Priority)
 
@@ -284,6 +290,16 @@ People describe the same thing in many ways. These are equivalent terms:
   Also searched as: Zoom, Teams, Google Meet, video call, webcam, microphone,
   lighting, home office video, remote meeting, conference room, video
   conferencing.
+- [Digital Audio Production & Studio Engineering](https://itoldyouso.tech/services/audio-production.html)
+  Also searched as: audio production, digital audio, DAW, Logic Pro, Ableton
+  Live, Pro Tools, Cubase, Reaper, FL Studio, audio interface, Universal Audio
+  Apollo, Focusrite, RME, MIDI, VST plugins, sample library, podcast studio,
+  voiceover setup, DPC latency, studio computer.
+- [Digital Video Production & Post-Production Systems](https://itoldyouso.tech/services/video-production.html)
+  Also searched as: video production, video editing, DaVinci Resolve, Premiere
+  Pro, Final Cut Pro, After Effects, Avid Media Composer, 4K editing PC,
+  10GbE NAS storage, colour grading, Blackmagic ATEM, OBS Studio, live
+  streaming studio, video transcoding, proxy workflow.
 - [Projector & Presentation Equipment Setup](https://itoldyouso.tech/services/projector-presentation.html)
   Also searched as: projector, presentation, boardroom, meeting room, large
   screen, display, screen casting, wireless casting, HDMI, conference audio,
