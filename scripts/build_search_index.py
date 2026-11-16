@@ -133,6 +133,11 @@ CONCEPTS: Dict[str, List[str]] = {
     "admin monitoring",
     "chromebook": "chromebook chromeos flex old ageing slow laptop "
     "revive refurbish",
+    "telephony": "telephony telephone landline landlines voip pbx sip "
+    "pstn isdn switchover 020 0800 0330 number numbers porting extension "
+    "extensions handset handsets dect deskphone softphone ivr voicemail call "
+    "calls caller routing ringcentral 3cx vonage bonline yealink poly cisco "
+    "grandstream gigaset ata",
 }
 
 

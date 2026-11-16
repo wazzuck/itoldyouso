@@ -157,6 +157,23 @@ Flex migrations (base £70), websites, and custom software.
 - Internet, Wi-Fi & Network Optimisation (https://itoldyouso.tech/services/internet-networks.html):
   Eliminating Wi-Fi dead zones, mesh Wi-Fi, Ethernet runs, commercial till
   network segmentation, router security hardening.
+- Telephony, Virtual Landline Numbers & Modern Voice over Internet Protocol
+  (VoIP) Systems (https://itoldyouso.tech/services/telephony.html):
+  Virtual 020 London, regional, 0800, and 0330 landline numbers answered via
+  mobile and desktop softphones or desk handsets, number porting, United
+  Kingdom (UK) Public Switched Telephone Network (PSTN) and Integrated
+  Services Digital Network (ISDN) 2027 digital switchover migrations (Fibre to
+  the Premises (FTTP) / Single Order Generic Ethernet Access (SoGEA)), Cloud
+  Private Branch Exchange (PBX) setups (Microsoft Teams Phone, Zoom Phone, 3CX,
+  RingCentral, Vonage, 8x8, Dialpad, bOnline, Yay.com, Gamma Horizon), Session
+  Initiation Protocol (SIP) trunks, Interactive Voice Response (IVR)
+  auto-attendants, Artificial Intelligence (AI) voice receptionists and
+  transcription, Point of Sale (POS) and Customer Relationship Management
+  (CRM) caller-ID integration, Yealink, Poly, Cisco, Grandstream, Snom, and
+  Gigaset Internet Protocol (IP) and Digital Enhanced Cordless
+  Telecommunications (DECT) handsets, Analogue Telephone Adapters (ATAs),
+  Power over Ethernet (PoE) switches, and Voice Virtual Local Area Network
+  (VLAN) Quality of Service (QoS) networking.
 - Cyber Security Testing (https://itoldyouso.tech/services/it-security-testing.html):
   Penetration testing (PEN testing), Wi-Fi security audits, phishing
   simulations, Multi-Factor Authentication (MFA), Sender Policy Framework
@@ -262,6 +279,9 @@ People describe the same thing in many ways. These are equivalent terms:
 - Quote = estimate = price = fixed price = statement of work = proposal.
 - Small business = shop = cafe = restaurant = takeaway = salon = clinic =
   market stall = office = sole trader = independent retailer.
+- Phone system = telephony = virtual landline = virtual phone number = 020
+  London number = VoIP = cloud PBX = SIP trunk = digital landline = business
+  phone line = PSTN switchover.
 
 ## Also Known As: Search Terms and Synonyms by Service
 
@@ -290,6 +310,14 @@ assistants and searchers using any wording can find it.
   weak signal, slow internet, buffering, dropouts, Ethernet cabling, network
   cable, office network, LAN, access points, extender, booster, connection
   problems.
+- services/telephony.html
+  telephony, virtual landline, virtual phone number, 020 London number, 0800
+  number, 0330 number, VoIP, voice over IP, cloud PBX, phone system, business
+  phone line, SIP trunking, PSTN switchover, ISDN switch off, digital landline,
+  keep my landline number, number porting, landline on mobile app, softphone,
+  desk phone, Yealink, DECT cordless phone, 3CX, RingCentral, Microsoft Teams
+  Phone, Zoom Phone, Vonage, bOnline, Yay.com, IVR menu, auto attendant, call
+  routing, hunt group, call recording, voicemail to email, AI receptionist.
 - services/it-security-testing.html
   cyber security, cybersecurity, penetration testing, pen test, ethical
   hacking, security audit, vulnerability scan, phishing test, GDPR compliance,

@@ -98,6 +98,10 @@ People describe the same thing in many ways. These are equivalent terms:
 - Quote = estimate = price = fixed price = statement of work = proposal.
 - Small business = shop = cafe = restaurant = takeaway = salon = clinic =
   market stall = office = sole trader = independent retailer.
+- Phone system = telephony = virtual landline = virtual phone number = 020
+  London number = Voice over Internet Protocol (VoIP) = cloud Private Branch
+  Exchange (PBX) = Session Initiation Protocol (SIP) trunk = digital landline
+  = business phone line = Public Switched Telephone Network (PSTN) switchover.
 
 ## Point of Sale (POS), Till & Hospitality Services (Priority)
 
@@ -130,6 +134,17 @@ People describe the same thing in many ways. These are equivalent terms:
   network, dead zone, weak signal, slow internet, buffering, dropouts,
   Ethernet cabling, network cable, office network, LAN, access points,
   extender, booster, connection problems.
+- [Telephony, Virtual Landline Numbers & Modern VoIP Systems](https://itoldyouso.tech/services/telephony.html)
+  Also searched as: telephony, virtual landline, virtual phone number, 020
+  London number, 0800 number, 0330 number, VoIP, voice over IP, cloud PBX,
+  phone system, business phone line, SIP trunking, PSTN switchover, ISDN
+  switch off, Integrated Services Digital Network (ISDN), digital landline,
+  keep my landline number, number porting, landline on mobile app, softphone,
+  desk phone, Yealink, Digital Enhanced Cordless Telecommunications (DECT)
+  cordless phone, 3CX, RingCentral, Microsoft Teams Phone, Zoom Phone, Vonage,
+  bOnline, Yay.com, Interactive Voice Response (IVR) menu, auto attendant,
+  call routing, hunt group, call recording, voicemail to email, AI
+  receptionist.
 - [IT Security Audits & Penetration Testing](https://itoldyouso.tech/services/it-security-testing.html)
   Also searched as: cyber security, cybersecurity, penetration testing, pen
   test, ethical hacking, security audit, vulnerability scan, phishing test,
