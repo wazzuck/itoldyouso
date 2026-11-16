@@ -223,7 +223,12 @@ def _validate_page_metadata_and_jsonld(
     elif "<" in title_match.group(1) or ">" in title_match.group(1):
         errors.append(f"{label} <title> contains raw HTML tags")
 
-    # 5. Parse and validate JSON-LD structured data block.
+    # 5. Verify first-party Google Analytics 4 (GA4) gtag.js tag presence.
+    ga_src = "https://www.googletagmanager.com/gtag/js?id=G-XP0QRKTWKZ"
+    if "G-XP0QRKTWKZ" not in raw_html or ga_src not in raw_html:
+        errors.append(f"{label} missing GA4 G-XP0QRKTWKZ Google tag")
+
+    # 6. Parse and validate JSON-LD structured data block.
     jsonld_blocks = re.findall(
         r'<script type="application/ld\+json">(.*?)</script>', raw_html, re.S
     )
@@ -252,7 +257,7 @@ def _validate_page_metadata_and_jsonld(
     types_present: Set[str] = set()
     faq_entity_count = 0
 
-    # 6. Inspect Schema.org graph entities and check FAQ verbatim text match.
+    # 7. Inspect Schema.org graph entities and check FAQ verbatim text match.
     for node in graph:
         node_type = node.get("@type")
         if isinstance(node_type, list):
@@ -659,6 +664,14 @@ def check_html_and_jsonld() -> List[str]:
                 errors.append(
                     f"index.html does not link to service page: {rel_link}"
                 )
+
+    # 5. Verify custom 404.html carries the first-party GA4 gtag.js snippet.
+    err404_path = REPO_ROOT / "404.html"
+    if err404_path.is_file():
+        err404_html = err404_path.read_text(encoding="utf-8")
+        ga_src = "https://www.googletagmanager.com/gtag/js?id=G-XP0QRKTWKZ"
+        if "G-XP0QRKTWKZ" not in err404_html or ga_src not in err404_html:
+            errors.append("404.html missing GA4 G-XP0QRKTWKZ Google tag")
 
     return errors
 
