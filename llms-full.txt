@@ -268,13 +268,15 @@ assistants and searchers using any wording can find it.
   till, checkout, cash register, tills, EPOS, ePOS, POS terminal, point of
   sale, till system, electronic cash register (ECR), takings machine, counter
   terminal, shop till, retail till, cafe till, takeaway till, till fitter,
-  till installer, till engineer, new till setup, Square, SumUp, Zettle,
-  Clover, Lightspeed.
+  till installer, till engineer, new till setup, Square, Square Register,
+  Square Stand, Square Terminal, SumUp, SumUp Solo, SumUp 13-inch Register,
+  POS Lite, Zettle, Clover, Lightspeed, bespoke POS software.
 - services/pos-payments.html
   card machine, card reader, card terminal, chip and pin machine, PDQ machine,
   contactless payments, take card payments, accept cards, payment terminal,
   merchant services, merchant account, card acquirer, Barclaycard, Worldpay,
-  Stripe, switch card provider, Xero or QuickBooks card sync.
+  Stripe, Stripe Reader S700, WisePOS E, Stripe Terminal SDK, Revolut, Teya,
+  switch card provider, Xero or QuickBooks card sync.
 - services/restaurant-order-management.html
   restaurant till, cafe EPOS, takeaway ordering system, kitchen display screen
   (KDS), kitchen printer, order screen, table ordering, waiter ordering, food
