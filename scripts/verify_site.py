@@ -50,7 +50,7 @@ BASE_URL = "https://itoldyouso.tech"
 
 # Total number of public service detail pages expected in services/.
 # Consumed by: check_required_files(), check_sitemap_urls(), main().
-EXPECTED_SERVICE_COUNT = 34
+EXPECTED_SERVICE_COUNT = 36
 
 
 class SiteHTMLValidator(HTMLParser):
@@ -305,7 +305,7 @@ def _validate_page_metadata_and_jsonld(
 def check_required_files() -> List[str]:
     """
     Verify that all core root files, Large Language Model (LLM) context files,
-    and all 32 service pages exist and are non-empty.
+    and all 36 service pages exist and are non-empty.
 
     Returns:
         List of error diagnostic messages (empty if all files exist).
@@ -386,7 +386,7 @@ def check_required_files() -> List[str]:
 def check_sitemap_urls() -> List[str]:
     """
     Validate sitemap.xml format and ensure it indexes the home page and all
-    32 service pages.
+    36 service pages.
 
     Returns:
         List of error diagnostic messages (empty if sitemap is valid).
@@ -416,7 +416,7 @@ def check_sitemap_urls() -> List[str]:
     if expected_home not in urls:
         errors.append(f"sitemap.xml missing home page: {expected_home}")
 
-    # 4. Check all 32 service pages presence.
+    # 4. Check all 36 service pages presence.
     services_dir = REPO_ROOT / "services"
     if services_dir.is_dir():
         for sfile in services_dir.glob("*.html"):
@@ -483,7 +483,7 @@ def check_llms_txt() -> List[str]:
     """
     Verify that llms.txt and llms-full.txt provide high-signal Markdown context
     including Hampstead base, London-wide coverage, telephone, email, sister
-    practices, Point of Sale (POS) priority, and all 32 service links.
+    practices, Point of Sale (POS) priority, and all 36 service links.
 
     Returns:
         List of error diagnostic messages (empty if valid).
@@ -516,7 +516,7 @@ def check_llms_txt() -> List[str]:
         if phrase not in content:
             errors.append(f"llms.txt missing required phrase: '{phrase}'")
 
-    # 2. Verify all 32 service HTML pages are linked in llms.txt.
+    # 2. Verify all 36 service HTML pages are linked in llms.txt.
     services_dir = REPO_ROOT / "services"
     if services_dir.is_dir():
         for sfile in services_dir.glob("*.html"):
@@ -604,7 +604,7 @@ def check_synonym_coverage() -> List[str]:
 def check_html_and_jsonld() -> List[str]:
     """
     Verify index.html canonical link, metadata, FAQ section, JSON-LD graph,
-    and outbound links to all 32 service pages.
+    and outbound links to all 36 service pages.
 
     Returns:
         List of error diagnostic messages (empty if valid).
@@ -655,7 +655,7 @@ def check_html_and_jsonld() -> List[str]:
         except json.JSONDecodeError:
             pass
 
-    # 4. Verify index.html links to all 32 service pages (zero orphan pages).
+    # 4. Verify index.html links to all 36 service pages (zero orphan pages).
     services_dir = REPO_ROOT / "services"
     if services_dir.is_dir():
         for sfile in sorted(services_dir.glob("*.html")):
@@ -678,12 +678,12 @@ def check_html_and_jsonld() -> List[str]:
 
 def check_service_pages() -> List[str]:
     """
-    Validate all 32 pages under services/ for SEO metadata, static crawler-
+    Validate all 36 pages under services/ for SEO metadata, static crawler-
     visible headers, JSON-LD Service + BreadcrumbList + FAQPage accuracy, and
     clean brand unification.
 
     Returns:
-        List of error diagnostic messages (empty if all 32 pages pass).
+        List of error diagnostic messages (empty if all 36 pages pass).
     """
     errors: List[str] = []
     services_dir = REPO_ROOT / "services"
@@ -827,7 +827,7 @@ def main() -> int:
     # Step 5: Check home page HTML canonical, Open Graph, and JSON-LD FAQ data.
     all_errors.extend(check_html_and_jsonld())
 
-    # Step 6: Check all 32 service pages for SEO, JSON-LD, and static headers.
+    # Step 6: Check all 36 service pages for SEO, JSON-LD, and static headers.
     all_errors.extend(check_service_pages())
 
     # Step 7: Check 80-column line length restrictions.
@@ -848,7 +848,7 @@ def main() -> int:
 
     print(
         "ALL VERIFICATION CHECKS PASSED (files, sitemap, robots, llms, "
-        "home HTML/JSON-LD, 32 service pages, 80-col)."
+        f"home HTML/JSON-LD, {EXPECTED_SERVICE_COUNT} service pages, 80-col)."
     )
     return 0
 

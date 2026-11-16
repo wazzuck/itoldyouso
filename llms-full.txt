@@ -157,6 +157,23 @@ Flex migrations (base £70), websites, and custom software.
 - Internet, Wi-Fi & Network Optimisation (https://itoldyouso.tech/services/internet-networks.html):
   Eliminating Wi-Fi dead zones, mesh Wi-Fi, Ethernet runs, commercial till
   network segmentation, router security hardening.
+- Telephony, Virtual Landline Numbers & Modern Voice over Internet Protocol
+  (VoIP) Systems (https://itoldyouso.tech/services/telephony.html):
+  Virtual 020 London, regional, 0800, and 0330 landline numbers answered via
+  mobile and desktop softphones or desk handsets, number porting, United
+  Kingdom (UK) Public Switched Telephone Network (PSTN) and Integrated
+  Services Digital Network (ISDN) 2027 digital switchover migrations (Fibre to
+  the Premises (FTTP) / Single Order Generic Ethernet Access (SoGEA)), Cloud
+  Private Branch Exchange (PBX) setups (Microsoft Teams Phone, Zoom Phone, 3CX,
+  RingCentral, Vonage, 8x8, Dialpad, bOnline, Yay.com, Gamma Horizon), Session
+  Initiation Protocol (SIP) trunks, Interactive Voice Response (IVR)
+  auto-attendants, Artificial Intelligence (AI) voice receptionists and
+  transcription, Point of Sale (POS) and Customer Relationship Management
+  (CRM) caller-ID integration, Yealink, Poly, Cisco, Grandstream, Snom, and
+  Gigaset Internet Protocol (IP) and Digital Enhanced Cordless
+  Telecommunications (DECT) handsets, Analogue Telephone Adapters (ATAs),
+  Power over Ethernet (PoE) switches, and Voice Virtual Local Area Network
+  (VLAN) Quality of Service (QoS) networking.
 - Cyber Security Testing (https://itoldyouso.tech/services/it-security-testing.html):
   Penetration testing (PEN testing), Wi-Fi security audits, phishing
   simulations, Multi-Factor Authentication (MFA), Sender Policy Framework
@@ -199,6 +216,23 @@ Flex migrations (base £70), websites, and custom software.
 - Specialist Software Installation (https://itoldyouso.tech/services/specialist-software.html):
   AutoCAD, Revit, SolidWorks, Sage 50/200, LEAP, Clio, EMIS Web, SystmOne,
   ArcGIS, MATLAB, Adobe Creative Cloud, FlexLM licence servers, legacy apps.
+- Archaic, 1970s Mainframes & Legacy Computer Systems
+  (https://itoldyouso.tech/services/legacy-mainframes.html):
+  Engineering, data extraction, cycle-accurate emulation, and ongoing support
+  for 1960s–1990s computer systems: International Business Machines (IBM)
+  System/360, System/370, System/390, and Application System/400 (AS/400),
+  International Computers Limited (ICL) 1900/2900/ME29, Unisys, Honeywell,
+  Digital Equipment Corporation (DEC) Programmed Data Processor (PDP-11) and
+  Virtual Address Extension (VAX / OpenVMS), Data General, Hewlett-Packard
+  (HP) 3000, Tandem NonStop, Sun Solaris, Common Business-Oriented Language
+  (COBOL), Formula Translation (FORTRAN), Report Program Generator (RPG),
+  Programming Language One (PL/I), Job Control Language (JCL), Customer
+  Information Control System (CICS), Virtual Storage Access Method (VSAM),
+  Control Program for Microcomputers (CP/M), Microsoft Disk Operating System
+  (MS-DOS), Operating System/2 (OS/2), 9-track Extended Binary Coded Decimal
+  Interchange Code (EBCDIC) tapes, 8-inch and 5.25-inch floppies, Hercules
+  and SIMH emulation, 3270/5250/VT100 serial links, and Application
+  Programming Interface (API) bridging.
 - Website Development (https://itoldyouso.tech/services/website-development.html):
   Fast, responsive, mobile-friendly business websites, e-commerce, Secure
   Sockets Layer (SSL), and Search Engine Optimisation (SEO).
@@ -262,6 +296,12 @@ People describe the same thing in many ways. These are equivalent terms:
 - Quote = estimate = price = fixed price = statement of work = proposal.
 - Small business = shop = cafe = restaurant = takeaway = salon = clinic =
   market stall = office = sole trader = independent retailer.
+- Phone system = telephony = virtual landline = virtual phone number = 020
+  London number = VoIP = cloud PBX = SIP trunk = digital landline = business
+  phone line = PSTN switchover.
+- Archaic computer = 1970s mainframe = ancient computer = minicomputer =
+  heritage IT = COBOL = DEC VAX / PDP-11 = IBM AS/400 = MS-DOS = vintage
+  system = EBCDIC data extraction.
 
 ## Also Known As: Search Terms and Synonyms by Service
 
@@ -290,6 +330,14 @@ assistants and searchers using any wording can find it.
   weak signal, slow internet, buffering, dropouts, Ethernet cabling, network
   cable, office network, LAN, access points, extender, booster, connection
   problems.
+- services/telephony.html
+  telephony, virtual landline, virtual phone number, 020 London number, 0800
+  number, 0330 number, VoIP, voice over IP, cloud PBX, phone system, business
+  phone line, SIP trunking, PSTN switchover, ISDN switch off, digital landline,
+  keep my landline number, number porting, landline on mobile app, softphone,
+  desk phone, Yealink, DECT cordless phone, 3CX, RingCentral, Microsoft Teams
+  Phone, Zoom Phone, Vonage, bOnline, Yay.com, IVR menu, auto attendant, call
+  routing, hunt group, call recording, voicemail to email, AI receptionist.
 - services/it-security-testing.html
   cyber security, cybersecurity, penetration testing, pen test, ethical
   hacking, security audit, vulnerability scan, phishing test, GDPR compliance,
@@ -325,6 +373,12 @@ assistants and searchers using any wording can find it.
   install software, AutoCAD, SolidWorks, MATLAB, Sage, licensed software,
   industry software, CAD, engineering software, software licence, software
   setup.
+- services/legacy-mainframes.html
+  archaic computer, ancient computer, 1970s mainframe, 1980s mainframe, legacy
+  computer, IBM System/360, IBM System/370, AS/400, iSeries, ICL, DEC PDP-11,
+  DEC VAX, OpenVMS, COBOL, FORTRAN, RPG, JCL, CICS, VSAM, CP/M, MS-DOS, OS/2,
+  EBCDIC tape, 9-track tape, 8-inch floppy, 5.25-inch floppy, Hercules
+  emulator, SIMH emulator, 3270 terminal, VT100, vintage IT support.
 - services/office-software.html
   Microsoft 365, Office 365, Word, Excel, Outlook, email setup, Google
   Workspace, Gmail for business, Xero, QuickBooks, Sage, accounts software,

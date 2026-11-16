@@ -133,6 +133,15 @@ CONCEPTS: Dict[str, List[str]] = {
     "admin monitoring",
     "chromebook": "chromebook chromeos flex old ageing slow laptop "
     "revive refurbish",
+    "telephony": "telephony telephone landline landlines voip pbx sip "
+    "pstn isdn switchover 020 0800 0330 number numbers porting extension "
+    "extensions handset handsets dect deskphone softphone ivr voicemail call "
+    "calls caller routing ringcentral 3cx vonage bonline yealink poly cisco "
+    "grandstream gigaset ata",
+    "mainframe": "archaic ancient mainframe mainframes minicomputer cobol "
+    "fortran vax vms pdp as400 iseries system360 system370 ebcdic punch "
+    "punched floppy msdos cpm os2 retro vintage heritage 1970s 1980s 1960s "
+    "emulator emulation hercules simh vt100 3270 5250 jcl cics vsam rpg",
 }
 
 
