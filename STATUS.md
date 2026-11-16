@@ -94,6 +94,13 @@ installation.
   2.82:1 on the page and 2.96:1 on a tile, and the latter two needed
   4.5:1 before this work as well, so nothing crosses a threshold.
   `404.html` inherits the new surface from `services/styles.css`.
+- **TillSwift POS-first cross-links (`90f09f5`)**: Updated sister-site
+  references across `index.html`, `services/pos-payment.html`,
+  `services/pos-payments.html`, `services/restaurant-order-management.html`,
+  `llms.txt`, and `llms-full.txt` to reflect the repurposing of
+  `tillswift.com` (`535b55b`) as the dedicated London POS installation and
+  custom software engineering hub, with the 3-year fee calculator hosted at
+  `tillswift.com/compare.html`.
 
 ---
 
