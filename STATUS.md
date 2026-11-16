@@ -146,8 +146,9 @@ installation.
     Interchange Code (EBCDIC) tape and floppy extraction, Hercules and SIMH
     emulation, and Application Programming Interface (API) bridging.
   - Updated `index.html`, `404.html`, `services/*.html`, `sitemap.xml`,
-    `llms.txt`, `llms-full.txt`, `scripts/build_search_index.py`,
-    `assets/search-index.js`, and `scripts/verify_site.py`.
+    `robots.txt` (`95a4c9b`), `llms.txt`, `llms-full.txt`,
+    `scripts/build_search_index.py`, `assets/search-index.js`, and
+    `scripts/verify_site.py`.
 
 ---
 
