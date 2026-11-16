@@ -611,9 +611,9 @@
 
         /* How This Works: Transparent 3-Step Engagement Section */
         /*
-         * Padding here is 40px on every side, exactly as on the hero,
-         * consulting and FAQ cards, so all four cards put their text on one
-         * vertical line (container edge + 1px border + 40px).
+         * Padding here is 40px on every side, exactly as on the hero and
+         * FAQ cards, so all three cards put their text on one vertical
+         * line (container edge + 1px border + 40px).
          *
          * The amber accent bar used to be a 4px border-left, which pushed
          * this card's text 3px further right than its neighbours. Drawing it
@@ -953,206 +953,7 @@
             color: #b8860b;
         }
 
-        /* 3. Specialist Business Consultancy & Sister Practices */
-        .consulting-section {
-            margin-bottom: 64px;
-            background: linear-gradient(175deg, #0b1220 0%, #162033 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 48px 40px;
-            box-shadow: 0 20px 40px -15px rgba(11, 18, 32, 0.28);
-            color: #ffffff;
-        }
-
-        .consulting-header {
-            max-width: 820px;
-            margin-bottom: 32px;
-        }
-
-        .consulting-badge {
-            display: inline-block;
-            background: rgba(243, 180, 40, 0.14);
-            color: #f3b428;
-            border: 1px solid rgba(243, 180, 40, 0.3);
-            font-size: 0.76rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 5px 14px;
-            border-radius: 9999px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-        }
-
-        .consulting-section h2 {
-            font-size: clamp(1.6rem, 3vw, 2.25rem);
-            color: #ffffff;
-            margin-bottom: 14px;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            line-height: 1.2;
-        }
-
-        .consulting-lead {
-            font-size: 1.06rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .consulting-intro {
-            font-size: 0.96rem;
-            color: #94a3b8;
-            line-height: 1.6;
-        }
-
-        .consulting-inline-link {
-            /* Gold rather than the old sky blue #38bdf8. On this navy the
-               gold measures about 10:1, so the links stay comfortably
-               readable and the dark panel now speaks the same gold as the
-               light half of the page instead of introducing a third hue. */
-            color: #f3b428;
-            font-weight: 700;
-            text-decoration: underline;
-            text-underline-offset: 2px;
-        }
-
-        .consulting-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            margin-bottom: 30px;
-        }
-
-        .consulting-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.09);
-            border-radius: 16px;
-            padding: 26px 24px;
-            display: flex;
-            flex-direction: column;
-            transition: background 0.2s ease, border-color 0.2s ease;
-        }
-
-        .consulting-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(243, 180, 40, 0.4);
-        }
-
-        .consulting-role-number {
-            font-size: 0.76rem;
-            font-weight: 800;
-            color: #f3b428;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .consulting-card h3 {
-            font-size: 1.2rem;
-            color: #ffffff;
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-
-        .consulting-target {
-            font-size: 0.86rem;
-            font-weight: 600;
-            color: #f3b428;
-            margin-bottom: 12px;
-        }
-
-        .consulting-desc {
-            font-size: 0.94rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 18px;
-            flex-grow: 1;
-        }
-
-        .consulting-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #f3b428;
-            background: rgba(243, 180, 40, 0.12);
-            border: 1px solid rgba(243, 180, 40, 0.25);
-            border-radius: 8px;
-            padding: 5px 10px;
-            align-self: flex-start;
-        }
-
-        .consulting-cta-box {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 26px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .consulting-cta-text {
-            flex: 1;
-            min-width: 260px;
-        }
-
-        .consulting-cta-text h3 {
-            font-size: 1.25rem;
-            color: #ffffff;
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-
-        .consulting-cta-text p {
-            font-size: 0.94rem;
-            color: #cbd5e1;
-            line-height: 1.55;
-        }
-
-        .consulting-cta-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .btn-consulting-primary,
-        .btn-consulting-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.92rem;
-            min-height: 46px;
-            transition: background 0.18s ease, transform 0.15s ease;
-        }
-
-        .btn-consulting-primary {
-            /* Logo yellow #F3B428 with the logo's near-black label, for the
-               same contrast reason as .btn-primary above. */
-            background: #f3b428;
-            color: #0b1220;
-        }
-
-        .btn-consulting-primary:hover {
-            background: #dda316;
-            transform: translateY(-1px);
-        }
-
-        .btn-consulting-secondary {
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.24);
-        }
-
-        .btn-consulting-secondary:hover {
-            background: rgba(255, 255, 255, 0.16);
-        }
-
-        /* 4. Split Editorial FAQ Section */
+        /* 3. Split Editorial FAQ Section */
         .faq-section {
             margin-bottom: 56px;
             background: #ffffff;
@@ -1374,40 +1175,8 @@
             }
 
             .services-section,
-            .consulting-section,
             .faq-section {
                 margin-bottom: 36px;
-            }
-
-            .consulting-section {
-                padding: 28px 18px;
-                border-radius: 16px;
-            }
-
-            .consulting-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .consulting-card {
-                padding: 20px 18px;
-            }
-
-            .consulting-cta-box {
-                padding: 20px 18px;
-            }
-
-            .consulting-cta-text {
-                min-width: 0;
-            }
-
-            .consulting-cta-actions {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .btn-consulting-primary,
-            .btn-consulting-secondary {
-                width: 100%;
             }
 
             .faq-section {
@@ -1463,7 +1232,6 @@
             <a href="#how-it-works">How This Works</a>
             <a href="#services">Services</a>
             <a href="services/pos-payment.html">POS &amp; Tills</a>
-            <a href="#consulting">Advisory</a>
             <a href="#faq">FAQ</a>
         </nav>
         <div class="phone-info">
@@ -1903,78 +1671,6 @@
                     <p>Friendly setup, data transfer, backup, and troubleshooting for iOS and Android devices.</p>
                     <span class="service-link">View service →</span>
                 </a>
-            </div>
-        </section>
-
-        <!-- Sister Practices & Specialist Business Consultancy -->
-        <section class="consulting-section" id="consulting" aria-labelledby="consulting-heading">
-            <div class="consulting-header">
-                <span class="consulting-badge">Sister Practices · Hampstead Base · Serving All London</span>
-                <h2 id="consulting-heading">Specialist Business Consultancy &amp; Sovereign Systems</h2>
-                <p class="consulting-lead">
-                    For London principals requiring institutional-grade technology advisory, bespoke workflow automation, or confidential Artificial Intelligence (AI) solutions, visit our sister practice:
-                    <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" class="consulting-inline-link">Heath &amp; City Systems Advisory (heathandcity.com)</a>.
-                    For independent UK payment fee comparisons and card acquirer audits, visit
-                    <a href="https://tillswift.com" target="_blank" rel="noopener noreferrer" class="consulting-inline-link">TillSwift Payment Consultation (tillswift.com)</a>.
-                </p>
-                <p class="consulting-intro">
-                    Architected personally from our Hampstead base with over 17 years of experience engineering mission-critical financial market data systems in the City of London. Serving practices across Greater London where data sovereignty, client confidentiality, and operational continuity are essential.
-                </p>
-            </div>
-
-            <div class="consulting-grid">
-                <div class="consulting-card">
-                    <span class="consulting-role-number">01 · SOVEREIGN ARCHITECTURE</span>
-                    <h3>Sovereign AI &amp; Private Document Retrieval</h3>
-                    <p class="consulting-target">Senior Lawyers, King's Counsel (KC), Surgeons &amp; Medico-Legal Experts</p>
-                    <p class="consulting-desc">
-                        Private, on-premises document retrieval and AI extraction. Search 20 years of precedents, confidential case bundles, and clinical records in milliseconds with zero bytes leaving your physical premises—ensuring strict regulatory compliance.
-                    </p>
-                    <span class="consulting-tag">Two-Tower Neural Search · Local Private Hardware</span>
-                </div>
-
-                <div class="consulting-card">
-                    <span class="consulting-role-number">02 · FINANCIAL ENGINEERING</span>
-                    <h3>Financial &amp; Document Data Normalisation</h3>
-                    <p class="consulting-target">Family Offices, Multi-SPV Property Principals &amp; Insurance Brokers</p>
-                    <p class="consulting-desc">
-                        Direct application of ultra-low-latency financial message mapping. Automated pipelines ingest and normalise messy Portable Document Format (PDF) bank disclosures, rent rolls, insurer remittances, and capital calls into unified, reconciled master ledgers.
-                    </p>
-                    <span class="consulting-tag">Deterministic PDF Extraction · Master Reconciliation</span>
-                </div>
-
-                <div class="consulting-card">
-                    <span class="consulting-role-number">03 · OPERATIONAL CONTINUITY</span>
-                    <h3>Practice Continuity &amp; "One Clean Daily Screen"</h3>
-                    <p class="consulting-target">Boutique Practices &amp; Firms Addressing "Single-PA Fragility"</p>
-                    <p class="consulting-desc">
-                        Eliminates the vulnerability of critical knowledge living solely inside one Personal Assistant (PA) or office manager's head. Triage shared inboxes into an automated filing clerk and an 8:00 AM daily briefing without disrupting existing email habits.
-                    </p>
-                    <span class="consulting-tag">Zero Email Disruption · Institutional Memory</span>
-                </div>
-
-                <div class="consulting-card">
-                    <span class="consulting-role-number">04 · LONDON EXECUTIVE ADVISORY</span>
-                    <h3>Fractional CTO &amp; Private Technologist</h3>
-                    <p class="consulting-target">Boutique Partnerships, Chambers &amp; High-Net-Worth Principals</p>
-                    <p class="consulting-desc">
-                        Your dedicated Chief Technology Officer (CTO) based in Hampstead and attending sites across Greater London. A flat monthly partnership providing in-person quarterly reviews, cyber security hygiene, sovereign infrastructure maintenance, and rapid response.
-                    </p>
-                    <span class="consulting-tag">Hampstead Base · London-Wide In-Person Care</span>
-                </div>
-            </div>
-
-            <div class="consulting-cta-box">
-                <div class="consulting-cta-text">
-                    <h3>Visit Heath &amp; City Systems Advisory &amp; TillSwift</h3>
-                    <p>
-                        Explore interactive workflow simulations, architecture blueprints, and fixed-price diagnostic audits on our sister practice website, or compare UK merchant card rates at TillSwift.
-                    </p>
-                </div>
-                <div class="consulting-cta-actions">
-                    <a href="https://heathandcity.com" target="_blank" rel="noopener noreferrer" class="btn-consulting-primary">Visit heathandcity.com →</a>
-                    <a href="https://tillswift.com" target="_blank" rel="noopener noreferrer" class="btn-consulting-secondary">Visit tillswift.com →</a>
-                </div>
             </div>
         </section>
 
