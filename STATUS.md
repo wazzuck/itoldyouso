@@ -122,18 +122,25 @@ Actions completed in the browser against the live search-engine consoles.
 
 - **IndexNow live re-crawl (16 Nov 2026)**: Submitted all 35 canonical
   URLs from `sitemap.xml` via `scripts/submit_indexnow.py` (`HTTP 200`).
+- **Google Search Console re-crawl (16 Nov 2026)**: Re-submitted
+  `sitemap.xml` (`Status: Success`, `35` discovered pages, last read
+  `16 Nov 2026`). Verified `/` and `/services/pos-payment.html` show
+  `URL is on Google` + `Indexing requested`, and `/services/printers.html`
+  shows `URL is on Google`.
 - **Bing Webmaster Tools (16 Nov 2026)**: Re-submitted
   `https://itoldyouso.tech/sitemap.xml` (`Success`, 35 URLs discovered) and
-  submitted 7 priority URLs via Bing URL Submission (`/`,
-  `/services/pos-payment.html`, `/services/pos-payments.html`,
-  `/services/restaurant-order-management.html`, `/services/printers.html`,
-  `/services/office-software.html`, and `/services/internet-networks.html`
-  — `Success: 7 URLs submitted Succesfully`).
+  submitted 15 priority Uniform Resource Locators (URLs) via Bing URL
+  Submission across two batches (`/`, `pos-payment.html`, `pos-payments.html`,
+  `restaurant-order-management.html`, `printers.html`, `office-software.html`,
+  `internet-networks.html`, `custom-solutions.html`, `custom-software.html`,
+  `website-development.html`, `advice.html`, `ring-doorbells.html`,
+  `home-storage-servers.html`, `specialist-software.html`, and
+  `cloud-services.html`).
 - **Google Business Profile verification check (16 Nov 2026)**: Confirmed
   `IToldYouSo Computing` at `25 Corringham Court, London NW11 7BY` now
   shows status `Verified`.
 
-- **Google Search Console**: Added the URL-prefix property
+- **Google Search Console (13 Nov 2026)**: Added the URL-prefix property
   `https://itoldyouso.tech/`; ownership auto-verified through the existing
   Google Analytics (`gtag.js`) tag. Submitted `sitemap.xml`, then ran
   **Request Indexing** on the four priority URLs. `/` and
@@ -170,7 +177,19 @@ Note: ChatGPT Search, DeepSeek, Claude, Perplexity, and Grok do not offer
 direct business directory forms. They rely on web crawlers, search-engine
 indexes, business profiles, and external consensus across the web.
 
-### 1. Business Profiles & Map Entities (High Impact)
+### 1. Check Back & Post-Crawl Verification (24–72 Hours & 7–14 Days)
+
+- [ ] **Verify Google & Bing re-crawl completion**: Return to Google Search
+  Console (*URL Inspection* & *Indexing → Pages*) and Bing Webmaster Tools
+  after **24–72 hours** to confirm the updated titles and Frequently Asked
+  Questions (FAQs) (`pos-payment.html`, `pos-payments.html`,
+  `restaurant-order-management.html`, `custom-solutions.html`) have fresh
+  post-`16 Nov 2026` crawl dates, run live `site:itoldyouso.tech` and keyword
+  searches across Google UK, Bing UK, and Artificial Intelligence (AI)
+  assistants, and confirm custom events in Google Analytics 4
+  (`G-XP0QRKTWKZ`).
+
+### 2. Business Profiles & Map Entities (High Impact)
 
 - [ ] **Google Business Profile services & products**: Confirmed the
   13 November 2026 profile edits are now `Verified`; add product / service
@@ -182,7 +201,7 @@ indexes, business profiles, and external consensus across the web.
   update listing for Apple Maps, Siri, and Spotlight recommendations across
   London. Requires a free Apple Account (no Apple device needed).
 
-### 2. External Citations, Partner Listings & Reviews (Key for AI Consensus)
+### 3. External Citations, Partner Listings & Reviews (Key for AI Consensus)
 
 - [ ] **Consistent UK directory profiles**: Publish identical NAP details and
   backlinks to `https://itoldyouso.tech/services/pos-payment.html` on:
