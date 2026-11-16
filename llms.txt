@@ -8,35 +8,40 @@
 
 ## Flagship Service: London POS, Till & EPOS Installation
 
-IToldYouSo Computing designs, supplies advice for, installs, and troubleshoots
-turnkey till and POS systems for retail shops, cafes, restaurants, takeaways,
-salons, clinics, and market stalls across London-wide sites.
+IToldYouSo Computing provides end-to-end London POS consultancy—from initial
+phone call and system architecture through sourcing all equipment on your
+behalf, off-site pre-staging, on-site installation, staff training, and
+ongoing support—for shops, cafes, restaurants, takeaways, salons, clinics,
+and market stalls across London-wide sites.
 
 - Core Till & EPOS Platforms: Square (Register, Stand, Terminal), SumUp
   (Solo, 13-inch Countertop Register), Zettle by PayPal, Clover, Lightspeed,
   Shopify POS, Stripe Terminal, Barclaycard Anywhere, Lloyds Cardnet, and
   Worldpay.
-- Hardware & Cabling: Touchscreen counter terminals, thermal receipt printers
-  (Epson, Star Micronics), Kitchen Display Systems (KDS), RJ11/RJ12 cash
-  drawers, USB/Bluetooth barcode scanners, and reliable Ethernet or Wi-Fi
-  network separation for payment devices.
-- Turnkey Configuration: Pre-loading menus, product catalogues, Value Added
-  Tax (VAT) rates, modifiers, staff permissions, Xero/QuickBooks/Sage links,
-  and face-to-face staff training.
+- Full Procurement & Cabling: Sourcing touchscreen registers, readers, thermal
+  and kitchen impact printers (Epson, Star Micronics), Kitchen Display
+  Systems (KDS), RJ11/RJ12 cash drawers, USB/Bluetooth barcode scanners, and
+  failover routers on the client's behalf (or installing kit already owned).
+- Turnkey Configuration & Ongoing Care: Pre-loading menus, product
+  catalogues, Value Added Tax (VAT) rates, modifiers, staff permissions,
+  Xero/QuickBooks/Sage links, face-to-face staff training, plus direct
+  ongoing remote diagnostics, seasonal updates, and warranty support.
 - Scheduling & Pricing: £50 per hour for consultation, setup, and training,
   or fixed-price point of sale till packages quoted upfront. Pre-opening and
   out-of-hours cutovers available across London to avoid trading disruption.
 
 ## How We Work
 
-1. Initial Consultation: A conversation (starting with a free 15-minute
+1. Initial Call & Survey: A conversation (starting with a free 15-minute
    telephone call) to gather your exact requirements.
-2. Statement of Work and Fixed Quote: IToldYouSo produces a detailed written
-   plan acting as a statement of work, with a fixed, no-obligation up-front
-   price for the full job.
-3. No Pressure Follow-Up: Once you have the quote, the decision rests with you;
-   simply let us know if you agree to the price and wish to proceed. IToldYouSo
-   will not keep calling or use aggressive or repetitive sales tactics.
+2. System Design & Fixed Statement of Work: IToldYouSo produces a detailed
+   written architecture with a fixed, no-obligation up-front price.
+3. Hardware Sourcing & Off-Site Staging: We procure any required equipment on
+   your behalf and pre-load catalogues, menus, and VAT rules before arrival.
+4. On-Site Installation & Training: Clean London cutovers, cabling checks,
+   and hands-on staff training with clear cheat sheets.
+5. Ongoing Care & No Pressure Follow-Up: Direct senior engineer aftercare
+   when needed, with zero aggressive or repetitive sales chasing.
 
 ## Details & Coverage
 
