@@ -118,6 +118,9 @@ installation.
   engineer support details, and verbatim `FAQPage` items across
   `services/pos-payment.html`, `services/pos-payments.html`, `llms.txt`, and
   `llms-full.txt`.
+- **London-based & Hampstead base hero copy (`2e18d64`)**: Sharpened the
+  opening hero statement in `index.html` so London-based coverage and the
+  Hampstead base appear explicitly in the first sentence.
 
 ---
 
