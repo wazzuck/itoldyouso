@@ -236,6 +236,16 @@ Flex migrations (base £70), websites, and custom software.
 - Website Development (https://itoldyouso.tech/services/website-development.html):
   Fast, responsive, mobile-friendly business websites, e-commerce, Secure
   Sockets Layer (SSL), and Search Engine Optimisation (SEO).
+- Search Engine Optimisation (SEO), AI Search & Associated Tools
+  (https://itoldyouso.tech/services/seo-optimisation.html):
+  Engineering-led technical SEO, Generative Engine Optimisation (GEO) for
+  Artificial Intelligence (AI) assistants, Google Search Console (GSC), Bing
+  Webmaster Tools, IndexNow instant indexing, Google Analytics 4 (GA4), Google
+  Tag Manager (GTM), Screaming Frog SEO Spider, Sitebulb, Google Lighthouse,
+  PageSpeed Insights, Core Web Vitals, Ahrefs, Semrush, Moz Pro, Schema.org
+  JavaScript Object Notation for Linked Data (JSON-LD), llms.txt and
+  llms-full.txt knowledge bases, Google Business Profile (GBP), Bing Places,
+  Apple Business Connect, and automated Continuous Integration (CI) SEO gates.
 - Independent Technology Advice (https://itoldyouso.tech/services/advice.html):
   Unbiased hardware purchasing, repair-vs-replace, and roadmap guidance.
 
@@ -302,6 +312,9 @@ People describe the same thing in many ways. These are equivalent terms:
 - Archaic computer = 1970s mainframe = ancient computer = minicomputer =
   heritage IT = COBOL = DEC VAX / PDP-11 = IBM AS/400 = MS-DOS = vintage
   system = EBCDIC data extraction.
+- Search Engine Optimisation (SEO) = search rankings = Generative Engine
+  Optimisation (GEO) = AI search = Google Search Console = Schema.org JSON-LD
+  = Google Business Profile = GA4 = IndexNow.
 
 ## Also Known As: Search Terms and Synonyms by Service
 
@@ -387,6 +400,13 @@ assistants and searchers using any wording can find it.
   website, web design, web designer, web developer, e-commerce, online shop,
   webshop, SEO, search engine optimisation, hosting, domain name, WordPress,
   new website for my business.
+- services/seo-optimisation.html
+  SEO, search engine optimisation, technical SEO, local SEO, Generative Engine
+  Optimisation (GEO), AI search optimisation, Google Search Console, Bing
+  Webmaster Tools, IndexNow, Google Analytics 4 (GA4), Google Tag Manager
+  (GTM), Schema.org JSON-LD, llms.txt, Google Business Profile, Screaming
+  Frog, Sitebulb, Lighthouse, Core Web Vitals, Ahrefs, Semrush, Moz, rank
+  higher on Google, website audit.
 - services/advice.html
   advice, consultant, consultancy, what should I buy, recommendation, buying
   guide, independent advice, vendor-neutral, second opinion, which till, which
