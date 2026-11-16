@@ -162,6 +162,17 @@ installation.
   and `scripts/verify_site.py`.
 - **Home hero headline (`fedf514`)**: Updated the main `<h1>` in `index.html`
   to `"Technology, Hardware, Software and Networks Consultancy Across London"`.
+- **Digital Audio & Video Production (`c19e2e4`)**: Added
+  `services/audio-production.html` and `services/video-production.html`,
+  expanding the catalogue from 37 to 39 services (Digital Audio Workstations
+  (DAWs), audio interfaces, Musical Instrument Digital Interface (MIDI),
+  low-latency Deferred Procedure Call (DPC) tuning, podcast studios, DaVinci
+  Resolve, Premiere Pro, Final Cut Pro, 10-Gigabit Ethernet (10GbE) Network
+  Attached Storage (NAS) shared editing pools, colour calibration, and
+  Blackmagic ATEM / OBS live streaming); updated `index.html`, `404.html`,
+  `services/*.html`, `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt`,
+  `scripts/build_search_index.py`, `assets/search-index.js`, and
+  `scripts/verify_site.py`.
 
 ---
 
