@@ -8,8 +8,10 @@
  * grid. It understands meaning (via the concept lexicon), tolerates
  * typos (character trigrams) and works as you type.
  *
- * Not for: network calls, analytics or tracking. Everything runs
- * locally in the browser from static files.
+ * Not for: custom search backend API calls or third-party ad tracking.
+ * Everything runs locally in the browser from static files, while optionally
+ * reporting debounced search terms to the existing first-party Google Tag
+ * (window.gtag, measurement ID G-XP0QRKTWKZ) when present.
  *
  * Invariant: normalise, stem, tokenise, fnv1a and featurise MUST match
  * scripts/build_search_index.py step for step.
@@ -141,6 +143,20 @@
     }
 
     /* Rank and filter the grid for the current query. */
+    var gaSearchTimer = null;
+    function scheduleSearchReport(qnorm, shown) {
+        if (gaSearchTimer) { clearTimeout(gaSearchTimer); }
+        if (!qnorm || qnorm.length < 3) { return; }
+        gaSearchTimer = setTimeout(function () {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'service_search', {
+                    search_term: qnorm.slice(0, 80),
+                    matches_count: shown
+                });
+            }
+        }, 1000);
+    }
+
     function run() {
         var query = input.value;
         var qnorm = normalise(query);
@@ -169,6 +185,7 @@
             ? 'No matching services.'
             : shown + (shown === 1 ? ' service matches.'
                 : ' services match, best first.');
+        scheduleSearchReport(qnorm, shown);
     }
 
     // Typing demo: types example needs into the placeholder (never the

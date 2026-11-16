@@ -354,7 +354,9 @@ absent. Add project-specific rules only where they apply.
 2. **Technology stack**:
    Static HyperText Markup Language (HTML5), Cascading Style Sheets
    (CSS3), vanilla JavaScript (JS), and Python 3 for validation.
-   Zero external JavaScript frameworks or tracking scripts are permitted.
+   Zero external JavaScript frameworks or third-party ad tracking scripts
+   are permitted; first-party Google Analytics 4 (`gtag.js`, measurement
+   ID `G-XP0QRKTWKZ`) is the sole permitted analytics tag.
 
 3. **Verification command**:
    Run `python3 scripts/verify_site.py` before committing. All tests,

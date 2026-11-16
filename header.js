@@ -1,6 +1,7 @@
 /**
  * @file header.js
- * Shared sticky header behaviour and Call & Consultation dialogue for
+ * Shared sticky header behaviour, Call & Consultation dialogue, and Google
+ * Analytics 4 (GA4) conversion and interaction event instrumentation for
  * IToldYouSo Computing.
  *
  * Purpose:
@@ -10,17 +11,46 @@
  *    across index.html, 404.html, and all services/*.html pages, so every
  *    phone button or telephone link on desktop opens the same dialogue and
  *    updating it in one place updates the whole site.
+ * 4. Sends first-party interaction and conversion events via window.gtag
+ *    (measurement ID G-XP0QRKTWKZ) without loading any extra scripts.
  *
  * Deliberately not for:
  * - Injecting the <header> markup itself (handled statically or by
  *   header-loader.js).
- * - Making network requests or loading third-party scripts.
+ * - Making custom fetch/XHR network requests outside the existing Google Tag.
  *
  * Invariants:
  * - Requires header.css for dialogue styling.
  * - Mobile phone browsers (Android, iPhone, iPad, etc.) are never
  *   intercepted so native one-tap tel: dialling keeps working.
+ * - Analytics helper degrades silently whenever window.gtag is unavailable.
  */
+
+/**
+ * Emit a Google Analytics 4 (GA4) interaction or conversion event safely.
+ *
+ * @param {string} eventName - Lower-snake-case GA4 event identifier.
+ * @param {Object} [params] - Flat scalar key-value reporting parameters.
+ * @returns {void}
+ */
+function trackAnalyticsEvent(eventName, params) {
+    if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, params || {});
+    }
+}
+
+/**
+ * Collapse inner whitespace and truncate element copy for reporting labels.
+ *
+ * @param {HTMLElement|null} el - Element whose label text should be read.
+ * @returns {string} Trimmed label truncated to 80 characters.
+ */
+function cleanAnalyticsLabel(el) {
+    if (!el || !el.textContent) {
+        return '';
+    }
+    return el.textContent.replace(/\s+/g, ' ').trim().slice(0, 80);
+}
 
 // Dynamically sets body padding-top to match the actual height of the fixed
 // header, ensuring content is never obscured regardless of screen size.
@@ -170,16 +200,24 @@ window.addEventListener('scroll', function () {
             }
         }
 
-        // Step 3: Intercept clicks on any telephone link outside the dialogue.
+        // Step 3: Intercept clicks on any telephone link outside the dialogue
+        // and emit call_dialog_open vs direct phone_call_click events.
         document.addEventListener('click', function (event) {
-            if (isMobileDialer) {
-                return;
-            }
-            var link = event.target.closest(
+            var telOrTrigger = event.target.closest(
                 'a[href^="tel:"], #speak-engineer-trigger, ' +
                 '#header-phone-trigger'
             );
-            if (!link || link.closest('#call-dialog')) {
+            if (!telOrTrigger) {
+                return;
+            }
+            var pagePath = window.location.pathname;
+            var triggerText = cleanAnalyticsLabel(telOrTrigger);
+
+            if (isMobileDialer || telOrTrigger.closest('#call-dialog')) {
+                trackAnalyticsEvent('phone_call_click', {
+                    page_path: pagePath,
+                    link_text: triggerText
+                });
                 return;
             }
             event.preventDefault();
@@ -187,6 +225,10 @@ window.addEventListener('scroll', function () {
             if (!dialog.open) {
                 dialog.showModal();
             }
+            trackAnalyticsEvent('call_dialog_open', {
+                page_path: pagePath,
+                trigger_text: triggerText
+            });
         });
 
         // Step 4: Wire close, backdrop click, and copy-to-clipboard actions.
@@ -234,6 +276,9 @@ window.addEventListener('scroll', function () {
                         statusEl.textContent =
                             'Copied ' + phone + ' to your clipboard.';
                     }
+                    trackAnalyticsEvent('phone_number_copy', {
+                        page_path: window.location.pathname
+                    });
                 }
 
                 if (
@@ -257,5 +302,121 @@ window.addEventListener('scroll', function () {
         document.addEventListener('DOMContentLoaded', setup);
     } else {
         setup();
+    }
+})();
+
+/**
+ * Attaches site-wide Google Analytics 4 (GA4) conversion and engagement
+ * listeners across index.html, 404.html, and all service pages.
+ *
+ * Narrative walkthrough:
+ * Step 1: Delegate email enquiry clicks (`mailto:`) as `email_quote_click`.
+ * Step 2: Delegate outbound clicks to sister domains (`tillswift.com`,
+ *         `heathandcity.com`) as `outbound_sister_click`.
+ * Step 3: Delegate directory card clicks (`.service-card`, `.related-card`)
+ *         as `service_card_click`.
+ * Step 4: Track any collapsible `<details class="faq-item">` expansions as
+ *         `faq_expand`.
+ * Step 5: Track 50% and 90% scroll depth milestones once per page load.
+ *
+ * @returns {void}
+ */
+(function initSiteAnalytics() {
+    /**
+     * Binds delegated click, FAQ toggle, and passive scroll depth handlers.
+     *
+     * @returns {void}
+     */
+    function bind() {
+        var pagePath = window.location.pathname;
+
+        // Steps 1-3: Single delegated listener for mailto, sister, and card
+        // navigation interactions.
+        document.addEventListener('click', function (event) {
+            var link = event.target.closest('a[href]');
+            if (!link) {
+                return;
+            }
+            var href = link.getAttribute('href') || '';
+            var label = cleanAnalyticsLabel(link);
+
+            // Step 1: Direct email enquiry link clicked.
+            if (href.indexOf('mailto:') === 0) {
+                trackAnalyticsEvent('email_quote_click', {
+                    page_path: pagePath,
+                    link_text: label
+                });
+                return;
+            }
+
+            // Step 2: Outbound navigation to sister practice domains.
+            if (
+                href.indexOf('tillswift.com') !== -1 ||
+                href.indexOf('heathandcity.com') !== -1
+            ) {
+                trackAnalyticsEvent('outbound_sister_click', {
+                    destination_url: href.slice(0, 120),
+                    page_path: pagePath,
+                    link_text: label
+                });
+                return;
+            }
+
+            // Step 3: Directory or related service card clicked.
+            if (
+                link.classList.contains('service-card') ||
+                link.classList.contains('related-card')
+            ) {
+                trackAnalyticsEvent('service_card_click', {
+                    target_service: href.slice(0, 120),
+                    page_path: pagePath,
+                    link_text: label
+                });
+            }
+        });
+
+        // Step 4: Record FAQ expansions where collapsible <details> are used.
+        document.querySelectorAll('details.faq-item').forEach(function (item) {
+            item.addEventListener('toggle', function () {
+                if (!item.open) {
+                    return;
+                }
+                var summary = item.querySelector('summary');
+                trackAnalyticsEvent('faq_expand', {
+                    faq_question: cleanAnalyticsLabel(summary),
+                    page_path: pagePath
+                });
+            });
+        });
+
+        // Step 5: Emit 50% and 90% scroll depth milestones once per page view.
+        var milestonesReached = { 50: false, 90: false };
+        function checkScrollMilestones() {
+            var doc = document.documentElement;
+            var scrollRange = doc.scrollHeight - window.innerHeight;
+            if (scrollRange <= 0) {
+                return;
+            }
+            var pct = ((window.scrollY || doc.scrollTop) / scrollRange) * 100;
+            [50, 90].forEach(function (mark) {
+                if (!milestonesReached[mark] && pct >= mark) {
+                    milestonesReached[mark] = true;
+                    trackAnalyticsEvent('scroll_depth', {
+                        percent_scrolled: mark,
+                        page_path: pagePath
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScrollMilestones, {
+            passive: true
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bind);
+    } else {
+        bind();
     }
 })();
