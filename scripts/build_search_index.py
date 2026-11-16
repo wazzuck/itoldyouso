@@ -142,6 +142,10 @@ CONCEPTS: Dict[str, List[str]] = {
     "fortran vax vms pdp as400 iseries system360 system370 ebcdic punch "
     "punched floppy msdos cpm os2 retro vintage heritage 1970s 1980s 1960s "
     "emulator emulation hercules simh vt100 3270 5250 jcl cics vsam rpg",
+    "seo": "seo geo schema jsonld ldjson sitemap sitemaps robots indexnow "
+    "canonical screaming frog sitebulb lighthouse pagespeed vitals ahrefs "
+    "semrush moz ga4 gtm analytics searchconsole webmaster serp backlink "
+    "backlinks ranking rankings llmstxt",
 }
 
 

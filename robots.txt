@@ -3,6 +3,7 @@
 # agents, may index and read the whole public service catalogue: tills,
 # checkouts, cash registers, Electronic Point of Sale (EPOS), card machines,
 # Wi-Fi, telephony, virtual landlines, Voice over Internet Protocol (VoIP),
+# Search Engine Optimisation (SEO), Generative Engine Optimisation (GEO),
 # computer repair, data recovery, Closed-Circuit Television (CCTV), smart home,
 # automotive and garage AI for cars, vans and other vehicles, archaic 1970s
 # mainframes and legacy systems (COBOL, DEC VAX/PDP-11, IBM AS/400), and more.
