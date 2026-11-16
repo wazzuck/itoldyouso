@@ -101,12 +101,29 @@ installation.
   `tillswift.com` (`535b55b`) as the dedicated London POS installation and
   custom software engineering hub, with the 3-year fee calculator hosted at
   `tillswift.com/compare.html`.
+- **POS metadata & sitemap refresh (`ac11685`)**: Added explicit `Square`,
+  `SumUp`, and `Stripe Terminal` brand terms to the `<title>`, meta
+  description, and Open Graph tags of `services/pos-payment.html`, and
+  refreshed all 35 `<lastmod>` timestamps in `sitemap.xml` to `2026-11-16`.
 
 ---
 
-## Done (Off-Site / Browser Actions, 13 Nov 2026)
+## Done (Off-Site / Browser Actions, 13–16 Nov 2026)
 
 Actions completed in the browser against the live search-engine consoles.
+
+- **IndexNow live re-crawl (16 Nov 2026)**: Submitted all 35 canonical
+  URLs from `sitemap.xml` via `scripts/submit_indexnow.py` (`HTTP 200`).
+- **Bing Webmaster Tools (16 Nov 2026)**: Re-submitted
+  `https://itoldyouso.tech/sitemap.xml` (`Success`, 35 URLs discovered) and
+  submitted 7 priority URLs via Bing URL Submission (`/`,
+  `/services/pos-payment.html`, `/services/pos-payments.html`,
+  `/services/restaurant-order-management.html`, `/services/printers.html`,
+  `/services/office-software.html`, and `/services/internet-networks.html`
+  — `Success: 7 URLs submitted Succesfully`).
+- **Google Business Profile verification check (16 Nov 2026)**: Confirmed
+  `IToldYouSo Computing` at `25 Corringham Court, London NW11 7BY` now
+  shows status `Verified`.
 
 - **Google Search Console**: Added the URL-prefix property
   `https://itoldyouso.tech/`; ownership auto-verified through the existing
@@ -147,10 +164,10 @@ indexes, business profiles, and external consensus across the web.
 
 ### 1. Business Profiles & Map Entities (High Impact)
 
-- [ ] **Google Business Profile follow-up**: Confirm the pending edits
-  (name, categories, description, service area, address) were approved after
-  10 minutes, then add product / service cards linking to
-  `/services/pos-payment.html`.
+- [ ] **Google Business Profile services & products**: Confirmed the
+  13 November 2026 profile edits are now `Verified`; add product / service
+  cards for `SumUp`, `Square`, and `Stripe` London POS installation linking
+  to `/services/pos-payment.html` and `https://tillswift.com/`.
 - [ ] **Bing Places for Business**: Claim/update listing with identical Name,
   Address, and Phone (NAP) details and Greater London service coverage.
 - [ ] **Apple Business Connect (`businessconnect.apple.com`)**: Register or
