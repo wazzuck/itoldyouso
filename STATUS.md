@@ -149,6 +149,17 @@ installation.
     `robots.txt` (`95a4c9b`), `llms.txt`, `llms-full.txt`,
     `scripts/build_search_index.py`, `assets/search-index.js`, and
     `scripts/verify_site.py`.
+- **SEO & AI Search Optimisation (`019e445`)**: Added
+  `services/seo-optimisation.html` and expanded the catalogue from 36 to 37
+  services, covering Technical Search Engine Optimisation (SEO), Generative
+  Engine Optimisation (GEO), Google Search Console (GSC), Bing Webmaster
+  Tools, IndexNow, Google Analytics 4 (GA4), Google Tag Manager (GTM),
+  Screaming Frog, Sitebulb, Lighthouse, Core Web Vitals, Ahrefs, Semrush, Moz
+  Pro, Schema.org JSON-LD, `llms.txt`, Google Business Profile (GBP), Bing
+  Places, Apple Business Connect, and CI SEO gates; updated `index.html`,
+  `404.html`, `services/*.html`, `sitemap.xml`, `robots.txt`, `llms.txt`,
+  `llms-full.txt`, `scripts/build_search_index.py`, `assets/search-index.js`,
+  and `scripts/verify_site.py`.
 
 ---
 
