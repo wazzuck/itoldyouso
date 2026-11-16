@@ -72,10 +72,11 @@ STOPWORDS = set(
 CONCEPTS: Dict[str, List[str]] = {
     "payments": "pay payment card reader terminal contactless chip sumup "
     "square worldpay barclaycard stripe takings checkout acquirer pdq "
-    "chip pin cash merchant zettle",
+    "chip pin cash merchant zettle s700 s710 wisepos wisepad revolut "
+    "teya sdk webhook",
     "till": "till tills epos pos register cashier retail shop cafe "
     "restaurant takeaway hospitality kitchen venue drawer menu salon "
-    "clinic stall counter ecr kds pub bar",
+    "clinic stall counter ecr kds pub bar bespoke custom integration",
     "printer": "print printer printing printers ink toner label receipt "
     "scanner airprint paper",
     "wifi": "wifi wi-fi wireless internet broadband router network "
