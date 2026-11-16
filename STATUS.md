@@ -177,17 +177,22 @@ Note: ChatGPT Search, DeepSeek, Claude, Perplexity, and Grok do not offer
 direct business directory forms. They rely on web crawlers, search-engine
 indexes, business profiles, and external consensus across the web.
 
-### 1. Check Back & Post-Crawl Verification (24–72 Hours & 7–14 Days)
+### 1. Check Back & Post-Crawl Verification (Check Back From 19 Nov 2026)
 
+- **Submitted Date:** Monday, 16 November 2026.
+- **Check Back From (Initial Crawl Verification):** Thursday,
+  19 November 2026 (24–72 hours post-submission).
+- **Check Back From (Search & AI Ranking Review):** Monday,
+  23 November 2026 to Monday, 30 November 2026 (7–14 days post-submission).
 - [ ] **Verify Google & Bing re-crawl completion**: Return to Google Search
   Console (*URL Inspection* & *Indexing → Pages*) and Bing Webmaster Tools
-  after **24–72 hours** to confirm the updated titles and Frequently Asked
-  Questions (FAQs) (`pos-payment.html`, `pos-payments.html`,
-  `restaurant-order-management.html`, `custom-solutions.html`) have fresh
-  post-`16 Nov 2026` crawl dates, run live `site:itoldyouso.tech` and keyword
-  searches across Google UK, Bing UK, and Artificial Intelligence (AI)
-  assistants, and confirm custom events in Google Analytics 4
-  (`G-XP0QRKTWKZ`).
+  **from Thursday, 19 November 2026** onwards to confirm the updated titles
+  and Frequently Asked Questions (FAQs) (`pos-payment.html`,
+  `pos-payments.html`, `restaurant-order-management.html`,
+  `custom-solutions.html`) show fresh post-`16 Nov 2026` crawl dates, run
+  live `site:itoldyouso.tech` and keyword searches across Google UK, Bing UK,
+  and Artificial Intelligence (AI) assistants **from Monday, 23 November
+  2026**, and confirm custom events in Google Analytics 4 (`G-XP0QRKTWKZ`).
 
 ### 2. Business Profiles & Map Entities (High Impact)
 
