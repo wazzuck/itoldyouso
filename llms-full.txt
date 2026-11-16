@@ -50,9 +50,11 @@ URLs:
 
 ### What IToldYouSo Computing Delivers for London Businesses
 
-1. Hardware & Platform Selection:
-   Independent, vendor-neutral advice matching the till system to the exact
-   venue workflow (no hidden acquirer kickbacks).
+1. System Design & Complete Hardware Procurement On Your Behalf:
+   From the initial telephone consultation and venue survey, we provide
+   independent, vendor-neutral advice and can source the entire till, reader,
+   printer, cash drawer, scanner, and router bundle on your behalf—or
+   commission hardware you already own (no hidden acquirer kickbacks).
    Supported ecosystems include:
    - Square (Square Register, Square Stand, Square Terminal, Square Reader)
    - SumUp (SumUp 13-inch Countertop Touchscreen Register, SumUp Solo,
@@ -82,10 +84,12 @@ URLs:
      or dedicated Virtual Local Area Networks (VLANs) so busy guest Wi-Fi
      never causes missed kitchen tickets or dropped contactless payments.
    - Configuring 4G/5G cellular failover where venue broadband is unstable.
-5. Face-to-Face Staff Training & Documentation:
+5. Face-to-Face Staff Training, Documentation & Ongoing Support:
    - Clear on-site walkthroughs for managers and front-of-house staff
      covering ringing up sales, split bills, refunds, end-of-day Z-reads,
      and loading thermal paper rolls.
+   - Ongoing engineer support after handover covering remote troubleshooting,
+     menu and VAT updates, warranty liaison, and additional till expansion.
 6. Dedicated POS Engineering & Fee Comparison:
    - Cross-referenced with dedicated London POS sister site TillSwift
      (https://tillswift.com/) for SumUp, Square, and Stripe Terminal setups,
