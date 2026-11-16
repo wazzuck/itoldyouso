@@ -476,6 +476,13 @@ def check_robots_txt() -> List[str]:
         if agent not in content:
             errors.append(f"robots.txt missing '{agent}' directive")
 
+    # 4. Verify telephony, mainframes, and LLM context references are present.
+    for keyword in ("telephony", "mainframes", "llms.txt", "llms-full.txt"):
+        if keyword not in content.lower():
+            errors.append(
+                f"robots.txt missing expected crawler keyword: '{keyword}'"
+            )
+
     return errors
 
 
@@ -738,8 +745,14 @@ def check_line_lengths() -> List[str]:
     """
     errors: List[str] = []
 
-    # 1. Check Markdown and plain-text LLM documentation files in repository.
-    md_files = ["README.md", "STATUS.md", "llms.txt", "llms-full.txt"]
+    # 1. Check Markdown, robots.txt, and plain-text LLM documentation files.
+    md_files = [
+        "README.md",
+        "STATUS.md",
+        "llms.txt",
+        "llms-full.txt",
+        "robots.txt",
+    ]
     for rel_path in md_files:
         path = REPO_ROOT / rel_path
         if not path.is_file():
