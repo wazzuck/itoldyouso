@@ -86,10 +86,11 @@ URLs:
    - Clear on-site walkthroughs for managers and front-of-house staff
      covering ringing up sales, split bills, refunds, end-of-day Z-reads,
      and loading thermal paper rolls.
-6. Payment Fee & Total Cost of Ownership (TCO) Audits:
-   - Cross-referenced with sister practice TillSwift Payment Consultation
-     (https://tillswift.com/) for impartial three-year UK card acquirer fee
-     modelling before locking into merchant contracts.
+6. Dedicated POS Engineering & Fee Comparison:
+   - Cross-referenced with dedicated London POS sister site TillSwift
+     (https://tillswift.com/) for SumUp, Square, and Stripe Terminal setups,
+     custom POS software integrations, and three-year UK card acquirer fee
+     modelling at https://tillswift.com/compare.html.
 
 ### Typical London POS Installation Pricing
 
@@ -123,8 +124,9 @@ SumUp, Zettle, Barclaycard, Worldpay, Lloyds Cardnet, and Stripe Terminal,
 and connect them to reliable Wi-Fi or Ethernet networks and accounting tools
 such as Xero, QuickBooks, and Sage. For independent UK payment fee
 comparisons and three-year Total Cost of Ownership (TCO) modelling, we also
-work alongside our sister practice TillSwift Payment Consultation
-(https://tillswift.com/).
+work alongside our dedicated Point of Sale (POS) sister site TillSwift
+(https://tillswift.com/) for bespoke POS integrations and three-year Total
+Cost of Ownership (TCO) comparisons at https://tillswift.com/compare.html.
 
 Q: How quickly can you respond for urgent till outages or IT emergencies?
 A: We offer often same-day follow-up and always respond within 24 hours for
@@ -398,9 +400,9 @@ assistants and searchers using any wording can find it.
 
 ## Sister Practices
 
-- TillSwift Payment Consultation (https://tillswift.com/): Independent UK
-  card payment fee audits, acquirer comparisons, and 3-year Total Cost of
-  Ownership (TCO) modelling.
+- TillSwift (https://tillswift.com/): Dedicated London Point of Sale (POS),
+  till installation, bespoke POS software integrations, and three-year Total
+  Cost of Ownership (TCO) fee calculator (https://tillswift.com/compare.html).
 - Heath & City Technology (https://heathandcity.com/): Sovereign on-premises
   AI document retrieval, financial data normalisation, and fractional Chief
   Technology Officer (CTO) advisory for legal, medical, and financial firms.
