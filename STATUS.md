@@ -173,6 +173,15 @@ installation.
   `services/*.html`, `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt`,
   `scripts/build_search_index.py`, `assets/search-index.js`, and
   `scripts/verify_site.py`.
+- **IoT & Embedded Devices (`4fd9ffe`)**: Added `services/iot-embedded.html`
+  and expanded the catalogue from 39 to 40 services (Raspberry Pi, ESP32,
+  Arduino, STM32, C/C++ and MicroPython firmware, Embedded Linux, FreeRTOS,
+  Zephyr, Message Queuing Telemetry Transport (MQTT), Long Range Wide Area
+  Network (LoRaWAN), Zigbee, Matter, Modbus, Controller Area Network (CAN bus),
+  cold-chain temperature logging, InfluxDB/Grafana, and segregated IoT VLANs);
+  updated `index.html`, `404.html`, `services/*.html`, `sitemap.xml`,
+  `robots.txt`, `llms.txt`, `llms-full.txt`, `scripts/build_search_index.py`,
+  `assets/search-index.js`, and `scripts/verify_site.py`.
 
 ---
 
