@@ -152,6 +152,10 @@ CONCEPTS: Dict[str, List[str]] = {
     "video_prod": "davinci resolve premiere finalcut fcp aftereffects avid "
     "nle 4k 6k 8k colour color grading transcode transcoding ffmpeg atem "
     "obs livestreaming proxy filmmaking",
+    "iot": "iot embedded raspberry esp32 esp8266 arduino stm32 rp2040 "
+    "microcontroller microcontrollers firmware micropython freertos zephyr "
+    "esphome mqtt lorawan lora zigbee matter modbus canbus rs485 i2c spi "
+    "uart telemetry grafana influxdb",
 }
 
 

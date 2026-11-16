@@ -120,6 +120,9 @@ People describe the same thing in many ways. These are equivalent terms:
 - Video production = video editing = Non-Linear Editing (NLE) = DaVinci
   Resolve = Premiere Pro = Final Cut Pro = 10-Gigabit Ethernet (10GbE) editing
   storage = live streaming = Blackmagic ATEM.
+- IoT & embedded = Internet of Things (IoT) = embedded devices = Raspberry
+  Pi = ESP32 = Arduino = STM32 = firmware = Message Queuing Telemetry
+  Transport (MQTT) = LoRaWAN = Modbus = smart sensors.
 
 ## Point of Sale (POS), Till & Hospitality Services (Priority)
 
@@ -199,6 +202,12 @@ People describe the same thing in many ways. These are equivalent terms:
   Also searched as: custom solution, automation script, reporting tool, system
   integration, connect systems, bespoke tech, something unusual, tailored fix,
   problem solving.
+- [Internet of Things (IoT) & Embedded Devices](https://itoldyouso.tech/services/iot-embedded.html)
+  Also searched as: IoT, Internet of Things, embedded devices, embedded
+  systems, Raspberry Pi, ESP32, ESP8266, Arduino, STM32, RP2040, C firmware,
+  MicroPython, FreeRTOS, Zephyr, ESPHome, MQTT, LoRaWAN, Zigbee, Matter,
+  Modbus, CAN bus, RS-485, fridge temperature logger, Grafana, InfluxDB, IoT
+  VLAN.
 - [Specialist Industry Software Installation](https://itoldyouso.tech/services/specialist-software.html)
   Also searched as: install software, AutoCAD, SolidWorks, MATLAB, Sage,
   licensed software, industry software, CAD, engineering software, software
