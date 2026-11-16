@@ -58,10 +58,12 @@ salons, clinics, and market stalls across London-wide sites.
 
 ## Sister Practices
 
-For independent United Kingdom (UK) payment provider comparisons, merchant
-transaction fee audits, and three-year Total Cost of Ownership (TCO)
-modelling across UK card acquirers, visit our sister practice:
-- TillSwift Payment Consultation: https://tillswift.com/
+For dedicated London Point of Sale (POS) engineering (SumUp, Square, and
+Stripe Terminal setups, bespoke POS software integrations, and our impartial
+three-year Total Cost of Ownership (TCO) payment fee calculator), visit our
+sister site:
+- TillSwift POS & Payment Engineering: https://tillswift.com/
+  (3-year calculator at https://tillswift.com/compare.html)
 
 For institutional-grade private document retrieval, sovereign Artificial
 Intelligence (AI) deployments, and confidential systems advisory for senior
