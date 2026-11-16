@@ -121,6 +121,33 @@ installation.
 - **London-based & Hampstead base hero copy (`2e18d64`)**: Sharpened the
   opening hero statement in `index.html` so London-based coverage and the
   Hampstead base appear explicitly in the first sentence.
+- **Telephony & Archaic Mainframes (`cbf3338`, `a9e1e2f`)**: Expanded the
+  catalogue from 34 to 36 service cards and dedicated pages:
+  - `services/telephony.html`: Virtual `020` London, `0800`, and `0330`
+    landlines, number porting, United Kingdom (UK) Public Switched Telephone
+    Network (PSTN) and Integrated Services Digital Network (ISDN) switchover
+    migrations, Voice over Internet Protocol (VoIP), Cloud Private Branch
+    Exchange (PBX), Session Initiation Protocol (SIP) trunks, Interactive
+    Voice Response (IVR) menus, AI receptionists, Customer Relationship
+    Management (CRM) and POS caller-ID integration, Internet Protocol (IP)
+    and Digital Enhanced Cordless Telecommunications (DECT) handsets,
+    Analogue Telephone Adapters (ATAs), Power over Ethernet (PoE), and Voice
+    Virtual Local Area Network (VLAN) Quality of Service (QoS).
+  - `services/legacy-mainframes.html`: Archaic 1960s–1990s mainframes
+    (International Business Machines (IBM) System/360, System/370, and
+    Application System/400 (AS/400); International Computers Limited (ICL)),
+    Digital Equipment Corporation (DEC) Programmed Data Processor (PDP-11)
+    and Virtual Address Extension (VAX / OpenVMS), Common Business-Oriented
+    Language (COBOL), Formula Translation (FORTRAN), Report Program
+    Generator (RPG), Job Control Language (JCL), Customer Information
+    Control System (CICS), Virtual Storage Access Method (VSAM), Control
+    Program for Microcomputers (CP/M), Microsoft Disk Operating System
+    (MS-DOS), Operating System/2 (OS/2), Extended Binary Coded Decimal
+    Interchange Code (EBCDIC) tape and floppy extraction, Hercules and SIMH
+    emulation, and Application Programming Interface (API) bridging.
+  - Updated `index.html`, `404.html`, `services/*.html`, `sitemap.xml`,
+    `llms.txt`, `llms-full.txt`, `scripts/build_search_index.py`,
+    `assets/search-index.js`, and `scripts/verify_site.py`.
 
 ---
 
