@@ -105,6 +105,14 @@ installation.
   `SumUp`, and `Stripe Terminal` brand terms to the `<title>`, meta
   description, and Open Graph tags of `services/pos-payment.html`, and
   refreshed all 35 `<lastmod>` timestamps in `sitemap.xml` to `2026-11-16`.
+- **Full Google Analytics 4 (GA4) instrumentation (`32e9986`)**: Added
+  `G-XP0QRKTWKZ` to `404.html`, added conversion and interaction event
+  tracking across `header.js` and `assets/service-search.js`
+  (`call_dialog_open`, `phone_call_click`, `phone_number_copy`,
+  `email_quote_click`, `outbound_sister_click`, `service_card_click`,
+  `faq_expand`, `scroll_depth`, and debounced `service_search`), updated
+  `AGENTS.md`, and enforced `G-XP0QRKTWKZ` checks in
+  `scripts/verify_site.py`.
 
 ---
 
