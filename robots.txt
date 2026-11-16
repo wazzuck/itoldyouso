@@ -1,9 +1,12 @@
 # robots.txt for IToldYouSo Computing (https://itoldyouso.tech)
 # All crawlers, including Artificial Intelligence (AI) assistants and search
 # agents, may index and read the whole public service catalogue: tills,
-# checkouts, cash registers, EPOS, card machines, Wi-Fi, computer repair,
-# data recovery, CCTV, smart home, automotive and garage AI for cars, vans
-# and other vehicles, and more. See llms.txt for synonyms.
+# checkouts, cash registers, Electronic Point of Sale (EPOS), card machines,
+# Wi-Fi, telephony, virtual landlines, Voice over Internet Protocol (VoIP),
+# computer repair, data recovery, Closed-Circuit Television (CCTV), smart home,
+# automotive and garage AI for cars, vans and other vehicles, archaic 1970s
+# mainframes and legacy systems (COBOL, DEC VAX/PDP-11, IBM AS/400), and more.
+# See llms.txt and llms-full.txt for synonyms and full service coverage.
 
 User-agent: *
 Allow: /
@@ -108,5 +111,8 @@ Allow: /
 User-agent: TongyiBot
 Allow: /
 
-# Canonical Extensible Markup Language (XML) Sitemap
+# Canonical Extensible Markup Language (XML) Sitemap & Large Language Model
+# (LLM) Discovery Files:
+#   https://itoldyouso.tech/llms.txt
+#   https://itoldyouso.tech/llms-full.txt
 Sitemap: https://itoldyouso.tech/sitemap.xml
