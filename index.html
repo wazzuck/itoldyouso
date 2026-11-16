@@ -807,8 +807,16 @@
             margin-bottom: 8px;
         }
 
+        .service-search-row {
+            display: flex;
+            align-items: stretch;
+            gap: 10px;
+        }
+
         .service-search-input {
             appearance: none;
+            flex: 1;
+            min-width: 0;
             width: 100%;
             box-sizing: border-box;
             min-height: 52px;
@@ -860,6 +868,48 @@
             outline: none;
             border-color: #0b1220;
             box-shadow: 0 0 0 3px rgba(11, 18, 32, 0.12);
+        }
+
+        .service-search-mic {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 52px;
+            min-height: 52px;
+            padding: 0;
+            color: #0b1220;
+            background: #ffffff;
+            border: 1.5px solid #e3d0d6;
+            border-radius: 14px;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+            cursor: pointer;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease,
+                background-color 0.15s ease, color 0.15s ease;
+        }
+
+        .service-search-mic[hidden] {
+            display: none;
+        }
+
+        .service-search-mic:hover,
+        .service-search-mic:focus-visible {
+            outline: none;
+            border-color: #0b1220;
+            box-shadow: 0 0 0 3px rgba(11, 18, 32, 0.12);
+        }
+
+        .service-search-mic.is-listening {
+            color: #ffffff;
+            background: #b8860b;
+            border-color: #b8860b;
+            box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.22);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .service-search-mic {
+                transition: none;
+            }
         }
 
         .service-search-status {
@@ -1371,10 +1421,28 @@
                        for="service-search-input">
                     Describe what you need
                 </label>
-                <input type="search" id="service-search-input"
-                       class="service-search-input" autocomplete="off"
-                       spellcheck="false" enterkeyhint="search"
-                       placeholder="e.g. my till will not print, wifi dead zone, lost photos">
+                <div class="service-search-row">
+                    <input type="search" id="service-search-input"
+                           class="service-search-input" autocomplete="off"
+                           spellcheck="false" enterkeyhint="search"
+                           placeholder="e.g. my till will not print, wifi dead zone, lost photos">
+                    <button type="button" id="service-search-mic"
+                            class="service-search-mic"
+                            aria-label="Dictate your search"
+                            aria-pressed="false"
+                            title="Speak what you need"
+                            hidden>
+                        <svg width="20" height="20" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" aria-hidden="true">
+                            <rect x="9" y="2" width="6" height="11" rx="3"/>
+                            <path d="M5 10a7 7 0 0 0 14 0"/>
+                            <line x1="12" y1="19" x2="12" y2="22"/>
+                            <line x1="8" y1="22" x2="16" y2="22"/>
+                        </svg>
+                    </button>
+                </div>
                 <p id="service-search-status" class="service-search-status"
                    role="status" aria-live="polite"></p>
                 <p id="service-search-empty" class="service-search-empty"

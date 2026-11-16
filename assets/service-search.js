@@ -265,6 +265,115 @@
         }, { threshold: 0.6 }).observe(input);
     }
 
+    /*
+     * Progressive-enhancement voice dictation via the browser's built-in
+     * Web Speech Application Programming Interface (API).
+     *
+     * Reveals the microphone button only when SpeechRecognition (or
+     * webkitSpeechRecognition) is available, configures British English
+     * (en-GB) with live interim results, and feeds spoken text straight
+     * into the search box so the catalogue filters as the visitor speaks.
+     *
+     * Arguments: none (closes over input, status, stopDemo, run, reset).
+     * Returns: undefined.
+     * Side effects: un-hides #service-search-mic, attaches click handler,
+     *   updates input.value and status.textContent, and optionally sends
+     *   a first-party Google Analytics 4 event via window.gtag.
+     */
+    function initDictation() {
+        var SpeechRec = window.SpeechRecognition ||
+            window.webkitSpeechRecognition;
+        var micBtn = document.getElementById('service-search-mic');
+        if (!SpeechRec || !micBtn) { return; }
+
+        // Step 1: reveal the button now that browser support is confirmed.
+        micBtn.hidden = false;
+        var listening = false;
+        var recognition = null;
+
+        // Step 2: helper to keep button attributes and state synchronised.
+        function setListening(active) {
+            listening = active;
+            micBtn.classList.toggle('is-listening', active);
+            micBtn.setAttribute('aria-pressed', active ? 'true' : 'false');
+            micBtn.setAttribute('aria-label',
+                active ? 'Stop dictation' : 'Dictate your search');
+        }
+
+        // Step 3: map speech recognition error codes to clear messages.
+        function describeError(code) {
+            if (code === 'not-allowed' || code === 'service-not-allowed') {
+                return 'Microphone access was blocked. Allow permission ' +
+                    'or type your search.';
+            }
+            if (code === 'no-speech') {
+                return 'No speech detected. Try again or type your search.';
+            }
+            if (code === 'network') {
+                return 'Speech recognition could not connect. Please type ' +
+                    'your search instead.';
+            }
+            return 'Voice input unavailable here. Please type your search.';
+        }
+
+        // Step 4: start or stop dictation when the microphone is clicked.
+        micBtn.addEventListener('click', function () {
+            if (listening && recognition) {
+                recognition.stop();
+                return;
+            }
+            stopDemo();
+            input.classList.remove('is-attention');
+
+            recognition = new SpeechRec();
+            recognition.lang = 'en-GB';
+            recognition.interimResults = true;
+            recognition.continuous = false;
+            recognition.maxAlternatives = 1;
+
+            recognition.onstart = function () {
+                setListening(true);
+                status.textContent = 'Listening... speak what you need.';
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'service_search_dictate');
+                }
+            };
+
+            recognition.onresult = function (event) {
+                var transcript = '';
+                for (var i = 0; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript + ' ';
+                }
+                input.value = transcript.trim();
+                run();
+            };
+
+            recognition.onerror = function (event) {
+                setListening(false);
+                if (event.error !== 'aborted') {
+                    status.textContent = describeError(event.error);
+                }
+            };
+
+            recognition.onend = function () {
+                setListening(false);
+                if (!input.value.trim() &&
+                        status.textContent.indexOf('Listening') === 0) {
+                    reset();
+                }
+            };
+
+            try {
+                recognition.start();
+            } catch (err) {
+                setListening(false);
+                status.textContent = describeError('unavailable');
+            }
+        });
+    }
+
+    initDictation();
+
     input.addEventListener('input', run);
     input.closest('form').addEventListener('submit', function (e) {
         e.preventDefault();
