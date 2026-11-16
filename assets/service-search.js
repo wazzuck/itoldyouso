@@ -209,15 +209,26 @@
         input.setAttribute('placeholder', staticHint);
     }
 
+    /* Toggle the attention glow on the search box and mic button together. */
+    var micBtn = document.getElementById('service-search-mic');
+    function setAttention(active) {
+        input.classList.remove('is-attention');
+        if (micBtn) { micBtn.classList.remove('is-attention'); }
+        if (!active) { return; }
+        // Force a reflow so the Cascading Style Sheets (CSS) pulse restarts.
+        void input.offsetWidth;
+        input.classList.add('is-attention');
+        if (micBtn && !micBtn.hidden) {
+            micBtn.classList.add('is-attention');
+        }
+    }
+
     /* Start a fresh glow plus typing demo from the beginning. */
     function startDemo() {
         stopDemo();
         // Skip if the visitor is already using the box.
         if (input.value || document.activeElement === input) { return; }
-        // Restart the CSS glow: remove, force a reflow, add again.
-        input.classList.remove('is-attention');
-        void input.offsetWidth;
-        input.classList.add('is-attention');
+        setAttention(true);
         if (reduceMotion) { return; }
         var run = currentRun;
         var which = 0;
@@ -249,7 +260,7 @@
     }
     input.addEventListener('focus', function () {
         stopDemo();
-        input.classList.remove('is-attention');
+        setAttention(false);
     });
     input.addEventListener('input', stopDemo);
 
@@ -260,7 +271,7 @@
                 startDemo();
             } else {
                 stopDemo();
-                input.classList.remove('is-attention');
+                setAttention(false);
             }
         }, { threshold: 0.6 }).observe(input);
     }
@@ -283,7 +294,6 @@
     function initDictation() {
         var SpeechRec = window.SpeechRecognition ||
             window.webkitSpeechRecognition;
-        var micBtn = document.getElementById('service-search-mic');
         if (!SpeechRec || !micBtn) { return; }
 
         // Step 1: reveal the button now that browser support is confirmed.
@@ -323,7 +333,7 @@
                 return;
             }
             stopDemo();
-            input.classList.remove('is-attention');
+            setAttention(false);
 
             recognition = new SpeechRec();
             recognition.lang = 'en-GB';

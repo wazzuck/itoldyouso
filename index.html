@@ -840,7 +840,8 @@
 
         /* Attention glow: pulses when scrolled into view (see
            assets/service-search.js) to show this is the place to type. */
-        .service-search-input.is-attention {
+        .service-search-input.is-attention,
+        .service-search-mic.is-attention {
             animation: search-attention-glow 1.6s ease-in-out 2;
         }
 
@@ -857,7 +858,8 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .service-search-input.is-attention {
+            .service-search-input.is-attention,
+            .service-search-mic.is-attention {
                 animation: none;
                 border-color: #0b1220;
                 box-shadow: 0 0 0 3px rgba(11, 18, 32, 0.12);
@@ -892,7 +894,12 @@
             display: none;
         }
 
-        .service-search-mic:hover,
+        .service-search-mic:hover {
+            border-color: #0b1220;
+            box-shadow: 0 0 0 3px rgba(11, 18, 32, 0.08),
+                0 0 18px rgba(11, 18, 32, 0.18);
+        }
+
         .service-search-mic:focus-visible {
             outline: none;
             border-color: #0b1220;
