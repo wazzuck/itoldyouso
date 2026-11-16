@@ -113,6 +113,11 @@ installation.
   `faq_expand`, `scroll_depth`, and debounced `service_search`), updated
   `AGENTS.md`, and enforced `G-XP0QRKTWKZ` checks in
   `scripts/verify_site.py`.
+- **Full-service POS consultancy lifecycle (`9921975`)**: Added the 5-stage
+  POS consultancy table, equipment sourcing on the client's behalf, ongoing
+  engineer support details, and verbatim `FAQPage` items across
+  `services/pos-payment.html`, `services/pos-payments.html`, `llms.txt`, and
+  `llms-full.txt`.
 
 ---
 
