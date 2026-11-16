@@ -279,6 +279,18 @@ Flex migrations (base £70), websites, and custom software.
 - Home Automation (https://itoldyouso.tech/services/home-automation.html),
   Home Entertainment (https://itoldyouso.tech/services/home-entertainment.html),
   Online Conferencing (https://itoldyouso.tech/services/online-conferencing.html),
+  Digital Audio Production (https://itoldyouso.tech/services/audio-production.html):
+  Digital Audio Workstations (DAWs) (Logic Pro, Ableton Live, Pro Tools,
+  Cubase, Reaper, FL Studio), Universal Audio, RME, Focusrite, and Solid State
+  Logic (SSL) audio interfaces, Musical Instrument Digital Interface (MIDI),
+  Virtual Studio Technology (VST) / Audio Units (AU) plugins, sample drives,
+  low-latency Deferred Procedure Call (DPC) tuning, and podcast studios;
+  Digital Video Production (https://itoldyouso.tech/services/video-production.html):
+  DaVinci Resolve, Adobe Premiere Pro, After Effects, Final Cut Pro, Avid
+  Media Composer, Graphics Processing Unit (GPU) editing rigs, 10-Gigabit
+  Ethernet (10GbE) Network Attached Storage (NAS) shared editing pools,
+  colour-calibrated reference monitors, and Blackmagic ATEM / OBS live
+  streaming studios;
   Projector & Presentation Setup (https://itoldyouso.tech/services/projector-presentation.html),
   Printers (https://itoldyouso.tech/services/printers.html),
   Photograph Indexing (https://itoldyouso.tech/services/photo-indexing.html),
@@ -315,6 +327,10 @@ People describe the same thing in many ways. These are equivalent terms:
 - Search Engine Optimisation (SEO) = search rankings = Generative Engine
   Optimisation (GEO) = AI search = Google Search Console = Schema.org JSON-LD
   = Google Business Profile = GA4 = IndexNow.
+- Audio production = DAW = Logic Pro = Ableton Live = Pro Tools = Cubase =
+  podcast studio = recording studio = audio interface = MIDI.
+- Video production = video editing = NLE = DaVinci Resolve = Premiere Pro =
+  Final Cut Pro = 10GbE editing storage = live streaming = Blackmagic ATEM.
 
 ## Also Known As: Search Terms and Synonyms by Service
 
@@ -466,6 +482,16 @@ assistants and searchers using any wording can find it.
 - services/online-conferencing.html
   Zoom, Teams, Google Meet, video call, webcam, microphone, lighting, home
   office video, remote meeting, conference room, video conferencing.
+- services/audio-production.html
+  audio production, digital audio, DAW, Logic Pro, Ableton Live, Pro Tools,
+  Cubase, Reaper, FL Studio, audio interface, Universal Audio Apollo,
+  Focusrite, RME, MIDI, VST plugins, sample library, podcast studio, voiceover
+  setup, DPC latency, studio computer.
+- services/video-production.html
+  video production, video editing, DaVinci Resolve, Premiere Pro, Final Cut
+  Pro, After Effects, Avid Media Composer, 4K editing PC, 10GbE NAS storage,
+  colour grading, Blackmagic ATEM, OBS Studio, live streaming studio, video
+  transcoding, proxy workflow.
 - services/projector-presentation.html
   projector, presentation, boardroom, meeting room, large screen, display,
   screen casting, wireless casting, HDMI, conference audio, AV.

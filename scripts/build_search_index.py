@@ -146,6 +146,12 @@ CONCEPTS: Dict[str, List[str]] = {
     "canonical screaming frog sitebulb lighthouse pagespeed vitals ahrefs "
     "semrush moz ga4 gtm analytics searchconsole webmaster serp backlink "
     "backlinks ranking rankings llmstxt",
+    "audio_prod": "daw logic ableton protools cubase reaper studio midi "
+    "podcast voiceover vst kontakt focusrite rme universal apollo latency "
+    "asio coreaudio pipewire mastering",
+    "video_prod": "davinci resolve premiere finalcut fcp aftereffects avid "
+    "nle 4k 6k 8k colour color grading transcode transcoding ffmpeg atem "
+    "obs livestreaming proxy filmmaking",
 }
 
 
