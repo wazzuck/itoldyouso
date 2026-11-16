@@ -102,6 +102,13 @@ People describe the same thing in many ways. These are equivalent terms:
   London number = Voice over Internet Protocol (VoIP) = cloud Private Branch
   Exchange (PBX) = Session Initiation Protocol (SIP) trunk = digital landline
   = business phone line = Public Switched Telephone Network (PSTN) switchover.
+- Archaic computer = 1970s mainframe = ancient computer = minicomputer =
+  heritage Information Technology (IT) = Common Business-Oriented Language
+  (COBOL) = Digital Equipment Corporation (DEC) Virtual Address Extension
+  (VAX) / Programmed Data Processor (PDP-11) = International Business Machines
+  (IBM) Application System/400 (AS/400) = Microsoft Disk Operating System
+  (MS-DOS) = vintage system = Extended Binary Coded Decimal Interchange Code
+  (EBCDIC) data extraction.
 
 ## Point of Sale (POS), Till & Hospitality Services (Priority)
 
@@ -185,6 +192,16 @@ People describe the same thing in many ways. These are equivalent terms:
   Also searched as: install software, AutoCAD, SolidWorks, MATLAB, Sage,
   licensed software, industry software, CAD, engineering software, software
   licence, software setup.
+- [Archaic, 1970s Mainframes & Legacy Computer Systems](https://itoldyouso.tech/services/legacy-mainframes.html)
+  Also searched as: archaic computer, ancient computer, 1970s mainframe, 1980s
+  mainframe, legacy computer, IBM System/360, IBM System/370, AS/400, iSeries,
+  International Computers Limited (ICL), DEC PDP-11, DEC VAX, OpenVMS, COBOL,
+  Formula Translation (FORTRAN), Report Program Generator (RPG), Job Control
+  Language (JCL), Customer Information Control System (CICS), Virtual Storage
+  Access Method (VSAM), Control Program for Microcomputers (CP/M), MS-DOS,
+  Operating System/2 (OS/2), EBCDIC tape, 9-track tape, 8-inch floppy,
+  5.25-inch floppy, Hercules emulator, SIMH emulator, 3270 terminal, VT100,
+  vintage IT support.
 - [Office Software & Accounting Suite (Xero, QuickBooks, Sage)](https://itoldyouso.tech/services/office-software.html)
   Also searched as: Microsoft 365, Office 365, Word, Excel, Outlook, email
   setup, Google Workspace, Gmail for business, Xero, QuickBooks, Sage,

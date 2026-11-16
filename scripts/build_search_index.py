@@ -138,6 +138,10 @@ CONCEPTS: Dict[str, List[str]] = {
     "extensions handset handsets dect deskphone softphone ivr voicemail call "
     "calls caller routing ringcentral 3cx vonage bonline yealink poly cisco "
     "grandstream gigaset ata",
+    "mainframe": "archaic ancient mainframe mainframes minicomputer cobol "
+    "fortran vax vms pdp as400 iseries system360 system370 ebcdic punch "
+    "punched floppy msdos cpm os2 retro vintage heritage 1970s 1980s 1960s "
+    "emulator emulation hercules simh vt100 3270 5250 jcl cics vsam rpg",
 }
 
 

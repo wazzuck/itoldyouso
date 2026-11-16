@@ -216,6 +216,23 @@ Flex migrations (base £70), websites, and custom software.
 - Specialist Software Installation (https://itoldyouso.tech/services/specialist-software.html):
   AutoCAD, Revit, SolidWorks, Sage 50/200, LEAP, Clio, EMIS Web, SystmOne,
   ArcGIS, MATLAB, Adobe Creative Cloud, FlexLM licence servers, legacy apps.
+- Archaic, 1970s Mainframes & Legacy Computer Systems
+  (https://itoldyouso.tech/services/legacy-mainframes.html):
+  Engineering, data extraction, cycle-accurate emulation, and ongoing support
+  for 1960s–1990s computer systems: International Business Machines (IBM)
+  System/360, System/370, System/390, and Application System/400 (AS/400),
+  International Computers Limited (ICL) 1900/2900/ME29, Unisys, Honeywell,
+  Digital Equipment Corporation (DEC) Programmed Data Processor (PDP-11) and
+  Virtual Address Extension (VAX / OpenVMS), Data General, Hewlett-Packard
+  (HP) 3000, Tandem NonStop, Sun Solaris, Common Business-Oriented Language
+  (COBOL), Formula Translation (FORTRAN), Report Program Generator (RPG),
+  Programming Language One (PL/I), Job Control Language (JCL), Customer
+  Information Control System (CICS), Virtual Storage Access Method (VSAM),
+  Control Program for Microcomputers (CP/M), Microsoft Disk Operating System
+  (MS-DOS), Operating System/2 (OS/2), 9-track Extended Binary Coded Decimal
+  Interchange Code (EBCDIC) tapes, 8-inch and 5.25-inch floppies, Hercules
+  and SIMH emulation, 3270/5250/VT100 serial links, and Application
+  Programming Interface (API) bridging.
 - Website Development (https://itoldyouso.tech/services/website-development.html):
   Fast, responsive, mobile-friendly business websites, e-commerce, Secure
   Sockets Layer (SSL), and Search Engine Optimisation (SEO).
@@ -282,6 +299,9 @@ People describe the same thing in many ways. These are equivalent terms:
 - Phone system = telephony = virtual landline = virtual phone number = 020
   London number = VoIP = cloud PBX = SIP trunk = digital landline = business
   phone line = PSTN switchover.
+- Archaic computer = 1970s mainframe = ancient computer = minicomputer =
+  heritage IT = COBOL = DEC VAX / PDP-11 = IBM AS/400 = MS-DOS = vintage
+  system = EBCDIC data extraction.
 
 ## Also Known As: Search Terms and Synonyms by Service
 
@@ -353,6 +373,12 @@ assistants and searchers using any wording can find it.
   install software, AutoCAD, SolidWorks, MATLAB, Sage, licensed software,
   industry software, CAD, engineering software, software licence, software
   setup.
+- services/legacy-mainframes.html
+  archaic computer, ancient computer, 1970s mainframe, 1980s mainframe, legacy
+  computer, IBM System/360, IBM System/370, AS/400, iSeries, ICL, DEC PDP-11,
+  DEC VAX, OpenVMS, COBOL, FORTRAN, RPG, JCL, CICS, VSAM, CP/M, MS-DOS, OS/2,
+  EBCDIC tape, 9-track tape, 8-inch floppy, 5.25-inch floppy, Hercules
+  emulator, SIMH emulator, 3270 terminal, VT100, vintage IT support.
 - services/office-software.html
   Microsoft 365, Office 365, Word, Excel, Outlook, email setup, Google
   Workspace, Gmail for business, Xero, QuickBooks, Sage, accounts software,
