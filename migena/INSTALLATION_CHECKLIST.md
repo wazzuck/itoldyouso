@@ -4,13 +4,78 @@ A single-visit, turn-key Electronic Point of Sale (EPOS) installation
 checklist for the cafe and brunch job described on the client portal
 page (`migena/index.html`).
 
-> **How to use this document:** work top to bottom. Tick every box in
-> Sections 1 and 2 before leaving home. Section 5 is the system design
-> and the safe order to bring the devices up; follow the numbered
-> phases in Section 6 on the day. Section 7 holds the health and
-> safety rules, Section 8 lists the work an Artificial Intelligence
-> (AI) agent can complete through the SumUp web interface before you
-> arrive, and Section 9 is the staff training plan.
+> **How to use this document:** work top to bottom. Start with the
+> open questions for the client at the top and chase every answer
+> before the visit. Tick every box in Sections 1 and 2 before
+> leaving home. Section 5 is the system design and the safe order
+> to bring the devices up; follow the numbered phases in Section 6
+> on the day. Section 7 holds the health and safety rules, Section 8
+> lists the work an Artificial Intelligence (AI) agent can complete
+> through the SumUp web interface before you arrive, and Section 9
+> is the staff training plan.
+
+---
+
+## Open Questions for the Client
+
+Every question below is still unanswered in the job file. Chase
+them by telephone or e-mail the day before the visit: each one can
+cost an hour of on-site time, and the first two groups can stop
+the job outright if they are still open on arrival.
+
+### A. Answers needed before you travel
+
+- [ ] Is the SumUp Cash Drawer (330A) delivered and on site?
+- [ ] What are the exact model numbers of the Solo counter
+      printer, the kitchen Terminal, and the receipt printer that
+      ships with the POS Lite register?
+- [ ] Does the register's receipt printer have a cash-drawer port
+      (the socket marked "DK"), and is it 24 volts? If it does
+      not, which Epson TM-m30 or other drawer-capable printer has
+      been ordered? (Rule U1 — without one the drawer cannot open.)
+- [ ] Has the written menu and price list been sent?
+- [ ] What are the names of the 4 staff who need PIN logins, and
+      which one is the manager for the training session?
+- [ ] Has the cafe layout plan been sent, showing the counter,
+      kitchen Terminal position, router location and nearby power
+      sockets?
+- [ ] Are the SumUp merchant login details ready, with the account
+      holder's mobile phone to hand for the two-factor
+      authentication (2FA) verification code?
+- [ ] Are the thermal paper rolls on site in the right sizes —
+      57 mm, 58 mm and 80 mm?
+- [ ] Is the account on the POS Plus plan? If it is not, will the
+      client activate it (a monthly fee) or accept the paper
+      fallback for kitchen orders? (Rule U2.)
+- [ ] Should the till track stock levels, or is inventory tracking
+      not wanted?
+- [ ] What gratuity percentages should the till suggest, and can
+      the customer skip the tip?
+- [ ] Who meets the engineer on arrival, and is the owner
+      available to agree the cable routes before anything is fixed
+      to the skirting?
+
+### B. Answers needed on arrival, before configuration
+
+- [ ] Which physical printer sits between the register and the
+      cash drawer, and does it pass the "Open cash drawer" test?
+      (Rule U1 — the one open item that can stop the job.)
+- [ ] Is POS Plus active on the account, or does the client accept
+      the paper fallback for kitchen orders? (Rule U2.)
+- [ ] Which existing wall socket feeds the register, which feeds
+      the Solo counter printer, and which feeds the kitchen
+      Terminal's USB-C charger? (No new socket work on this job.)
+- [ ] Is the guest Wi-Fi on a separate network from the till?
+- [ ] Do the POS Lite, the Solo and the Terminal all report the
+      same app version before synchronisation is enabled? (Rule
+      U5.)
+- [ ] Is the manager present and available for the 90-minute
+      training session in Section 9.3?
+- [ ] Is opening-day shadowing agreed for Sunday 22nd November
+      2026, and does it sit inside or outside the fixed £450
+      package? (Section 9.5.)
+- [ ] If the window overruns, is the overtime at £50 per hour
+      agreed verbally before it is incurred? (Section 1.)
 
 ---
 
