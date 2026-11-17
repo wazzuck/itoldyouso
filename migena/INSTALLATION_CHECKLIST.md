@@ -5,11 +5,12 @@ checklist for the cafe and brunch job described on the client portal
 page (`migena/index.html`).
 
 > **How to use this document:** work top to bottom. Tick every box in
-> Sections 1 and 2 before leaving home, then follow the numbered phases
-> in Section 5 in order. Section 6 holds the consolidated health and
-> safety rules, and Section 7 lists the work an Artificial Intelligence
+> Sections 1 and 2 before leaving home. Section 5 is the system design
+> and the safe order to bring the devices up; follow the numbered
+> phases in Section 6 on the day. Section 7 holds the health and
+> safety rules, Section 8 lists the work an Artificial Intelligence
 > (AI) agent can complete through the SumUp web interface before you
-> arrive.
+> arrive, and Section 9 is the staff training plan.
 
 ---
 
@@ -30,18 +31,28 @@ page (`migena/index.html`).
 
 ### 1.1 Equipment being installed
 
-1. **Register:** SumUp Point of Sale Lite — 13-inch Full High
-   Definition (Full HD) touchscreen countertop register on a stand.
-2. **Card reader:** SumUp Solo handheld reader, paired wirelessly to
-   the register (contactless tap, Apple Pay, Google Pay, chip card
-   and Personal Identification Number (PIN) payments).
-3. **Checkout printer:** thermal receipt printer at the front counter.
-4. **Kitchen printer:** order ticket printer in the kitchen.
-5. **Cash drawer:** official SumUp Cash Drawer (330A), 24-volt
-   solenoid, triggered through the checkout printer over a Registered
-   Jack 11 (RJ11) cable.
-6. **Network:** the premises already has a working on-site Wi-Fi
-   network; a wired Ethernet run is the fallback if signal is poor.
+The client has confirmed three devices plus the cash drawer:
+
+1. **SumUp POS Lite register with cash drawer:** the SumUp Point
+   of Sale (POS) system on the 13-inch Full High Definition (Full
+   HD) touchscreen countertop — the central hub for the catalogue,
+   staff Personal Identification Number (PIN) logins, orders,
+   payments and reports — plus the SumUp Cash Drawer (330A), a
+   24-volt drawer that can only be triggered through a
+   drawer-capable receipt printer (Section 5.3, rule U1).
+2. **SumUp Solo and Printer All-In-One:** the Solo and counter
+   printer bundle at the front counter. The Solo card reader docks
+   into the counter printer, takes contactless, chip and mobile
+   wallet payments, and prints the customer receipt; it also runs
+   standalone over built-in 4G data and Wi-Fi.
+3. **SumUp Terminal All-In-One (kitchen):** a standalone
+   touchscreen device with a built-in 58 mm thermal printer,
+   mounted in the kitchen as the order device — it shows the team
+   what to prepare next through order synchronisation (Section
+   5.3, rule U2) and can print order tickets itself.
+4. **Network:** the premises already has a working on-site Wi-Fi
+   network; the Solo and the Terminal also carry built-in 4G as a
+   failover path.
 
 ### 1.2 Confirm these client items before travelling
 
@@ -50,17 +61,26 @@ each one by telephone or e-mail the day before, because each one can
 cost an hour of on-site time if missing.
 
 - [ ] SumUp Cash Drawer (330A) delivered and on site.
-- [ ] Exact model numbers and specifications for both printers.
+- [ ] Exact model numbers for the Solo counter printer and the
+      kitchen Terminal, plus the make and model of the receipt
+      printer that ships with the POS Lite register.
 - [ ] Written menu and price list (10–20 brunch, 10–20 lunch, coffee
       with modifiers, soft drinks, beer and wine).
 - [ ] Names of the 4 staff members who need Personal Identification
       Number (PIN) logins.
-- [ ] Cafe layout plan showing counter, kitchen printer position,
+- [ ] Cafe layout plan showing counter, kitchen Terminal position,
       router location and nearby power sockets.
 - [ ] SumUp merchant login details ready, with the account holder's
       mobile phone nearby for the two-factor authentication (2FA)
       verification code.
-- [ ] Thermal paper rolls on site for both printers.
+- [ ] Thermal paper rolls on site in the right sizes: 57 mm for the
+      Solo counter printer, 58 mm for the Terminal and 80 mm for
+      the register's receipt printer if it is an Epson-style unit.
+- [ ] Which SumUp subscription plan the account is on — the
+      kitchen flow depends on the paid POS Plus plan (Section 5.3,
+      rule U2).
+- [ ] Confirmation of whether the register's receipt printer has
+      a cash-drawer port (the socket marked "DK") — rule U1.
 
 ---
 
@@ -68,7 +88,8 @@ cost an hour of on-site time if missing.
 
 Print this section and tick each line into the van. Everything here
 fits in one toolbox plus a cable bag. Quantities assume one counter
-till plus one kitchen printer run of up to about 15 metres.
+till, a kitchen device that needs mains power, and any network run
+of up to about 15 metres.
 
 ### 2.1 Hand tools
 
@@ -114,6 +135,10 @@ till plus one kitchen printer run of up to about 15 metres.
       Testing (PAT) tested, plus a 2-gang lead at 3 metres.
 - [ ] Socket tester (two-pole, GS388 style) to prove the chosen wall
       socket is earthed and wired correctly.
+- [ ] One spare USB-C charging plug and cable (both the Terminal
+      and the Solo charge over USB-C).
+- [ ] A 5 m Ethernet patch lead for the register's receipt printer
+      if it connects to the network by cable.
 
 ### 2.3 Fixing cables to the skirting board and counters
 
@@ -151,7 +176,7 @@ job tidily without a mid-job shopping trip.
 ### 2.4 Network and test equipment
 
 - [ ] Laptop with a modern web browser and the SumUp dashboard
-      session ready (see Section 7), plus this checklist printed.
+      session ready (see Section 8), plus this checklist printed.
 - [ ] Wi-Fi analyser app on a phone, to measure 5 GHz signal
       strength (Service Set Identifier (SSID)) at the counter.
 - [ ] RJ45/RJ11 continuity tester to prove a crimped lead before it
@@ -162,9 +187,11 @@ job tidily without a mid-job shopping trip.
 
 ### 2.5 Consumables and sundries
 
-- [ ] Thermal paper rolls: 80 mm for the checkout printer and the
-      kitchen printer's size (confirm 58 mm vs 80 mm), at least two
-      spare rolls each, even though the client was asked to supply.
+- [ ] Thermal paper rolls in three sizes — 57 mm (Solo counter
+      printer), 58 mm (Terminal) and 80 mm (register receipt
+      printer, if fitted) — with at least two spare rolls of every
+      size the devices actually take, even though the client was
+      asked to supply them.
 - [ ] Screen-safe electronic wipes and one microfibre cloth — never
       kitchen cleaner or a spray bottle near the screen.
 - [ ] Isopropyl alcohol wipes for degreasing skirting before adhesive
@@ -260,8 +287,9 @@ Toolstation Wood Green (drive, about 5 minutes).
 1. [ ] Charge the laptop, phone, drill batteries and the SumUp Solo
        reader (bring the reader's charger).
 2. [ ] Complete the Artificial Intelligence (AI) web-interface work in
-       Section 7: catalogue import, categories, modifiers, receipt
-       branding and staff profiles.
+       Section 8: catalogue import, categories, modifiers, receipt
+       branding and staff profiles — and confirm the account is on
+       the POS Plus plan (Section 5.3, rule U2).
 3. [ ] Export a backup copy of the item catalogue as a Comma
        Separated Values (CSV) file and keep it with the job notes.
 4. [ ] Confirm by telephone that every item in Section 1.2 is ready.
@@ -277,7 +305,225 @@ Toolstation Wood Green (drive, about 5 minutes).
 
 ---
 
-## 5. On-Site Step-by-Step To-Do List
+## 5. System Design and Integration Method
+
+This section is the engineering plan: what each device does, how
+the three devices work together, the facts that decide the design,
+and the safe order in which to bring everything up. Read it before
+Phase 0 and follow it during Phases 3 to 5.
+
+### 5.1 Device roles
+
+1. **POS Lite register (front counter, the hub).** Runs the SumUp
+   Point of Sale app: the item catalogue, staff PIN logins, open
+   orders, payment handoff, printer roles and end-of-day reports.
+   Every other device hangs off this one.
+2. **SumUp Cash Drawer 330A (under the counter).** A 24-volt
+   solenoid drawer that opens only when a compatible receipt
+   printer sends the kick signal over its Registered Jack 11
+   (RJ11) lead. It has no network connection of its own.
+3. **Solo and counter printer bundle (front counter, payments).**
+   The Solo docks into the counter printer to charge and print.
+   It takes the card payment and prints the receipt, and works
+   standalone on its built-in 4G or Wi-Fi if the till network
+   fails.
+4. **SumUp Terminal (kitchen, the order device).** A standalone
+   touchscreen with a built-in 58 mm printer. It shows the kitchen
+   the live open-order list through order synchronisation, prints
+   order tickets, and can take over as the till if the POS Lite
+   fails (Section 5.6).
+
+### 5.2 How the pieces connect
+
+```text
+                        sumup.me cloud (catalogue, staff, reports)
+                                 |
+                          cafe broadband router
+                                 |
+                 +---------------+----------------+
+                 |                                |
+         [POS Lite register]              [Solo + counter printer]
+        front counter, the hub           payments + receipts, 4G
+                 |
+        +--------+-------------------------+
+        |                                  |
+  USB / Ethernet                 == order synchronisation ==>
+        |                           (POS Plus plan, Wi-Fi)
+  [Receipt printer, "Till"]              |
+        |                         [SumUp Terminal]
+      RJ11                         kitchen order device
+        |                          own 58 mm printer
+  [Cash Drawer 330A]
+```
+
+One part of that diagram is an open question on arrival: which
+physical printer sits between the register and the cash drawer.
+That is rule U1 below, and it is the one item that can stop the
+job, so resolve it first.
+
+### 5.3 Open questions and the rules that decide them
+
+Resolve each rule on arrival, before configuration. Each rule
+names the fact SumUp documents, the decision that follows from it,
+and the test that proves it.
+
+**Rule U1 — the cash drawer needs a drawer-capable printer.**
+Fact: SumUp's list of printers compatible with cash drawers covers
+the Epson TM-m30 (ii, ii-NT and iii), the Star mPOP and the Star
+TSP100 and TSP143 models that include a DK port. The Solo counter
+printer is not on that list, and the Terminal has no drawer port at
+all. Decision: identify the printer attached to the POS Lite. If it
+has a DK port, the drawer plugs into it. If no drawer-capable
+printer exists on site, the drawer cannot be made to open — source
+an Epson TM-m30 or another printer from SumUp's list before
+go-live, and tell the client the same day. Test: Settings →
+Printing → "Open cash drawer"; the drawer must pop with its key in
+the unlock position.
+
+**Rule U2 — kitchen visibility needs the POS Plus plan.**
+Fact: SumUp documents order synchronisation — open orders updating
+in real time across the POS Lite and the Terminal — as an
+exclusive feature of the paid POS Plus plan, and multi-printer
+roles with category routing as POS Plus features. Decision:
+confirm POS Plus is active on the client's account before Phase 4.
+If it is not, the client must either activate it (a monthly fee,
+which is the client's decision) or accept the paper fallback: a
+ticket printed at the till and walked to the kitchen, with the
+Terminal used only for orders taken on it directly. Test: park a
+food order on the POS Lite and watch it appear on the Terminal
+within seconds.
+
+**Rule U3 — every payment path needs a known receipt printer.**
+Fact: a sale completed on the POS Lite prints on the printer
+assigned the "Till" role; a standalone sale completed on the Solo
+prints on the Solo's counter printer. Decision: test both paths
+and write the result on the cheat sheet, so staff know which
+printer to check when a receipt is missing. Test: one sale through
+each path, both receipts in hand.
+
+**Rule U4 — the Terminal prints its own tickets.**
+Fact: the Terminal's built-in printer prints order tickets when
+enabled under More → Settings → Printer settings → "Print order
+tickets". Decision: enable it for the food categories; if a synced
+order will not print from the Terminal, the Terminal screen is the
+kitchen's source of truth and staff tap the order to read it.
+Test: print one ticket for a synced test order.
+
+**Rule U5 — versions must match before synchronising.**
+Fact: mismatched app versions across synced devices cause
+inconsistent order statuses, warned for by SumUp with an update
+prompt. Decision: update the POS Lite, the Solo and the Terminal
+to the latest version and restart all three before enabling
+synchronisation, and check for updates again on the morning of
+go-live. Test: all three devices report the same app version.
+
+### 5.4 Configuration order (safe sequence)
+
+Do these in order; each step assumes the previous one passed.
+
+1. **Account level (off-site, Section 8):** catalogue, categories,
+   modifiers, VAT, receipt branding, staff profiles and roles, and
+   confirmation of the POS Plus plan.
+2. **Updates first:** install the latest app version on all three
+   devices, then restart them (rule U5).
+3. **Network:** POS Lite on the 5 GHz Wi-Fi with strong signal;
+   note the network name and confirm guest Wi-Fi is separate.
+4. **Printers:** Profile → Printer settings — connect, rename
+   ("Till"), assign the role, print a test, and enable automatic
+   receipt printing.
+5. **Cash drawer:** plug in the drawer lead, run the "Open cash
+   drawer" test, enable "Open cash drawer automatically", and
+   leave the key in the unlock position (rule U1).
+6. **Payments:** pair the Solo to the POS Lite as its card reader;
+   confirm tipping is on and set the Solo's receipt print mode.
+7. **Kitchen synchronisation:** on the Terminal — Profile → Orders
+   → "Accept open orders" on → "Synchronize multiple devices" →
+   "Sync this device" on; then repeat the same two toggles on the
+   POS Lite. Both toggles can only be changed while no orders are
+   in progress (rule U2).
+8. **Kitchen tickets:** on the Terminal — More → Settings →
+   Printer settings → built-in printer → "Print order tickets" on,
+   then select the food categories (rule U4).
+9. **Staff:** sign in each of the 4 profiles on the POS Lite,
+   confirm the PINs, and restrict refunds to the manager profile.
+10. **Security:** administrator PIN, automatic updates on, no
+    installs from unknown sources, remote diagnostics installed.
+
+### 5.5 Staged bring-up with gates
+
+Every stage has a gate. Do not start the next stage until the gate
+passes, and do not let the shop open until Stage 6 passes.
+
+1. **Stage 0 — bench checks before mounting:** visual inspection,
+   batteries charged, paper loaded, drawer key present, firmware
+   current. Gate: all three devices boot to their home screens.
+2. **Stage 1 — power and network:** every device joins the Wi-Fi
+   and the signal is measured at the counter. Gate: strong signal
+   and a successful sign-in on each device.
+3. **Stage 2 — hub configuration:** catalogue sync, printers and
+   drawer (steps 2 to 5 of Section 5.4). Gate: a test receipt
+   prints and the drawer pops on command.
+4. **Stage 3 — payments:** Solo pairing, test amounts, refunds
+   (Phase 5, steps 1 to 9). Gate: every payment path passes.
+5. **Stage 4 — kitchen synchronisation:** enable sync and push a
+   test order (Phase 5, steps 10 and 11). Gate: the order appears
+   on the Terminal and the ticket prints.
+6. **Stage 5 — resilience drills:** failover and offline tests
+   (Phase 5, step 12), then restore normal service. Gate: payments
+   still work with the Wi-Fi off, and every banner clears when it
+   returns.
+7. **Stage 6 — sign-off:** Z-report, queue-busting drill and the
+   training session. Gate: the manager signs the competency sheet
+   (Section 9).
+
+### 5.6 Failure modes and what to do
+
+1. **POS Lite frozen or rebooting.** Hold the power button for
+   ten seconds, wait five, restart; no sales are lost. Meanwhile
+   the kitchen Terminal can take over as the till — it carries the
+   catalogue, payments and its own printer.
+2. **Cafe Wi-Fi down.** The Solo and the Terminal fall back to
+   their built-in 4G data, so card payments continue and the
+   Terminal keeps showing orders already synced. Ring the
+   broadband supplier (numbers in Section 11).
+3. **Order synchronisation down.** A banner reads "Your changes
+   aren't online. Last synced at …". The kitchen works from the
+   orders already on screen and the front counter calls out
+   anything new until the "Back online" banner appears. Do not
+   take payment on a device that reports it is out of sync until
+   the banner clears.
+4. **Drawer will not open.** Check the RJ11 lead clicks into the
+   "DK" port, the key is in the unlock position, and the printer
+   shows as connected with its role assigned under Settings →
+   Devices; then run "Open cash drawer" again.
+5. **Receipt not printing.** Check the paper size and orientation,
+   that the printer shows as online in Printer settings, and that
+   the Till role is assigned.
+6. **Solo battery low.** Dock it in the counter printer — the
+   printer charges it and doubles as a power bank.
+7. **Terminal battery low.** Keep it on USB-C mains power in the
+   kitchen; away from the charger it runs for a full trading day.
+8. **Version mismatch warning.** Stop, update every device, then
+   re-check synchronisation before the next sale (rule U5).
+
+### 5.7 Data, security and records
+
+1. Never store client passwords or verification codes; the client
+   types their own two-factor authentication (2FA) code.
+2. Keep client personal data out of this repository under the
+   United Kingdom General Data Protection Regulation (UK GDPR);
+   menu items and prices are fine, nothing else.
+3. Keep a job record: device serial numbers, app versions, the
+   printer that triggers the drawer, the receipt path for each
+   payment type, and the date POS Plus was confirmed.
+4. Refunds and discounts are restricted to the manager profile;
+   every other profile can sell only.
+5. Take the catalogue backup (Section 8, item 13) after the final
+   configuration change.
+
+---
+
+## 6. On-Site Step-by-Step To-Do List
 
 Work through the phases in order. Each phase ends with a short
 verification — do not start the next phase until it passes.
@@ -289,7 +535,7 @@ verification — do not start the next phase until it passes.
        manager is for the training session later.
 3. [ ] Ask for a site tour and locate, photograph and note:
        the consumer unit (fuse board), every nearby power socket, the
-       broadband router, the counter, the kitchen printer position,
+       broadband router, the counter, the kitchen Terminal position,
        the espresso machine, the sink, fire exits and the first aid
        kit.
 4. [ ] Agree the cable routes with the owner before cutting or
@@ -302,7 +548,7 @@ verification — do not start the next phase until it passes.
 
 **Health and safety gate:** if the floor is wet, a walkway is
 blocked, or a socket looks damaged, resolve it before any equipment
-is unpacked (see Section 6).
+is unpacked (see Section 7).
 
 ### Phase 1 — Survey and cable route planning (about 20 minutes)
 
@@ -317,12 +563,14 @@ is unpacked (see Section 6).
      wherever possible, so nobody can catch a foot on it.
 3. [ ] Measure each run and add 2 metres of slack for service loops.
 4. [ ] Decide the power plan: which existing socket feeds the
-       register, which feeds the checkout printer, and which feeds
-       the kitchen printer. Do not create a new socket on this job —
-       any new circuit work is for a qualified electrician.
+       register and its receipt printer, which feeds the Solo
+       counter printer at the till, and which feeds the kitchen
+       Terminal's USB-C charger. Do not create a new socket on this
+       job — any new circuit work is for a qualified electrician.
 5. [ ] Decide the network plan: test the existing Wi-Fi first; only
        run an Ethernet cable if the 5 GHz signal at the counter is
-       weak or the kitchen printer needs a wired link.
+       weak or the register's receipt printer connects by cable.
+       The kitchen Terminal needs mains power, not a network cable.
 6. [ ] Check the position of the till against the 1-metre rule: it
        must sit at least one metre from the steam wand, the sink and
        any syrup dispenser.
@@ -376,118 +624,145 @@ ends are labelled.
 
 ### Phase 3 — Second fix: mounting the hardware (about 45 minutes)
 
-1. [ ] Position the 13-inch register: angled for the operator, out
+1. [ ] Position the POS Lite register: angled for the operator, out
        of direct glare, at least one metre from steam and the sink,
-       and with its stand stable on the counter.
-2. [ ] Connect the register's power and, if fitted, its Ethernet
-       cable; leave the service loop tucked behind the stand.
-3. [ ] Position the checkout printer beside or under the till, with
-       the paper lid opening without obstruction and the tear-off
-       blade facing the operator.
-4. [ ] Before connecting the cash drawer, confirm the printer's
+       stable on its stand.
+2. [ ] Position the register's receipt printer beside it, with the
+       paper lid opening freely and the tear-off blade facing the
+       operator; if it is a network printer, run its Ethernet lead
+       with the same care as Phase 2, step 5.
+3. [ ] Before connecting the cash drawer, confirm the printer's
        drawer port is marked "DK" or "Drawer" and is 24 volts —
        a 12-volt trigger into a 24-volt solenoid (or the reverse)
-       damages the drawer. Then plug in the supplied RJ11 lead.
-5. [ ] Position the kitchen printer: on a shelf or bracket, away
-       from steam and splashes, with power and network reaching it
-       and the ticket slot clear for the chef to grab.
-6. [ ] Load thermal paper into both printers — shiny side towards
-       the print head, feeding from the bottom, two inches of paper
-       past the serrated blade before snapping the lid shut.
-7. [ ] Power up in order: printers first, then the register. The
-       cash drawer needs no power of its own — it only triggers
-       from the printer.
-8. [ ] Tidy the final counter cabling: nothing visible from the
-       customer side, no cable resting on a hot surface, no cable in
-       a drip path.
+       damages the drawer. Plug in the supplied RJ11 lead and leave
+       the drawer key in the unlock position (rule U1).
+4. [ ] Mount the Solo counter printer at the till point, on mains
+       power, with the Solo docked to charge and the tear-off blade
+       facing the operator.
+5. [ ] Mount the kitchen Terminal on a shelf or bracket at the
+       chef's eye level, away from steam and splashes, plugged into
+       its USB-C mains charger, with the ticket slot clear.
+6. [ ] Load paper in every printer: the correct size for each
+       device (57 mm, 58 mm or 80 mm), shiny side towards the print
+       head, feeding from the bottom, two inches past the serrated
+       blade before the lid is snapped shut.
+7. [ ] Power up in order: printers first, then the POS Lite
+       register. The cash drawer needs no power of its own — it
+       only triggers from the printer.
+8. [ ] Tidy the final cabling: nothing visible from the customer
+       side, no cable resting on a hot surface, no cable in a drip
+       path, and the Terminal's charger secured to the shelf so it
+       cannot be pulled down.
 
 **Verify:** every device powers on, the register boots to its home
-screen, and no cable is visible in a walkway.
+screen, the drawer is seated and unlocked, and no cable is visible
+in a walkway.
 
 ### Phase 4 — System configuration on the register (about 60 minutes)
 
-1. [ ] Set the date, time and time zone; set screen brightness and
-       the volume of the confirmation chime so it is audible over the
-       espresso machine.
-2. [ ] Connect the register to the cafe's 5 GHz Wi-Fi network and
-       confirm strong signal at the counter; if the signal is weak,
-       fall back to the Ethernet run from Phase 2 or to a 4G
-       hotspot while the router is repositioned.
-3. [ ] Separate the till traffic from visiting guest devices: put
-       the register on the main network and confirm guests use a
-       separate guest network.
-4. [ ] Sign in to the SumUp account with the client's credentials;
-       the verification code arrives on the client's mobile phone.
-5. [ ] Confirm the item catalogue prepared off-site (Section 7) has
-       synchronised to the register; spot-check five items and their
-       prices against the written menu.
-6. [ ] Verify the Value Added Tax (VAT) treatment of every category:
+1. [ ] Set the date, time and time zone on the POS Lite; set the
+       screen brightness and the confirmation chime volume so the
+       chime is audible over the espresso machine.
+2. [ ] Update the app on every device — POS Lite, Solo and
+       Terminal — to the same version, then restart all three
+       (version mismatch breaks order synchronisation, rule U5).
+3. [ ] Connect the POS Lite to the cafe's 5 GHz Wi-Fi network and
+       confirm strong signal at the counter; fall back to a wired
+       lead or a 4G hotspot if the signal is weak.
+4. [ ] Separate till traffic from guest devices: register on the
+       main network, guests on a separate guest network.
+5. [ ] Sign in to the SumUp account on each device with the
+       client's credentials; the verification code arrives on the
+       client's mobile phone.
+6. [ ] Confirm the catalogue prepared off-site (Section 8) has
+       synchronised to every device; spot-check five items and
+       their prices against the written menu.
+7. [ ] Verify the Value Added Tax (VAT) treatment of every category:
        standard 20% for hot food and drink, and zero-rating only
        where cold takeaway food genuinely qualifies.
-7. [ ] Check the receipt branding: cafe name, 345 Green Lanes
-       address, telephone number, VAT number, logo and footer
-       message all print correctly, including the pound sign.
-8. [ ] Create or confirm the 4 staff profiles with individual PIN
-       codes and sales attribution; test that each PIN unlocks the
+8. [ ] Check the receipt branding on a printed test: cafe name,
+       345 Green Lanes address, telephone number, VAT number, logo
+       and footer message, including the pound sign.
+9. [ ] Create or confirm the 4 staff profiles with individual PIN
+       codes, roles and sales attribution; the manager profile
+       holds refund permission; test that each PIN unlocks the
        register.
-9. [ ] Configure the gratuity prompt (suggested percentages and
-       whether it can be skipped) and the eat-in versus takeaway
-       tagging on the relevant items.
-10. [ ] Set the category display order and item colours so the most
+10. [ ] Configure the gratuity prompt (suggested percentages and
+        whether it can be skipped) and the eat-in versus takeaway
+        tagging on the relevant items.
+11. [ ] Set the category display order and item colours so the most
         sold items sit in the first two tabs during a rush.
-11. [ ] Configure the checkout printer as the receipt printer and
-        the kitchen printer as the order ticket printer; send a test
-        job to each and confirm the pound sign prints correctly
-        (the printer code page must allow it).
-12. [ ] Set the cash drawer to pop open automatically on cash
-        payments only, then test the trigger three times.
-13. [ ] Pair the SumUp Solo reader to the register over Bluetooth or
-        Wi-Fi, charge it fully, update its firmware if prompted, and
-        confirm the confirmation chime sounds.
-14. [ ] Route kitchen tickets: food items print to the kitchen,
-        drinks do not; test with one brunch item and one flat white.
-15. [ ] Test resilience: turn off the Wi-Fi at the router for one
-        minute and confirm the register reports the outage clearly
-        and recovers when it returns; note the recovery behaviour
-        for the manager's briefing.
-16. [ ] Secure the device: set an administrator PIN, disable app
-        installs from unknown sources, enable automatic updates, and
-        install the remote diagnostics tool used for future support.
+12. [ ] Printers: Profile → Printer settings — rename each printer
+        ("Till"), assign its role, and print a test so the right
+        device prints (Section 5.4, step 4).
+13. [ ] Cash drawer: Settings → Printing → "Open cash drawer" test;
+        enable "Open cash drawer automatically" for cash sales;
+        leave the key in the unlock position (rule U1).
+14. [ ] Pair the Solo to the POS Lite as its card reader, charge it
+        fully, and confirm a test payment handoff reaches it.
+15. [ ] Kitchen Terminal: Profile → Orders → enable "Accept open
+        orders" → "Synchronize multiple devices" → "Sync this
+        device" (only when no orders are in progress); repeat both
+        toggles on the POS Lite; then More → Settings → Printer
+        settings → built-in printer → "Print order tickets" on for
+        the food categories (rules U2 and U4).
+16. [ ] Test resilience: note the Wi-Fi outage behaviour and the
+        sync banners ("Your changes aren't online", "Back online")
+        for the manager's briefing (Section 5.6).
+17. [ ] Secure the devices: administrator PIN, no installs from
+        unknown sources, automatic updates on, and the remote
+        diagnostics tool installed for future support.
 
-**Verify:** catalogue, printers, drawer, reader and network all pass
-their individual tests above before a single real payment is taken.
+**Verify:** catalogue, printers, drawer, both payment devices and
+the kitchen synchronisation all pass their individual tests before
+a single real payment is taken.
 
-### Phase 5 — Test transactions (about 45 minutes)
+### Phase 5 — Test transactions and end-to-end drills (about 45 minutes)
 
 Use small real amounts, then refund them, so every path is proven
 with genuine money movement.
 
-1. [ ] Contactless card tap on the SumUp Solo reader.
-2. [ ] Phone payment (Apple Pay or Google Pay).
+1. [ ] Contactless card tap on the Solo reader.
+2. [ ] Phone payment (Apple Pay or Google Pay) on the Solo.
 3. [ ] Chip and PIN transaction with a real bank card.
 4. [ ] Cash payment with a £20 note: confirm the change calculation
-       to the penny and the drawer popping open.
-5. [ ] Split bill across two cards, and one split across card and
+       to the penny and the drawer popping open automatically.
+5. [ ] Receipt paths: complete one sale through the POS Lite and
+       one standalone sale on the Solo, confirm each receipt comes
+       out of the expected printer, and record which is which on
+       the cheat sheet (rule U3).
+6. [ ] Split bill across two cards, and one split across card and
        cash.
-6. [ ] Refund one test transaction end-to-end and confirm the refund
-       receipt prints.
-7. [ ] Void an item mid-sale and re-ring it correctly.
-8. [ ] Confirm a food item fires a kitchen ticket and a drink does
-       not.
+7. [ ] Refund one test transaction end-to-end as the manager
+       profile and confirm the refund receipt prints.
+8. [ ] Void an item mid-sale and re-ring it correctly.
 9. [ ] Ring a sale under each of the 4 staff PINs and confirm each
        appears separately in the day's figures.
-10. [ ] Run the end-of-day close (Z-report): print the daily summary
+10. [ ] Kitchen synchronisation: park or send a food order on the
+        POS Lite and confirm it appears on the kitchen Terminal
+        within seconds; print the order ticket from the Terminal
+        and check the food categories are correct (rules U2, U4).
+11. [ ] Kitchen live-update drill: add an item to the open order
+        and confirm the Terminal updates without a manual refresh.
+12. [ ] Failover drill: ask the owner first, disable the cafe Wi-Fi
+        for one minute, confirm the Solo still takes a card payment
+        over its built-in 4G, note what the POS Lite and Terminal
+        display while offline, then restore the Wi-Fi immediately
+        and confirm every banner clears (Section 5.6).
+13. [ ] Run the end-of-day close (Z-report): print the daily summary
         and confirm card totals, cash totals and the VAT breakdown
         reconcile with the test sales.
-11. [ ] Do a queue-busting drill: ring five orders as fast as the
+14. [ ] Do a queue-busting drill: ring five orders as fast as the
         manager would in a real rush and time it.
 
-**Verify:** all eleven tests pass, with printed evidence for at least
-the receipt, the kitchen ticket and the Z-report.
+**Verify:** all fourteen tests pass, with printed evidence for the
+receipt, the kitchen ticket and the Z-report, and a photograph of
+a test order shown on the kitchen Terminal.
 
 ### Phase 6 — Manager handover training (about 90 minutes)
 
-Deliver the syllabus from the contract in one unhurried session:
+Deliver the syllabus from the contract, following the full
+run-sheet in Section 9, in one unhurried session:
 
 1. [ ] Morning opening routine: power up, network check, paper
        check, open the cash float.
@@ -500,7 +775,7 @@ Deliver the syllabus from the contract in one unhurried session:
 5. [ ] Split bills and custom orders.
 6. [ ] Evening close-out: cashing up, reconciling card totals
        against merchant payouts, preparing for the next morning.
-7. [ ] Receipt paper replacement on both printers.
+7. [ ] Receipt paper replacement on every printer.
 8. [ ] The three quick fixes from the handbook: frozen screen, card
        reader connection error, drawer not opening (check the RJ11
        click at the "DK" port).
@@ -530,12 +805,12 @@ Deliver the syllabus from the contract in one unhurried session:
 
 ---
 
-## 6. Health and Safety Rules for This Job
+## 7. Health and Safety Rules for This Job
 
 These rules apply throughout every phase above. They are written for
 a live food premises with customers possibly present.
 
-### 6.1 Before any tool comes out
+### 7.1 Before any tool comes out
 
 1. Carry out a verbal risk assessment with the owner on arrival and
    note the hazards: wet floors, hot surfaces, steam, customers
@@ -546,11 +821,11 @@ a live food premises with customers possibly present.
 3. Check every extension lead for damage before use; only use leads
    that pass Portable Appliance Testing (PAT), and never daisy-chain
    one extension into another.
-4. Do not overload a socket: the till, two printers and a phone
-   charger on one 13-amp ring is acceptable, but never share a
-   socket with the espresso machine or the kettle.
+4. Do not overload a socket: the till, its receipt printer and the
+   Solo counter printer on one 13-amp ring is acceptable, but never
+   share a socket with the espresso machine or the kettle.
 
-### 6.2 Drilling, nailing and hidden services
+### 7.2 Drilling, nailing and hidden services
 
 1. Run the multi-detector over every point before drilling or
    hammering; assume a cable or pipe is present until proven
@@ -560,7 +835,7 @@ a live food premises with customers possibly present.
 3. If a suspected live cable is uncovered, stop, make the area safe,
    and tell the owner immediately — do not probe it.
 
-### 6.3 Working at height and manual handling
+### 7.3 Working at height and manual handling
 
 1. Use only the step ladder, with rubber feet on a dry floor, and
    keep three points of contact; never stand on a chair, a crate or
@@ -570,7 +845,7 @@ a live food premises with customers possibly present.
 3. Unpack in stages and lift boxes with the knees; keep empty
    packaging out of walkways as you go rather than at the end.
 
-### 6.4 Cables and trip hazards
+### 7.4 Cables and trip hazards
 
 1. No cable may cross a walkway, doorway or fire exit unless it is
    inside trunking, taped down with a floor cover, and agreed with
@@ -582,7 +857,7 @@ a live food premises with customers possibly present.
 4. Leave a service loop at each device so a snagged cable pulls the
    loop, not the socket.
 
-### 6.5 Liquids, steam and food premises hygiene
+### 7.5 Liquids, steam and food premises hygiene
 
 1. Keep the register at least one metre from the steam wand, the
    sink and the syrup pumps, as the handbook requires.
@@ -593,7 +868,7 @@ a live food premises with customers possibly present.
 4. Keep cables and tools off food preparation surfaces at all times,
    or cover them with a clean disposable sheet.
 
-### 6.6 Electrical safety during setup
+### 7.6 Electrical safety during setup
 
 1. Only the register, printers and accessories are plugged in; no
    socket, lead or plug is opened or modified.
@@ -603,7 +878,7 @@ a live food premises with customers possibly present.
 3. If anything smells hot, smokes or trips the circuit, unplug at
    the wall, stop, and inform the owner.
 
-### 6.7 Lone working and emergencies
+### 7.7 Lone working and emergencies
 
 1. Tell the owner when you arrive and when you leave; keep a phone
    charged and on your person throughout.
@@ -614,7 +889,7 @@ a live food premises with customers possibly present.
 
 ---
 
-## 7. What an AI Can Automate Through the Web Interface
+## 8. What an AI Can Automate Through the Web Interface
 
 Everything in this section is computer work that can be done from the
 SumUp web dashboard (sumup.me) in a browser, ideally the day before
@@ -625,7 +900,7 @@ An AI agent driving a web browser — for example an agent using the
 Chrome DevTools tooling inside OpenCode — can complete the following
 tasks when handed a logged-in session by the account owner.
 
-### 7.1 Fully automatable through the web interface
+### 8.1 Fully automatable through the web interface
 
 1. **Build the menu CSV.** Route: Items → Import your items.
    The AI generates a comma-separated file from the written menu
@@ -661,12 +936,13 @@ tasks when handed a logged-in session by the account owner.
 15. **Terms record.** Route: portal terms acceptance module.
     Record the acceptance text for the job file.
 
-### 7.2 What must still be done by hand on site
+### 8.2 What must still be done by hand on site
 
 1. Every physical task: cable runs, trunking, clipping, drilling,
    mounting, paper loading and power-up.
-2. Pairing the SumUp Solo reader and the two printers to the
-   register, which happens on the device itself.
+2. Pairing the Solo to the POS Lite, and enabling order
+   synchronisation on the kitchen Terminal, which happen on the
+   devices themselves.
 3. The two-factor authentication (2FA) code, which arrives on the
    account owner's mobile phone — never ask for a stored password.
 4. All real-money test transactions, refunds and the Z-report.
@@ -674,7 +950,7 @@ tasks when handed a logged-in session by the account owner.
 6. The signal survey and any Wi-Fi repositioning.
 7. The manager training session and the final handover.
 
-### 7.3 Rules for the AI session
+### 8.3 Rules for the AI session
 
 1. Use a private browser profile and log in only with credentials
    the owner supplies for the session; store nothing reusable.
@@ -687,26 +963,194 @@ tasks when handed a logged-in session by the account owner.
 
 ---
 
-## 8. Definition of Done
+## 9. Staff Training Plan
+
+The contract includes one unhurried handover session with the
+manager, who then trains the rest of the team. This section turns
+that commitment into a plan: what each role must be able to do,
+how each skill is taught, the exact run-sheet for the manager
+session, and how competence is checked and recorded.
+
+### 9.1 Who learns what
+
+**The manager** — everything in the counter list below, plus:
+
+- refunds, discounts and price checks (manager PIN only);
+- the end-of-day close (Z-report) and cashing up;
+- paper replacement on every device;
+- recognising and handling every failure in Section 5.6;
+- training new staff by following this plan.
+
+**Counter staff:**
+
+- log in and out with their own personal PIN;
+- ring up food and drinks with modifiers;
+- take card, wallet and cash payments and give exact change;
+- split a bill and park an order;
+- confirm the kitchen has the order by checking the Terminal;
+- handle a declined card calmly and without blame;
+- refill receipt paper on any printer.
+
+**Kitchen staff:**
+
+- read the live order list on the kitchen Terminal;
+- print an order ticket from the Terminal;
+- keep the Terminal charged and its paper topped up;
+- tell the counter when an order is delayed or wrong;
+- recognise the "not online" banner and use the paper fallback.
+
+### 9.2 How each skill is taught
+
+Use the same four steps for every skill — Tell, Show, Do, Check:
+
+1. **Tell** — one or two sentences in plain English, no jargon.
+2. **Show** — do it yourself on the live device, narrating each
+   tap as you make it.
+3. **Do** — the learner does it while you watch, on a real order.
+4. **Check** — the learner does it again unaided and explains what
+   they would do if it went wrong.
+
+Rules for the sessions: one skill at a time; practise on real
+orders with small amounts that are then refunded; never let a fear
+of breaking the till take root — the handbook's first promise is
+that no wrong button can ruin anything; keep every session short;
+and always end by inviting two questions from the learner.
+
+### 9.3 Session 1 — Manager handover (about 90 minutes)
+
+Delivered by the engineer in one sitting, in this order:
+
+1. **0:00–0:10 — System tour.** Name each device and its job (POS
+   Lite, Solo and counter printer, Terminal, cash drawer); show
+   what not to touch; point out the cheat sheet and the handbook.
+2. **0:10–0:20 — Opening routine.** Power up, check the network
+   status, check paper in every printer, open the cash float, log
+   in with a PIN.
+3. **0:20–0:40 — Ringing up orders.** Categories, modifiers (oat,
+   almond, soya, extra shot, decaf, syrups), eat-in versus
+   takeaway, parking an order, and watching it appear on the
+   kitchen Terminal.
+4. **0:40–0:55 — Card payments.** Handing the Solo to the customer,
+   contactless, chip and PIN, the gratuity prompt, waiting for the
+   green confirmation, handling a decline, reprinting a receipt.
+5. **0:55–1:05 — Cash.** Taking cash, exact change, the drawer
+   popping, securing the drawer, float checks.
+6. **1:05–1:15 — Kitchen flow.** What the chef sees, printing a
+   ticket, what to do when the sync banner says "not online", and
+   calling an order through.
+7. **1:15–1:25 — Closing.** Split bills, refunds with the manager
+   PIN, the Z-report, cashing up, reconciling card totals against
+   merchant payouts, and shutting down.
+8. **1:25–1:30 — Questions and handover.** Cheat sheet placed at
+   the till, portal handbook link, support number 020 4520 9114,
+   and the promise that no question is ever too small.
+
+### 9.4 Session 2 — Team training (within the first week)
+
+1. The manager delivers it, one staff member at a time, 20 minutes
+   each, during a quiet period, using the four steps in 9.2.
+2. Each person covers: PIN login, ringing an order with modifiers,
+   a card payment, a cash payment, finding orders on the Terminal,
+   and paper refill.
+3. The engineer stays available on 020 4520 9114 for anything the
+   manager is unsure about — a five-minute call beats a bad habit.
+4. The manager records each person on the sign-off sheet (9.6) as
+   soon as they pass.
+
+### 9.5 Session 3 — Opening-day shadowing
+
+1. Agree attendance in advance: the engineer's first two hours on
+   the floor on Sunday 22nd November 2026 sit outside the fixed
+   package unless agreed otherwise (the overtime terms in
+   Section 1).
+2. Whatever is agreed, run a five-minute pre-open briefing: who is
+   on which device, today's specials, and the plan if the network
+   drops.
+3. Work the first rush together, then hold a ten-minute debrief:
+   what slowed the queue, what confused the staff, and what to
+   re-practise.
+4. Hold a second short check-in at the end of the first trading
+   week.
+
+### 9.6 Competency sign-off
+
+Each staff member demonstrates all of the following unaided before
+being signed off; the manager initials each line:
+
+- [ ] Logs in and out with their own PIN, and never shares it.
+- [ ] Rings an order with at least two modifiers.
+- [ ] Takes a card payment including the gratuity prompt.
+- [ ] Takes a cash payment and gives exact change.
+- [ ] Splits a bill across two payment methods.
+- [ ] Finds a live order on the kitchen Terminal and prints a
+      ticket from it.
+- [ ] Refunds a transaction (manager profile only).
+- [ ] Refills receipt paper on any printer.
+- [ ] Runs the end-of-day close and reads the Z-report (manager).
+- [ ] Explains what the "not online" banner means and what to do.
+
+### 9.7 Aids left behind
+
+1. A laminated cheat sheet at the till: opening, sales, payments,
+   close-out, paper refill and the three quick fixes.
+2. A five-step card beside the Terminal: open, read, print, call
+   out, clear.
+3. The Cafe Client Handbook and this sign-off sheet, both ready on
+   the portal to print.
+4. A QR code sticker linking to the portal, fixed inside the
+   counter door.
+5. The support number 020 4520 9114 printed on every aid.
+
+### 9.8 Keeping the skills fresh
+
+1. A ten-minute check-in at the end of day two.
+2. A five-minute monthly drill: one refund, one paper refill and
+   one close-out, timed for fun rather than for blame.
+3. New starters: the manager runs the Session 2 checklist with
+   them in their first week and signs them off.
+4. After any firmware update or workflow change, re-brief the team
+   for five minutes before trading.
+
+### 9.9 The five mistakes that will happen, and their recoveries
+
+1. **Wrong item or price tapped.** Void the line before payment;
+   never refund a sale that has not been taken.
+2. **Wrong modifier (oat milk missed).** Edit the cart, retap the
+   modifier, then charge.
+3. **Double charge.** Refund the second sale immediately with the
+   manager PIN and show the customer the refund receipt.
+4. **Card declined.** Stay calm, suggest contactless or a
+   different card; never key the amount in twice.
+5. **No order on the kitchen Terminal.** Check the sync banner; if
+   it says "not online", call the order through and write it on a
+   docket until the banner clears.
+
+---
+
+## 10. Definition of Done
 
 The job is complete only when all of the following are true:
 
 1. All devices are mounted, powered, networked and tidy, with
    every cable secured to skirting or structure and no trip hazard.
-2. The catalogue, modifiers, VAT, receipts, 4 staff PINs, gratuity
+2. The catalogue, modifiers, VAT, receipts, staff PINs, gratuity
    and kitchen routing are configured and spot-checked.
-3. All eleven tests in Phase 5 have passed with printed evidence.
-4. The manager has completed the training syllabus and has the
-   printed cheat sheet.
-5. Health and safety walk-through passed: walkways and fire exits
+3. Rules U1 and U2 are resolved: the drawer opens from its
+   printer, and POS Plus is active with a live test order seen on
+   the kitchen Terminal.
+4. Every one of the fourteen tests in Phase 5 has passed with
+   printed evidence.
+5. The manager has completed the training session (Section 9) and
+   the competency sheet is ready for sign-off.
+6. Health and safety walk-through passed: walkways and fire exits
    clear, no loose cables, no packaging left behind.
-6. Billing agreed with the client and any overtime authorised.
-7. Job notes and photographs saved, and the post-installation
-   documentation scheduled for publication on the portal.
+7. Billing agreed with the client and any overtime authorised.
+8. Job notes, device serial numbers and photographs saved, and the
+   post-installation documentation scheduled for publication.
 
 ---
 
-## 9. Useful Contacts
+## 11. Useful Contacts
 
 | Contact | Detail |
 |---|---|
