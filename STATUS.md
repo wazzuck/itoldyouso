@@ -182,6 +182,16 @@ installation.
   updated `index.html`, `404.html`, `services/*.html`, `sitemap.xml`,
   `robots.txt`, `llms.txt`, `llms-full.txt`, `scripts/build_search_index.py`,
   `assets/search-index.js`, and `scripts/verify_site.py`.
+- **Migena portal documentation (`0b047d7`)**: Published the three
+  requested guides in the password-protected client portal
+  (`migena/index.html`): Operations Flash Cards (17 tap-to-flip cards
+  for daily tasks such as opening and closing, and for stressful ones
+  such as refunds), an Admin Guide (adding, changing and removing
+  staff PINs — Personal Identification Numbers), and a Management
+  Guide (accounts, records, and daily, weekly and monthly routines).
+  Navigation items 3 to 5 now link to them, the article anchor offset
+  was raised to clear the sticky navigation bar, and the document was
+  bumped to version 1.1.
 
 ---
 
@@ -306,3 +316,12 @@ indexes, business profiles, and external consensus across the web.
   whether to add `<meta name="robots" content="noindex, nofollow">` and
   `robots.txt` `Disallow:` rules so client installation notes do not appear
   in public AI search snippets.
+- [ ] **Migena portal script error (pre-existing)**: Unlocking the
+  portal with `?pwd=migenalika` or a stored unlock state throws
+  `Cannot access 'TERMS_DAY_STORAGE_KEY' before initialization` and
+  aborts the portal script before it defines the terms-acceptance and
+  questionnaire handlers. The fix is to move the
+  `TERMS_DAY_STORAGE_KEY` constant declaration up to the configuration
+  block at the top of the same script. Confirmed present before the
+  documentation work in `0b047d7` and left unfixed there to keep that
+  change limited to documentation.
