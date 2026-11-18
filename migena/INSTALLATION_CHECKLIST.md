@@ -14,28 +14,66 @@ page (`migena/index.html`).
 > through the SumUp web interface before you arrive, and Section 9
 > is the staff training plan.
 
+## Status on 18 November 2026
+
+**Done off-site:** the new menu is imported (189 items, 22 categories,
+Section 8.4), 21 modifier sets are built and attached, the "Green's
+Ambassador" role exists, POS Plus shows as active on a monthly trial
+until 25 November 2026, and order sync, ticket printing and parked
+orders have been tested on the live devices.
+
+**Open:** the drawer-capable printer (the client is ordering it),
+six staff e-mail addresses, receipt branding details, the annual
+versus monthly POS Plus question, the empty "19 Drink Extras"
+category, and the wine and spirits tile names.
+
+**Not started:** the on-site visit itself.
+
 ---
 
 ## Open Questions for the Client
 
-Every question below is still unanswered in the job file. Chase
-them by telephone or e-mail the day before the visit: each one can
-cost an hour of on-site time, and the first two groups can stop
-the job outright if they are still open on arrival.
+Every question below is still open in the job file, apart from the
+ones already ticked. Chase the rest by telephone or e-mail the day
+before the visit: each one can cost an hour of on-site time, and the
+first two groups can stop the job outright if they are still open on
+arrival.
 
 ### A. Answers needed before you travel
 
-- [ ] Is the SumUp Cash Drawer (330A) delivered and on site?
+- [ ] Cash drawer and its printer: the client will order the
+      drawer-capable printer themselves and have it delivered after
+      the visit (agreed 18 November 2026), so the drawer stays
+      packed on the day and the till takes cash into a lockable
+      tray until the printer arrives. Chase two answers: the date
+      the printer is expected, and which printer was ordered. The
+      recommended unit is the Epson TM-m30III, UK model
+      C31CK50112A0, £226.80 including VAT from pos-hardware.co.uk
+      (Rule U1). If the client has not ordered by the visit, record
+      that the drawer cannot be tested and leave the interim cash
+      routine with the manager (Section 5.8).
 - [ ] What are the exact model numbers of the Solo counter
       printer, the kitchen Terminal, and the receipt printer that
       ships with the POS Lite register?
 - [ ] Does the register's receipt printer have a cash-drawer port
-      (the socket marked "DK"), and is it 24 volts? If it does
-      not, which Epson TM-m30 or other drawer-capable printer has
-      been ordered? (Rule U1 — without one the drawer cannot open.)
-- [ ] Has the written menu and price list been sent?
-- [ ] What are the names of the 4 staff who need PIN logins, and
-      which one is the manager for the training session?
+      (the socket marked "DK"), and is it 24 volts? (Rule U1 —
+      without one the drawer cannot open.)
+- [x] Written menu and price list: the new menu arrived as seven
+      photographs on 18 November 2026 and is already in the
+      catalogue (Section 8.4). Confirm that this menu is the one
+      going live, and ask whether the wine, spirits and beer pages
+      are being served from opening day.
+- [ ] Staff for PIN logins: six names received on 18 November
+      2026 — Egi, Zina, Laura, Yian, Luan and Yusuf — to carry the
+      "Green's Ambassador" role created in the account. SumUp adds
+      a team member by e-mail address, so one address is needed
+      per person, which is probably beyond what this business is
+      prepared to do; without separate addresses, separate
+      profiles cannot be created and sales cannot be attributed to
+      an operator. Decide one: obtain six addresses, share one
+      address, or accept a single shared till login. The manager is
+      Migena Lika (named 18 November 2026), who holds refund
+      permission and runs the training session.
 - [ ] Has the cafe layout plan been sent, showing the counter,
       kitchen Terminal position, router location and nearby power
       sockets?
@@ -44,11 +82,30 @@ the job outright if they are still open on arrival.
       authentication (2FA) verification code?
 - [ ] Are the thermal paper rolls on site in the right sizes —
       57 mm, 58 mm and 80 mm?
-- [ ] Is the account on the POS Plus plan? If it is not, will the
-      client activate it (a monthly fee) or accept the paper
-      fallback for kitchen orders? (Rule U2.)
+- [ ] POS Plus: the client states they hold a POS Plus plan for a
+      year starting 18 November 2026 (reported on 18 November
+      2026). The account does not show an annual plan yet: the
+      Plans page reads "POS Plus, £46.80 per month, free trial
+      until 25 November 2026" on a card ending 4669, and Invoice
+      history shows no invoices. Confirm which is right — an
+      annual commitment or the monthly trial — and record the
+      renewal date. The shop opens on 22 November 2026 and order
+      synchronisation and multi-printer roles depend on this plan
+      staying active. (Rule U2.)
 - [ ] Should the till track stock levels, or is inventory tracking
       not wanted?
+- [ ] Catalogue tidy-up before go-live: the live catalogue holds
+      189 items in 22 categories, and the category "19 Drink
+      Extras" imported with no items in it, because the extras
+      (oat milk, syrups, extra shot, whipped cream) are better
+      offered as modifiers. Confirm that the Milk, Coffee Extras
+      and Syrups modifier sets are still wanted, and delete or fill
+      the empty category (Section 8.4).
+- [ ] The client wants Uber Eats integrated into the system, and
+      asks whether one kitchen printer can serve both the cafe
+      orders and the Uber Eats orders. Confirm the client wants the
+      integration, that the Uber Eats for Restaurants tablet is on
+      site, and who supplies the Uber Eats store URL. (Rule U6.)
 - [ ] What gratuity percentages should the till suggest, and can
       the customer skip the tip?
 - [ ] Who meets the engineer on arrival, and is the owner
@@ -60,8 +117,11 @@ the job outright if they are still open on arrival.
 - [ ] Which physical printer sits between the register and the
       cash drawer, and does it pass the "Open cash drawer" test?
       (Rule U1 — the one open item that can stop the job.)
-- [ ] Is POS Plus active on the account, or does the client accept
-      the paper fallback for kitchen orders? (Rule U2.)
+- [ ] Re-check on arrival that POS Plus still shows as active on
+      the Plans page. It was active on 18 November 2026 with a
+      free trial until 25 November 2026; if the trial has been
+      cancelled since, order synchronisation and multi-printer
+      roles will be missing. (Rule U2.)
 - [ ] Which existing wall socket feeds the register, which feeds
       the Solo counter printer, and which feeds the kitchen
       Terminal's USB-C charger? (No new socket work on this job.)
@@ -86,7 +146,7 @@ the job outright if they are still open on arrival.
 | Job | SumUp cafe till installation, single visit |
 | Destination | **345 Green Lanes, London N13 4JG** |
 | Area | Palmers Green, North London (satnav postcode: N13 4JG) |
-| Client | Migena Lika (primary contact) and Egzon Quilia |
+| Client | Migena Lika (primary contact) and Egzon Qelia |
 | Target go-live | Sunday 22nd November 2026 |
 | On-site window | Up to 5.5 hours (fixed £450 package) |
 | Overtime rate | £50 per hour, billed in 30-minute increments of £25 |
@@ -119,20 +179,35 @@ The client has confirmed three devices plus the cash drawer:
    network; the Solo and the Terminal also carry built-in 4G as a
    failover path.
 
+**Not installed on the day (client-supplied, ordered later):** the
+drawer-capable receipt printer for the counter till. The client is
+ordering it themselves and it arrives after the visit (agreed 18
+November 2026). The Epson TM-m30III, UK model C31CK50112A0, is the
+recommended unit and is on SumUp's list of drawer-capable printers
+(Rule U1). Until it arrives, the cash drawer stays in its box and
+cash is handled from a lockable tray with a fixed float (Section
+5.8). Do not buy or pre-order a printer on the client's behalf
+without written agreement.
+
 ### 1.2 Confirm these client items before travelling
 
 The client agreed to provide the following ahead of the visit. Check
 each one by telephone or e-mail the day before, because each one can
 cost an hour of on-site time if missing.
 
-- [ ] SumUp Cash Drawer (330A) delivered and on site.
+- [ ] SumUp Cash Drawer (330A) delivered and stored, with its key
+      and its RJ11 lead. It is not wired up on this visit, because
+      its printer arrives later (Section 1.1).
 - [ ] Exact model numbers for the Solo counter printer and the
       kitchen Terminal, plus the make and model of the receipt
       printer that ships with the POS Lite register.
-- [ ] Written menu and price list (10–20 brunch, 10–20 lunch, coffee
-      with modifiers, soft drinks, beer and wine).
-- [ ] Names of the 4 staff members who need Personal Identification
-      Number (PIN) logins.
+- [x] Written menu and price list: new menu received as seven
+      photographs on 18 November 2026 and imported as 189 items in
+      22 categories (Section 8.4).
+- [ ] Names of the staff needing Personal Identification Number
+      (PIN) logins: Egi, Zina, Laura, Yian, Luan and Yusuf, with
+      one e-mail address per SumUp profile if separate profiles
+      are wanted (Section A).
 - [ ] Cafe layout plan showing counter, kitchen Terminal position,
       router location and nearby power sockets.
 - [ ] SumUp merchant login details ready, with the account holder's
@@ -141,9 +216,11 @@ cost an hour of on-site time if missing.
 - [ ] Thermal paper rolls on site in the right sizes: 57 mm for the
       Solo counter printer, 58 mm for the Terminal and 80 mm for
       the register's receipt printer if it is an Epson-style unit.
-- [ ] Which SumUp subscription plan the account is on — the
-      kitchen flow depends on the paid POS Plus plan (Section 5.3,
-      rule U2).
+- [x] SumUp subscription plan: POS Plus, confirmed by the client
+      and verified active in the account on 18 November 2026
+      (free trial until 25 November 2026, then £46.80 per month).
+      Re-check it before the kitchen flow is configured (Section
+      5.3, rule U2).
 - [ ] Confirmation of whether the register's receipt printer has
       a cash-drawer port (the socket marked "DK") — rule U1.
 
@@ -437,13 +514,22 @@ Fact: SumUp's list of printers compatible with cash drawers covers
 the Epson TM-m30 (ii, ii-NT and iii), the Star mPOP and the Star
 TSP100 and TSP143 models that include a DK port. The Solo counter
 printer is not on that list, and the Terminal has no drawer port at
-all. Decision: identify the printer attached to the POS Lite. If it
-has a DK port, the drawer plugs into it. If no drawer-capable
-printer exists on site, the drawer cannot be made to open — source
-an Epson TM-m30 or another printer from SumUp's list before
-go-live, and tell the client the same day. Test: Settings →
+all. The drawer connects to the printer's DK socket with its RJ11
+lead; Epson labels that socket RJ12, the same six-position
+connector, so the lead fits. The drawer takes +24 volts on pin 4 and
+needs a load of at least 24 ohms, which the SumUp 330A provides.
+Decision: the client orders the Epson TM-m30III, UK model
+C31CK50112A0 (USB, Ethernet, 80 mm, £226.80 including VAT from
+pos-hardware.co.uk, next-working-day delivery), and it arrives after
+this visit. Until then the drawer stays boxed and cash is handled
+from a lockable tray (Section 5.8). No printer is bought by the
+engineer without written agreement. If a printer is already on site,
+check for the DK socket and plug the drawer into it on the day.
+Test, once the printer arrives or if one is present: Settings →
 Printing → "Open cash drawer"; the drawer must pop with its key in
-the unlock position.
+the unlock position. Record the result and the date in the job
+file, because a drawer that has never been tested is not a
+finished item.
 
 **Rule U2 — kitchen visibility needs the POS Plus plan.**
 Fact: SumUp documents order synchronisation — open orders updating
@@ -457,6 +543,15 @@ ticket printed at the till and walked to the kitchen, with the
 Terminal used only for orders taken on it directly. Test: park a
 food order on the POS Lite and watch it appear on the Terminal
 within seconds.
+Observed on 18 November 2026, on the live account: a parked POS
+order appeared on the Terminals, so sync works with the current
+plan. The sync toggles are per device, so a Terminal with them
+switched off shows nothing, and turning them on needs no orders in
+progress. Showing an order and printing it are separate: one
+Terminal showed the parked order but printed nothing, because its
+"Print order tickets" setting was off. Decide which Terminal is the
+kitchen one and leave ticket printing on only there, otherwise both
+Terminals print the same order twice.
 
 **Rule U3 — every payment path needs a known receipt printer.**
 Fact: a sale completed on the POS Lite prints on the printer
@@ -469,10 +564,15 @@ each path, both receipts in hand.
 **Rule U4 — the Terminal prints its own tickets.**
 Fact: the Terminal's built-in printer prints order tickets when
 enabled under More → Settings → Printer settings → "Print order
-tickets". Decision: enable it for the food categories; if a synced
-order will not print from the Terminal, the Terminal screen is the
-kitchen's source of truth and staff tap the order to read it.
-Test: print one ticket for a synced test order.
+tickets". SumUp's help says tickets print at checkout or when an
+order is parked, so a parked order should produce one ticket. The
+setting is per device: a Terminal can show every open order and
+still print nothing. Decision: enable it for the food categories on
+the kitchen Terminal only, matching the categories on the POS Lite.
+If a synced order will not print from the Terminal, the Terminal
+screen is the kitchen's source of truth and staff tap the order to
+read it. Test: print one ticket for a synced test order, then park a
+second order and confirm exactly one ticket appears, on one printer.
 
 **Rule U5 — versions must match before synchronising.**
 Fact: mismatched app versions across synced devices cause
@@ -481,6 +581,61 @@ prompt. Decision: update the POS Lite, the Solo and the Terminal
 to the latest version and restart all three before enabling
 synchronisation, and check for updates again on the morning of
 go-live. Test: all three devices report the same app version.
+
+**Rule U6 — Uber Eats can share one kitchen printer.**
+Note (client, 18 November 2026): the existing Epson kitchen printer
+in the back works, so no new kitchen printer is to be bought. Confirm
+on site that it is on SumUp's supported list for kitchen tickets.
+Fact: SumUp POS includes a built-in Uber Eats integration, set out
+on SumUp's point-of-sale support site. It lets staff view, accept
+and deny Uber Eats orders on the POS, prints tickets for accepted
+orders according to the product settings defined in SumUp POS,
+records the sales in reports and adjusts stock. Setup needs three
+things: products matched by SKU (the SumUp SKU in the Uber item's
+"External Data" field in Uber's Menu Maker), an e-mail to SumUp
+point-of-sale support with the Uber Eats store URL, and "Show Web
+Module" switched on under Setup → Registers → Advanced Options for
+the register that takes the orders. The Uber Eats for Restaurants
+tablet is still required, and menu or availability changes are not
+synced — the Uber menu is built by hand.
+Decision: yes, one kitchen printer can serve both streams, because
+cafe orders and Uber Eats tickets are both printed from the product
+settings in SumUp POS. Three cautions: two printers (the counter
+receipt printer plus the kitchen printer) exceed the Free plan's
+single-printer limit, so this needs POS Plus (rule U2); route Uber
+Eats to the register that is connected to the kitchen printer; and
+one printer interleaves both order streams and is a single point of
+failure, so agree with the client that tickets are labelled and
+that the fallback is a second printer or the Terminal screen.
+Test: place a test Uber Eats order and confirm its ticket prints on
+the same kitchen printer as a cafe order ticket.
+
+**Rule U7 — the Wi-Fi is the weak point, not the Wi-Fi standard.**
+Note: the manager reports unreliable Wi-Fi and asked on 18 November
+2026 whether moving to Wi-Fi 6E (the 802.11ax extension that adds the
+6 GHz band) would help. The question was parked, not answered, so no
+router purchase is authorised by this job.
+Fact: the Epson TM-m30III wireless variant lists 802.11a/b/g/n/ac,
+which is 2.4 GHz and 5 GHz only, with no 6 GHz radio. SumUp does not
+publish a 6 GHz claim for the Terminal, the Solo or the POS Lite that
+could be found on 18 November 2026, so 6E support is unconfirmed.
+Decision: do not change the router for this job. Measure first: run a
+Wi-Fi analyser at the counter and in the kitchen to separate
+interference, distance and channel congestion. Wire anything that
+stays still, because the register, the printers and the Terminal can
+all use Ethernet, and a cable removes the risk entirely. Test: with
+the fixed kit on cable, confirm a card payment, a printed receipt and
+a synced order while the Wi-Fi is switched off (Phase 5, step 12).
+A 6 GHz router is a client decision taken after that test, not part
+of the installation.
+
+**Rule U8 — there is no practice mode on the till.**
+Fact: SumUp's test environment (the sandbox) is a developer tool for
+online payments; it does not run the POS app or the card reader, so
+it cannot be used to rehearse a sale. Decision: rehearse with small
+real amounts and clean up afterwards, using the method in Phase 5.
+Test: the test item is deleted, the day's figures are back to zero,
+and every refund receipt is filed before the shop opens.
 
 ### 5.4 Configuration order (safe sequence)
 
@@ -496,21 +651,26 @@ Do these in order; each step assumes the previous one passed.
 4. **Printers:** Profile → Printer settings — connect, rename
    ("Till"), assign the role, print a test, and enable automatic
    receipt printing.
-5. **Cash drawer:** plug in the drawer lead, run the "Open cash
-   drawer" test, enable "Open cash drawer automatically", and
-   leave the key in the unlock position (rule U1).
+5. **Cash drawer:** if a drawer-capable printer is present, plug
+   in the drawer lead, run the "Open cash drawer" test, enable
+   "Open cash drawer automatically", and leave the key in the
+   unlock position. If the printer has not arrived, leave the
+   drawer boxed and brief the manager on the interim cash routine
+   (Section 5.8, rule U1).
 6. **Payments:** pair the Solo to the POS Lite as its card reader;
    confirm tipping is on and set the Solo's receipt print mode.
-7. **Kitchen synchronisation:** on the Terminal — Profile → Orders
-   → "Accept open orders" on → "Synchronize multiple devices" →
-   "Sync this device" on; then repeat the same two toggles on the
-   POS Lite. Both toggles can only be changed while no orders are
-   in progress (rule U2).
-8. **Kitchen tickets:** on the Terminal — More → Settings →
-   Printer settings → built-in printer → "Print order tickets" on,
-   then select the food categories (rule U4).
-9. **Staff:** sign in each of the 4 profiles on the POS Lite,
-   confirm the PINs, and restrict refunds to the manager profile.
+7. **Kitchen synchronisation:** on each Terminal — Profile →
+   Orders → "Accept open orders" on → "Synchronize multiple
+   devices" → "Sync this device" on; then repeat the same two
+   toggles on the POS Lite. Both toggles can only be changed while
+   no orders are in progress (rule U2).
+8. **Kitchen tickets:** on the kitchen Terminal — More → Settings
+   → Printer settings → built-in printer → "Print order tickets"
+   on, then select the food categories (rule U4). Switch ticket
+   printing off on the front-of-house Terminal, so a parked order
+   does not print twice.
+9. **Staff:** sign in each staff profile on the POS Lite, confirm
+   the PINs, and restrict refunds to the manager profile.
 10. **Security:** administrator PIN, automatic updates on, no
     installs from unknown sources, remote diagnostics installed.
 
@@ -570,6 +730,14 @@ passes, and do not let the shop open until Stage 6 passes.
    kitchen; away from the charger it runs for a full trading day.
 8. **Version mismatch warning.** Stop, update every device, then
    re-check synchronisation before the next sale (rule U5).
+9. **Order shows on one Terminal but not another.** The toggles
+   are per device. Turn on "Accept open orders", "Synchronize
+   multiple devices" and "Sync this device" on that Terminal, with
+   no orders in progress, then park another test order (rule U2).
+10. **Order shows but no ticket prints.** That device's "Print
+    order tickets" is off, or its category list is wrong. Enable
+    it on the kitchen Terminal only, so one order makes one ticket
+    (rule U4).
 
 ### 5.7 Data, security and records
 
@@ -580,11 +748,37 @@ passes, and do not let the shop open until Stage 6 passes.
    menu items and prices are fine, nothing else.
 3. Keep a job record: device serial numbers, app versions, the
    printer that triggers the drawer, the receipt path for each
-   payment type, and the date POS Plus was confirmed.
+   payment type, the date POS Plus was confirmed, and which
+   catalogue version is live (the checksums in Section 8.4).
 4. Refunds and discounts are restricted to the manager profile;
    every other profile can sell only.
 5. Take the catalogue backup (Section 8, item 13) after the final
    configuration change.
+
+### 5.8 Interim cash handling (no drawer on site yet)
+
+The till records cash payments whether or not a drawer is connected,
+so trading can start before the printer arrives. What changes is how
+the notes and coins are kept. Brief the manager on these five points
+and leave a written copy at the counter.
+
+1. Keep the cash in a lockable tray or box under the counter, not in
+   an open till insert, and lock it whenever nobody is at the
+   counter.
+2. Set a fixed float at the start of each shift, for example £100 in
+   known denominations, and count it back at the end; write both
+   figures on the close-out sheet.
+3. Take cash at the counter only, hand the change before the note
+   goes into the box, and never leave a note on the counter.
+4. Expect the drawer not to open, because nothing is connected to
+   it; staff open the box by hand, and no "Open cash drawer" test
+   applies until the printer is fitted.
+5. When the printer arrives, move the float into the 330A, run the
+   kick test, switch on "Open cash drawer automatically", and
+   withdraw this interim routine.
+
+Record the interim arrangement in the close-out notes, so the client
+knows the routine changes and the drawer has not been signed off.
 
 ---
 
@@ -748,10 +942,16 @@ in a walkway.
 8. [ ] Check the receipt branding on a printed test: cafe name,
        345 Green Lanes address, telephone number, VAT number, logo
        and footer message, including the pound sign.
-9. [ ] Create or confirm the 4 staff profiles with individual PIN
-       codes, roles and sales attribution; the manager profile
-       holds refund permission; test that each PIN unlocks the
-       register.
+9. [ ] Create or confirm the staff profiles with individual PIN
+       codes, roles and sales attribution. Six names were received
+       on 18 November 2026 — Egi, Zina, Laura, Yian, Luan and
+       Yusuf — all for the "Green's Ambassador" role; SumUp needs
+       one e-mail address per person, so this may reduce to one
+       shared login. The manager profile holds refund permission.
+       Each profile needs its own e-mail address, so if the client
+       declines to supply them, record the single shared login that
+       was set up instead and tell the client that sales will not
+       be attributed per operator.
 10. [ ] Configure the gratuity prompt (suggested percentages and
         whether it can be skipped) and the eat-in versus takeaway
         tagging on the relevant items.
@@ -760,17 +960,22 @@ in a walkway.
 12. [ ] Printers: Profile → Printer settings — rename each printer
         ("Till"), assign its role, and print a test so the right
         device prints (Section 5.4, step 4).
-13. [ ] Cash drawer: Settings → Printing → "Open cash drawer" test;
-        enable "Open cash drawer automatically" for cash sales;
-        leave the key in the unlock position (rule U1).
+13. [ ] Cash drawer: if a drawer-capable printer is on site, run
+        Settings → Printing → "Open cash drawer", enable "Open cash
+        drawer automatically" for cash sales, and leave the key in
+        the unlock position (rule U1). If the printer has not
+        arrived, leave the drawer boxed, brief the manager on
+        Section 5.8, and record that the drawer is untested.
 14. [ ] Pair the Solo to the POS Lite as its card reader, charge it
         fully, and confirm a test payment handoff reaches it.
 15. [ ] Kitchen Terminal: Profile → Orders → enable "Accept open
         orders" → "Synchronize multiple devices" → "Sync this
         device" (only when no orders are in progress); repeat both
-        toggles on the POS Lite; then More → Settings → Printer
+        toggles on the POS Lite and on the other Terminal; then, on
+        the kitchen Terminal only, More → Settings → Printer
         settings → built-in printer → "Print order tickets" on for
-        the food categories (rules U2 and U4).
+        the food categories, with the setting off on the
+        front-of-house Terminal (rules U2 and U4).
 16. [ ] Test resilience: note the Wi-Fi outage behaviour and the
         sync banners ("Your changes aren't online", "Back online")
         for the manager's briefing (Section 5.6).
@@ -785,13 +990,29 @@ a single real payment is taken.
 ### Phase 5 — Test transactions and end-to-end drills (about 45 minutes)
 
 Use small real amounts, then refund them, so every path is proven
-with genuine money movement.
+with genuine money movement. There is no practice mode on the till
+(rule U8), so follow this method:
+
+1. Create two test items in the Library, "TEST 1p" at £0.01 and
+   "TEST £1" at £1.00, both shown at checkout, and give them the
+   standard 20% VAT rate.
+2. Use your own card or a staff card for the card tests, take the
+   payment for real, then refund it as the manager profile and file
+   the refund receipt.
+3. Note that card fees apply to each test, so keep the number of
+   card tests small and do the rest in cash.
+4. At the end, delete both test items, check the day's figures show
+   only refunded test sales, and write the result in the job file.
+
+**The fourteen drills:**
 
 1. [ ] Contactless card tap on the Solo reader.
 2. [ ] Phone payment (Apple Pay or Google Pay) on the Solo.
 3. [ ] Chip and PIN transaction with a real bank card.
 4. [ ] Cash payment with a £20 note: confirm the change calculation
-       to the penny and the drawer popping open automatically.
+       to the penny. If a drawer-capable printer is fitted, confirm
+       the drawer pops; if not, confirm the sale still records as
+       cash and note that the drawer is untested (Section 5.8).
 5. [ ] Receipt paths: complete one sale through the POS Lite and
        one standalone sale on the Solo, confirm each receipt comes
        out of the expected printer, and record which is which on
@@ -801,12 +1022,19 @@ with genuine money movement.
 7. [ ] Refund one test transaction end-to-end as the manager
        profile and confirm the refund receipt prints.
 8. [ ] Void an item mid-sale and re-ring it correctly.
-9. [ ] Ring a sale under each of the 4 staff PINs and confirm each
-       appears separately in the day's figures.
-10. [ ] Kitchen synchronisation: park or send a food order on the
-        POS Lite and confirm it appears on the kitchen Terminal
-        within seconds; print the order ticket from the Terminal
-        and check the food categories are correct (rules U2, U4).
+9. [ ] Ring a sale under each staff PIN and confirm each appears
+       separately in the day's figures. If the staff share one
+       login, record that attribution was not available and that
+       the figures cannot be split by operator.
+10. [ ] Kitchen synchronisation: park a food order on the POS Lite
+        and confirm it appears on every synced Terminal within
+        seconds, and that exactly one ticket prints, on the kitchen
+        printer only (rules U2, U4). Deferred payment works through
+        this same park step: the order sits open, unpaid, until the
+        customer is ready, then reopens and takes payment. Test it
+        with a £1 test item and confirm the order leaves the open
+        list once paid. Paying an order that was parked on the POS
+        from a Terminal has not been verified, so note the result.
 11. [ ] Kitchen live-update drill: add an item to the open order
         and confirm the Terminal updates without a manual refresh.
 12. [ ] Failover drill: ask the owner first, disable the cafe Wi-Fi
@@ -821,8 +1049,9 @@ with genuine money movement.
         manager would in a real rush and time it.
 
 **Verify:** all fourteen tests pass, with printed evidence for the
-receipt, the kitchen ticket and the Z-report, and a photograph of
-a test order shown on the kitchen Terminal.
+receipt, the kitchen ticket and the Z-report, a photograph of a test
+order shown on the kitchen Terminal, and both test items deleted
+from the catalogue afterwards.
 
 ### Phase 6 — Manager handover training (about 90 minutes)
 
@@ -831,9 +1060,10 @@ run-sheet in Section 9, in one unhurried session:
 
 1. [ ] Morning opening routine: power up, network check, paper
        check, open the cash float.
-2. [ ] Ringing up food and drinks: categories, drink modifiers
-       (oat, almond, soya, extra shot, decaf, syrups), table number
-       versus takeaway.
+2. [ ] Ringing up food and drinks: categories, the drink modifiers
+       (milk choice, extra shot, decaf, syrups), the food modifiers
+       (bread, egg style, pasta type and the add-ons), and table
+       number versus takeaway.
 3. [ ] Card payments and gratuity: hand off to the customer, prompt
        for the tip, wait for the green tick, handle a decline calmly.
 4. [ ] Cash handling: exact change and securing the drawer.
@@ -975,10 +1205,13 @@ tasks when handed a logged-in session by the account owner.
 3. **Import from a menu photo.** Route: Items → import by image.
    Upload a photo of the printed menu and check the parse.
 4. **Create categories.** Route: Items → Library → Categories.
-   Create numbered categories (01 Brunch … 06 Wine) so the tabs
-   appear in service order on the till.
+   Create numbered categories so the tabs appear in service order
+   on the till. Done on 18 November 2026: 22 categories, from
+   "01 Light & Sweet" to "22 Beers" (Section 8.4).
 5. **Create modifier sets.** Route: Items → Library → Modifiers.
    Oat, almond, soya, extra shot, decaf and syrups, with prices.
+   Done on 18 November 2026: Milk, Coffee Extras and Syrups, still
+   to be attached to the drinks they belong to (Section 8.4).
 6. **Create option sets.** Route: Items → Library → Option sets.
    Sizes and any other drink or food variants.
 7. **Item colours and order.** Route: item editor and checkout
@@ -988,8 +1221,9 @@ tasks when handed a logged-in session by the account owner.
 9. **Receipt branding.** Route: Settings → Brand and image.
    Address, VAT number, logo and footer message.
 10. **Staff profiles and PINs.** Route: team / employee
-    management. Create the 4 profiles, set roles and assign the
-    PIN codes chosen by the owner.
+    management. Create one profile per person, set roles and assign
+    the PIN codes chosen by the owner. Six names are known; each
+    SumUp profile needs its own e-mail address (Section A).
 11. **Inventory tracking toggle.** Route: item editor. Switch on
     stock tracking only if the client wants it.
 12. **Reports and exports.** Route: Reports section. Set up the
@@ -1011,7 +1245,9 @@ tasks when handed a logged-in session by the account owner.
 3. The two-factor authentication (2FA) code, which arrives on the
    account owner's mobile phone — never ask for a stored password.
 4. All real-money test transactions, refunds and the Z-report.
-5. The cash drawer solenoid test and the 24-volt verification.
+5. The cash drawer solenoid test and the 24-volt verification,
+   when the drawer-capable printer is on site; otherwise the
+   interim cash routine in Section 5.8.
 6. The signal survey and any Wi-Fi repositioning.
 7. The manager training session and the final handover.
 
@@ -1026,6 +1262,85 @@ tasks when handed a logged-in session by the account owner.
 4. Keep a short log of every change the AI made (what, when and
    which screen) so it can be reviewed with the client.
 
+### 8.4 Catalogue record (as built on 18 November 2026)
+
+The menu was replaced, not merged. SumUp's importer only adds new
+items and updates changed ones, so the old catalogue was exported as
+a backup first, then every old item and category was deleted by
+hand, then the new menu was imported from SumUp's own item template.
+
+| Item | Value |
+|---|---|
+| Menu source | seven photos, kept as `menu_new_2026-11-18.pdf` |
+| Live items | 189 |
+| Live categories | 22 (21 with items, one empty) |
+| Old menu backup | `items_backup_2026-11-18.csv` |
+| Old menu size | 159 items in 19 categories |
+| Live catalogue export | `items_live_export_2026-11-18.csv` |
+| VAT applied | 20.00% on every item |
+| Staff role | "Green's Ambassador" |
+
+Checksums, so a future session can prove the files are unchanged:
+
+```text
+items_backup_2026-11-18.csv
+20a108d6a711842f6017950f3711f861931107a9d5ceebd3ff0fef80225ce47d
+
+items_live_export_2026-11-18.csv
+efdcbb66b87978ea8c9ddcf98ac40b7595fdd06a08ca56507cffece7d980c5f9
+```
+
+The categories, in till order, with their item counts:
+
+| Category | Items | Category | Items |
+|---|---|---|---|
+| 01 Light & Sweet | 6 | 12 Coffees | 17 |
+| 02 Timeless Eggs | 8 | 13 Iced Coffees | 9 |
+| 03 Brunch & Beyond | 7 | 14 Teas | 10 |
+| 04 Fresh From The Garden | 3 | 15 Smoothies | 4 |
+| 05 Kids' Corner | 3 | 16 Milkshakes | 7 |
+| 06 Midday Comforts | 10 | 17 Juices | 6 |
+| 07 Sandwich Fillings | 10 | 18 Soft Drinks | 10 |
+| 08 Afternoon Hearth | 8 | 19 Drink Extras | 0 |
+| 09 Classics | 4 | 20 Wine | 22 |
+| 10 Extras & Sides | 25 | 21 Spirits & Mixers | 12 |
+| 11 Something Sweet | 2 | 22 Beers | 6 |
+
+Twenty-one modifier sets exist; twenty of them are in use and
+attached to 68 items:
+
+1. **Drinks:** Milk (oat, almond, soy, coconut), Coffee Extras (extra
+   shot, decaf), Syrups (vanilla, hazelnut, caramel), Hot Chocolate
+   Extras, Porridge Milk, Juice Extras, Milkshake Extras, Ice Cream
+   Choice, Spirit Mixer.
+2. **Food:** Bread Choice, Egg Style, Eggs Benedict Choice, Eggs on
+   Toast Side, Omelette Fillings, Pancake Add-ons, Pasta Type, Pasta
+   Side, Shakshuka Add-ons, Jacket Potato Filling, Garden Burger
+   Extras.
+3. **Example set:** "(Example) Toppings" is SumUp's demo set and
+   should be deleted before go-live.
+
+Known defects to fix before opening:
+
+1. **Empty category:** "19 Drink Extras" holds no items, because the
+   extras are modifiers. Delete it, or move the extras back in if
+   the client prefers priced add-on items.
+2. **Wine and spirits naming:** each serve was imported as its own
+   item, so the till shows three tiles all called "Chardonnay" or
+   "Absolut Vodka", one per measure. Staff cannot tell them apart at
+   a glance. Either rename each to carry the measure ("Chardonnay
+   175 ml") or merge the measures into one item with three
+   variations.
+3. **Price display:** those 34 serve items hold their price on the
+   variation, not the base item, so check the tile and the receipt
+   show the right amount on the device itself.
+4. **Spelling:** the Milk set offers "Soy"; British English is
+   "Soya", which also matches the wording in Section 9. Rename it
+   on the till while the menu is still being checked.
+5. **Spot-check:** compare five items and their prices against the
+   printed menu on the till screen before the shop opens (Section
+   8.3, rule 3).
+
 ---
 
 ## 9. Staff Training Plan
@@ -1037,6 +1352,12 @@ how each skill is taught, the exact run-sheet for the manager
 session, and how competence is checked and recorded.
 
 ### 9.1 Who learns what
+
+**Roster received 18 November 2026:** Egi, Zina, Laura, Yian, Luan
+and Yusuf — six people, all to carry the "Green's Ambassador" role.
+The manager is Migena Lika (named 18 November 2026). One e-mail
+address is required per SumUp profile, which the business may not
+want to provide; see the open question in Section A.
 
 **The manager** — everything in the counter list below, plus:
 
@@ -1160,8 +1481,12 @@ being signed off; the manager initials each line:
    close-out, paper refill and the three quick fixes.
 2. A five-step card beside the Terminal: open, read, print, call
    out, clear.
-3. The Cafe Client Handbook and this sign-off sheet, both ready on
-   the portal to print.
+3. The portal (`migena/index.html`) already carries the client
+   guides to print and leave behind: the Cafe Client Handbook, the
+   Operations Flash Cards (seventeen tap-to-flip cards for opening,
+   closing and stressful tasks such as refunds), the Admin Guide
+   (adding, changing and removing staff PINs), the Management Guide
+   (accounts, records and routines), and this sign-off sheet.
 4. A QR code sticker linking to the portal, fixed inside the
    counter door.
 5. The support number 020 4520 9114 printed on every aid.
@@ -1190,6 +1515,35 @@ being signed off; the manager initials each line:
    it says "not online", call the order through and write it on a
    docket until the banner clears.
 
+### 9.10 Learning order for the trainer
+
+If the engineer is learning the till in order to teach it, work
+through these five stages in order, on the live device, using the
+two test items from Phase 5. Do not move on until a stage can be
+done twice without a prompt.
+
+1. **Till basics:** log in with a PIN, ring a sale with modifiers,
+   park an order, reopen it, take a test payment, void a line,
+   refund as the manager, and run the Z-report.
+2. **Kitchen Terminal:** read the live order list, switch "Print
+   order tickets" on and off, print one ticket, and load a paper
+   roll.
+3. **Printers and drawer:** load paper, run the self-test and the
+   feed button, then "Open cash drawer" once the drawer printer
+   arrives.
+4. **Account and admin:** add an item, add a modifier set, add an
+   employee, and find a sales report by operator.
+5. **Hardware:** charge the Solo and dock it, pair it to the till,
+   and check the Wi-Fi signal at the counter and in the kitchen.
+
+How to learn each one:
+
+1. Do it yourself first, on test items, before showing anyone.
+2. Write the one-page cheat sheet straight afterwards, using the
+   route names you actually saw on screen.
+3. Teach it to one other person, and note the step that caused the
+   pause; that step goes on the cheat sheet in bold.
+
 ---
 
 ## 10. Definition of Done
@@ -1200,9 +1554,11 @@ The job is complete only when all of the following are true:
    every cable secured to skirting or structure and no trip hazard.
 2. The catalogue, modifiers, VAT, receipts, staff PINs, gratuity
    and kitchen routing are configured and spot-checked.
-3. Rules U1 and U2 are resolved: the drawer opens from its
-   printer, and POS Plus is active with a live test order seen on
-   the kitchen Terminal.
+3. Rule U2 is resolved: POS Plus is active with a live test order
+   seen on the kitchen Terminal. Rule U1 is either proven, with the
+   drawer opening from its printer, or recorded as deferred with
+   the printer on order and the interim cash routine handed over
+   (Section 5.8).
 4. Every one of the fourteen tests in Phase 5 has passed with
    printed evidence.
 5. The manager has completed the training session (Section 9) and
@@ -1222,7 +1578,7 @@ The job is complete only when all of the following are true:
 | Engineer (Neville Bryce) | 020 4520 9114 |
 | Support e-mail | contactus@itoldyouso.tech |
 | Client primary contact | Migena Lika |
-| Client second contact | Egzon Quilia |
+| Client second contact | Egzon Qelia |
 | Job address | 345 Green Lanes, London N13 4JG |
 | BT Business broadband | 0800 800 152 |
 | Virgin Media Business | 0800 052 0800 |
