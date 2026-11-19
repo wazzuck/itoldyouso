@@ -14,19 +14,22 @@ page (`migena/index.html`).
 > through the SumUp web interface before you arrive, and Section 9
 > is the staff training plan.
 
-## Status on 18 November 2026
+## Status on 19 November 2026
 
 **Done off-site:** the new menu is imported (189 items, 22 categories,
 Section 8.4), 21 modifier sets are built and attached, the "Green's
 Ambassador" role exists, POS Plus shows as active on a monthly trial
 until 25 November 2026, and order sync, ticket printing and parked
-orders have been tested on the live devices.
+orders have been tested on the live devices. The customer-facing SumUp
+business profile now reads EGGI'S and carries the landline and a
+statement descriptor (Section 8.5).
 
-**Open:** the drawer-capable printer (the client is ordering it),
-six staff e-mail addresses, the remaining branding details (the
-trading name EGGI'S and the landline are confirmed), the annual
-versus monthly POS Plus question, the empty "19 Drink Extras"
-category, and the wine and spirits tile names.
+**Open:** the account-level rename, which only SumUp Support can make
+(Section 8.5), the drawer-capable printer (the client is ordering it),
+six staff e-mail addresses, the remaining branding details (the VAT
+number, the logo and the receipt footer wording), the annual versus
+monthly POS Plus question, the empty "19 Drink Extras" category, and
+the wine and spirits tile names.
 
 **Not started:** the on-site visit itself.
 
@@ -73,15 +76,18 @@ arrival.
       November 2026), although the menu cover prints it as "PRIVATE
       EVENTS" in the plural — confirm which form goes on the
       receipts, the portal and the Uber Eats listing, and have the
-      menu artwork corrected if the singular is right. Still
-      needed: the registered or legal name for the SumUp profile,
-      the VAT number (or confirmation that the business is not VAT
-      registered), a logo of at least 128 by 128 pixels, the receipt
-      footer wording, the card statement descriptor, and agreement
-      to rename the SumUp business profile from "Greens Kitchen" to
-      "EGGI'S". Change the portal copy, the Uber Eats store name and
-      the Google Business Profile on the same day, so no customer
-      meets two names.
+      menu artwork corrected if the singular is right.
+      **Done 19 November 2026:** the customer-facing SumUp business
+      profile now reads EGGI'S, with the landline and the statement
+      descriptor EGGIS (Section 8.5). The dashboard header still
+      says "Greens Kitchen", because that is the registered name,
+      which only SumUp Support can change; the request is drafted in
+      Section 8.5 and has to be sent by the client.
+      **Still needed:** the VAT number (or confirmation that the
+      business is not VAT registered), a logo of at least 128 by
+      128 pixels, and the receipt footer wording. Change the portal
+      copy, the Uber Eats store name and the Google Business Profile
+      on the same day, so no customer meets two names.
 - [ ] The staff role is called "Green's Ambassador", after the old
       brand. Confirm that it becomes "Eggi's Ambassador", and rename
       it before the staff are briefed, so the till does not
@@ -1368,6 +1374,91 @@ Known defects to fix before opening:
 5. **Spot-check:** compare five items and their prices against the
    printed menu on the till screen before the shop opens (Section
    8.3, rule 3).
+
+---
+
+### 8.5 Account naming record (19 November 2026)
+
+SumUp keeps three different names for one merchant, and only one of
+them can be edited in the dashboard.
+
+| Name | Where it is seen | Editable? |
+|---|---|---|
+| Registered name, "Greens Kitchen" | Header, receipts, statements | No |
+| Trade name (blank) | Receipts, public listings | No |
+| Business profile name | SumUp listings, QR Order & Pay | Yes |
+
+The first two rows can only be changed by SumUp Support; the third is
+the only one the dashboard lets anyone edit.
+
+The lock is stated on the page itself. `Settings → Business
+information` (`/en-gb/business-details`) shows the registered name,
+an empty trade name, "Sole trader", "Café / Restaurant", the address
+345 Green Lanes, London N13 4JG, and the sentence: "To update your
+registered name, trade name, legal type or category, please contact
+Support." The Android app reads the same record, so it cannot make
+the change either.
+
+**What was changed**, by the engineer, signed in as the account
+holder, in `Settings → Brand & image → Business profile →
+Information` (`/en-gb/settings/business-profile/information`). The
+whole form was blank before this, including the statement
+descriptor:
+
+1. **Business name** set to `EGGI'S`, from blank. This is the name
+   customers see in SumUp's own listings and on the QR Order & Pay
+   page; it is not the name in the dashboard header.
+2. **Phone number** set to `020 8882 88 55`, which SumUp stored as
+   `+442088828855`.
+3. **Statement descriptor** set to `EGGIS`, from blank. A blank
+   descriptor falls back to `SumUp *` on the customer's bank
+   statement, so any value is an improvement; the apostrophe was
+   dropped because statement text normally strips punctuation. The
+   client should confirm the wording the first time she sees a
+   statement, and SumUp may review the change.
+
+The save reported "Business profile updated". The dashboard header
+still reads "Greens Kitchen MW82CKEA", as expected, because that
+comes from the registered name.
+
+**Still empty:** e-mail, website and receipt footer in the same
+form, and the logo under `Brand & image → Branding`. The Address tab
+is also empty; filling it enrols the shop in SumUp's discovery
+promotion, which charges 0% on SumUp card payments and gives
+customers 5% cashback, so that is the client's decision rather than
+a configuration task.
+
+#### Draft support request
+
+Send this from the client's own e-mail address, or paste it into the
+dashboard support chat. It has to come from the account holder,
+because SumUp will verify her identity before changing a name.
+
+> Subject: Change trading name on merchant MW82CKEA
+>
+> Hello,
+>
+> Merchant code: MW82CKEA
+> Registered name: Greens Kitchen
+> Address: 345 Green Lanes, London N13 4JG
+>
+> The cafe has been renamed and now trades as EGGI'S. The new name
+> is on the signage, the menu and the receipts, but the dashboard
+> still shows "Greens Kitchen" and the trade name field is empty.
+>
+> Please set the trade name to EGGI'S on the same legal entity, sole
+> trader, at the same address. Please also confirm:
+>
+> 1. whether the registered name has to change as well, and if so
+>    what evidence you need;
+> 2. which name will appear on card receipts and on the customer's
+>    bank statement once the trade name is set.
+>
+> Nothing else about the account is changing: same owner, same bank
+> account, same address.
+>
+> Thank you,
+> Migena Lika
 
 ---
 
