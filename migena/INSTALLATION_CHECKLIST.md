@@ -24,9 +24,12 @@ orders have been tested on the live devices. The customer-facing SumUp
 business profile now reads EGGI'S and carries the landline and a
 statement descriptor (Section 8.5).
 
-**Open:** the account-level rename, which only SumUp Support can make
-(Section 8.5), the drawer-capable printer (the client is ordering it),
-six staff e-mail addresses, the remaining branding details (the VAT
+**Open:** the registered-name chain. The client must change the
+official registered business name from "Greens Kitchen" to "EGGI'S"
+herself, with HMRC, the council, the insurer and the bank, before
+SumUp Support will change the account record (Section 8.5). Also
+open: the drawer-capable printer (the client is ordering it), six
+staff e-mail addresses, the remaining branding details (the VAT
 number, the logo and the receipt footer wording), the annual versus
 monthly POS Plus question, the empty "19 Drink Extras" category, and
 the wine and spirits tile names.
@@ -81,8 +84,10 @@ arrival.
       profile now reads EGGI'S, with the landline and the statement
       descriptor EGGIS (Section 8.5). The dashboard header still
       says "Greens Kitchen", because that is the registered name,
-      which only SumUp Support can change; the request is drafted in
-      Section 8.5 and has to be sent by the client.
+      which only SumUp Support can change. That request is drafted in
+      Section 8.5, but it cannot succeed until the client changes
+      the official registered business name herself; Section 8.5
+      lists where.
       **Still needed:** the VAT number (or confirmation that the
       business is not VAT registered), a logo of at least 128 by
       128 pixels, and the receipt footer wording. Change the portal
@@ -1112,6 +1117,13 @@ run-sheet in Section 9, in one unhurried session:
        manager knows where the handbook lives on the portal.
 10. [ ] Confirm the manager is confident to train the other three
         staff, and note any gaps for a follow-up call.
+11. [ ] Hand over the rename task: the registered official business
+        name is still "Greens Kitchen", and only the client can
+        change it, at HMRC, the council, the insurer and the bank
+        (Section 8.5, "The client must change the official name
+        herself"). Until she does, SumUp will keep showing the old
+        name and is likely to refuse a rename request. Agree who
+        sends the support request and by when.
 
 ### Phase 7 — Close-out (about 30 minutes)
 
@@ -1428,6 +1440,45 @@ promotion, which charges 0% on SumUp card payments and gives
 customers 5% cashback, so that is the client's decision rather than
 a configuration task.
 
+#### The client must change the official name herself
+
+SumUp is only echoing a name that is registered somewhere else. The
+registered business name has to change at the source first, and only
+the client can do that: it is outside this job, outside the till, and
+outside anything the engineer can sign on her behalf. Say so plainly
+at handover and leave it with her, or it will be forgotten the moment
+the shop gets busy.
+
+Places that carry the old name, and that she needs to work through:
+
+1. **HMRC**, through the accountant or the Self Assessment record, so
+   tax correspondence matches the signs above the door.
+2. **The council's food business registration**, which names the
+   operator of the premises.
+3. **The insurer**, because a policy written in an old trading name is
+   exactly the sort of thing an insurer disputes after a claim.
+4. **The business bank account** that receives the SumUp payouts, and
+   any separate card machine contract.
+5. **Every listing a customer can see:** Google Business Profile,
+   Uber Eats, the Instagram account `@eggis.london`, the website and
+   this portal.
+
+Two points to make when handing this over:
+
+1. **Pick one spelling and keep it.** An apostrophe is allowed in a
+   business name, but signs, bank statements and some forms drop it,
+   so the client should decide now whether the official form is
+   `EGGI'S` or `EGGIS`, and use the same one on every document. The
+   till currently uses `EGGIS` for the statement descriptor and
+   `EGGI'S` for the business name, which is the usual split: bank
+   statement text cannot carry punctuation reliably, while signs and
+   receipts can.
+2. **Nothing will move in SumUp until she does.** A support agent is
+   likely to refuse a registered-name change while the official
+   record still says "Greens Kitchen". Ask her to send a photograph
+   of the new registration, or the accountant's written confirmation,
+   with the support request; that is the evidence SumUp will ask for.
+
 #### Draft support request
 
 Send this from the client's own e-mail address, or paste it into the
@@ -1549,6 +1600,13 @@ Delivered by the engineer in one sitting, in this order:
 8. **1:25–1:30 — Questions and handover.** Cheat sheet placed at
    the till, portal handbook link, support number 020 4520 9114,
    and the promise that no question is ever too small.
+9. **Last item, no time on the clock — the official name.** Explain
+   that the till now says EGGI'S but the registered business name is
+   still Greens Kitchen, and that only she can change it, with HMRC,
+   the council, the insurer and the bank (Section 8.5). Leave her the
+   drafted support request. This is the one follow-up that the
+   engineer cannot complete, so confirm she has understood it and
+   note the date agreed for sending it.
 
 ### 9.4 Session 2 — Team training (within the first week)
 
