@@ -181,14 +181,16 @@ using them. (Section 15.)
 
 ## 9. The kitchen
 
-**The kitchen display system is not yet decided.** Until it is,
-the kitchen receives:
+The client has asked that one SumUp Terminal is the kitchen Terminal.
+It shows the open orders and prints a ticket for each parked order.
 
-1. The order on the kitchen device (the SumUp Terminal).
-2. A printed ticket if the printer is set to print at the kitchen.
-3. A verbal call-out for every allergy.
+1. Every parked order appears on the kitchen Terminal within seconds.
+2. The kitchen Terminal prints one ticket per parked order.
+3. Tell the kitchen about every allergy aloud, as well as the order
+   note.
 
-When the kitchen display is chosen, this section will be replaced.
+**The kitchen display system is not yet decided.** When it is
+chosen, this section will be replaced.
 
 ---
 

@@ -598,6 +598,12 @@ printer to check when a receipt is missing. Test: one sale through
 each path, both receipts in hand.
 
 **Rule U4 — the Terminal prints its own tickets.**
+Client request, 19 November 2026: one Terminal is to be placed in
+"kitchen mode", where it prints every parked order. SumUp does not
+name a mode of that name; the client's request is met by the
+settings below on the one Terminal, with the other Terminal left
+with ticket printing off. Which Terminal is the kitchen one, and
+what the second Terminal is for, is still to be confirmed.
 Fact: the Terminal's built-in printer prints order tickets when
 enabled under More → Settings → Printer settings → "Print order
 tickets". SumUp's help says tickets print at checkout or when an
