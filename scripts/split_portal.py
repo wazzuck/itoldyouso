@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
-"""Split the Migena portal into one page per document.
+"""Split the remaining Migena portal documents into standalone pages.
 
-The portal was a single HTML file holding every document behind one
-password curtain. This script builds one page per document from it,
-so the client can open and print the part she needs. index.html itself
-is left untouched: it stays the portal, with its agreed terms intact.
+The portal originally held every document behind one password curtain.
+Management Guide (management.html) and Till Procedures & Features
+(till.html) now live as standalone pages rather than inside index.html,
+and Operations Cards has been removed. This script builds standalone
+pages for the documents that remain in index.html.
 
 What the script does:
 
 1. Copies the shared stylesheet out of index.html into portal.css.
    The rules that hid three documents are dropped, because each is now
    its own page and has to render.
-2. Writes one HTML file per document, each holding its own article and
-   the portal's own script, so the terms form, the questionnaire and
-   the password curtain keep working exactly as they did.
+2. Writes one HTML file per remaining document in index.html, each
+   holding its own article and the portal's own script, so the terms
+   form, the questionnaire and the password curtain keep working
+   exactly as they did.
 3. Rewrites links that pointed at a section of the portal so they point
-   at the new page instead.
+   at the standalone page instead.
 
 Run: python3 scripts/split_portal.py
 """
@@ -26,6 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent / "migena"
 SOURCE = ROOT / "index.html"
 
 # Document id in the portal, output file, page title.
+# management.html and till.html are maintained as standalone pages.
 DOCS = [
     ("trainer", "contract.html",
      "Service Contract &amp; Scope of Work"),
@@ -35,15 +38,14 @@ DOCS = [
     ("handbook", "handbook.html", "Cafe Client Handbook"),
     ("cheatsheet", "cheat-sheet.html", "Countertop Cheat Sheet"),
     ("doc-admin", "admin.html", "Administration Guide"),
-    ("doc-management", "management.html", "Management Guide"),
 ]
 
 # Links inside a document that pointed at a section of the portal.
 ANCHOR_LINKS = {
     "href=\"#doc-admin\"": "href=\"admin.html\"",
     "href=\"#doc-management\"": "href=\"management.html\"",
-    "href=\"#doc-operations\"": "href=\"till-procedures.html\"",
-    "href=\"#doc-till\"": "href=\"till-procedures.html\"",
+    "href=\"#doc-operations\"": "href=\"till.html\"",
+    "href=\"#doc-till\"": "href=\"till.html\"",
     "href=\"#trainer\"": "href=\"contract.html\"",
     "href=\"#hb-pricing\"": "href=\"pricing.html\"",
     "href=\"#handbook\"": "href=\"handbook.html\"",

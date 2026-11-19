@@ -218,16 +218,17 @@
           <h3>4. The Daily Rhythm</h3>
           <ol>
             <li>
-              Open with the <em>Open the till</em> card from the
-              <a href="till-procedures.html">Operations Flash Cards</a>.
+              Open using the opening steps in
+              <a href="till-procedures.html">Till Procedures</a>.
             </li>
             <li>
               Trade: every sale rung under the person who took it, so the
               week's figures mean something.
             </li>
             <li>
-              Close with the <em>Close the till</em> card: count, print the
-              Z-report, take the takings out, leave the float.
+              Close using the close-down steps in
+              <a href="till-procedures.html">Till Procedures</a>: count,
+              print the Z-report, take the takings out, leave the float.
             </li>
             <li>
               Clip that day's refund receipts to the Z-report and initial
@@ -383,7 +384,7 @@
             dashboard for anything to do with money arriving.
           </p>
           <p>
-            <a href="till-procedures.html">Operations Flash Cards</a> cover the
+            <a href="till.html">Till Procedures &amp; Features</a> cover the
             daily and emergency till tasks; the
             <a href="admin.html">Admin Guide</a> covers staff profiles.
             Together with this page they form the full documentation set
@@ -795,30 +796,6 @@
         if (confirmedBox) confirmedBox.style.display = 'none';
       };
 
-    })();
-  </script>
-  <script>
-    (function() {
-      // Step 1: every card on the page, in both groups ("every day" and
-      // "when it goes wrong"). An empty list means this script has
-      // nothing to do, so it stops before touching the document.
-      const cards = document.querySelectorAll('.flash-card');
-      if (!cards.length) return;
-
-      // Step 2: hand control to the stylesheet's flip rules. Until this
-      // class exists, both faces stay in normal flow and the steps are
-      // readable without any interaction at all.
-      document.body.classList.add('flash-enabled');
-
-      // Step 3: wire each card. The listener toggles the flip class and
-      // mirrors it into aria-pressed, so the accessible name of the
-      // button keeps matching what the visitor can see.
-      Array.prototype.forEach.call(cards, function(card) {
-        card.addEventListener('click', function() {
-          const flipped = card.classList.toggle('is-flipped');
-          card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
-        });
-      });
     })();
   </script>
 </body>
