@@ -325,3 +325,10 @@ indexes, business profiles, and external consensus across the web.
   block at the top of the same script. Confirmed present before the
   documentation work in `0b047d7` and left unfixed there to keep that
   change limited to documentation.
+- [x] **Client credentials location**: the SumUp username and password
+  for the Migena job are kept in the private repository
+  `wazzuck/itoldyouso_client`, beside the client portal copy, and are
+  never stored in this public repository. That password was shared
+  over chat on 18 November 2026, so it should be rotated by the client.
+  The private repository holds only `migena/index.html`, `ACCESS.md`
+  and a short `README.md`; the rest of the job material remains here.

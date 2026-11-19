@@ -741,8 +741,11 @@ passes, and do not let the shop open until Stage 6 passes.
 
 ### 5.7 Data, security and records
 
-1. Never store client passwords or verification codes; the client
-   types their own two-factor authentication (2FA) code.
+1. Never store client passwords or verification codes in this
+   repository; the client types their own two-factor authentication
+   (2FA) code. The SumUp login for this job is held in the private
+   client repository (`wazzuck/itoldyouso_client`), beside the client
+   portal, and never here.
 2. Keep client personal data out of this repository under the
    United Kingdom General Data Protection Regulation (UK GDPR);
    menu items and prices are fine, nothing else.
