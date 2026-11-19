@@ -1,0 +1,1430 @@
+/* Generated from index.html by scripts/split_portal.py.
+   Edit index.html or the script, not this file. */
+
+    /* -------------------------------------------------------------------------
+       Base Typography & Reset
+       ------------------------------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      color: #1a1a1a;
+      background-color: #f8fafc;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #1a1a1a;
+      background-color: #f8fafc;
+    }
+
+    /* -------------------------------------------------------------------------
+       Password Gate Modal / Screen
+       ------------------------------------------------------------------------- */
+    #auth-gate {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      background: linear-gradient(135deg, #0f766e 0%, #134e4a 100%);
+      color: #ffffff;
+    }
+
+    .auth-card {
+      background-color: #ffffff;
+      color: #1a1a1a;
+      max-width: 520px;
+      width: 100%;
+      padding: 40px 32px;
+      border-radius: 12px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .auth-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background-color: #ccfbf1;
+      color: #0f766e;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+
+    .auth-card h1 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #0f766e;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .auth-card p {
+      font-size: 1rem;
+      color: #4b5563;
+      margin-bottom: 24px;
+      line-height: 1.55;
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .auth-form label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .auth-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 1.05rem;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .auth-input:focus {
+      border-color: #0f766e;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
+    }
+
+    .auth-btn {
+      padding: 14px 20px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #0f766e;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .auth-btn:hover {
+      background-color: #115e59;
+    }
+
+    .auth-btn:active {
+      transform: scale(0.99);
+    }
+
+    .auth-error {
+      display: none;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #991b1b;
+      background-color: #fee2e2;
+      border: 1px solid #fecaca;
+      border-radius: 6px;
+      margin-top: 4px;
+    }
+
+    .auth-hint {
+      margin-top: 20px;
+      font-size: 0.88rem;
+      color: #6b7280;
+    }
+
+    /* -------------------------------------------------------------------------
+       Document Content & Layout
+       ------------------------------------------------------------------------- */
+    #document-content {
+      display: none;
+      width: 100%;
+    }
+
+    header.site-header {
+      background-color: #ffffff;
+      border-bottom: 2px solid #e5e7eb;
+      padding: 28px 24px 22px 24px;
+      max-width: 1020px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .header-titles h1 {
+      font-size: 1.95rem;
+      color: #0f766e;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .header-titles .subtitle {
+      font-size: 1.05rem;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #f3f4f6;
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+
+    .meta-item strong {
+      color: #1f2937;
+    }
+
+    /* -------------------------------------------------------------------------
+       Sticky Navigation Bar
+       ------------------------------------------------------------------------- */
+    nav.doc-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d1d5db;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      padding: 10px 24px;
+    }
+
+    .nav-container {
+      max-width: 1020px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      list-style: none;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #0f766e;
+      border: 2px solid #0f766e;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(15, 118, 110, 0.2);
+      transition: transform 0.15s ease, background-color 0.15s ease,
+        border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      background-color: #115e59;
+      border-color: #115e59;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(15, 118, 110, 0.28);
+    }
+
+    .nav-links a:active {
+      transform: translateY(0);
+    }
+
+    .nav-links .nav-disabled {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #64748b;
+      background-color: #e2e8f0;
+      border: 2px solid #cbd5e1;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06);
+      opacity: 0.75;
+      cursor: not-allowed;
+      user-select: none;
+    }
+
+    .nav-links .nav-disabled em {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    .nav-post-deploy-note {
+      width: 100%;
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    /* -------------------------------------------------------------------------
+       Main Article Container
+       ------------------------------------------------------------------------- */
+    main.doc-main {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 32px 24px 64px 24px;
+      width: 100%;
+    }
+
+    article.doc-article {
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+      /* Anchor landing space: the sticky navigation bar above is up to
+         275px tall once its buttons wrap on a narrow desktop window, so
+         an anchored article must sit well clear of it. The mobile
+         layout below makes the bar static and overrides this to 16px. */
+      scroll-margin-top: 290px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .article-header {
+      border-bottom: 3px solid #0f766e;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+
+    .article-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .badge-spec {
+      background-color: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+
+    .badge-questionnaire {
+      background-color: #ccfbf1;
+      color: #0f766e;
+      border: 1px solid #99f6e4;
+    }
+
+    .badge-client {
+      background-color: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .article-header h2 {
+      font-size: 2rem;
+      color: #0f766e;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .article-header p.article-lead {
+      font-size: 1.1rem;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    /* Typography inside articles */
+    h3 {
+      font-size: 1.35rem;
+      color: #111827;
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #f3f4f6;
+      padding-bottom: 6px;
+    }
+
+    h4 {
+      font-size: 1.15rem;
+      color: #0f766e;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+      color: #374151;
+      line-height: 1.65;
+    }
+
+    ul, ol {
+      margin-bottom: 18px;
+      padding-left: 28px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      color: #374151;
+      line-height: 1.55;
+    }
+
+    /* Checkbox Lists */
+    ul.check-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.check-list li {
+      position: relative;
+      padding-left: 32px;
+      margin-bottom: 10px;
+    }
+
+    ul.check-list li::before {
+      content: "☐";
+      position: absolute;
+      left: 2px;
+      top: -1px;
+      font-size: 1.25rem;
+      color: #0f766e;
+      font-weight: bold;
+    }
+
+    /* Callout & Warning Boxes */
+    .callout {
+      border-left: 5px solid #0f766e;
+      background-color: #f0fdfa;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+    }
+
+    .callout.warning {
+      border-left-color: #dc2626;
+      background-color: #fef2f2;
+    }
+
+    .callout.info {
+      border-left-color: #2563eb;
+      background-color: #eff6ff;
+    }
+
+    .callout h4 {
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .callout.warning h4 {
+      color: #991b1b;
+    }
+
+    .callout.info h4 {
+      color: #1e40af;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px 0;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f3f4f6;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f9fafb;
+    }
+
+    /* Table of Contents */
+    .toc-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0 32px 0;
+    }
+
+    .toc-box h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #0f766e;
+      padding-bottom: 6px;
+      font-size: 1.2rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px 24px;
+    }
+
+    .toc-list li {
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .toc-list a {
+      color: #0f766e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .toc-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* -------------------------------------------------------------------------
+       Questionnaire Form & Cards
+       ------------------------------------------------------------------------- */
+    .form-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+    }
+
+    .autosave-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #0f766e;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #10b981;
+      display: inline-block;
+    }
+
+    .status-dot.dirty {
+      background-color: #f3b428;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f3f4f6;
+      border-color: #9ca3af;
+    }
+
+    .btn-primary {
+      background-color: #0f766e;
+      color: #ffffff;
+      border: 1px solid #0f766e;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #115e59;
+    }
+
+    .question-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 26px;
+      background-color: #ffffff;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .question-card:focus-within {
+      border-color: #0f766e;
+      box-shadow: 0 4px 12px rgba(15, 118, 110, 0.08);
+    }
+
+    .question-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .question-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #0f766e;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .question-title {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #0f766e;
+      line-height: 1.35;
+    }
+
+    .question-context {
+      font-size: 0.98rem;
+      color: #4b5563;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .chip {
+      background-color: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .chip:hover {
+      background-color: #e2e8f0;
+      border-color: #94a3b8;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .intake-textarea {
+      width: 100%;
+      min-height: 96px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      font-family: inherit;
+      color: #1f2937;
+      background-color: #fcfdfe;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      outline: none;
+      resize: vertical;
+      line-height: 1.5;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .intake-textarea:focus {
+      border-color: #0f766e;
+      background-color: #ffffff;
+    }
+
+    .input-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+
+    /* -------------------------------------------------------------------------
+       Pricing Tiers & Terms Acceptance Module
+       ------------------------------------------------------------------------- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 24px 0 32px 0;
+    }
+
+    .pricing-tier-card {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pricing-tier-card.featured {
+      border-color: #0f766e;
+      background: #f0fdfa;
+    }
+
+    .pricing-tier-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      align-self: flex-start;
+      background: #ccfbf1;
+      color: #0f766e;
+    }
+
+    .pricing-tier-card h4 {
+      font-size: 1.3rem;
+      color: #111827;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .pricing-tier-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0f766e;
+      margin-bottom: 4px;
+    }
+
+    .pricing-tier-price span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .pricing-tier-subtitle {
+      font-size: 0.92rem;
+      color: #4b5563;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .pricing-tier-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    .pricing-tier-card li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.95rem;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .pricing-tier-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #0f766e;
+      font-weight: bold;
+    }
+
+    .terms-card {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 32px 0 28px 0;
+    }
+
+    .terms-card-header {
+      margin-bottom: 16px;
+    }
+
+    .terms-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: #e2e8f0;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+
+    .terms-card h4 {
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin: 0 0 8px 0;
+    }
+
+    .terms-list {
+      margin: 14px 0 18px 0;
+      padding-left: 20px;
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .terms-list li {
+      margin-bottom: 8px;
+    }
+
+    .terms-checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.98rem;
+      color: #1e293b;
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .terms-checkbox-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      cursor: pointer;
+      accent-color: #0f766e;
+    }
+
+    .terms-btn {
+      background: #0f766e;
+      color: #ffffff;
+      border: none;
+      padding: 10px 22px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .terms-btn:hover {
+      background: #0d5f58;
+    }
+
+    .terms-btn:active {
+      transform: scale(0.99);
+    }
+
+    /* -------------------------------------------------------------------------
+       Cheat Sheet Special Styling (Screen & Print)
+       ------------------------------------------------------------------------- */
+    #cheatsheet {
+      background-color: #ffffff;
+      border: 2px solid #0f766e;
+    }
+
+    .cheatsheet-banner {
+      background-color: #0f766e;
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: 6px 6px 0 0;
+      text-align: center;
+      margin: -40px -40px 24px -40px;
+    }
+
+    .cheatsheet-banner h2 {
+      color: #ffffff;
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .cheatsheet-banner p {
+      color: #ccfbf1;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .cheatsheet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .cheatsheet-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 16px 18px;
+      background-color: #ffffff;
+    }
+
+    .cheatsheet-card h3 {
+      font-size: 1.2rem;
+      color: #0f766e;
+      margin-top: 0;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #0f766e;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .cheatsheet-card ol, .cheatsheet-card ul {
+      margin-bottom: 0;
+      padding-left: 22px;
+    }
+
+    .cheatsheet-card li {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      line-height: 1.45;
+    }
+
+    .cheatsheet-warning-box {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background-color: #fef2f2;
+      border: 2px solid #dc2626;
+      border-radius: 6px;
+      color: #991b1b;
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.98rem;
+    }
+
+    .cheatsheet-phone-box {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background-color: #f0fdf4;
+      border: 2px solid #16a34a;
+      border-radius: 6px;
+      color: #166534;
+      font-weight: 700;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    /* -------------------------------------------------------------------------
+       Operations Flash Cards
+
+       Each card is a native <button> with two faces: the front names the
+       task, the back holds the numbered steps. Both faces sit in the same
+       grid cell, so the card is always as tall as the taller face.
+
+       The flip is a progressive enhancement. Without JavaScript the faces
+       stay in normal flow, one under the other, so the steps are readable
+       in any case. The script adds .flash-enabled to <body>, which stacks
+       the faces and rotates the back away until the card is tapped.
+       ---------------------------------------------------------------------- */
+
+    .flash-group {
+      margin-bottom: 36px;
+    }
+
+    .flash-group > h3 {
+      margin-top: 8px;
+    }
+
+    /* min() inside minmax() keeps the smallest column no wider than the
+       grid itself, so a 320-pixel phone screen never scrolls sideways.
+       Value: 300px, the narrowest card that holds five short steps on
+       two lines each. Consumed by: the two .flash-grid blocks. */
+    .flash-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: 16px;
+    }
+
+    /* The card is a button, so Enter and Space flip it with no extra
+       script; only pointer, focus and stacking styles live here. */
+    .flash-card {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      perspective: 900px;
+      border-radius: 8px;
+    }
+
+    .flash-card:focus-visible {
+      outline: 3px solid #0f766e;
+      outline-offset: 3px;
+    }
+
+    .flash-inner {
+      display: grid;
+      gap: 12px;
+    }
+
+    .flash-face {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background-color: #ffffff;
+      padding: 16px 18px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    }
+
+    .flash-title {
+      display: block;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.35;
+    }
+
+    .flash-when {
+      display: block;
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+
+    /* Hidden until the script enables the flip: before that, the steps
+       are already on show, so a "tap to reveal" hint would be untrue. */
+    .flash-tap-hint {
+      display: none;
+      margin-top: auto;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #0f766e;
+    }
+
+    .flash-back {
+      background-color: #f0fdfa;
+      border-color: #99f6e4;
+    }
+
+    /* The steps are spans rather than <li> elements because a <button>
+       may only contain phrasing content. The counter below prints the
+       number of each step, so reordering the markup renumbers the list. */
+    .flash-steps {
+      display: block;
+      counter-reset: flash-step;
+    }
+
+    .flash-step {
+      display: block;
+      counter-increment: flash-step;
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .flash-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .flash-step::before {
+      content: counter(flash-step) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+      color: #0f766e;
+    }
+
+    .flash-note {
+      display: block;
+      margin-top: 4px;
+      padding-top: 8px;
+      border-top: 1px dashed #99f6e4;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #991b1b;
+      line-height: 1.5;
+    }
+
+    /* Enhancement: stack the faces on one grid cell and rotate the back
+       away. Applied only once the script confirms it can flip cards. */
+    .flash-enabled .flash-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+    }
+
+    .flash-enabled .flash-face {
+      grid-area: 1 / 1;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .flash-enabled .flash-back {
+      transform: rotateY(180deg);
+    }
+
+    .flash-enabled .flash-card.is-flipped .flash-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flash-enabled .flash-tap-hint {
+      display: block;
+    }
+
+    /* Honour the visitor's motion preference: swap the faces with no
+       animation at all. */
+    @media (prefers-reduced-motion: reduce) {
+      .flash-enabled .flash-inner {
+        transition: none;
+      }
+    }
+
+    /* Print: show both faces in reading order (title box, then steps
+       box), drop the tap hints, and never split a card across pages. */
+    @media print {
+      .flash-enabled .flash-inner {
+        display: block;
+        transform: none !important;
+      }
+
+      .flash-enabled .flash-face {
+        transform: none !important;
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
+        box-shadow: none;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .flash-enabled .flash-front {
+        border-radius: 8px 8px 0 0;
+      }
+
+      .flash-enabled .flash-back {
+        border-top: 0;
+        border-radius: 0 0 8px 8px;
+        margin-bottom: 16px;
+      }
+
+      .flash-tap-hint {
+        display: none !important;
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       Footer
+       ------------------------------------------------------------------------- */
+    footer.site-footer {
+      background-color: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      padding: 28px 24px;
+      text-align: center;
+      margin-top: auto;
+      font-size: 0.92rem;
+      color: #6b7280;
+    }
+
+    footer.site-footer p {
+      margin-bottom: 4px;
+      font-size: 0.92rem;
+    }
+
+    /* -------------------------------------------------------------------------
+       Responsive Breakpoints (Tablet & Mobile Phones)
+       ------------------------------------------------------------------------- */
+    @media (max-width: 768px) {
+      #auth-gate {
+        padding: 16px;
+      }
+
+      .auth-card {
+        padding: 28px 20px;
+      }
+
+      .auth-card h1 {
+        font-size: 1.4rem;
+      }
+
+      header.site-header {
+        padding: 18px 16px;
+      }
+
+      .header-titles h1 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+      }
+
+      .header-titles .subtitle {
+        font-size: 0.92rem;
+      }
+
+      .header-meta {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 0.88rem;
+      }
+
+      /* Prevent the navigation bar from sticking and covering a third of a
+         mobile phone screen while scrolling; stack buttons cleanly */
+      nav.doc-nav {
+        position: static;
+        padding: 12px 14px;
+      }
+
+      .nav-links {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .nav-links li {
+        margin-bottom: 0;
+        width: 100%;
+      }
+
+      .nav-links a,
+      .nav-links .nav-disabled {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 0.88rem;
+        line-height: 1.35;
+        flex-wrap: wrap;
+      }
+
+      .nav-post-deploy-note {
+        font-size: 0.78rem;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      main.doc-main {
+        padding: 16px 12px 40px 12px;
+      }
+
+      article.doc-article {
+        padding: 20px 15px;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        scroll-margin-top: 16px;
+      }
+
+      .article-header {
+        padding-bottom: 14px;
+        margin-bottom: 20px;
+      }
+
+      .article-header h2 {
+        font-size: 1.45rem;
+        line-height: 1.3;
+      }
+
+      .article-header p.article-lead {
+        font-size: 0.98rem;
+      }
+
+      h3 {
+        font-size: 1.18rem;
+        margin-top: 24px;
+      }
+
+      h4 {
+        font-size: 1.05rem;
+      }
+
+      p, li {
+        font-size: 0.96rem;
+        line-height: 1.55;
+      }
+
+      ul, ol {
+        padding-left: 20px;
+      }
+
+      .callout {
+        padding: 14px 14px;
+        margin: 16px 0;
+      }
+
+      table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 0.88rem;
+      }
+
+      th, td {
+        padding: 10px 12px;
+      }
+
+      .pricing-grid, .cheatsheet-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .pricing-tier-card {
+        padding: 20px 16px;
+      }
+
+      .pricing-tier-price {
+        font-size: 1.85rem;
+      }
+
+      .terms-card {
+        padding: 18px 14px;
+        margin: 24px 0 20px 0;
+      }
+
+      .terms-card h4 {
+        font-size: 1.15rem;
+      }
+
+      .terms-list {
+        padding-left: 18px;
+        font-size: 0.92rem;
+      }
+
+      .terms-btn,
+      #terms-accept-btn,
+      #terms-email-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+      }
+
+      #terms-form label[style*="border-radius: 6px"] {
+        width: 100%;
+      }
+
+      #terms-confirmed-box {
+        padding: 14px 14px !important;
+      }
+
+      #terms-confirmed-box button,
+      #terms-confirmed-box a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .cheatsheet-banner {
+        margin: -20px -15px 18px -15px;
+      }
+
+      .question-card {
+        padding: 18px 14px;
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       Print Stylesheet
+       ------------------------------------------------------------------------- */
+    @media print {
+      #auth-gate {
+        display: none !important;
+      }
+
+      #document-content {
+        display: block !important;
+      }
+
+      nav.doc-nav, .form-toolbar, .chips-group, footer.site-footer {
+        display: none !important;
+      }
+
+      article.doc-article {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin-bottom: 24pt;
+        page-break-inside: avoid;
+      }
+
+      .intake-textarea {
+        border: 1px solid #9ca3af;
+        background-color: #ffffff;
+      }
+    }
+

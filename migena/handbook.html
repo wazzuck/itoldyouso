@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Cafe Client Handbook | EGGI'S Till Documentation | IToldYouSo Computing</title>
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+  <div id="auth-gate">
+    <div class="auth-card">
+      <span class="auth-badge">Private Portal</span>
+      <h1>Client Access</h1>
+      <p>
+        Please enter your access password to view this document.
+      </p>
+
+      <form class="auth-form" onsubmit="handleAuth(event)">
+        <div class="auth-input-group">
+          <label for="password-input">Password</label>
+          <input
+            type="password"
+            id="password-input"
+            class="auth-input"
+            placeholder="Enter password"
+            autocomplete="current-password"
+            required
+            autofocus
+          >
+          <div id="auth-error" class="auth-error" role="alert">
+            Incorrect password. Please try again or contact Neville Bryce on
+            <a href="tel:02045209114" style="color: inherit; text-decoration: underline;">020 4520 9114</a>.
+          </div>
+        </div>
+        <button type="submit" class="auth-btn">Unlock Document</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="document-content">
+    <header class="site-header">
+      <div class="header-top">
+        <div class="header-titles">
+          <h1>EGGI'S &mdash; Till Documentation</h1>
+          <div class="subtitle">Cafe Client Handbook</div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="doc-nav" aria-label="Document Navigation">
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="index.html">&larr; All documents</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="doc-main">
+      <!-- ===================================================================
+           DOCUMENT 3: CAFE CLIENT REFERENCE HANDBOOK
+           NOTE (RESTORE LATER): Hidden temporarily per Neville's request.
+           To bring the handbook back later, remove #handbook from the
+           display:none CSS rule, remove style="display: none;" below, and
+           un-hide the #handbook link in .nav-links.
+           =================================================================== -->
+      <article id="handbook" class="doc-article">
+        <div class="article-header">
+          <span class="article-badge badge-client">Cafe Client Handbook</span>
+          <h2>Your Cafe &amp; Brunch Till Handbook</h2>
+          <p class="article-lead">
+            A plain-English, step-by-step operational reference to using your Amazon electronic till system with complete confidence during busy cafe and brunch service.
+          </p>
+        </div>
+
+        <section>
+          <h3>A Note Before We Start</h3>
+          <p>
+            Welcome to your new cafe till! First of all, please take a deep breath and relax. Technology in a busy cafe can feel intimidating when it is brand new, especially during a fast-moving morning coffee rush or a bustling weekend brunch service. But with our setup, bloatware removal, and customisation, this system is configured to be friendly, clear, and very simple to operate.
+          </p>
+          <p>
+            The most important thing to know is: <strong>you cannot break this till</strong>. There is no button you can press by accident that will ruin anything or lose your takings. Every coffee order or food plate can be adjusted, any wrong item can be voided or cancelled, and every transaction can be refunded in seconds.
+          </p>
+          <p>
+            We have also provided a large-print <strong>Cheat Sheet</strong> to keep right beside your counter or barista station for quick daily reminders. Keep this handbook in a drawer near the till, and remember that I am always here to support you whenever you have a question.
+          </p>
+        </section>
+
+        <!-- Table of Contents -->
+        <div class="toc-box">
+          <h3>Handbook Contents</h3>
+          <ul class="toc-list">
+            <li><a href="#hb-what-it-does">1. What Your Till Does</a></li>
+            <li><a href="#hb-parts">2. The Parts of Your Till</a></li>
+            <li><a href="#hb-power">3. Turning It On &amp; Network</a></li>
+            <li><a href="#hb-card-payment">4. Taking a Card Payment</a></li>
+            <li><a href="#hb-cash-payment">5. Taking a Cash Payment</a></li>
+            <li><a href="#hb-split">6. Modifiers, Add-ons &amp; Split Bills</a></li>
+            <li><a href="#hb-deposits">7. Takeaway vs Eat-in Orders</a></li>
+            <li><a href="#hb-refund">8. Giving a Refund</a></li>
+            <li><a href="#hb-sales">9. Daily Takings &amp; Z-Reports</a></li>
+            <li><a href="#hb-paper">10. Receipt Paper Replacement</a></li>
+            <li><a href="#hb-trouble">11. Troubleshooting Common Glitches</a></li>
+            <li><a href="#hb-remote">12. Remote Support Protocol</a></li>
+            <li><a href="#hb-care">13. Cafe Care &amp; Liquid / Steam Protection</a></li>
+            <li><a href="#hb-contacts">14. Useful Contacts</a></li>
+            <li><a href="#hb-glossary">15. Glossary of Terms</a></li>
+            <li><a href="pricing.html">16. Pricing &amp; Engineering Value</a></li>
+            <li><a href="#hb-final">17. A Final Word</a></li>
+          </ul>
+        </div>
+
+        <section id="hb-what-it-does">
+          <h3>1. What Your Till Does</h3>
+          <p>
+            Your system is an Electronic Point of Sale (EPOS) workstation designed to keep your counter and service running smoothly:
+          </p>
+          <ul>
+            <li>It adds up food orders, hot drinks, bakery items, and custom modifiers so staff never have to do mental arithmetic under pressure.</li>
+            <li>It links seamlessly with card readers to take contactless cards, Apple Pay, Google Pay, and Chip &amp; PIN payments in seconds.</li>
+            <li>It records cash payments and works out the exact change to hand back to the customer.</li>
+            <li>It prints clean paper receipts with your North London cafe address, phone number, VAT registration, and the British Pound (&pound;) symbol.</li>
+            <li>It supports table tabs, takeaway orders, and staff tip / gratuity pooling.</li>
+            <li>It totals up all your daily takings automatically, saving you evening paperwork and cash float stress.</li>
+          </ul>
+        </section>
+
+        <section id="hb-parts">
+          <h3>2. The Parts of Your Till</h3>
+          <p>
+            Your countertop setup consists of four core elements:
+          </p>
+          <ul>
+            <li><strong>The Touchscreen Terminal:</strong> SumUp Point of Sale Lite 13-inch Full HD display on an ergonomic stand facing your barista or counter staff.</li>
+            <li><strong>The Card Reader (PDQ):</strong> SumUp Solo Contactless &amp; Chip Card Reader paired wirelessly with the register.</li>
+            <li><strong>The Receipt &amp; Order Printers:</strong> Front checkout thermal receipt printer plus a secondary kitchen ticket printer for automatic order routing.</li>
+            <li><strong>The Cash Drawer:</strong> First-party SumUp Cash Drawer (&pound;69.00 ex VAT / &pound;82.80 incl. VAT) connected via an RJ11 cable to the back of the checkout receipt printer. It triggers open automatically whenever you record a cash payment.</li>
+          </ul>
+        </section>
+
+        <section id="hb-power">
+          <h3>3. Turning It On &amp; Internet</h3>
+          <p>
+            Every morning:
+          </p>
+          <ol>
+            <li>Press and hold the power button on the back or right edge for 2 seconds. The screen will illuminate and boot up.</li>
+            <li>Confirm that the Wi-Fi icon in the top right shows strong signal (or the Ethernet symbol shows connected).</li>
+            <li>Open the POS application on the home screen.</li>
+            <li>Enter your morning staff PIN code to unlock the register.</li>
+          </ol>
+        </section>
+
+        <section id="hb-card-payment">
+          <h3>4. Taking a Card Payment &mdash; Step by Step</h3>
+          <ol>
+            <li>Select the drinks or food items (e.g. Flat White, Eggs Florentine, Avocado Toast) or tap custom amount.</li>
+            <li>Tap any required modifiers (e.g. Oat Milk, Extra Shot, Sourdough).</li>
+            <li>Tap the blue or green <strong>Charge / Pay</strong> button on the screen.</li>
+            <li>Select <strong>Card</strong> as the payment method. The amount transmits to the card reader (or staff types the amount on a standalone terminal).</li>
+            <li>Invite the customer to tap their contactless card/phone or insert their chip card.</li>
+            <li>Wait for the green tick and confirmation chime on the card screen.</li>
+            <li>Ask if the customer would like a printed paper receipt.</li>
+            <li>Tap <strong>Finish Sale</strong> for the next customer.</li>
+          </ol>
+        </section>
+
+        <section id="hb-cash-payment">
+          <h3>5. Taking a Cash Payment</h3>
+          <ol>
+            <li>Select the items as usual and tap <strong>Charge / Pay</strong>.</li>
+            <li>Tap <strong>Cash</strong>.</li>
+            <li>Tap the exact amount handed to you (e.g. &pound;20 note).</li>
+            <li>The screen displays the exact change due to the penny, and the cash drawer clicks open automatically.</li>
+            <li>Place the cash in the drawer, count the change into the customer's hand, and close the drawer firmly.</li>
+          </ol>
+        </section>
+
+        <section id="hb-split">
+          <h3>6. Modifiers, Add-ons &amp; Split Bills</h3>
+          <p>
+            Cafes and brunch spots frequently handle custom drink preparations and customers who want to split the bill:
+          </p>
+          <ul>
+            <li><strong>Barista Drink Modifiers:</strong> Tap any coffee to add milk alternatives (oat, almond, coconut), extra espresso shots, decaf beans, or flavoured syrups. These are priced automatically.</li>
+            <li><strong>Gratuities / Tips:</strong> When customers wish to leave a tip on card, select the gratuity prompt on the card reader before the final charge.</li>
+            <li><strong>Split Bills:</strong> For brunch tables sharing dishes, tap <strong>Split Bill</strong> to divide the total evenly across multiple cards, or charge specific items separately.</li>
+          </ul>
+        </section>
+
+        <section id="hb-deposits">
+          <h3>7. Takeaway vs Eat-in Orders</h3>
+          <p>
+            Your till distinguishes between eat-in dining and takeaway counter service:
+          </p>
+          <ul>
+            <li><strong>Eat-in Service:</strong> Assign a table number so front-of-house staff know where to deliver brunch plates and coffee.</li>
+            <li><strong>Takeaway Orders:</strong> Flag orders as takeaway to ensure correct VAT attribution (standard 20% on hot food and eat-in vs zero-rated cold takeaway food items where applicable).</li>
+          </ul>
+        </section>
+
+        <section id="hb-refund">
+          <h3>8. Giving a Refund</h3>
+          <p>
+            If a client needs a refund or an accidental double-charge occurred:
+          </p>
+          <ol>
+            <li>Tap the menu button (three horizontal lines) and select <strong>Transactions / Sales History</strong>.</li>
+            <li>Locate the transaction by time, amount, or last 4 digits of the card.</li>
+            <li>Tap <strong>Issue Refund</strong>.</li>
+            <li>Select the specific item or enter a custom refund amount.</li>
+            <li>Select refund to original card or cash, and confirm. The refund receipt will print automatically.</li>
+          </ol>
+        </section>
+
+        <section id="hb-sales">
+          <h3>9. Daily Takings &amp; Z-Reports (Cashing Up)</h3>
+          <p>
+            At the close of trading:
+          </p>
+          <ol>
+            <li>Tap <strong>Reports &rarr; Close Register</strong> (commonly called the End-of-Day or Z-Report).</li>
+            <li>Count the physical cash in the drawer and enter the total. The till will tell you if your float is exact, over, or short.</li>
+            <li>Tap <strong>Print Daily Summary</strong>. A comprehensive paper slip will print listing total card sales, cash takings, VAT breakdowns, and shift totals.</li>
+            <li>File the report with your daily receipts for your accountant.</li>
+          </ol>
+        </section>
+
+        <section id="hb-paper">
+          <h3>10. Receipt Paper Replacement</h3>
+          <p>
+            When a red or pink stripe appears on the edge of receipts, your paper roll is nearly empty:
+          </p>
+          <ol>
+            <li>Pull the top lever on the printer to open the clamshell lid.</li>
+            <li>Drop in a fresh roll of thermal paper (shiny side facing toward the print head, paper feeding from the bottom of the roll).</li>
+            <li>Pull 2 inches of paper past the tear-off blade and snap the lid shut firmly until it clicks.</li>
+            <li>Tear off the excess paper downwards across the serrated blade.</li>
+          </ol>
+        </section>
+
+        <section id="hb-trouble">
+          <h3>11. Troubleshooting Common Glitches</h3>
+          <div class="callout warning">
+            <h4>Quick Fixes for Counter Glitches</h4>
+            <p>
+              <strong>1. The till screen is frozen:</strong> Hold down the power button on the back for 10 seconds until the screen shuts off. Wait 5 seconds, then turn it back on. No sales data will be lost.
+            </p>
+            <p style="margin-top: 10px;">
+              <strong>2. Card reader says "Connection Error":</strong> Check that Bluetooth or Wi-Fi is toggled ON in the till settings. If on standalone terminal, ensure the card machine display shows ready with green battery bars.
+            </p>
+            <p style="margin-top: 10px;">
+              <strong>3. Cash drawer does not click open:</strong> Check the telephone-style RJ11 cable behind the printer is firmly clicked into the socket marked "DK" or "Drawer".
+            </p>
+          </div>
+        </section>
+
+        <section id="hb-remote">
+          <h3>12. Remote Support Protocol</h3>
+          <p>
+            If you ever encounter an issue you cannot solve locally, you can contact me directly. I can connect securely to your till terminal using our pre-installed remote diagnostics tool, view the screen with your permission, and adjust software settings, menu prices, drink modifiers, or printer drivers live while you stay on the phone.
+          </p>
+        </section>
+
+        <section id="hb-care">
+          <h3>13. Cafe Care &amp; Liquid / Steam Protection</h3>
+          <div class="callout info">
+            <h4>Protecting Countertop Electronics in a Busy Cafe</h4>
+            <p>
+              Cafes and coffee counters are demanding environments with steam wands, boiling water, espresso grinds, milk jugs, and sticky syrups. Keep the till terminal at least 1 metre away from the espresso machine steam wand, sink splash zones, and syrup dispensers. Clean the glass touchscreen only with a soft microfibre cloth dampened lightly with water or screen-safe electronic wipes &mdash; never spray antibacterial kitchen cleaners or water directly onto the screen or card reader.
+            </p>
+          </div>
+        </section>
+
+        <section id="hb-contacts">
+          <h3>14. Useful Contacts</h3>
+          <p>
+            Keep these emergency numbers handy:
+          </p>
+          <ul>
+            <li><strong>Engineer &amp; Support:</strong> Neville Bryce &mdash; <strong><a href="tel:02045209114">020 4520 9114</a></strong> &bull; Email: <a href="mailto:contactus@itoldyouso.tech">contactus@itoldyouso.tech</a></li>
+            <li><strong>Local Address:</strong> Corringham Court, Corringham Road, London NW11 7BY</li>
+            <li><strong>Broadband Emergency:</strong> Check your cafe router supplier (BT Business: 0800 800 152 / Virgin Media Business: 0800 052 0800).</li>
+          </ul>
+        </section>
+
+        <section id="hb-glossary">
+          <h3>15. Glossary of Terms</h3>
+          <ul>
+            <li><strong>EPOS:</strong> Electronic Point of Sale &mdash; the computerised till and register.</li>
+            <li><strong>PDQ:</strong> Process Data Quickly &mdash; industry term for the customer card payment terminal.</li>
+            <li><strong>Modifier:</strong> An option attached to a menu item (e.g. oat milk, extra shot, decaf, sourdough toast) that automatically adjusts the price and kitchen ticket.</li>
+            <li><strong>ESC/POS:</strong> Standard printing command language used by receipt printers.</li>
+            <li><strong>Code Page 858:</strong> Printer character memory setting that allows the British Pound (&pound;) symbol to print without errors.</li>
+            <li><strong>Solenoid:</strong> The magnetic coil inside the cash drawer that pulls the latch to pop it open when triggered.</li>
+            <li><strong>Z-Report:</strong> The end-of-day daily financial summary that closes out the trading day.</li>
+          </ul>
+        </section>
+
+        <section id="hb-final">
+          <h3>17. A Final Word</h3>
+          <p>
+            Dear Migena team,
+          </p>
+          <p>
+            With this setup, configuration, and guide in place, you will be fully equipped to run your cafe till with total pride and confidence. Sourcing till hardware from Amazon is a smart, budget-conscious decision, and with our engineering diligence behind it, it will serve your North London cafe and brunch spot faithfully through the busiest morning coffee rushes and weekend brunch services.
+          </p>
+          <p>
+            Take your time with every customer. Customers love visiting a welcoming cafe, and a moment's pause at the counter is completely natural. And remember: <strong>no question is ever too small</strong>. Whenever you need a hand or have a quick query, you can always pick up the phone and ring me on <strong><a href="tel:02045209114">020 4520 9114</a></strong>. I am always happy to help.
+          </p>
+          <p style="margin-top: 24px;">
+            Warmest regards,<br>
+            <strong>Neville Bryce</strong><br>
+            IToldYouSo Computing<br>
+            Corringham Court, Corringham Road, London NW11 7BY
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>SumUp 13&rdquo; Countertop Touchscreen Register &amp; Cafe Till
+      Documentation &bull; Client: Migena Lika &amp; Egzon Quilia
+      (345 Green Lanes, London N13 4JG) &bull; Version 1.1 &bull;
+      November 2026</p>
+      <p>Prepared by Neville Bryce &bull; IToldYouSo Computing &bull; Corringham Court, Corringham Road, London NW11 7BY &bull; Tel: <a href="tel:02045209114">020 4520 9114</a> &bull; Email: <a href="mailto:contactus@itoldyouso.tech">contactus@itoldyouso.tech</a></p>
+      <p>&copy; 2026 IToldYouSo Computing (itoldyouso.tech). All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+    (function() {
+      // Configuration constants
+      const AUTH_STORAGE_KEY = 'itoldyouso_migena_auth_state';
+      const DATA_STORAGE_KEY = 'itoldyouso_migena_intake_responses';
+      const TERMS_STORAGE_KEY = 'itoldyouso_migena_terms_state';
+      const VALID_PASSWORD = 'migenalika';
+
+      const authGate = document.getElementById('auth-gate');
+      const docContent = document.getElementById('document-content');
+      const passwordInput = document.getElementById('password-input');
+      const authError = document.getElementById('auth-error');
+
+      const saveDot = document.getElementById('save-dot');
+      const saveDotBottom = document.getElementById('save-dot-bottom');
+      const saveText = document.getElementById('save-status-text');
+      const saveTextBottom = document.getElementById('save-status-text-bottom');
+
+      const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'];
+
+      // Function to reveal the unlocked documentation
+      function revealDocumentation() {
+        if (authGate) authGate.style.display = 'none';
+        if (docContent) docContent.style.display = 'block';
+        loadSavedResponses();
+        checkTermsState();
+      }
+
+      // Check if previously unlocked in browser session
+      const isUnlocked = sessionStorage.getItem(AUTH_STORAGE_KEY) === 'unlocked' ||
+                         localStorage.getItem(AUTH_STORAGE_KEY) === 'unlocked' ||
+                         sessionStorage.getItem('itoldyouso_illyrian_auth_state') === 'unlocked' ||
+                         localStorage.getItem('itoldyouso_illyrian_auth_state') === 'unlocked';
+
+      // Check URL query parameters (?pwd=migenalika or ?pass=migenalika)
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryPwd = urlParams.get('pwd') || urlParams.get('pass') ||
+                       urlParams.get('password') || urlParams.get('p');
+      if (queryPwd && (queryPwd.trim().toLowerCase() === VALID_PASSWORD ||
+                       queryPwd.trim().toLowerCase() === 'migena' ||
+                       queryPwd.trim().toLowerCase() === 'illyrian')) {
+        sessionStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
+        localStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
+        revealDocumentation();
+      } else if (isUnlocked) {
+        revealDocumentation();
+      }
+
+      // Password form submission handler
+      window.handleAuth = function(event) {
+        event.preventDefault();
+        const enteredPassword = passwordInput.value.trim().toLowerCase();
+
+        if (enteredPassword === VALID_PASSWORD ||
+            enteredPassword === 'migena' ||
+            enteredPassword === 'illyrian') {
+          sessionStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
+          localStorage.setItem(AUTH_STORAGE_KEY, 'unlocked');
+          if (authError) authError.style.display = 'none';
+          revealDocumentation();
+        } else {
+          if (authError) {
+            authError.style.display = 'block';
+          }
+          passwordInput.focus();
+          passwordInput.select();
+        }
+      };
+
+      // Set visual save status indicator
+      function updateSaveStatus(isSaved, timestampText) {
+        const text = isSaved
+          ? 'All changes saved locally' + (timestampText ? ' (' + timestampText + ')' : '')
+          : 'Saving changes...';
+
+        if (saveText) saveText.textContent = text;
+        if (saveTextBottom) saveTextBottom.textContent = text;
+
+        if (saveDot) {
+          saveDot.className = isSaved ? 'status-dot' : 'status-dot dirty';
+        }
+        if (saveDotBottom) {
+          saveDotBottom.className = isSaved ? 'status-dot' : 'status-dot dirty';
+        }
+      }
+
+      // Load all saved responses from localStorage
+      function loadSavedResponses() {
+        try {
+          const raw = localStorage.getItem(DATA_STORAGE_KEY) ||
+                      localStorage.getItem('itoldyouso_illyrian_intake_responses');
+          if (!raw) return;
+          const data = JSON.parse(raw);
+          questionIds.forEach(function(qid) {
+            const textarea = document.getElementById(qid);
+            if (textarea && data[qid] !== undefined && data[qid].trim().length > 0) {
+              textarea.value = data[qid];
+              updateCounts(qid);
+            }
+          });
+          if (data._updatedAt) {
+            updateSaveStatus(true, data._updatedAt);
+          }
+        } catch (err) {
+          console.error('Failed to parse saved intake responses:', err);
+        }
+      }
+
+      // Save all current responses into localStorage
+      function persistData() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        const data = {
+          _updatedAt: timeString
+        };
+
+        questionIds.forEach(function(qid) {
+          const textarea = document.getElementById(qid);
+          if (textarea) {
+            data[qid] = textarea.value;
+          }
+        });
+
+        try {
+          localStorage.setItem(DATA_STORAGE_KEY, JSON.stringify(data));
+          updateSaveStatus(true, timeString);
+          questionIds.forEach(function(qid) {
+            const savedSpan = document.getElementById(qid + '-saved-time');
+            if (savedSpan) {
+              savedSpan.textContent = 'Saved at ' + timeString;
+            }
+          });
+        } catch (err) {
+          console.error('Could not save to localStorage:', err);
+        }
+      }
+
+      // Update character counter and individual field status
+      function updateCounts(qid) {
+        const textarea = document.getElementById(qid);
+        const countSpan = document.getElementById(qid + '-count');
+        if (textarea && countSpan) {
+          const len = textarea.value.length;
+          countSpan.textContent = len + (len === 1 ? ' character' : ' characters');
+        }
+      }
+
+      // Debounce timer for auto-save
+      let autoSaveTimer = null;
+      window.handleFieldChange = function(qid) {
+        updateCounts(qid);
+        updateSaveStatus(false);
+        if (autoSaveTimer) clearTimeout(autoSaveTimer);
+        autoSaveTimer = setTimeout(function() {
+          persistData();
+        }, 600);
+      };
+
+      // Manual save trigger
+      window.forceSave = function() {
+        if (autoSaveTimer) clearTimeout(autoSaveTimer);
+        persistData();
+      };
+
+      // Append pre-defined suggestion chip into a textarea
+      window.appendChip = function(qid, chipText) {
+        const textarea = document.getElementById(qid);
+        if (!textarea) return;
+
+        const currentVal = textarea.value.trim();
+        if (currentVal.length === 0) {
+          textarea.value = chipText;
+        } else if (!currentVal.includes(chipText)) {
+          textarea.value = currentVal + '; ' + chipText;
+        }
+        textarea.focus();
+        window.handleFieldChange(qid);
+      };
+
+      // Export all answers formatted into clipboard
+      window.exportResponses = function() {
+        persistData();
+        const questionLabels = {
+          q1: '1. Hardware Model & Operating System',
+          q2: '2. POS Software & Cafe Ordering Workflow',
+          q3: '3. Card Reader & Merchant Terminal',
+          q4: '4. Peripherals & Kitchen/Barista Printers',
+          q5: '5. Cafe Internet Connectivity',
+          q6: '6. Cafe Menu, Modifiers & Staff Logins',
+          q7: '7. Target Launch Date & Peak Priorities'
+        };
+
+        let summary = '==================================================\n' +
+                      'SUMUP POS LITE TILL INTAKE (MIGENA LIKA & EGZON QUILIA)\n' +
+                      '345 Green Lanes, London N13 4JG - IToldYouSo Computing\n' +
+                      '==================================================\n\n';
+
+        questionIds.forEach(function(qid) {
+          const textarea = document.getElementById(qid);
+          const val = textarea ? textarea.value.trim() : '';
+          summary += questionLabels[qid] + '\n';
+          summary += (val.length > 0 ? val : '[No response recorded yet]') + '\n\n';
+        });
+
+        summary += 'Timestamp: ' + new Date().toLocaleString('en-GB') + '\n';
+        summary += 'Consultant: Neville Bryce (020 4520 9114 | contactus@itoldyouso.tech)\n';
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(summary).then(function() {
+            alert('Questionnaire responses copied to clipboard successfully!');
+          }).catch(function() {
+            prompt('Copy your questionnaire summary below:', summary);
+          });
+        } else {
+          prompt('Copy your questionnaire summary below:', summary);
+        }
+      };
+
+      // Clear all form responses with safety confirmation
+      window.clearFormConfirm = function() {
+        const confirmed = confirm(
+          'Are you sure you want to clear all entered responses? ' +
+          'This will remove all text from your local browser storage.'
+        );
+        if (!confirmed) return;
+
+        questionIds.forEach(function(qid) {
+          const textarea = document.getElementById(qid);
+          if (textarea) {
+            textarea.value = '';
+            updateCounts(qid);
+            const savedSpan = document.getElementById(qid + '-saved-time');
+            if (savedSpan) savedSpan.textContent = 'Not yet modified';
+          }
+        });
+
+        localStorage.removeItem(DATA_STORAGE_KEY);
+        updateSaveStatus(true, 'Cleared');
+      };
+
+      // Terms Acceptance state management
+      const TERMS_DAY_STORAGE_KEY = 'itoldyouso_migena_terms_day';
+
+      function checkTermsState() {
+        const termsDate = localStorage.getItem(TERMS_STORAGE_KEY) ||
+                          localStorage.getItem('itoldyouso_illyrian_terms_state');
+        const termsDay = localStorage.getItem(TERMS_DAY_STORAGE_KEY) || '';
+        if (termsDate) {
+          showTermsAccepted(termsDate, termsDay);
+        }
+      }
+
+      function buildContractEmailText(dateStr, selectedDay) {
+        const dayText = selectedDay || 'Wednesday 18th or Thursday 19th November 2026';
+        return [
+          'Hi Neville,',
+          '',
+          'I have reviewed and accepted the £450 package terms, service contract, and pricing for the SumUp 13" Touchscreen Register & Solo Card Reader setup at 345 Green Lanes, London N13 4JG, and I agree to provide all of the details in the Action Required section ahead of the installation date.',
+          '',
+          '==================================================',
+          'BOOKING & ACCEPTANCE SUMMARY',
+          '==================================================',
+          'Client: Migena Lika (Primary Contact) & Egzon Quilia',
+          'Premises: 345 Green Lanes, London N13 4JG',
+          'Preferred Installation Date: ' + dayText,
+          'Target Cafe Opening Date: Sunday 22nd November 2026',
+          'Agreed Package Fee: £450 flat fee (Complete Cafe Suite)',
+          'Acceptance Recorded: ' + (dateStr || new Date().toLocaleString('en-GB')),
+          '',
+          '==================================================',
+          '1. AGREEMENT PARTIES & CORE COMMITMENT',
+          '==================================================',
+          'Service Provider: IToldYouSo Computing — Neville Bryce, Senior Software Engineer (Director), Corringham Court, Corringham Road, London NW11 7BY',
+          'Client: Migena Lika (Primary Contact) & Egzon Quilia — 345 Green Lanes, London N13 4JG',
+          'ASAP before Target Launch Date: Sunday 22nd November 2026 (Rapid turnaround deployment)',
+          '',
+          'Core Commitment:',
+          '- Register & Card Reader Setup: Configure your SumUp 13-inch Full HD countertop touchscreen register and companion SumUp Solo handheld card reader.',
+          '- Dual-Printer & Cash Drawer Integration: Pair your front-of-house checkout printer and kitchen order ticket printer, and verify cash drawer solenoid compatibility.',
+          '- Complete Menu, Modifiers & Gratuity Programming: Programme your full item catalogue (10–20 brunch items, 10–20 lunch items, London cafe coffees with modifiers, soft drinks, beers, and wine), including customer gratuity/tipping prompts, eat-in vs takeaway tags, and receipt branding.',
+          '- Staff Accounts & Sales Attribution: Set up 4 individual staff PIN accounts with separate sales tracking.',
+          '- Manager Handover Training (Single Session): Provide unhurried 1-on-1 handover training in 1 single session for the manager (who will then train the rest of the staff) so the team feels 100% confident taking card and cash payments during morning coffee and lunchtime rushes.',
+          '- Post-Installation Website Documentation: Release custom operational documentation on this website upon completion — factoring in findings from the installation and requests from the owner — free for you to view, print, or download for later reproduction.',
+          '',
+          '==================================================',
+          'ACTION REQUIRED AHEAD OF ON-SITE INSTALLATION DAY',
+          '==================================================',
+          '1. Official SumUp Cash Drawer (Please Order Ahead of the Job): Purchase the official SumUp Cash Drawer (330A) directly from SumUp for £69.00 (£82.80 incl. VAT) ahead of the installation day so it is on-site for the single visit (https://store.sumup.com/en-GB/website/product-selection/accessory.cash_drawer_330A?prc=GBBF112026-s-GBBF112026-s-GBBF112026-s-GBBF112026-s-GBBF112026S-s-GBBF112026-s-GBBF112026).',
+          '2. Mandatory Device & Printer Model Details Required (As Soon As Possible): Clarify exact details of all devices — including exact model numbers and full printer specifications for both the checkout printer and the kitchen printer — as soon as possible so detailed technical planning can be carried out and in case any specialist cables or devices are required. Mandatory prior to installation day.',
+          '3. Detailed Cafe Layout Plan for Cabling: Provide a detailed plan of the layout of the cafe (showing the front checkout counter, kitchen printer position, broadband router location, and nearby power sockets) ahead of the visit so that any additional required cabling can be planned for.',
+          '4. Written Menu & Price List Sent Before Arrival: Send the full list of menu items and prices (10–20 brunch items, 10–20 lunch items, coffees, modifiers, soft drinks, beers, and wine, plus the 4 staff names for PIN logins) in writing before arrival on-site.',
+          '5. SumUp Account Details & Thermal Paper Rolls Ready to Go: Ensure SumUp merchant login details (username, password, and account holder mobile phone for verification codes) are ready to go upon arrival, and that thermal paper rolls are on-site for both printers.',
+          '',
+          '==================================================',
+          '2. PRE-FLIGHT CHECKS & 3. DAY OF INSTALLATION PROTOCOL',
+          '==================================================',
+          '- Check 5GHz Wi-Fi SSID signal strength and routing to separate cafe till traffic and card readers from customer guest devices.',
+          '- Unpack and mount hardware on counter / service area with tidy, concealed cable management away from liquids.',
+          '- Connect the till to the dedicated cafe broadband connection.',
+          '- Pair SumUp Solo handheld card reader with the 13-inch countertop register.',
+          '- Configure food and drink menu, categories (10–20 brunch items, 10–20 lunch items, artisan coffee, teas, soft drinks, beers, and wine), item modifiers (oat milk, almond milk, soya milk, extra shot, decaf, syrups), customer gratuity/tipping prompts, receipt header/footer details, and eat-in vs takeaway tax tags.',
+          '- Configure 4 individual staff PIN accounts with separate sales attribution and shift reporting.',
+          '- Run end-to-end test transactions: card tap, phone pay, chip and PIN, cash change, split bills, and refunds.',
+          '',
+          '==================================================',
+          '4. MANAGER HANDOVER TRAINING SYLLABUS (SINGLE SESSION)',
+          '==================================================',
+          '- Morning Opening Routine, Ringing Up Food & Drinks, Card Payments & Gratuity, Cash Handling, Split Bills & Custom Orders, Evening Close-Out (Z-Reports), and Post-Installation Website Documentation & Cheat Sheet.',
+          '',
+          '==================================================',
+          '5. PRICING, DISCLAIMERS & SERVICE TERMS',
+          '==================================================',
+          '- Package Price: £450 flat fee (Complete Cafe Suite — Turnkey Cafe EPOS Deployment).',
+          '- Baseline Technical Rate: £50 per hour.',
+          '- Allocated Package Scope & Duration: The fixed £450 onboarding fee includes substantial off-site planning, technical research, and preparation ahead of the visit to ensure that installation goes smoothly on the day, plus up to 5.5 hours of dedicated on-site setup and training time, post-installation documentation, and all North London travel (Palmers Green N13).',
+          '- Minimum Billing & Full 5.5-Hour Window Policy: If the engineer finishes the primary installation before 5.5 hours, the £450 fee is still fully payable as a fixed minimum; however, the full 5.5-hour window will be filled on-site by providing information about, setting up, or working on any related services for the client.',
+          '- Extended Duration Policy: Any additional time beyond the allocated 5.5-hour on-site package duration is charged at £50 per hour (billed pro-rata in 30-minute increments of £25), agreed verbally on-site prior to proceeding.',
+          '- On-Site Familiarisation & Exploratory Work: Some of this work is exploratory on the engineer\'s behalf as the engineer does not possess the equipment personally and will need to familiarise himself with the specific details of the system on-site; however, as a competent and mature engineer, he will work as fast as possible.',
+          '- Software-Defined Device Disclaimer & Follow-Up Visits: As these are software-defined devices, their behaviour can change over time. We do not accept liability for any teething issues after the initial handover. Any follow-up visits will be charged at the regular rate (£50/hour, 1-hour minimum) plus a £35 London call-out charge.',
+          '- Mandatory Pre-Installation Details ("Action Required" Section): The client agrees to provide all information and complete all items listed in the Action Required Ahead of On-Site Installation Day section ahead of the installation date.',
+          '- Settlement Terms: Payment is due immediately upon completion of on-site delivery and handover via direct on-site card payment or instant electronic bank transfer (BACS).',
+          '',
+          'Signed & Accepted by: Migena Lika & Egzon Quilia (345 Green Lanes, London N13 4JG)'
+        ].join('\n');
+      }
+
+      function showTermsAccepted(dateStr, selectedDay) {
+        const form = document.getElementById('terms-form');
+        const confirmedBox = document.getElementById('terms-confirmed-box');
+        const acceptedDateSpan = document.getElementById('terms-accepted-date');
+        const selectedDaySpan = document.getElementById('terms-selected-day');
+        const emailBtn = document.getElementById('terms-email-btn');
+        if (form) form.style.display = 'none';
+        if (confirmedBox) confirmedBox.style.display = 'block';
+        if (acceptedDateSpan) acceptedDateSpan.textContent = dateStr;
+        const dayText = selectedDay || 'Wednesday 18th or Thursday 19th November 2026';
+        if (selectedDaySpan) {
+          selectedDaySpan.textContent = dayText;
+        }
+        if (emailBtn) {
+          const subject = encodeURIComponent(
+            'Accepted Contract & Booking (' + dayText + ') - SumUp Till Setup - Migena (345 Green Lanes)'
+          );
+          const body = encodeURIComponent(buildContractEmailText(dateStr, dayText));
+          emailBtn.href = 'mailto:contactus@itoldyouso.tech?subject=' + subject + '&body=' + body;
+        }
+      }
+
+      window.copyContractToClipboard = function() {
+        const termsDate = localStorage.getItem(TERMS_STORAGE_KEY) || new Date().toLocaleString('en-GB');
+        const termsDay = localStorage.getItem(TERMS_DAY_STORAGE_KEY) || 'Wednesday 18th or Thursday 19th November 2026';
+        const fullText = buildContractEmailText(termsDate, termsDay);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(fullText).then(function() {
+            alert('Full accepted contract copied to clipboard!');
+          }).catch(function() {
+            prompt('Copy the full contract text below:', fullText);
+          });
+        } else {
+          prompt('Copy the full contract text below:', fullText);
+        }
+      };
+
+      window.handleTermsAcceptance = function(event) {
+        event.preventDefault();
+        const checkbox = document.getElementById('terms-agree-checkbox');
+        const dayInput = document.querySelector('input[name="preferred-install-day"]:checked');
+        if (!checkbox || !checkbox.checked || !dayInput) return;
+
+        const selectedDay = dayInput.value;
+        const dateStr = new Date().toLocaleString('en-GB', {
+          dateStyle: 'full',
+          timeStyle: 'short'
+        });
+        localStorage.setItem(TERMS_STORAGE_KEY, dateStr);
+        localStorage.setItem(TERMS_DAY_STORAGE_KEY, selectedDay);
+        showTermsAccepted(dateStr, selectedDay);
+
+        const emailBtn = document.getElementById('terms-email-btn');
+        if (emailBtn && emailBtn.href) {
+          window.location.href = emailBtn.href;
+        }
+      };
+
+      window.resetTermsSelection = function() {
+        localStorage.removeItem(TERMS_STORAGE_KEY);
+        localStorage.removeItem(TERMS_DAY_STORAGE_KEY);
+        const form = document.getElementById('terms-form');
+        const confirmedBox = document.getElementById('terms-confirmed-box');
+        if (form) form.style.display = 'block';
+        if (confirmedBox) confirmedBox.style.display = 'none';
+      };
+
+    })();
+  </script>
+  <script>
+    (function() {
+      // Step 1: every card on the page, in both groups ("every day" and
+      // "when it goes wrong"). An empty list means this script has
+      // nothing to do, so it stops before touching the document.
+      const cards = document.querySelectorAll('.flash-card');
+      if (!cards.length) return;
+
+      // Step 2: hand control to the stylesheet's flip rules. Until this
+      // class exists, both faces stay in normal flow and the steps are
+      // readable without any interaction at all.
+      document.body.classList.add('flash-enabled');
+
+      // Step 3: wire each card. The listener toggles the flip class and
+      // mirrors it into aria-pressed, so the accessible name of the
+      // button keeps matching what the visitor can see.
+      Array.prototype.forEach.call(cards, function(card) {
+        card.addEventListener('click', function() {
+          const flipped = card.classList.toggle('is-flipped');
+          card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
