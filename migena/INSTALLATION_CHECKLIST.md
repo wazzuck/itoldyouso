@@ -68,7 +68,12 @@ arrival.
       (photograph ending 639) shows "EGGI'S", the line "COFFEE ·
       BRUNCH · PRIVATE EVENTS", the Instagram handle @eggis.london
       and the telephone number 020 8882 88 55, and the receipt
-      carries the same landline (confirmed 19 November 2026). Still
+      carries the same landline (confirmed 19 November 2026). The
+      slogan is "Coffee, Brunch, Private Event" (confirmed 19
+      November 2026), although the menu cover prints it as "PRIVATE
+      EVENTS" in the plural — confirm which form goes on the
+      receipts, the portal and the Uber Eats listing, and have the
+      menu artwork corrected if the singular is right. Still
       needed: the registered or legal name for the SumUp profile,
       the VAT number (or confirmation that the business is not VAT
       registered), a logo of at least 128 by 128 pixels, the receipt
@@ -166,6 +171,7 @@ arrival.
 | Area | Palmers Green, North London (satnav postcode: N13 4JG) |
 | Client | Migena Lika (primary contact) and Egzon Qelia |
 | Trading name | **EGGI'S** (was Greens Kitchen, renamed 19 Nov 2026) |
+| Slogan | Coffee, Brunch, Private Event |
 | Target go-live | Sunday 22nd November 2026 |
 | On-site window | Up to 5.5 hours (fixed £450 package) |
 | Overtime rate | £50 per hour, billed in 30-minute increments of £25 |
