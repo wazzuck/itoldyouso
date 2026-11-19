@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>EGGI'S — Till Feature Reference</title>
+<style>
+  /* A4 page, comfortable margins for printing. */
+  @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+
+  :root {
+    --ink: #1b1b1b;
+    --muted: #5a5a5a;
+    --line: #d9d6cc;
+    --paper: #fbfaf6;
+    --accent: #1f5c4a;
+    --warn-bg: #fff4e0;
+    --warn-line: #d9822b;
+    --rule-bg: #eef4f1;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0 auto;
+    max-width: 180mm;
+    padding: 24px 16px 48px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  header.cover {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin: 0 0 6px;
+    color: var(--accent);
+  }
+
+  .lead {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 28px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--line);
+    color: var(--accent);
+  }
+
+  h3 {
+    font-size: 19px;
+    margin: 20px 0 6px;
+  }
+
+  ol, ul {
+    padding-left: 26px;
+  }
+
+  li {
+    margin: 6px 0;
+  }
+
+  /* Each area starts on a fresh A4 page when printed. */
+  section.step {
+    page-break-before: always;
+    break-before: page;
+  }
+  section.step.first {
+    page-break-before: auto;
+    break-before: auto;
+  }
+
+  .box {
+    border-left: 6px solid var(--accent);
+    background: var(--rule-bg);
+    padding: 10px 14px;
+    margin: 14px 0;
+    border-radius: 4px;
+  }
+
+  .warn {
+    border-left-color: var(--warn-line);
+    background: var(--warn-bg);
+  }
+
+  .status {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 1px 8px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    vertical-align: middle;
+  }
+
+  .status.plus, .status.offer { background: #6b5a8c; }
+  .status.web { background: #4a6f8a; }
+  .status.check { background: var(--warn-line); }
+
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 15px;
+    background: #efece2;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+
+  footer {
+    margin-top: 32px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+  }
+
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+      max-width: none;
+      font-size: 14pt;
+      line-height: 1.5;
+    }
+    h2 { font-size: 20pt; }
+    h1 { font-size: 26pt; }
+    h3 { font-size: 16pt; }
+    .box, .warn, .status {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    footer { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <h1>EGGI'S — Till Feature Reference</h1>
+  <p class="lead">What every feature of the till app does, and how far it
+  has been checked on the device.</p>
+</header>
+
+<div class="box">
+  <strong>Print this page on A4.</strong> Each area starts on a new sheet.
+  For step-by-step tasks, use the till procedures sheet instead.
+</div>
+
+<section class="step first">
+  <h2>How to read the status</h2>
+  <ol>
+    <li><span class="status">Seen</span> opened on the device and described from the screen.</li>
+    <li><span class="status offer">Offer only</span> an introduction and a "Get started" button. Not switched on for this account.</li>
+    <li><span class="status plus">Plus</span> a POS Plus feature. Needs the paid plan.</li>
+    <li><span class="status web">Web</span> managed on the SumUp website, not on the till.</li>
+    <li><span class="status check">Not confirmed</span> not opened, or the screen did not finish loading.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>1. Cart and checkout (main till screen)</h2>
+  <ol>
+    <li><strong>Category tabs</strong> — filters the item tiles by category. "All" shows everything. <span class="status">Seen</span></li>
+    <li><strong>Search (magnifier)</strong> — finds an item by name. <span class="status">Seen</span></li>
+    <li><strong>New item (pencil)</strong> — starts a new item from the till. <span class="status check">Not confirmed</span></li>
+    <li><strong>Item tiles</strong> — tap to add the item to the cart. The price is shown on each tile. <span class="status">Seen</span></li>
+    <li><strong>Cart header</strong> — shows the order code, for example E-003, and the timing label. <span class="status">Seen</span></li>
+    <li><strong>Cart lines</strong> — one line per item, with quantity and price. <span class="status">Seen</span></li>
+    <li><strong>Add course</strong> — creates a course, so items can be sent to the kitchen in stages. <span class="status plus">Plus</span></li>
+    <li><strong>Park order</strong> — saves the order open and unpaid. <span class="status">Seen</span></li>
+    <li><strong>Card</strong> — opens the payment methods screen. <span class="status">Seen</span></li>
+    <li><strong>Chevron beside Card</strong> — opens the split and all-payment menu. <span class="status">Seen</span></li>
+    <li><strong>Three dots menu</strong> — manual price entry, add discount, add order note, clear cart. <span class="status">Seen</span></li>
+    <li><strong>Add order note</strong> — free text for the kitchen, up to 300 characters. <span class="status">Seen</span></li>
+    <li><strong>Clear cart</strong> — empties the cart. Only for a cart not yet sent. <span class="status">Seen</span></li>
+    <li><strong>Manual price entry</strong> — types in a price that is not on the menu. <span class="status">Seen (menu)</span></li>
+    <li><strong>Add discount</strong> — applies a discount to the cart. <span class="status">Seen (menu)</span></li>
+    <li><strong>Split</strong> — splits the bill between payments. <span class="status">Seen (menu)</span></li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>2. Payment methods</h2>
+  <ol>
+    <li><strong>Tap to Pay</strong> — takes a contactless card or phone on the device's own NFC chip. <span class="status check">Not available on this device</span> (see section 13).</li>
+    <li><strong>Card Reader</strong> — sends the amount to the Solo card machine. <span class="status">Seen</span></li>
+    <li><strong>Payment Links</strong> — creates a link or QR code the customer pays online. <span class="status">Seen</span></li>
+  </ol>
+  <div class="box">Cash is not a payment method on this screen. Cash is
+  counted into the till tray (see the till procedures, section 8.4).</div>
+</section>
+
+<section class="step">
+  <h2>3. Open orders (bell icon)</h2>
+  <ol>
+    <li><strong>Open order list</strong> — every parked order, with its code, time and items. <span class="status">Seen</span></li>
+    <li><strong>Search</strong> — finds an open order by code, item or amount. <span class="status">Seen</span></li>
+    <li><strong>New order</strong> — starts a new order. <span class="status">Seen</span></li>
+    <li><strong>Use courses banner</strong> — explains courses and links to POS Plus. <span class="status plus">Plus</span></li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>4. Sales (receipt icon)</h2>
+  <ol>
+    <li><strong>Today's sales total</strong> — the total for the day, with a link to the detail. <span class="status">Seen</span></li>
+    <li><strong>Sales list by date</strong> — each sale with its items, time and result. <span class="status">Seen</span></li>
+    <li><strong>Search and filter</strong> — finds a sale; filters by date or result. <span class="status">Seen (search)</span></li>
+    <li><strong>Sale detail</strong> — the items, the VAT and the payment. <span class="status">Seen</span></li>
+    <li><strong>Receipt button</strong> — reprints the customer receipt. <span class="status">Seen</span></li>
+    <li><strong>Payment line</strong> — the card reference, time and result. <span class="status">Seen</span></li>
+  </ol>
+  <div class="box warn">A sale that did not complete shows "Unsuccessful"
+  in red.</div>
+</section>
+
+<section class="step">
+  <h2>5. Reporting (chart icon)</h2>
+  <ol>
+    <li><strong>Periods</strong> — Today, Yesterday, This week, This month, Custom. <span class="status">Seen</span></li>
+    <li><strong>Sales total and count</strong> — the total and the number of sales. <span class="status">Seen</span></li>
+    <li><strong>Items</strong> — number of items sold in the period. <span class="status">Seen</span></li>
+    <li><strong>Average sale</strong> — total divided by the number of sales. <span class="status">Seen</span></li>
+    <li><strong>Refunds</strong> — money refunded in the period. <span class="status">Seen</span></li>
+    <li><strong>Discounts</strong> — money taken off by discounts. <span class="status">Seen</span></li>
+    <li><strong>Best-selling items</strong> — the items sold most. <span class="status">Seen</span></li>
+    <li><strong>Busiest period</strong> — sales by hour, and the busiest time. <span class="status">Seen</span></li>
+    <li><strong>Payment methods</strong> — how customers paid. <span class="status">Seen</span></li>
+    <li><strong>Insights, Revenue, Payouts, Fee invoice, Payments</strong> — detailed tabs. <span class="status">Seen (names)</span></li>
+    <li><strong>Go there now</strong> — opens the full reports on the website. <span class="status web">Web</span></li>
+  </ol>
+  <div class="box">The figures show zero until a successful sale is made.</div>
+</section>
+
+<section class="step">
+  <h2>6. Items (price-tag icon)</h2>
+  <ol>
+    <li><strong>Library</strong> — the full list of items with their prices. Search, sort and filter. <span class="status">Seen</span></li>
+    <li><strong>Add item</strong> — creates a new item. <span class="status">Seen (button)</span></li>
+    <li><strong>Categories</strong> — the till categories and how many items each holds. <span class="status">Seen</span></li>
+    <li><strong>Inventory</strong> — stock tracking. Filter by low stock, sold out and tracked. <span class="status">Seen</span></li>
+    <li><strong>Modifiers</strong> — modifier sets and their choices, such as milk or bread. <span class="status">Seen</span></li>
+    <li><strong>Option sets</strong> — variations such as size or colour. <span class="status">Seen</span></li>
+    <li><strong>Deposits</strong> — container deposits, for example bottles. <span class="status plus">Plus</span></li>
+    <li><strong>Discounts</strong> — named discounts. The shop has 10%, 20% and 50%. <span class="status plus">Plus</span></li>
+    <li><strong>Create modifier set, option set or discount</strong> — creates a new group. <span class="status">Seen (buttons)</span></li>
+  </ol>
+  <div class="box warn"><strong>Clean-up needed:</strong> the modifier list
+  still holds "(Example) Toppings", and the option sets still hold the
+  sample "Color" and "Size" sets. The checklist already asks for the
+  toppings set to be deleted.</div>
+</section>
+
+<section class="step">
+  <h2>7. Tools (grid icon)</h2>
+  <p>The Tools screen is a menu. Each entry opens its own feature.</p>
+  <ol>
+    <li><strong>Items</strong> — opens section 6. <span class="status">Seen</span></li>
+    <li><strong>Employees</strong> — staff accounts and their roles. <span class="status">Seen</span> (section 8)</li>
+    <li><strong>Customers</strong> — customer list for invoices and loyalty. <span class="status">Seen</span> (section 9)</li>
+    <li><strong>Reporting</strong> — opens section 5. <span class="status">Seen</span></li>
+    <li><strong>Online Store</strong> — builds a free online shop (Webspace). <span class="status offer">Offer only</span></li>
+    <li><strong>Bookings</strong> — appointment booking. <span class="status offer">Offer only</span></li>
+    <li><strong>Loyalty</strong> — reward programmes. <span class="status check">Not confirmed</span> (did not finish loading)</li>
+    <li><strong>Gift Cards</strong> — sells and redeems gift cards. <span class="status check">Not confirmed</span></li>
+    <li><strong>Card readers</strong> — pairs and buys card machines. <span class="status check">Not confirmed</span></li>
+    <li><strong>Tap to Pay</strong> — settings for contactless on the device. <span class="status">Seen</span> (section 13)</li>
+    <li><strong>Payment links</strong> — creates customer payment links. <span class="status">Seen</span> (section 2)</li>
+    <li><strong>Cash Advance</strong> — loans repaid from sales. <span class="status offer">Offer only</span> The eligibility rules are shown: complete identity checks, take card payments for at least three months, and use the SumUp Business Account and card. Meeting them does not guarantee an offer.</li>
+    <li><strong>Invoices</strong> — creates and sends invoices. <span class="status check">Not confirmed</span></li>
+    <li><strong>Expenses</strong> — tracks spending and exports it for tax. <span class="status offer">Offer only</span></li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>8. Employees</h2>
+  <ol>
+    <li><strong>Members</strong> — lists everyone who can log in, with role and status. <span class="status">Seen</span></li>
+    <li><strong>Search, Role and Status filters</strong> — finds a member. <span class="status">Seen</span></li>
+    <li><strong>Add team member</strong> — invites a person by e-mail. <span class="status">Seen (button)</span></li>
+    <li><strong>Roles</strong> — the permission sets a member can have. <span class="status">Seen (tab)</span></li>
+    <li><strong>Edit team member</strong> — changes a member's role. <span class="status">Seen (panel)</span></li>
+  </ol>
+  <div class="box">On 19 November 2026 the only member is the account owner,
+  as Administrator. The six staff e-mail addresses are still needed (see the
+  checklist). Each staff member needs their own address to be invited.</div>
+</section>
+
+<section class="step">
+  <h2>9. Customers</h2>
+  <ol>
+    <li><strong>Customer list</strong> — names and contact details of customers. <span class="status">Seen (empty)</span></li>
+    <li><strong>Add customer</strong> — adds a customer by hand. <span class="status">Seen (button)</span></li>
+    <li><strong>Invoice customers note</strong> — invoice customers are kept in the Invoices directory, not on this list. <span class="status">Seen</span></li>
+  </ol>
+  <div class="box">The list is empty. Customers are added by hand, or created
+  from invoices.</div>
+</section>
+
+<section class="step">
+  <h2>10. Profile (person icon, bottom left)</h2>
+  <ol>
+    <li><strong>Account name and merchant code</strong> — shows MW82CKEA. <span class="status">Seen</span></li>
+    <li><strong>24/7 priority support</strong> — opens support. <span class="status">Seen</span></li>
+    <li><strong>Inbox</strong> — messages from SumUp, with an unread count. <span class="status">Seen</span></li>
+    <li><strong>Login and security</strong> — password and two-factor authentication. <span class="status">Seen (name)</span></li>
+    <li><strong>Payouts</strong> — money sent to the bank account. <span class="status">Seen</span></li>
+    <li><strong>Payout settings</strong> — which bank account receives payouts. <span class="status">Seen (name)</span></li>
+    <li><strong>Tap to Pay</strong> — see section 13. <span class="status">Seen</span></li>
+    <li><strong>Card Reader</strong> — card machine settings. <span class="status">Seen (name)</span></li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>11. Settings and business profile (web)</h2>
+  <p>These are on the website, not the till.</p>
+  <ol>
+    <li><strong>Business information</strong> — registered name, trade name, address. <span class="status web">Web</span></li>
+    <li><strong>Business profile</strong> — name on SumUp listings, statement descriptor and phone. <span class="status web">Web</span></li>
+    <li><strong>VAT</strong> — VAT rates charged. <span class="status web">Web</span></li>
+    <li><strong>Plans and fees</strong> — the current plan and its fees. <span class="status web">Web</span></li>
+    <li><strong>Employees</strong> — staff profiles (also on the till). <span class="status web">Web</span></li>
+  </ol>
+  <div class="box warn">The registered name still reads "Greens Kitchen".
+  Only SumUp Support can change it (checklist, section 8.5).</div>
+</section>
+
+<section class="step">
+  <h2>12. Printing and kitchen (checklist)</h2>
+  <p>The printing and order-sending settings are per device and are not in
+  the till's menu. They are covered by checklist Rules U3 and U4:</p>
+  <ol>
+    <li>The "Till" printer prints POS Lite receipts.</li>
+    <li>The Solo's counter printer prints standalone card receipts.</li>
+    <li>The Terminal prints order tickets only where "Print order tickets" is on.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>13. Known limits on this device</h2>
+  <ol>
+    <li><strong>Tap to Pay: not available.</strong> The device reports "NFC not available", so contactless payment on this device will not work. Use the Solo.</li>
+    <li><strong>Card readers</strong> and <strong>Loyalty</strong> did not finish loading during this check, so they are not confirmed.</li>
+    <li><strong>Refunds</strong> and <strong>split bills</strong> have not been used on a real sale.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>14. Not yet checked</h2>
+  <ol>
+    <li>Gift Cards and Invoices (did not load in this check).</li>
+    <li>Loyalty (did not load).</li>
+    <li>Items: creating and editing an item; deleting a category.</li>
+    <li>Courses, the Z-report and the kitchen send button.</li>
+  </ol>
+  <div class="box warn">These need a manager's test sale or a run-through
+  before this reference can be called complete.</div>
+</section>
+
+<footer>
+  EGGI'S — Till Feature Reference. Compiled from the SumUp POS app on the
+  shop's Android device on 19 November 2026. Where a screen did not load or
+  was not opened, the status says so rather than guessing.
+</footer>
+
+</body>
+</html>
