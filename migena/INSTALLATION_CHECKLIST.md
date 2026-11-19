@@ -23,7 +23,8 @@ until 25 November 2026, and order sync, ticket printing and parked
 orders have been tested on the live devices.
 
 **Open:** the drawer-capable printer (the client is ordering it),
-six staff e-mail addresses, receipt branding details, the annual
+six staff e-mail addresses, the remaining branding details (the
+trading name EGGI'S and the landline are confirmed), the annual
 versus monthly POS Plus question, the empty "19 Drink Extras"
 category, and the wine and spirits tile names.
 
@@ -63,6 +64,23 @@ arrival.
       catalogue (Section 8.4). Confirm that this menu is the one
       going live, and ask whether the wine, spirits and beer pages
       are being served from opening day.
+- [ ] Rename to EGGI'S and receipt branding: the menu cover
+      (photograph ending 639) shows "EGGI'S", the line "COFFEE ·
+      BRUNCH · PRIVATE EVENTS", the Instagram handle @eggis.london
+      and the telephone number 020 8882 88 55, and the receipt
+      carries the same landline (confirmed 19 November 2026). Still
+      needed: the registered or legal name for the SumUp profile,
+      the VAT number (or confirmation that the business is not VAT
+      registered), a logo of at least 128 by 128 pixels, the receipt
+      footer wording, the card statement descriptor, and agreement
+      to rename the SumUp business profile from "Greens Kitchen" to
+      "EGGI'S". Change the portal copy, the Uber Eats store name and
+      the Google Business Profile on the same day, so no customer
+      meets two names.
+- [ ] The staff role is called "Green's Ambassador", after the old
+      brand. Confirm that it becomes "Eggi's Ambassador", and rename
+      it before the staff are briefed, so the till does not
+      contradict the signage.
 - [ ] Staff for PIN logins: six names received on 18 November
       2026 — Egi, Zina, Laura, Yian, Luan and Yusuf — to carry the
       "Green's Ambassador" role created in the account. SumUp adds
@@ -147,6 +165,7 @@ arrival.
 | Destination | **345 Green Lanes, London N13 4JG** |
 | Area | Palmers Green, North London (satnav postcode: N13 4JG) |
 | Client | Migena Lika (primary contact) and Egzon Qelia |
+| Trading name | **EGGI'S** (was Greens Kitchen, renamed 19 Nov 2026) |
 | Target go-live | Sunday 22nd November 2026 |
 | On-site window | Up to 5.5 hours (fixed £450 package) |
 | Overtime rate | £50 per hour, billed in 30-minute increments of £25 |
@@ -942,9 +961,9 @@ in a walkway.
 7. [ ] Verify the Value Added Tax (VAT) treatment of every category:
        standard 20% for hot food and drink, and zero-rating only
        where cold takeaway food genuinely qualifies.
-8. [ ] Check the receipt branding on a printed test: cafe name,
-       345 Green Lanes address, telephone number, VAT number, logo
-       and footer message, including the pound sign.
+8. [ ] Check the receipt branding on a printed test: "EGGI'S",
+       345 Green Lanes address, telephone 020 8882 88 55, VAT
+       number, logo and footer message, including the pound sign.
 9. [ ] Create or confirm the staff profiles with individual PIN
        codes, roles and sales attribution. Six names were received
        on 18 November 2026 — Egi, Zina, Laura, Yian, Luan and
