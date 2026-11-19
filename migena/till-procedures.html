@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>EGGI'S — Till Procedures (front of house)</title>
+<style>
+  /* A4 page, comfortable margins for printing. */
+  @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+
+  :root {
+    --ink: #1b1b1b;
+    --muted: #5a5a5a;
+    --line: #d9d6cc;
+    --paper: #fbfaf6;
+    --accent: #1f5c4a;
+    --warn-bg: #fff4e0;
+    --warn-line: #d9822b;
+    --rule-bg: #eef4f1;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0 auto;
+    max-width: 180mm;
+    padding: 24px 16px 48px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  header.cover {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin: 0 0 6px;
+    color: var(--accent);
+  }
+
+  .lead {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 28px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--line);
+    color: var(--accent);
+  }
+
+  h3 {
+    font-size: 19px;
+    margin: 20px 0 6px;
+  }
+
+  ol, ul {
+    padding-left: 26px;
+  }
+
+  li {
+    margin: 6px 0;
+  }
+
+  /* Each numbered section starts on a fresh A4 page when printed. */
+  section.step {
+    page-break-before: always;
+    break-before: page;
+  }
+  section.step.first {
+    page-break-before: auto;
+    break-before: auto;
+  }
+
+  .box {
+    border-left: 6px solid var(--accent);
+    background: var(--rule-bg);
+    padding: 10px 14px;
+    margin: 14px 0;
+    border-radius: 4px;
+  }
+
+  .warn {
+    border-left-color: var(--warn-line);
+    background: var(--warn-bg);
+  }
+
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 15px;
+    background: #efece2;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 1px 8px;
+    border-radius: 10px;
+    background: var(--warn-line);
+    color: #fff;
+    vertical-align: middle;
+  }
+
+  footer {
+    margin-top: 32px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+  }
+
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+      max-width: none;
+      font-size: 14pt;
+      line-height: 1.5;
+    }
+    h2 { font-size: 20pt; }
+    h1 { font-size: 26pt; }
+    h3 { font-size: 16pt; }
+    .box, .warn { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    footer { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <h1>EGGI'S — Till Procedures</h1>
+  <p class="lead">How to open the till, take a table order, record allergies,
+  take payment, handle refunds and close the day.</p>
+</header>
+
+<div class="box">
+  <strong>Print this page on A4.</strong> Each numbered section starts on a
+  new sheet, so you can pin the right page at the till.
+</div>
+
+<section class="step first">
+  <h2>Who this is for</h2>
+  <ol>
+    <li>Every member of front-of-house staff.</li>
+    <li>The manager, who also has the refund and close-down steps.</li>
+  </ol>
+
+  <h3>Words you will see on the screen</h3>
+  <ol>
+    <li><strong>POS</strong> — Point of Sale. The till app on the Chromebook.</li>
+    <li><strong>Cart</strong> — the list of items for the table you are serving now.</li>
+    <li><strong>Park order</strong> — save an order to come back to later. Nothing is paid.</li>
+    <li><strong>Order note</strong> — a free-text message for the kitchen, such as an allergy.</li>
+    <li><strong>PIN</strong> — personal identification number, your four-digit login.</li>
+    <li><strong>Solo</strong> — the card machine that takes the customer's payment.</li>
+  </ol>
+
+  <h3>Before you start</h3>
+  <ol>
+    <li>The Chromebook is on and the POS app is open.</li>
+    <li>The card machine (Solo) shows a green or charged screen.</li>
+    <li>Your PIN is known to you only. Never share it.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>1. Opening the till <small>(first person in, about 10 minutes)</small></h2>
+  <ol>
+    <li>Switch on the Chromebook and open the <strong>POS</strong> app.</li>
+    <li>Log in with your <strong>PIN</strong>.</li>
+    <li>Check the top bar shows the shop name and no warning banner.</li>
+    <li>Check the printer has paper. If not, load a roll (section 13).</li>
+    <li>Count the cash float into the till tray. Write the total on the cash sheet and have a second person check it.</li>
+    <li>Check the kitchen device is showing the open order list.</li>
+  </ol>
+  <div class="box warn"><strong>If a warning banner appears:</strong> note its words, then go to section 14.</div>
+</section>
+
+<section class="step">
+  <h2>2. Logging in and out</h2>
+  <ol>
+    <li>Tap your name or the login prompt.</li>
+    <li>Enter your PIN.</li>
+    <li>When your shift ends, log out. The account icon (bottom left) is where to look; the exact <strong>Log out</strong> label is not yet confirmed (section 15).</li>
+  </ol>
+  <div class="box warn"><strong>Never</strong> leave the till logged in and unattended.</div>
+</section>
+
+<section class="step">
+  <h2>3. Taking a table order</h2>
+  <ol>
+    <li>Tap <strong>New order</strong> on the <strong>Open orders</strong> screen (the bell icon on the left bar), or tap the cart icon to start a new cart.</li>
+    <li>Choose the menu category along the top, such as <strong>03 Brunch &amp; Beyond</strong>. Tap <strong>All</strong> to see everything.</li>
+    <li>Tap an item to add it to the cart.</li>
+    <li>Check the cart on the right. Each line shows the quantity and price.</li>
+    <li>Repeat for every item the table has ordered.</li>
+    <li>Tap <strong>Park order</strong> if the table is still deciding. The button that sends the order to the kitchen is not yet confirmed (section 15).</li>
+    <li>Confirm the order appears on the kitchen display (section 9).</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>4. Modifiers <small>(choices such as milk or bread)</small></h2>
+  <p>Modifiers are options attached to an item. The till asks for them after you tap the item.</p>
+  <ol>
+    <li>Tap the item.</li>
+    <li>Choices are expected to appear, such as <strong>Milk</strong> (oat, almond, soya, coconut) or <strong>Bread</strong>. The exact prompt is not yet confirmed on the device (section 15); stop and ask the manager if it differs.</li>
+    <li>Tap the customer's choice and confirm it.</li>
+    <li>Check the modifier is written under the item name in the cart.</li>
+  </ol>
+
+  <h3>Common modifier groups in this shop</h3>
+  <ol>
+    <li><strong>Drinks:</strong> milk choice, extra shot, decaf, syrups.</li>
+    <li><strong>Food:</strong> bread, egg style, eggs benedict choice, omelette fillings, pasta type, jacket potato filling.</li>
+  </ol>
+  <div class="box"><strong>If a modifier is missing:</strong> do not guess. Add the item with an order note (section 5) saying what the customer wants.</div>
+</section>
+
+<section class="step">
+  <h2>5. Allergies and special requests</h2>
+  <div class="box warn">
+    <p><strong>Rule 1: every allergy goes in the order note.</strong> A modifier is for choices on the menu; the order note is for anything else, including allergies.</p>
+    <p><strong>Rule 2: say it aloud to the kitchen.</strong> The order note is a written message, so a second check by voice is still needed.</p>
+  </div>
+
+  <h3>How to add an order note</h3>
+  <ol>
+    <li>Tap the three dots at the top right of the cart.</li>
+    <li>Tap <strong>Add order note</strong>.</li>
+    <li>Type the allergy in plain words, for example: <code>NUT ALLERGY — no nuts, no nut oil, check the sauce</code>.</li>
+    <li>Tap <strong>Save</strong>. The note is saved with the order.</li>
+    <li>Send the order (section 15 notes the button is not yet confirmed), then tell the kitchen in person.</li>
+  </ol>
+
+  <div class="box"><strong>What to write:</strong> the allergen, the item it affects, and the customer's table number. Keep it under 300 characters, the limit the till allows.</div>
+  <div class="box warn"><strong>What not to do:</strong> never write only "allergy" with no detail, and never remove the note by accident. If the customer changes their mind, edit the note rather than deleting it.</div>
+</section>
+
+<section class="step">
+  <h2>6. Changing or cancelling items</h2>
+  <ol>
+    <li><strong>Clear the whole cart:</strong> tap the three dots, then <strong>Clear cart</strong>. Use this only for a cart that has not been sent to the kitchen.</li>
+    <li><strong>Change one item:</strong> remove it, then add the correct one.</li>
+    <li><strong>Item already sent to the kitchen:</strong> tell the manager. Do not cancel it on the till without them.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>7. Discounts and manual prices <small>(manager only)</small></h2>
+  <ol>
+    <li>Tap the three dots, then <strong>Add discount</strong>, or <strong>Manual price entry</strong>.</li>
+    <li>Enter the amount or percentage, and the reason.</li>
+    <li>The manager enters their PIN to confirm.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>8. Taking payment</h2>
+  <div class="box"><strong>Rule:</strong> the customer pays after the food is served, unless the manager has agreed otherwise.</div>
+
+  <h3>8.1 Card (Solo)</h3>
+  <ol>
+    <li>Tap <strong>Card</strong> at the bottom right of the cart.</li>
+    <li>Choose <strong>Card Reader</strong>. The payment amount appears on the Solo.</li>
+    <li>Hand the Solo to the customer. They tap, insert or pay with their phone.</li>
+    <li>Wait for the green tick and the printed receipt.</li>
+    <li>Give the customer the receipt.</li>
+  </ol>
+
+  <h3>8.2 Tap to pay (phone)</h3>
+  <ol>
+    <li>Tap <strong>Card</strong>, then <strong>Tap to Pay</strong>.</li>
+    <li>The customer holds their card or phone on the Chromebook or the Solo, as the screen shows.</li>
+  </ol>
+
+  <h3>8.3 Payment link</h3>
+  <ol>
+    <li>Tap <strong>Card</strong>, then <strong>Payment Links</strong>.</li>
+    <li>Show the link or QR code to the customer.</li>
+  </ol>
+
+  <h3>8.4 Cash</h3>
+  <ol>
+    <li>Cash is not taken on the payment screen. Count it into the till tray, then give the change.</li>
+    <li>Record the cash on the cash sheet.</li>
+    <li>Keep the drawer closed when not in use.</li>
+  </ol>
+
+  <h3>8.5 Split bills</h3>
+  <div class="box warn"><span class="tag">Not yet tested</span> Ask the manager before using split bills (section 15).</div>
+</section>
+
+<section class="step">
+  <h2>9. The kitchen</h2>
+  <p>The client has asked that one SumUp Terminal is the kitchen Terminal. It shows the open orders and prints a ticket for each parked order.</p>
+  <ol>
+    <li>Every parked order appears on the kitchen Terminal within seconds.</li>
+    <li>The kitchen Terminal prints one ticket per parked order.</li>
+    <li>Tell the kitchen about every allergy aloud, as well as the order note.</li>
+  </ol>
+  <div class="box warn"><strong>The kitchen display system is not yet decided.</strong> When it is chosen, this section will be replaced.</div>
+</section>
+
+<section class="step">
+  <h2>10. Refunds <small>(manager only)</small></h2>
+  <div class="box warn"><span class="tag">Not yet tested</span> The steps below must be confirmed on a real test sale before use (section 15).</div>
+  <ol>
+    <li>Open <strong>Sales</strong> (receipt icon, left bar).</li>
+    <li>Find the sale and tap it.</li>
+    <li>Tap the refund option, if present.</li>
+    <li>Enter the manager PIN.</li>
+    <li>Print the refund receipt and file it with the day's paperwork.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>11. Reprinting a receipt</h2>
+  <ol>
+    <li>Open <strong>Sales</strong> (receipt icon, left bar).</li>
+    <li>Tap the sale.</li>
+    <li>Tap <strong>Receipt</strong>.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>12. Closing the till <small>(last person, about 20 minutes)</small></h2>
+  <ol>
+    <li>Check there are no open orders on the <strong>Open orders</strong> screen. Pay or clear each one with the manager.</li>
+    <li>Open <strong>Reporting</strong> (chart icon, left bar) and check <strong>Today's sales</strong>.</li>
+    <li>Count the cash in the tray and compare it with the sales total. Write the difference on the cash sheet.</li>
+    <li>Log out, then switch the Chromebook off.</li>
+    <li>Lock the cash in the safe or lockable tray.</li>
+  </ol>
+  <div class="box warn"><span class="tag">Not yet tested</span> The end-of-day Z-report. Ask the manager (section 15).</div>
+</section>
+
+<section class="step">
+  <h2>13. Paper and printer</h2>
+  <ol>
+    <li>Open the printer lid.</li>
+    <li>Drop in a new roll so the paper feeds from the bottom.</li>
+    <li>Close the lid. Check a test receipt prints.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>14. When something goes wrong</h2>
+  <ol>
+    <li><strong>The till freezes:</strong> wait 30 seconds, then close and reopen the POS app. Your open orders are saved.</li>
+    <li><strong>Card declined:</strong> ask the customer to try another card or method. Do not retry more than twice.</li>
+    <li><strong>No internet:</strong> the Solo can still take card payments on its own connection. Tell the manager.</li>
+    <li><strong>Printer will not print:</strong> check the paper and the lid, then tell the manager.</li>
+    <li><strong>Anything else:</strong> call the manager. Do not guess.</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>15. Not yet tested on this till</h2>
+  <div class="box warn">These steps are not confirmed on the live till. Do not use them until the manager has checked them with a real test sale.</div>
+  <ol>
+    <li><strong>Split bills.</strong></li>
+    <li><strong>Refunds</strong>, including the refund receipt. A refund button did not appear on the failed test sales checked on 19 November 2026, so no refund has been seen on the till yet.</li>
+    <li><strong>Courses</strong> (sending items to the kitchen in stages).</li>
+    <li><strong>Z-report</strong> at close-down.</li>
+    <li><strong>Table numbers</strong>, if the shop uses them.</li>
+    <li><strong>Kitchen display</strong>, which is not yet chosen.</li>
+    <li><strong>The button that sends an order to the kitchen.</strong></li>
+    <li><strong>The modifier prompt</strong> on the item tile.</li>
+    <li><strong>The exact Log out label.</strong></li>
+    <li><strong>Discount and manual price steps</strong> (the menu items exist; the steps after them are not yet run).</li>
+  </ol>
+</section>
+
+<section class="step">
+  <h2>Questions for the manager</h2>
+  <ol>
+    <li>Does the shop use table numbers?</li>
+    <li>Which kitchen display system will be used?</li>
+    <li>Who is allowed to refund and to apply discounts?</li>
+    <li>Who holds the manager PIN?</li>
+  </ol>
+</section>
+
+<footer>
+  EGGI'S — Till Procedures. Prepared by IToldYouSo Computing. Steps marked
+  "Not yet tested" must be checked on a real test sale before staff rely
+  on them.
+</footer>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 **Summary:** this sheet shows how to open the till, take a table order,
 record allergies, take payment, handle refunds and close the day.
 
-Print this document on A4, one section per page.
+Print this document on A4. Each numbered section starts on a new page.
 
 ---
 
@@ -108,7 +108,8 @@ message, so a second check by voice is still needed.
 3. Type the allergy in plain words, for example:
    `NUT ALLERGY — no nuts, no nut oil, check the sauce`.
 4. Tap **Save**. The note is saved with the order.
-5. Send the order, then tell the kitchen in person.
+5. Send the order (section 15 notes the button is not yet confirmed),
+   then tell the kitchen in person.
 
 **What to write:** the allergen, the item it affects, and the
 customer's table number. Keep it under 300 characters, the limit
