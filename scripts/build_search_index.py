@@ -156,6 +156,18 @@ CONCEPTS: Dict[str, List[str]] = {
     "microcontroller microcontrollers firmware micropython freertos zephyr "
     "esphome mqtt lorawan lora zigbee matter modbus canbus rs485 i2c spi "
     "uart telemetry grafana influxdb",
+    # Live event technology: ticket scanning plus everything else that has
+    # to work at a festival, conference, or venue door. Members are stemmed
+    # by concept_stems(), so both "scanner" and "scanning" are listed to
+    # cover the two stems ("scanner" and "scan") that tokenise() produces.
+    # "office" is deliberately absent: it would fire this concept on the
+    # office software, migration, and printer cards, which then outrank the
+    # event card for queries such as "box office".
+    "events": "event events festival festivals conference conferences "
+    "congress exhibition exhibitions ticket tickets ticketing barcode qr "
+    "scanner scanning wristband wristbands nfc rfid cashless turnstile gate "
+    "gates accreditation badge lanyard box guest crowd ushers marquee stage "
+    "streaming",
 }
 
 

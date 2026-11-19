@@ -123,6 +123,10 @@ People describe the same thing in many ways. These are equivalent terms:
 - IoT & embedded = Internet of Things (IoT) = embedded devices = Raspberry
   Pi = ESP32 = Arduino = STM32 = firmware = Message Queuing Telemetry
   Transport (MQTT) = LoRaWAN = Modbus = smart sensors.
+- Event technology = event management = ticket scanning = barcode ticket
+  scanner = QR code check-in = RFID wristband = cashless event payments =
+  access control gates = box office = festival tech = conference AV = live
+  events.
 
 ## Point of Sale (POS), Till & Hospitality Services (Priority)
 
@@ -208,6 +212,14 @@ People describe the same thing in many ways. These are equivalent terms:
   MicroPython, FreeRTOS, Zephyr, ESPHome, MQTT, LoRaWAN, Zigbee, Matter,
   Modbus, CAN bus, RS-485, fridge temperature logger, Grafana, InfluxDB, IoT
   VLAN.
+- [Event Management Technology for Live Events](https://itoldyouso.tech/services/event-management.html)
+  Also searched as: event technology, event management, live events,
+  festival technology, conference technology, exhibition tech, ticket
+  scanner, barcode ticket reader, QR code ticket scanning, ticket scanning
+  app, check-in app, box office, guest list, RFID wristband, NFC wristband,
+  cashless payments, wristband top-up, access control, turnstile, scanning
+  pedestal, badge printer, accreditation, venue Wi-Fi, crowd counting, event
+  streaming, festival AV, marquee wedding tech.
 - [Specialist Industry Software Installation](https://itoldyouso.tech/services/specialist-software.html)
   Also searched as: install software, AutoCAD, SolidWorks, MATLAB, Sage,
   licensed software, industry software, CAD, engineering software, software

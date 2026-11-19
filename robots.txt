@@ -5,9 +5,11 @@
 # Wi-Fi, telephony, virtual landlines, Voice over Internet Protocol (VoIP),
 # Search Engine Optimisation (SEO), Generative Engine Optimisation (GEO),
 # digital audio and video production, Internet of Things (IoT) and embedded
-# devices, computer repair, data recovery, Closed-Circuit Television (CCTV),
-# smart home, automotive and garage AI for cars, vans and other vehicles,
-# mainframes and legacy systems (COBOL, DEC VAX/PDP-11, IBM AS/400), and more.
+# devices, live event management technology (ticket barcode readers, QR
+# check-in, RFID wristbands, access gates), computer repair, data recovery,
+# Closed-Circuit Television (CCTV), smart home, automotive and garage AI for
+# cars, vans and other vehicles, mainframes and legacy systems (COBOL, DEC
+# VAX/PDP-11, IBM AS/400), and more.
 # See llms.txt and llms-full.txt for synonyms and full service coverage.
 
 User-agent: *

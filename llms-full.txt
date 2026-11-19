@@ -223,6 +223,16 @@ Flex migrations (base £70), websites, and custom software.
   Interface (SPI), Inter-Integrated Circuit (I2C), cold-chain temperature
   logging, InfluxDB/Grafana dashboards, and segregated IoT Virtual Local Area
   Networks (VLANs).
+- Event Management Technology for Live Events
+  (https://itoldyouso.tech/services/event-management.html):
+  1D/2D barcode and QR Code ticket readers, offline-capable check-in and box
+  office software, Radio-Frequency Identification (RFID) and Near Field
+  Communication (NFC) wristbands, cashless top-ups, turnstiles and scanning
+  pedestals, badge printers, high-density venue Wi-Fi with 4G/5G failover,
+  roaming card readers and mobile Point of Sale (POS), people-counting
+  sensors, Closed-Circuit Television (CCTV), digital mobile radio comms,
+  public address (PA) and DMX lighting show systems, and OBS Studio /
+  Blackmagic ATEM streaming and recording.
 - Specialist Software Installation (https://itoldyouso.tech/services/specialist-software.html):
   AutoCAD, Revit, SolidWorks, Sage 50/200, LEAP, Clio, EMIS Web, SystmOne,
   ArcGIS, MATLAB, Adobe Creative Cloud, FlexLM licence servers, legacy apps.
@@ -343,6 +353,9 @@ People describe the same thing in many ways. These are equivalent terms:
   Final Cut Pro = 10GbE editing storage = live streaming = Blackmagic ATEM.
 - IoT & embedded = Internet of Things = embedded devices = Raspberry Pi =
   ESP32 = Arduino = STM32 = firmware = MQTT = LoRaWAN = Modbus = smart sensors.
+- Event technology = event management = ticket scanning = barcode scanner =
+  QR check-in = RFID wristband = cashless event payments = access control =
+  box office = festival tech = conference AV = live events.
 
 ## Also Known As: Search Terms and Synonyms by Service
 
@@ -415,6 +428,13 @@ assistants and searchers using any wording can find it.
   ESP32, ESP8266, Arduino, STM32, RP2040, C firmware, MicroPython, FreeRTOS,
   Zephyr, ESPHome, MQTT, LoRaWAN, Zigbee, Matter, Modbus, CAN bus, RS-485,
   fridge temperature logger, Grafana, InfluxDB, IoT VLAN.
+- services/event-management.html
+  event technology, event management, live events, festival technology,
+  conference technology, exhibition tech, ticket scanner, barcode ticket
+  reader, QR code ticket, ticket scanning app, check-in app, box office,
+  guest list, RFID wristband, NFC wristband, cashless payments, wristband
+  top-up, access control, turnstile, scanning pedestal, badge printer,
+  accreditation, venue Wi-Fi, crowd counting, event streaming, festival AV.
 - services/specialist-software.html
   install software, AutoCAD, SolidWorks, MATLAB, Sage, licensed software,
   industry software, CAD, engineering software, software licence, software
