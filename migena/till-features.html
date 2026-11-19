@@ -310,15 +310,116 @@
 
 <section class="step">
   <h2>10. Profile (person icon, bottom left)</h2>
+  <p>The Profile menu opens from the person icon at the extreme bottom left of
+  the till screen and scrolls through every device, checkout, tax, team,
+  accessory and account setting. All menus and submenus below were inspected
+  on 19 November 2026 (except <strong>Log out</strong>, which was not tapped).</p>
+
+  <h3>10.1 Account and security</h3>
   <ol>
-    <li><strong>Account name and merchant code</strong> — shows MW82CKEA. <span class="status">Seen</span></li>
-    <li><strong>24/7 priority support</strong> — opens support. <span class="status">Seen</span></li>
-    <li><strong>Inbox</strong> — messages from SumUp, with an unread count. <span class="status">Seen</span></li>
-    <li><strong>Login and security</strong> — password and two-factor authentication. <span class="status">Seen (name)</span></li>
-    <li><strong>Payouts</strong> — money sent to the bank account. <span class="status">Seen</span></li>
-    <li><strong>Payout settings</strong> — which bank account receives payouts. <span class="status">Seen (name)</span></li>
-    <li><strong>Tap to Pay</strong> — see section 13. <span class="status">Seen</span></li>
-    <li><strong>Card Reader</strong> — card machine settings. <span class="status">Seen (name)</span></li>
+    <li><strong>Account header</strong> — shows the account name (<code>Migena Lika</code>) and merchant code (<code>MW82CKEA</code>). Display header only; tapping it does not open a submenu. <span class="status">Seen</span></li>
+    <li><strong>24/7 priority support</strong> — opens the Priority Support web view. <span class="status">Seen</span></li>
+    <li><strong>Inbox</strong> — messages from SumUp with an unread badge (<code>1</code> on 19 November 2026). Lists account alerts including "ID verification needed", mobile number verification and profile setup. <span class="status">Seen</span></li>
+    <li><strong>Login and security</strong> — <span class="status">Seen</span>
+      <ul>
+        <li><strong>Link device</strong> ("Increase your account security"): links this device to the account to confirm important activities.</li>
+        <li><strong>Login credentials</strong>: shows <strong>Mobile phone</strong> (masked, with <strong>Change</strong>) and <strong>Email</strong> (with <strong>Change</strong>).</li>
+        <li>Password note: directs you to <code>me.sumup.com</code> to change your password.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>10.2 Payouts</h3>
+  <ol start="5">
+    <li><strong>Payouts</strong> — summary of <strong>Payout destination</strong> (<code>SumUp Business Account</code>, "Fastest payouts") and <strong>Frequency</strong> (<code>Next-day payouts</code>), plus <strong>Recent payouts</strong> (<code>No payouts yet</code>), <strong>Go to payout history</strong>, and top-right <strong>Report</strong> and <strong>Settings</strong> icons. <span class="status">Seen</span></li>
+    <li><strong>Payout settings</strong> — shows the current payout destination (<code>SumUp Business Account</code>, marked <code>Current</code>) and the <strong>7am payouts every day</strong> toggle (<em>on</em> — next-day payouts by 7am, 365 days a year). <span class="status">Seen</span></li>
+  </ol>
+
+  <h3>10.3 Payment methods</h3>
+  <ol start="7">
+    <li><strong>Tap to Pay</strong> — <strong>Tap to Pay</strong> toggle (<em>on</em>) with device readiness checks: <strong>NFC not available</strong> (red — Near Field Communication (NFC) is unsupported on this device; see section 13), <strong>SumUp App version</strong>, <strong>Developer options</strong> and <strong>Android version</strong>. <span class="status">Seen</span></li>
+    <li><strong>Card Reader</strong> — <strong>Accept payments with card reader</strong> toggle (<em>on</em> — shows Card Reader at checkout) and <strong>Connect card reader</strong> button. <span class="status">Seen</span></li>
+    <li><strong>Other payments</strong> — introduces adding non-SumUp payment methods (such as bank transfer or digital payments) to checkout so every payment is recorded in one place, with a <strong>Set up</strong> button. <span class="status offer">Offer only</span></li>
+  </ol>
+
+  <h3>10.4 Orders</h3>
+  <ol start="10">
+    <li><strong>Order types</strong> (<em>New</em>) — <strong>Use order types</strong> toggle (<em>off</em>): applies an order type at checkout to charge the right prices and Value Added Tax (VAT), and prints it on order tickets. <span class="status">Seen</span></li>
+    <li><strong>Multiple orders</strong> (<em>New</em>) — <span class="status">Seen</span>
+      <ul>
+        <li><strong>Accept multiple orders</strong> toggle (<em>on</em>): open, park and manage orders before taking payment (running tabs or multiple tables).</li>
+        <li><strong>Floor plan</strong> toggle (<em>off</em>): create and manage a restaurant floor plan and place orders on tables.</li>
+        <li><strong>Sync orders across devices — Sync this device</strong> toggle (<em>off</em> on this device): view and edit open orders on synced devices in real time.</li>
+      </ul>
+    </li>
+    <li><strong>Courses</strong> (<em>New</em>) — shows a notice that courses work best with multiple orders and order tickets turned on, <strong>Use courses</strong> to hold or fire kitchen courses separately, and a <strong>How courses work</strong> guide ("Send the next course"). <span class="status">Seen</span></li>
+  </ol>
+
+  <h3>10.5 Checkout</h3>
+  <ol start="13">
+    <li><strong>Split Payments</strong> (<em>New</em>) — <strong>Split payments</strong> toggle (<em>on</em> — accept multiple payments per order), plus three <strong>Split options</strong> toggles: <strong>Custom amounts</strong> (<em>on</em>), <strong>Equal parts</strong> (<em>on</em>) and <strong>Items</strong> (<em>on</em> — each customer pays for their own items). <span class="status">Seen</span></li>
+    <li><strong>Tipping</strong> — <strong>Standard tipping</strong> toggle (<em>off</em>): lets customers add gratuity at payment. <span class="status">Seen</span></li>
+  </ol>
+
+  <h3>10.6 Taxes</h3>
+  <ol start="15">
+    <li><strong>VAT</strong> (opens <strong>Taxes</strong> screen) — <span class="status">Seen</span>
+      <ul>
+        <li><strong>Charge VAT</strong> toggle (<em>on</em>), with <strong>Learn more</strong>.</li>
+        <li><strong>Default rate</strong>: <code>VAT 20%</code> (with <strong>Edit</strong>; pre-selected at checkout and in the Online Store).</li>
+        <li><strong>VAT Rates</strong>: <code>No VAT (-)</code>, <code>VAT 0%</code>, <code>VAT 5%</code> and <code>VAT 20%</code> (with <strong>Edit</strong> to change or add rates).</li>
+        <li><strong>Prices</strong>: <strong>Show prices including VAT</strong> toggle (<em>on</em>).</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>10.7 Sales &amp; cash tracking</h3>
+  <ol start="16">
+    <li><strong>Till management</strong> — <span class="status">Seen</span>
+      <ul>
+        <li><strong>Manage till</strong> toggle (<em>off</em>): manually open or close the till at the start and end of the trading day, and generate Z Reports when closing.</li>
+        <li><strong>Manage cash</strong> toggle (<em>off</em>): record the starting cash float and track cash movements for cash reconciliation.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>10.8 Your team</h3>
+  <ol start="17">
+    <li><strong>Employees</strong> — opens the Employees management screen (see section 8). <span class="status">Seen</span></li>
+    <li><strong>PIN login</strong> — <strong>Use PIN login</strong> toggle (<em>off</em>): lets each employee sign in with a 4-digit Personal Identification Number (PIN) for faster switching on shared devices and activity tracking. <span class="status">Seen</span></li>
+  </ol>
+
+  <h3>10.9 Plans &amp; fees</h3>
+  <ol start="19">
+    <li><strong>Your plans</strong> — opens the <strong>Your plans</strong> embedded web view for subscription details. <span class="status web">Web</span></li>
+    <li><strong>Card payment summary</strong> — opens the <strong>Annual fees summary</strong> embedded web view. <span class="status web">Web</span></li>
+  </ol>
+
+  <h3>10.10 Accessories</h3>
+  <ol start="21">
+    <li><strong>Printer settings</strong> — <strong>Use printer</strong> toggle (<em>off</em> on this device): enables printed customer receipts and cash drawer management. <span class="status">Seen</span></li>
+    <li><strong>Barcode scanner</strong> — <strong>Use barcode scanner</strong> toggle (<em>on</em>), connected device status (<code>ChromeOS Keyboard</code>, Universal Serial Bus (USB), <code>Ready</code>), <strong>Switch scanner</strong> button and top-right <strong>Info</strong> icon. <span class="status">Seen</span></li>
+  </ol>
+
+  <h3>10.11 Support</h3>
+  <ol start="23">
+    <li><strong>Support</strong> (<em>Prio</em>) — <span class="status">Seen</span>
+      <ul>
+        <li><strong>Get in touch</strong>: <strong>Ask AI Support</strong> for quick self-service troubleshooting.</li>
+        <li><strong>Priority support</strong>: <strong>Chat with an agent</strong> (<code>Online</code>) and <strong>Call us</strong> (displays phone hours, e.g. <code>Reopens at 08:00 AM</code>), plus top-right <strong>Conversation history</strong>.</li>
+        <li><strong>Useful self-services</strong>: <strong>Free device replacement</strong> (<code>Resolution time: 1 min</code>) and <strong>Change phone number</strong>.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>10.12 For SumUp fans, privacy, legal and log out</h3>
+  <ol start="24">
+    <li><strong>Refer a friend</strong> (opens <strong>Invite</strong> screen) — referral offer ("Get &pound;60 when you refer SumUp"; friend gets up to &pound;50 off their first payment device), <strong>Share link</strong>, <strong>Your rewards</strong> and top-right <strong>Terms</strong>. <span class="status">Seen</span></li>
+    <li><strong>Like this app? Tell others</strong> — opens the SumUp app listing in Google Play Store. <span class="status">Seen</span></li>
+    <li><strong>Cookies Preferences</strong> — opens the <strong>Cookies Preferences</strong> embedded web view. <span class="status web">Web</span></li>
+    <li><strong>Legal information — Terms &amp; Conditions</strong> — opens SumUp Terms &amp; Conditions on <code>sumup.com</code> in the browser. <span class="status web">Web</span></li>
+    <li><strong>Legal information — Privacy policy</strong> — opens SumUp Privacy Policy on <code>sumup.com</code> in the browser. <span class="status web">Web</span></li>
+    <li><strong>Log out</strong> — signs out of the SumUp account on this device (not tapped during inspection). <span class="status">Seen (name)</span></li>
   </ol>
 </section>
 

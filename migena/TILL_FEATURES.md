@@ -190,16 +190,147 @@ The list is empty. Customers are added by hand, or created from invoices.
 
 ## 10. Profile (person icon, bottom left)
 
-1. **Account name and merchant code** — shows MW82CKEA. *Seen.*
-2. **24/7 priority support** — opens support. *Seen.*
-3. **Inbox** — messages from SumUp, with an unread count. *Seen.*
-4. **Login and security** — password and two-factor authentication.
-   *Seen (name).*
-5. **Payouts** — money sent to the bank account. *Seen.*
-6. **Payout settings** — which bank account receives payouts. *Seen
-   (name).*
-7. **Tap to Pay** — see section 13. *Seen.*
-8. **Card Reader** — card machine settings. *Seen (name).*
+The Profile menu opens from the person icon at the extreme bottom left of
+the till screen and scrolls through every device, checkout, tax, team,
+accessory and account setting. All menus and submenus below were inspected
+on 19 November 2026 (except **Log out**, which was not tapped).
+
+### 10.1 Account and security
+
+1. **Account header** — shows the account name (`Migena Lika`) and merchant
+   code (`MW82CKEA`). Display header only; tapping it does not open a
+   submenu. *Seen.*
+2. **24/7 priority support** — opens the Priority Support web view. *Seen.*
+3. **Inbox** — messages from SumUp with an unread badge (`1` on 19 November
+   2026). Lists account alerts including "ID verification needed", mobile
+   number verification and profile setup. *Seen.*
+4. **Login and security** — *Seen.*
+   - **Link device** ("Increase your account security"): links this device
+     to the account to confirm important activities.
+   - **Login credentials**: shows **Mobile phone** (masked, with **Change**)
+     and **Email** (with **Change**).
+   - Password note: directs you to `me.sumup.com` to change your password.
+
+### 10.2 Payouts
+
+5. **Payouts** — summary of **Payout destination** (`SumUp Business
+   Account`, "Fastest payouts") and **Frequency** (`Next-day payouts`),
+   plus **Recent payouts** (`No payouts yet`), **Go to payout history**,
+   and top-right **Report** and **Settings** icons. *Seen.*
+6. **Payout settings** — shows the current payout destination (`SumUp
+   Business Account`, marked `Current`) and the **7am payouts every day**
+   toggle (*on* — next-day payouts by 7am, 365 days a year). *Seen.*
+
+### 10.3 Payment methods
+
+7. **Tap to Pay** — **Tap to Pay** toggle (*on*) with device readiness
+   checks: **NFC not available** (red — Near Field Communication (NFC) is
+   unsupported on this device; see section 13), **SumUp App version**,
+   **Developer options** and **Android version**. *Seen.*
+8. **Card Reader** — **Accept payments with card reader** toggle (*on* —
+   shows Card Reader at checkout) and **Connect card reader** button.
+   *Seen.*
+9. **Other payments** — introduces adding non-SumUp payment methods (such
+   as bank transfer or digital payments) to checkout so every payment is
+   recorded in one place, with a **Set up** button. *Offer only.*
+
+### 10.4 Orders
+
+10. **Order types** *(New)* — **Use order types** toggle (*off*): applies
+    an order type at checkout to charge the right prices and Value Added
+    Tax (VAT), and prints it on order tickets. *Seen.*
+11. **Multiple orders** *(New)* — *Seen.*
+    - **Accept multiple orders** toggle (*on*): open, park and manage
+      orders before taking payment (running tabs or multiple tables).
+    - **Floor plan** toggle (*off*): create and manage a restaurant floor
+      plan and place orders on tables.
+    - **Sync orders across devices — Sync this device** toggle (*off* on
+      this device): view and edit open orders on synced devices in real
+      time.
+12. **Courses** *(New)* — shows a notice that courses work best with
+    multiple orders and order tickets turned on, **Use courses** to hold
+    or fire kitchen courses separately, and a **How courses work** guide
+    ("Send the next course"). *Seen.*
+
+### 10.5 Checkout
+
+13. **Split Payments** *(New)* — **Split payments** toggle (*on* — accept
+    multiple payments per order), plus three **Split options** toggles:
+    **Custom amounts** (*on*), **Equal parts** (*on*) and **Items** (*on*
+    — each customer pays for their own items). *Seen.*
+14. **Tipping** — **Standard tipping** toggle (*off*): lets customers add
+    gratuity at payment. *Seen.*
+
+### 10.6 Taxes
+
+15. **VAT** (opens **Taxes** screen) — *Seen.*
+    - **Charge VAT** toggle (*on*), with **Learn more**.
+    - **Default rate**: `VAT 20%` (with **Edit**; pre-selected at checkout
+      and in the Online Store).
+    - **VAT Rates**: `No VAT (-)`, `VAT 0%`, `VAT 5%` and `VAT 20%` (with
+      **Edit** to change or add rates).
+    - **Prices**: **Show prices including VAT** toggle (*on*).
+
+### 10.7 Sales & cash tracking
+
+16. **Till management** — *Seen.*
+    - **Manage till** toggle (*off*): manually open or close the till at
+      the start and end of the trading day, and generate Z Reports when
+      closing.
+    - **Manage cash** toggle (*off*): record the starting cash float and
+      track cash movements for cash reconciliation.
+
+### 10.8 Your team
+
+17. **Employees** — opens the Employees management screen (see section 8).
+    *Seen.*
+18. **PIN login** — **Use PIN login** toggle (*off*): lets each employee
+    sign in with a 4-digit Personal Identification Number (PIN) for faster
+    switching on shared devices and activity tracking. *Seen.*
+
+### 10.9 Plans & fees
+
+19. **Your plans** — opens the **Your plans** embedded web view for
+    subscription details. *Web.*
+20. **Card payment summary** — opens the **Annual fees summary** embedded
+    web view. *Web.*
+
+### 10.10 Accessories
+
+21. **Printer settings** — **Use printer** toggle (*off* on this device):
+    enables printed customer receipts and cash drawer management. *Seen.*
+22. **Barcode scanner** — **Use barcode scanner** toggle (*on*), connected
+    device status (`ChromeOS Keyboard`, Universal Serial Bus (USB),
+    `Ready`), **Switch scanner** button and top-right **Info** icon.
+    *Seen.*
+
+### 10.11 Support
+
+23. **Support** *(Prio)* — *Seen.*
+    - **Get in touch**: **Ask AI Support** for quick self-service
+      troubleshooting.
+    - **Priority support**: **Chat with an agent** (`Online`) and **Call
+      us** (displays phone hours, e.g. `Reopens at 08:00 AM`), plus
+      top-right **Conversation history**.
+    - **Useful self-services**: **Free device replacement** (`Resolution
+      time: 1 min`) and **Change phone number**.
+
+### 10.12 For SumUp fans, privacy, legal and log out
+
+24. **Refer a friend** (opens **Invite** screen) — referral offer ("Get
+    £60 when you refer SumUp"; friend gets up to £50 off their first
+    payment device), **Share link**, **Your rewards** and top-right
+    **Terms**. *Seen.*
+25. **Like this app? Tell others** — opens the SumUp app listing in Google
+    Play Store. *Seen.*
+26. **Cookies Preferences** — opens the **Cookies Preferences** embedded
+    web view. *Web.*
+27. **Legal information — Terms & Conditions** — opens SumUp Terms &
+    Conditions on `sumup.com` in the browser. *Web.*
+28. **Legal information — Privacy policy** — opens SumUp Privacy Policy on
+    `sumup.com` in the browser. *Web.*
+29. **Log out** — signs out of the SumUp account on this device (not
+    tapped during inspection). *Seen (name).*
 
 ---
 
