@@ -192,6 +192,21 @@ installation.
   Navigation items 3 to 5 now link to them, the article anchor offset
   was raised to clear the sticky navigation bar, and the document was
   bumped to version 1.1.
+- **Event Management Technology (`5efeaf4`)**: Added
+  `services/event-management.html` and expanded the catalogue from 40 to
+  41 services (1D/2D barcode and QR Code ticket readers, offline-capable
+  check-in and box office software, Radio-Frequency Identification (RFID)
+  and Near Field Communication (NFC) wristbands, cashless top-ups,
+  turnstiles, badge printers, high-density venue Wi-Fi with failover,
+  roaming card readers, people counting, Closed-Circuit Television (CCTV),
+  digital mobile radio, and OBS Studio / Blackmagic ATEM streaming);
+  added an `events` search concept so queries such as "barcode ticket
+  scanner" rank the new page first; updated `index.html`, `404.html`,
+  `services/*.html`, `sitemap.xml`, `robots.txt`, `llms.txt`,
+  `llms-full.txt`, `scripts/build_search_index.py`,
+  `assets/search-index.js`, and `scripts/verify_site.py`. Legal and
+  patent check found no risk: descriptive first-party copy with
+  nominative vendor names only.
 
 ---
 
