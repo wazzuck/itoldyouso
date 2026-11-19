@@ -215,8 +215,10 @@ on 19 November 2026 (except **Log out**, which was not tapped).
 
 5. **Payouts** — summary of **Payout destination** (`SumUp Business
    Account`, "Fastest payouts") and **Frequency** (`Next-day payouts`),
-   plus **Recent payouts** (`No payouts yet`), **Go to payout history**,
-   and top-right **Report** and **Settings** icons. *Seen.*
+   plus **Recent payouts** (`No payouts yet`), **Go to payout history**
+   (opens **Payout history** with Payout Identification (PID) search and
+   **Filter**), and top-right **Report** (redirects to **Reporting** for
+   Payouts and Fee invoice) and **Settings** icons. *Seen.*
 6. **Payout settings** — shows the current payout destination (`SumUp
    Business Account`, marked `Current`) and the **7am payouts every day**
    toggle (*on* — next-day payouts by 7am, 365 days a year). *Seen.*
@@ -312,8 +314,13 @@ on 19 November 2026 (except **Log out**, which was not tapped).
     - **Priority support**: **Chat with an agent** (`Online`) and **Call
       us** (displays phone hours, e.g. `Reopens at 08:00 AM`), plus
       top-right **Conversation history**.
-    - **Useful self-services**: **Free device replacement** (`Resolution
-      time: 1 min`) and **Change phone number**.
+    - **Useful self-services**: **Free device replacement**, **Change
+      phone number**, **Change email address** and **Change password**
+      (each shows `Resolution time: 1 min`).
+    - **Account and app details**: **Legal documentation**, **Delete my
+      SumUp profile**, and device diagnostics with a **Copy app details**
+      button (`Merchant ID: MW82CKEA`, `System Version: Android 13`,
+      `SumUp Business: 2.193.0`).
 
 ### 10.12 For SumUp fans, privacy, legal and log out
 
