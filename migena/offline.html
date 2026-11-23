@@ -1574,9 +1574,9 @@
   color: #6b7280;
 }
 
-/* Wrapper used on the two printable sheets, which have no navigation
-   bar to hold the box. sticky keeps search reachable while scrolling
-   a long sheet on a phone. */
+/* Wrapper used on the two printable sheets and on the offline copy,
+   which have no navigation bar to hold the box. sticky keeps search
+   reachable while scrolling a long sheet on a phone. */
 .doc-search-bar {
   position: sticky;
   top: 0;
@@ -1586,9 +1586,16 @@
   border-bottom: 1px solid #e3e6e4;
 }
 
+/* The bar is a plain block, not a flex container, so the flex value
+   that used to sit here did nothing and the box fell back to the left
+   edge of the window. margin: 0 auto centres it in the bar instead,
+   which on a desktop puts it on the same axis as the centred content
+   column rather than hard against the left. Below 640px the bar is
+   narrower than the cap, so the box still fills the row exactly as it
+   did before. */
 .doc-search-bar .doc-search {
   max-width: 640px;
-  flex: 1 1 auto;
+  margin: 0 auto;
 }
 
 /* Narrow screens: the portal bar stacks its buttons, so the box takes

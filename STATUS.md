@@ -282,6 +282,16 @@ installation.
   `migena/documentation.html` was regenerated. Legal and patent check
   found no risk: first-party copy with nominative vendor names, plain
   product links and no affiliate tag.
+- **Offline copy: search box centred on desktop**: In the download
+  (`migena/offline.html`) the search box sat hard against the left
+  edge of the window on a desktop, because `.doc-search-bar` is a
+  plain block and the `flex: 1 1 auto` on the box inside it did
+  nothing. `migena/doc-search.css` now centres the box with
+  `margin: 0 auto`, so it sits on the same axis as the centred
+  content column. A phone is unchanged: the bar there is narrower
+  than the 640-pixel cap, so the box still fills the row at 16px
+  type. The two printable sheets are unchanged as well, for the same
+  reason. `migena/offline.html` was regenerated from the stylesheet.
 
 ---
 
