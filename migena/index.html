@@ -405,6 +405,40 @@
       outline-offset: 2px;
     }
 
+    /* The reminder the owner sees the moment the Documentation menu
+       opens. It is shaped like a task card, not a navigation item: an
+       amber panel carrying a solid "OWNER TASK" badge, so a glance is
+       enough to see that something must be done and who must do it.
+       Amber on cream holds well above the 4.5:1 contrast floor, and
+       the badge is white on deep amber so it survives colour-blind
+       vision and small screens alike. */
+    .nav-dropdown-note {
+      padding: 10px;
+      border: 1px solid #fcd34d;
+      border-radius: 6px;
+      background-color: #fffbeb;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: #92400e;
+    }
+
+    .nav-dropdown-note-tag {
+      display: inline-block;
+      margin-bottom: 5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background-color: #b45309;
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-dropdown-note strong {
+      color: #78350f;
+    }
+
     /* -------------------------------------------------------------------------
        Main Article Container
        ------------------------------------------------------------------------- */
@@ -1152,6 +1186,22 @@
                 Guide</a></li>
               <li><a href="till.html">&#128424; Till Procedures
                 &amp; Features</a></li>
+              <!-- The owner task card. It sits inside the menu the
+                   client opens, so the one thing the owner must do
+                   on the register cannot be missed. It is a plain
+                   list item, not a link: instructions, not
+                   navigation. -->
+              <li class="nav-dropdown-note">
+                <span class="nav-dropdown-note-tag">&#9888; Owner
+                task</span>
+                <strong>Enable cash payments.</strong> The till is
+                card-only until you do this. On the register: tap the
+                <strong>profile icon</strong> (bottom-left), open
+                <strong>Cash payments</strong>, then switch on
+                <strong>Accept cash payments</strong>. Cash then
+                appears at checkout and counts in the end-of-day
+                report.
+              </li>
             </ul>
           </li>
           <li><span class="nav-disabled" aria-disabled="true"

@@ -400,6 +400,40 @@
       outline-offset: 2px;
     }
 
+    /* The reminder the owner sees the moment the Documentation menu
+       opens. It is shaped like a task card, not a navigation item: an
+       amber panel carrying a solid "OWNER TASK" badge, so a glance is
+       enough to see that something must be done and who must do it.
+       Amber on cream holds well above the 4.5:1 contrast floor, and
+       the badge is white on deep amber so it survives colour-blind
+       vision and small screens alike. */
+    .nav-dropdown-note {
+      padding: 10px;
+      border: 1px solid #fcd34d;
+      border-radius: 6px;
+      background-color: #fffbeb;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: #92400e;
+    }
+
+    .nav-dropdown-note-tag {
+      display: inline-block;
+      margin-bottom: 5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background-color: #b45309;
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-dropdown-note strong {
+      color: #78350f;
+    }
+
     /* -------------------------------------------------------------------------
        Main Article Container
        ------------------------------------------------------------------------- */
