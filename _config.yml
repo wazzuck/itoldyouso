@@ -1,0 +1,21 @@
+# FILE: _config.yml
+#
+# Purpose: configuration for the GitHub Pages build. Pages publishes
+# this repository through Jekyll (the site's build type is "legacy"),
+# and Jekyll reads this file before it touches anything.
+#
+# Why this file exists: from commit 8396e8c onwards every Pages build
+# failed with "Page build failed", freezing the live site at the
+# 21 Nov 2026 05:17 build. The cause is AGENTS.md, which is a symlink
+# (git mode 120000) to ../vunderland/settings/AGENTS.md - a path that
+# exists only on the author's machines, not on GitHub's build
+# machines. Jekyll refuses to build a site containing a symlink whose
+# target is missing, so the exclude below stops Jekyll from ever
+# reading it.
+#
+# Invariant: do not remove the AGENTS.md exclude. The symlink itself
+# must stay in the repository untouched (AGENTS.md forbids replacing
+# it with a copy), so excluding it here is what keeps deploys alive.
+# If AGENTS.md ever becomes a regular file again, this exclude can go.
+exclude:
+  - AGENTS.md
