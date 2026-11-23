@@ -207,14 +207,14 @@ installation.
   `assets/search-index.js`, and `scripts/verify_site.py`. Legal and
   patent check found no risk: descriptive first-party copy with
   nominative vendor names only.
-- **Migena portal landing page (`526388f`)**: The main page
-  (`migena/index.html`) is now a landing page with three buttons:
-  Service Contract & Scope, Pricing & Terms, and Documentation. The
-  full articles stay in `index.html` as the source for
-  `scripts/split_portal.py` but are hidden from view. The
-  Documentation page (`migena/documentation.html`) shows the four
-  owner task cards followed by buttons for the Admin Guide, Management
-  Guide and Till Procedures & Features.
+- **Migena portal owner tasks and download link (`ee400f1`)**: The
+  main page (`migena/index.html`) is a landing page with three
+  buttons. The Documentation page (`migena/documentation.html`) now
+  has a prominent offline-copy download banner at the top, followed
+  by six owner task cards: verify identity, update software, turn on
+  cash payments, check printers, route drinks to the bar printer and
+  food to the kitchen printer, and check Wi-Fi for dropouts. The
+  three guide buttons are styled as buttons rather than tiles.
 - **Migena portal: grouped navigation, documentation search and
   offline copy**: Grouped the Admin Guide, Management Guide and Till
   Procedures & Features under a `3. Documentation` button on the
