@@ -6,7 +6,264 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Documentation | EGGI'S Till Documentation | IToldYouSo Computing</title>
   <link rel="stylesheet" href="portal.css">
-</head>
+  <style>
+#doc-till-procedures {
+--ink: #1b1b1b;
+    --muted: #5a5a5a;
+    --line: #d9d6cc;
+    --paper: #fbfaf6;
+    --accent: #1f5c4a;
+    --warn-bg: #fff4e0;
+    --warn-line: #d9822b;
+    --rule-bg: #eef4f1;
+}
+#doc-till-procedures, #doc-till-procedures * {
+box-sizing: border-box;
+}
+#doc-till-procedures {
+margin: 0 auto;
+    max-width: 180mm;
+    padding: 24px 16px 48px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+}
+#doc-till-procedures header.cover {
+border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+#doc-till-procedures h1 {
+font-size: 30px;
+    margin: 0 0 6px;
+    color: var(--accent);
+}
+#doc-till-procedures .lead {
+font-size: 18px;
+    margin: 0;
+}
+#doc-till-procedures h2 {
+font-size: 24px;
+    margin: 28px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--line);
+    color: var(--accent);
+}
+#doc-till-procedures h3 {
+font-size: 19px;
+    margin: 20px 0 6px;
+}
+#doc-till-procedures ol, #doc-till-procedures ul {
+padding-left: 26px;
+}
+#doc-till-procedures li {
+margin: 6px 0;
+}
+#doc-till-procedures section.step {
+page-break-before: always;
+    break-before: page;
+}
+#doc-till-procedures section.step.first {
+page-break-before: auto;
+    break-before: auto;
+}
+#doc-till-procedures .box {
+border-left: 6px solid var(--accent);
+    background: var(--rule-bg);
+    padding: 10px 14px;
+    margin: 14px 0;
+    border-radius: 4px;
+}
+#doc-till-procedures .warn {
+border-left-color: var(--warn-line);
+    background: var(--warn-bg);
+}
+#doc-till-procedures code {
+font-family: "Courier New", monospace;
+    font-size: 15px;
+    background: #efece2;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+#doc-till-procedures .tag {
+display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 1px 8px;
+    border-radius: 10px;
+    background: var(--warn-line);
+    color: #fff;
+    vertical-align: middle;
+}
+#doc-till-procedures footer {
+margin-top: 32px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+}
+@media print {
+#doc-till-procedures {
+background: #fff;
+      padding: 0;
+      max-width: none;
+      font-size: 14pt;
+      line-height: 1.5;
+}
+#doc-till-procedures h2 {
+font-size: 20pt;
+}
+#doc-till-procedures h1 {
+font-size: 26pt;
+}
+#doc-till-procedures h3 {
+font-size: 16pt;
+}
+#doc-till-procedures .box, #doc-till-procedures .warn {
+-webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+#doc-till-procedures footer {
+display: none;
+}
+
+}
+  </style>
+  <style>
+#doc-till-features {
+--ink: #1b1b1b;
+    --muted: #5a5a5a;
+    --line: #d9d6cc;
+    --paper: #fbfaf6;
+    --accent: #1f5c4a;
+    --warn-bg: #fff4e0;
+    --warn-line: #d9822b;
+    --rule-bg: #eef4f1;
+}
+#doc-till-features, #doc-till-features * {
+box-sizing: border-box;
+}
+#doc-till-features {
+margin: 0 auto;
+    max-width: 180mm;
+    padding: 24px 16px 48px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+}
+#doc-till-features header.cover {
+border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+#doc-till-features h1 {
+font-size: 30px;
+    margin: 0 0 6px;
+    color: var(--accent);
+}
+#doc-till-features .lead {
+font-size: 18px;
+    margin: 0;
+}
+#doc-till-features h2 {
+font-size: 24px;
+    margin: 28px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--line);
+    color: var(--accent);
+}
+#doc-till-features h3 {
+font-size: 19px;
+    margin: 20px 0 6px;
+}
+#doc-till-features ol, #doc-till-features ul {
+padding-left: 26px;
+}
+#doc-till-features li {
+margin: 6px 0;
+}
+#doc-till-features section.step {
+page-break-before: always;
+    break-before: page;
+}
+#doc-till-features section.step.first {
+page-break-before: auto;
+    break-before: auto;
+}
+#doc-till-features .box {
+border-left: 6px solid var(--accent);
+    background: var(--rule-bg);
+    padding: 10px 14px;
+    margin: 14px 0;
+    border-radius: 4px;
+}
+#doc-till-features .warn {
+border-left-color: var(--warn-line);
+    background: var(--warn-bg);
+}
+#doc-till-features .status {
+display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 1px 8px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    vertical-align: middle;
+}
+#doc-till-features .status.plus, #doc-till-features .status.offer {
+background: #6b5a8c;
+}
+#doc-till-features .status.web {
+background: #4a6f8a;
+}
+#doc-till-features .status.check {
+background: var(--warn-line);
+}
+#doc-till-features code {
+font-family: "Courier New", monospace;
+    font-size: 15px;
+    background: #efece2;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+#doc-till-features footer {
+margin-top: 32px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+}
+@media print {
+#doc-till-features {
+background: #fff;
+      padding: 0;
+      max-width: none;
+      font-size: 14pt;
+      line-height: 1.5;
+}
+#doc-till-features h2 {
+font-size: 20pt;
+}
+#doc-till-features h1 {
+font-size: 26pt;
+}
+#doc-till-features h3 {
+font-size: 16pt;
+}
+#doc-till-features .box, #doc-till-features .warn, #doc-till-features .status {
+-webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+}
+#doc-till-features footer {
+display: none;
+}
+
+}
+  </style></head>
 <body>
   <div id="auth-gate">
     <div class="auth-card">
@@ -406,28 +663,1287 @@
         </div>
       </section>
 
-      <!-- The three documentation guides, opened from the same
-           Documentation page as the owner tasks. -->
-      <section class="doc-guides" aria-labelledby="doc-guides-title">
-        <h2 id="doc-guides-title">Choose a guide</h2>
-        <ul class="portal-buttons">
+      <!-- ===================================================================
+           DOCUMENT 4: ADMIN GUIDE (STAFF ACCOUNTS)
+           For the owner and manager: adding staff, changing permissions,
+           resetting PINs and switching off leavers. Routes follow the
+           SumUp web dashboard (sumup.me) recorded in the job's own
+           installation checklist, section 8.1.
+           ================================================================= -->
+      <article id="doc-admin" class="doc-article">
+        <div class="article-header">
+          <span class="article-badge badge-spec">Administration
+          &mdash; Staff Accounts</span>
+          <h2>Admin Guide &mdash; Adding and Removing Staff</h2>
+          <p class="article-lead">
+            For the owner and the manager: how to add a staff member,
+            change what they are allowed to do, reset a forgotten Personal
+            Identification Number (PIN), and switch off a leaver without
+            losing a single day's figures.
+          </p>
+        </div>
+
+        <div class="callout info">
+          <h4>Who Should Do This Work</h4>
+          <p>
+            Only the owner or the manager. Do it at a quiet time, on a
+            computer or tablet, in the SumUp web dashboard at
+            <strong>sumup.me</strong>, where every setting sits on one
+            screen and the register can carry on taking orders while you
+            work. Counter staff do not need this guide.
+          </p>
+        </div>
+
+        <div class="callout warning">
+          <h4>User Names and Passwords Are on a Separate Page</h4>
+          <p>
+            The account logins are deliberately not written in this
+            guide. They live on a separate page: open the
+            <a href="offline.html">offline copy</a> of this
+            documentation and scroll to
+            <strong>User Passwords</strong>, or ask your engineer for
+            the current list.
+          </p>
+        </div>
+
+        <section id="your-team-at-a-glance">
+          <h3>1. Your Team at a Glance</h3>
+          <p>
+            The installation created four profiles with individual PINs.
+            Refunds and discounts are restricted to the manager profile,
+            and every other profile can sell only.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Profile</th>
+                <th>Can do</th>
+                <th>Cannot do</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Owner account</strong><br>
+                  Held by the account holder
+                </td>
+                <td>
+                  Everything: staff, plan, payouts, reports and settings
+                </td>
+                <td>&mdash;</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Manager</strong><br>
+                  Held by the manager on duty
+                </td>
+                <td>
+                  Sell, refund, discount, run the end-of-day close, read
+                  reports
+                </td>
+                <td>
+                  Change the SumUp account or the bank account payouts go
+                  to
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Counter staff</strong> (three profiles)<br>
+                  One PIN each, never shared
+                </td>
+                <td>
+                  Sell, split bills, park orders, reprint receipts
+                </td>
+                <td>
+                  Refunds, discounts, reports, staff changes
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="add-a-staff-member">
+          <h3>2. Add a Staff Member</h3>
+          <ol>
+            <li>
+              Sign in to <strong>sumup.me</strong> as the owner. The
+              verification code arrives on the owner's mobile phone, so
+              have it to hand.
+            </li>
+            <li>
+              Open the team / employee management area. Depending on the
+              version it is labelled <strong>Employees</strong>,
+              <strong>Team</strong> or <strong>Staff</strong>.
+            </li>
+            <li>
+              Choose <strong>Add employee</strong>, or the plus button.
+            </li>
+            <li>
+              Type the staff member's name. An e-mail address or position
+              title is optional: add it only if you want it in the
+              reports.
+            </li>
+            <li>
+              Choose the permission level: <strong>staff</strong> for
+              counter work, <strong>manager</strong> for refunds,
+              discounts, reports and the close.
+            </li>
+            <li>
+              Set the PIN: open the employee, choose <strong>PIN</strong>,
+              switch on PIN access, then either let SumUp generate a code
+              or type the one you have chosen.
+            </li>
+            <li>
+              Save, then hand the PIN over privately &mdash; in person or
+              by telephone, never in a group chat and never on a note
+              stuck to the counter.
+            </li>
+            <li>
+              Test it on the register: sign out, sign in with the new PIN,
+              ring one cheap item, and confirm it appears under their name
+              in the day's figures.
+            </li>
+          </ol>
+
+          <div class="callout warning">
+            <h4>Menu Names Vary Between SumUp Versions</h4>
+            <p>
+              If a screen does not match the steps above, stop and ring
+              <strong><a href="tel:02045209114">020 4520 9114</a></strong>
+              rather than guessing. A wrong toggle in this area can open
+              refunds to everyone on the counter.
+            </p>
+          </div>
+        </section>
+
+        <section id="change-what-someone-can-do">
+          <h3>3. Change What Someone Can Do</h3>
+          <p>
+            Use this to promote a trusted counter worker to manager, or to
+            take refund power away again after a role change.
+          </p>
+          <ol>
+            <li>
+              Open the person in the Employees screen.
+            </li>
+            <li>
+              Change their permission level, or tick the individual
+              permissions your version shows: refunds, discounts, sales
+              history, reports.
+            </li>
+            <li>
+              Save, then test it: sign in as them and confirm a restricted
+              action is refused.
+            </li>
+          </ol>
+
+          <div class="callout warning">
+            <h4>A Manager PIN Is a Refund PIN</h4>
+            <p>
+              Give the manager level only to someone you trust with the
+              money, and review the list after every promotion, every
+              leaver, and any incident you would rather not repeat.
+            </p>
+          </div>
+        </section>
+
+        <section id="reset-a-forgotten-pin">
+          <h3>4. Reset a Forgotten PIN</h3>
+          <ol>
+            <li>
+              Open the person in the Employees screen.
+            </li>
+            <li>
+              Choose <strong>PIN</strong> and generate a new code, or type
+              a new one.
+            </li>
+            <li>
+              Tell them privately. The old code stops working at once.
+            </li>
+            <li>
+              Never write the new code on the till, on any
+              printed sheet, or in a photo on a phone.
+            </li>
+          </ol>
+          <div class="callout">
+            <h4>Keep One Spare, Sealed</h4>
+            <p>
+              Keep a single spare manager PIN in a sealed envelope for the
+              day someone forgets theirs mid-rush, and change it as soon as
+              it has been used.
+            </p>
+          </div>
+        </section>
+
+        <section id="remove-a-staff-member">
+          <h3>5. Remove a Staff Member</h3>
+          <p>
+            SumUp does not delete employee profiles, and that is a good
+            thing: switching a profile off keeps every past sale attached
+            to the right name, so the figures for earlier days stay
+            correct.
+          </p>
+          <ol>
+            <li>
+              Do it on the day they leave, before their next shift could
+              start.
+            </li>
+            <li>
+              Open the person in the Employees screen.
+            </li>
+            <li>
+              Switch their profile off (deactivate) &mdash; in current
+              versions this is the toggle at the top of the screen.
+            </li>
+            <li>
+              Check their PIN no longer unlocks the register.
+            </li>
+            <li>
+              If they ever come back, switch the profile on again and
+              issue them a fresh PIN.
+            </li>
+          </ol>
+
+          <div class="callout warning">
+            <h4>Shared PIN Suspected? Reset, Do Not Deactivate</h4>
+            <p>
+              If you only suspect that a PIN is being lent out, change the
+              PIN instead: it takes seconds, keeps the sales history
+              intact, and the person keeps working. Deactivation is for
+              leavers.
+            </p>
+          </div>
+        </section>
+
+        <section id="security-rules-that-keep-the-figures-honest">
+          <h3>6. Security Rules That Keep the Figures Honest</h3>
+          <ul class="check-list">
+            <li>One PIN per person: never lend it, never share it,
+            never let two people work under one profile.</li>
+            <li>Give every new starter a fresh PIN on day one, and
+            never recycle a leaver's code.</li>
+            <li>Only the owner knows the account password, and only
+            the owner's phone receives the two-factor authentication
+            (2FA) codes.</li>
+            <li>Refunds and discounts stay manager-only.</li>
+            <li>Read each staff member's sales total once a week: a
+            name with far more sales than their shifts suggest usually
+            means a shared PIN.</li>
+          </ul>
+        </section>
+
+        <section id="when-to-ring-the-engineer">
+          <h3>7. When to Ring the Engineer</h3>
+          <p>
+            Ring <strong><a href="tel:02045209114">020 4520 9114</a></strong>
+            before changing anything if a screen does not match this guide,
+            if a PIN or a profile has vanished, or if anything to do with
+            money looks wrong. Five minutes on the telephone beats a wrong
+            toggle that opens refunds to the whole counter.
+          </p>
+        </section>
+
+        <div class="callout info">
+          <h4>See Also</h4>
+          <p>
+            <a href="#doc-till">Till Procedures &amp; Features</a> for the
+            daily and emergency till tasks, and
+            <a href="#doc-management">Management Guide</a> for the accounts,
+            records and weekly routines that sit behind these staff
+            profiles.
+          </p>
+        </div>
+      </article>
+
+      <!-- ===================================================================
+           DOCUMENT 5: MANAGEMENT GUIDE (ACCOUNTS & RECORDS)
+           For the owner: the accounts behind the till, who holds what,
+           and the daily, weekly and monthly routines that keep the
+           numbers straight for the bookkeeper.
+           ================================================================= -->
+      <article id="doc-management" class="doc-article">
+        <div class="article-header">
+          <span class="article-badge badge-questionnaire">Management
+          &mdash; Accounts &amp; Records</span>
+          <h2>Management Guide &mdash; Getting Your Accounts Organised</h2>
+          <p class="article-lead">
+            For the owner: the accounts that sit behind the till, who holds
+            each one, and the routines that keep the numbers straight. It
+            costs about fifteen minutes a week and half an hour a month,
+            and it is what turns a busy till into books your accountant can
+            read without telephoning you.
+          </p>
+        </div>
+
+        <div class="callout info">
+          <h4>Five Accounts, One Rule</h4>
+          <p>
+            Everything below comes back to one rule: <strong>each account
+            has exactly one holder, and no password or verification code
+            is ever written down in this portal</strong>. When everybody
+            knows which key opens which door, month-end takes half an hour
+            instead of a weekend.
+          </p>
+        </div>
+
+        <section id="the-five-accounts-to-keep-organised">
+          <h3>1. The Five Accounts to Keep Organised</h3>
+          <ol>
+            <li>
+              <strong>The SumUp merchant account</strong> (sumup.me):
+              sales, staff profiles, the catalogue, the plan and every
+              setting live here. Held by the owner.
+            </li>
+            <li>
+              <strong>The bank account payouts go to</strong>: the business
+              current account that SumUp pays into.
+            </li>
+            <li>
+              <strong>The till profiles</strong>: owner, manager and three
+              counter staff, each with their own PIN. See the
+              <a href="#doc-admin">Admin Guide</a>.
+            </li>
+            <li>
+              <strong>The daily paperwork</strong>: Z-reports, refund
+              receipts and payout summaries, filed together.
+            </li>
+            <li>
+              <strong>This portal</strong>: these guides, the printable
+              cheat sheet once it unlocks, and the support number.
+            </li>
+          </ol>
+        </section>
+
+        <section id="who-holds-what">
+          <h3>2. Who Holds What</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Account or code</th>
+                <th>Who holds it, and where it lives</th>
+                <th>If it is lost or forgotten</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>SumUp account login</strong></td>
+                <td>
+                  The owner; in a password manager or a sealed envelope,
+                  never in this portal
+                </td>
+                <td>
+                  &quot;Forgot password&quot; at sumup.me; the code goes to
+                  the owner's phone
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Two-factor authentication (2FA) phone</strong>
+                </td>
+                <td>The owner's mobile only</td>
+                <td>Ring SumUp support with identification ready</td>
+              </tr>
+              <tr>
+                <td><strong>Payout bank account</strong></td>
+                <td>The owner; the details stay with the bank</td>
+                <td>
+                  Change it only from inside the signed-in SumUp profile
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Manager PIN</strong></td>
+                <td>The manager, in their head</td>
+                <td><a href="#doc-admin">Admin Guide</a>, section 4</td>
+              </tr>
+              <tr>
+                <td><strong>Counter staff PINs</strong></td>
+                <td>One each, in their heads, never shared</td>
+                <td><a href="#doc-admin">Admin Guide</a>, section 4</td>
+              </tr>
+              <tr>
+                <td><strong>Portal password</strong> (this site)</td>
+                <td>The owner and the manager</td>
+                <td>
+                  Ring Neville on
+                  <a href="tel:02045209114">020 4520 9114</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout warning">
+            <h4>Never Write Down a Secret</h4>
+            <p>
+              Do not store a password or a verification code in this
+              document, in an e-mail, or in a shared photograph. Staff
+              names and sales figures are personal data, so the United
+              Kingdom General Data Protection Regulation (UK GDPR)
+              applies: keep them minimal, and keep them private.
+            </p>
+          </div>
+        </section>
+
+        <section id="the-plan-and-the-fees">
+          <h3>3. The Plan and the Fees</h3>
+          <ul>
+            <li>
+              <strong>POS Plus</strong> is the paid plan that carries
+              kitchen order synchronisation, employee PINs with
+              permissions, till management and the cashbook, and the
+              fuller reports. It costs about &pound;39 a month excluding
+              Value Added Tax (VAT) as published by SumUp; check
+              <em>SumUp profile &rarr; Plans and fees</em> for the price
+              actually on your account.
+            </li>
+            <li>
+              <strong>Payouts</strong> are sent on business days and
+              normally reach the bank within one to two working days. How
+              often they are sent &mdash; daily, weekly or monthly &mdash;
+              is set in your SumUp payout settings, so check once that it
+              matches how you like to run the money.
+            </li>
+            <li>
+              <strong>Card fees come out of the payout</strong>, so the
+              amount landing in the bank is your takings minus fees. Do not
+              expect the bank line to equal the Z-report total: match the
+              Z-report to the payout report in SumUp instead, and treat the
+              difference as fees.
+            </li>
+          </ul>
+        </section>
+
+        <section id="the-daily-rhythm">
+          <h3>4. The Daily Rhythm</h3>
+          <ol>
+            <li>
+              Open using the opening steps in
+              <a href="#doc-till-procedures">Till Procedures</a>.
+            </li>
+            <li>
+              Trade: every sale rung under the person who took it, so the
+              week's figures mean something.
+            </li>
+            <li>
+              Close using the close-down steps in
+              <a href="#doc-till-procedures">Till Procedures</a>: count,
+              print the Z-report, take the takings out, leave the float.
+            </li>
+            <li>
+              Clip that day's refund receipts to the Z-report and initial
+              them.
+            </li>
+          </ol>
+        </section>
+
+        <section id="every-week-about-15-minutes">
+          <h3>5. Every Week (about 15 Minutes)</h3>
+          <ul class="check-list">
+            <li>Download the week's sales export from Reports as a
+            CSV file.</li>
+            <li>Read back every refund issued this week; each one
+            should have a story you can tell.</li>
+            <li>Check each staff member's total against the rota, and
+            ask about any name that does not fit.</li>
+            <li>Confirm every expected payout reached the bank.</li>
+            <li>Check receipt rolls, till paper, and that the kitchen
+            Terminal is charged and syncing.</li>
+          </ul>
+        </section>
+
+        <section id="every-month-about-30-minutes">
+          <h3>6. Every Month (about 30 Minutes)</h3>
+          <ul class="check-list">
+            <li>
+              Reconcile: add up the Z-reports, compare them with SumUp's
+              payout reports, then with the bank statement, and note the
+              difference as card fees.
+            </li>
+            <li>
+              Hand the Z-reports, the payout summary and the VAT figures
+              to the bookkeeper.
+            </li>
+            <li>
+              Review the staff list: remove leavers and confirm roles, per
+              the <a href="#doc-admin">Admin Guide</a>.
+            </li>
+            <li>
+              Review the plan under <em>SumUp profile &rarr; Plans and
+              fees</em>: still needed, and any price change?
+            </li>
+            <li>
+              Back up the catalogue from <em>Items &rarr; Export</em>, and
+              save the CSV file with that month's folder.
+            </li>
+            <li>
+              Apply app updates before a quiet morning, then re-brief the
+              team for five minutes.
+            </li>
+          </ul>
+        </section>
+
+        <section id="records-to-keep">
+          <h3>7. Records to Keep</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Record</th>
+                <th>Where it comes from</th>
+                <th>Keep it for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Daily Z-report (printed)</td>
+                <td>The till, at close</td>
+                <td>Six years, with the accounts</td>
+              </tr>
+              <tr>
+                <td>Payout reports</td>
+                <td>SumUp reports, downloaded as CSV</td>
+                <td>Six years</td>
+              </tr>
+              <tr>
+                <td>VAT figures</td>
+                <td>The monthly reconciliation</td>
+                <td>As your accountant advises; six years is normal</td>
+              </tr>
+              <tr>
+                <td>Catalogue backup</td>
+                <td>Items &rarr; Export</td>
+                <td>Until the next one; keep the last three</td>
+              </tr>
+              <tr>
+                <td>Hardware receipts (drawer, printer, paper)</td>
+                <td>The supplier's e-mail</td>
+                <td>Six years</td>
+              </tr>
+              <tr>
+                <td>Staff list (names and roles, never PINs)</td>
+                <td>This guide and your own records</td>
+                <td>While they work for you, then six years</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Six years is the usual window HM Revenue and Customs (HMRC)
+            asks for. Your accountant's advice wins where it differs.
+          </p>
+        </section>
+
+        <section id="who-does-what">
+          <h3>8. Who Does What</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Who does it</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Add, change or remove a staff profile</td>
+                <td>Owner or manager, per the Admin Guide</td>
+              </tr>
+              <tr>
+                <td>Daily close and filing the Z-report</td>
+                <td>Manager, every night</td>
+              </tr>
+              <tr>
+                <td>Weekly export and refund review</td>
+                <td>Manager, once a week</td>
+              </tr>
+              <tr>
+                <td>Monthly reconciliation and VAT hand-over</td>
+                <td>Owner, once a month</td>
+              </tr>
+              <tr>
+                <td>Plan and fee review</td>
+                <td>Owner, once a month</td>
+              </tr>
+              <tr>
+                <td>Anything odd on the screen</td>
+                <td>
+                  Anyone: ring 020 4520 9114
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <div class="callout">
+          <h4>Getting Help &amp; See Also</h4>
+          <p>
+            <strong>Engineer:</strong> Neville Bryce, IToldYouSo Computing
+            &mdash;
+            <strong><a href="tel:02045209114">020 4520 9114</a></strong> or
+            <a href="mailto:contactus@itoldyouso.tech"
+              >contactus@itoldyouso.tech</a>.
+            <strong>SumUp:</strong> the help area inside your signed-in
+            dashboard for anything to do with money arriving.
+          </p>
+          <p>
+            <a href="#doc-till">Till Procedures &amp; Features</a> cover the
+            daily and emergency till tasks; the
+            <a href="#doc-admin">Admin Guide</a> covers staff profiles.
+            Together with this page they form the full documentation set
+            for your till.
+          </p>
+        </div>
+      </article>
+
+      <!-- =================================================================
+           DOCUMENT 6: TILL PROCEDURES & FEATURE REFERENCE
+           Two printable pages that link to their own files in this folder.
+           ================================================================= -->
+      <article id="doc-till" class="doc-article">
+        <div class="article-header">
+          <span class="article-badge badge-client">Printable Reference
+          &mdash; Till Use</span>
+          <h2>Till Procedures &amp; Feature Reference</h2>
+          <p class="article-lead">
+            Two printable sheets for the till. The procedures sheet shows
+            each task step by step: opening, table orders, allergies,
+            payment, refunds and closing. The feature reference explains
+            what every screen of the till app does.
+          </p>
+        </div>
+
+        <div class="callout info">
+          <h4>Print on A4</h4>
+          <p>
+            Each sheet starts a new page for every section, so you can pin
+            the page you need beside the till. Open the link, then print
+            from your browser with paper size set to A4.
+          </p>
+        </div>
+
+        <h3>Documents</h3>
+        <ul>
           <li>
-            <a href="admin.html">&#128736; Admin Guide</a>
-            <p>Adding and removing staff, changing what they can do, and
-              their Personal Identification Numbers (PINs).</p>
+            <a href="#doc-till-procedures">Till Procedures</a> &mdash; how to
+            do each task, with steps in order.
           </li>
           <li>
-            <a href="management.html">&#128200; Management Guide</a>
-            <p>The accounts behind the till, who holds each one, and the
-              daily, weekly and monthly routines.</p>
-          </li>
-          <li>
-            <a href="till.html">&#128424; Till Procedures &amp; Features</a>
-            <p>How to do each till task, step by step, and what each
-              feature of the till does.</p>
+            <a href="#doc-till-features">Till Feature Reference</a> &mdash;
+            what each feature does, and how far it has been checked.
           </li>
         </ul>
+
+        <div class="callout warning">
+          <h4>Steps not yet tested</h4>
+          <p>
+            Some steps, including refunds, split bills, courses and the
+            end-of-day report, have not been checked on a real sale. The
+            documents mark each one. Do not rely on them until the manager
+            has tested them.
+          </p>
+        </div>
+      </article>
+
+      <article class="doc-article" id="doc-till-procedures">
+        <div class="article-header">
+          <span class="article-badge badge-spec">Till Procedures (front of house)</span>
+          <h2>EGGI'S — Till Procedures</h2>
+          <p class="article-lead">How to open the till, take a table order, record allergies, take payment, handle refunds and close the day.</p>
+        </div>
+      
+      
+      
+      
+      
+      
+      <div class="box">
+        <strong>Print this page on A4.</strong> Each numbered section starts on a
+        new sheet, so you can pin the right page at the till.
+      </div>
+      
+      <section class="step first" id="who-this-is-for">
+        <h2>Who this is for</h2>
+        <ol>
+          <li>Every member of front-of-house staff.</li>
+          <li>The manager, who also has the refund and close-down steps.</li>
+        </ol>
+      
+        <h3>Words you will see on the screen</h3>
+        <ol>
+          <li><strong>POS</strong> — Point of Sale. The till app on the Chromebook.</li>
+          <li><strong>Cart</strong> — the list of items for the table you are serving now.</li>
+          <li><strong>Park order</strong> — save an order to come back to later. Nothing is paid.</li>
+          <li><strong>Order note</strong> — a free-text message for the kitchen, such as an allergy.</li>
+          <li><strong>PIN</strong> — personal identification number, your four-digit login.</li>
+          <li><strong>Solo</strong> — the card machine that takes the customer's payment.</li>
+        </ol>
+      
+        <h3>Before you start</h3>
+        <ol>
+          <li>The Chromebook is on and the POS app is open.</li>
+          <li>The card machine (Solo) shows a green or charged screen.</li>
+          <li>Your PIN is known to you only. Never share it.</li>
+        </ol>
       </section>
+      
+      <section class="step" id="opening-the-till-first-person-in-about-10-minute">
+        <h2>1. Opening the till <small>(first person in, about 10 minutes)</small></h2>
+        <ol>
+          <li>Switch on the Chromebook and open the <strong>POS</strong> app.</li>
+          <li>Log in with your <strong>PIN</strong>.</li>
+          <li>Check the top bar shows the shop name and no warning banner.</li>
+          <li>Check the printer has paper. If not, load a roll (section 13).</li>
+          <li>Count the cash float into the till tray. Write the total on the cash sheet and have a second person check it.</li>
+          <li>Check the kitchen device is showing the open order list.</li>
+        </ol>
+        <div class="box warn"><strong>If a warning banner appears:</strong> note its words, then go to section 14.</div>
+      </section>
+      
+      <section class="step" id="logging-in-and-out">
+        <h2>2. Logging in and out</h2>
+        <ol>
+          <li>Tap your name or the login prompt.</li>
+          <li>Enter your PIN.</li>
+          <li>When your shift ends, log out. The account icon (bottom left) is where to look; the exact <strong>Log out</strong> label is not yet confirmed (section 15).</li>
+        </ol>
+        <div class="box warn"><strong>Never</strong> leave the till logged in and unattended.</div>
+      </section>
+      
+      <section class="step" id="taking-a-table-order">
+        <h2>3. Taking a table order</h2>
+        <ol>
+          <li>Tap <strong>New order</strong> on the <strong>Open orders</strong> screen (the bell icon on the left bar), or tap the cart icon to start a new cart.</li>
+          <li>Choose the menu category along the top, such as <strong>03 Brunch &amp; Beyond</strong>. Tap <strong>All</strong> to see everything.</li>
+          <li>Tap an item to add it to the cart.</li>
+          <li>Check the cart on the right. Each line shows the quantity and price.</li>
+          <li>Repeat for every item the table has ordered.</li>
+          <li>Tap <strong>Park order</strong> if the table is still deciding. The button that sends the order to the kitchen is not yet confirmed (section 15).</li>
+          <li>Confirm the order appears on the kitchen display (section 9).</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="modifiers-choices-such-as-milk-or-bread">
+        <h2>4. Modifiers <small>(choices such as milk or bread)</small></h2>
+        <p>Modifiers are options attached to an item. The till asks for them after you tap the item.</p>
+        <ol>
+          <li>Tap the item.</li>
+          <li>Choices are expected to appear, such as <strong>Milk</strong> (oat, almond, soya, coconut) or <strong>Bread</strong>. The exact prompt is not yet confirmed on the device (section 15); stop and ask the manager if it differs.</li>
+          <li>Tap the customer's choice and confirm it.</li>
+          <li>Check the modifier is written under the item name in the cart.</li>
+        </ol>
+      
+        <h3>Common modifier groups in this shop</h3>
+        <ol>
+          <li><strong>Drinks:</strong> milk choice, extra shot, decaf, syrups.</li>
+          <li><strong>Food:</strong> bread, egg style, eggs benedict choice, omelette fillings, pasta type, jacket potato filling.</li>
+        </ol>
+        <div class="box"><strong>If a modifier is missing:</strong> do not guess. Add the item with an order note (section 5) saying what the customer wants.</div>
+      </section>
+      
+      <section class="step" id="allergies-and-special-requests">
+        <h2>5. Allergies and special requests</h2>
+        <div class="box warn">
+          <p><strong>Rule 1: every allergy goes in the order note.</strong> A modifier is for choices on the menu; the order note is for anything else, including allergies.</p>
+          <p><strong>Rule 2: say it aloud to the kitchen.</strong> The order note is a written message, so a second check by voice is still needed.</p>
+        </div>
+      
+        <h3>How to add an order note</h3>
+        <ol>
+          <li>Tap the three dots at the top right of the cart.</li>
+          <li>Tap <strong>Add order note</strong>.</li>
+          <li>Type the allergy in plain words, for example: <code>NUT ALLERGY — no nuts, no nut oil, check the sauce</code>.</li>
+          <li>Tap <strong>Save</strong>. The note is saved with the order.</li>
+          <li>Send the order (section 15 notes the button is not yet confirmed), then tell the kitchen in person.</li>
+        </ol>
+      
+        <div class="box"><strong>What to write:</strong> the allergen, the item it affects, and the customer's table number. Keep it under 300 characters, the limit the till allows.</div>
+        <div class="box warn"><strong>What not to do:</strong> never write only "allergy" with no detail, and never remove the note by accident. If the customer changes their mind, edit the note rather than deleting it.</div>
+      </section>
+      
+      <section class="step" id="changing-or-cancelling-items">
+        <h2>6. Changing or cancelling items</h2>
+        <ol>
+          <li><strong>Clear the whole cart:</strong> tap the three dots, then <strong>Clear cart</strong>. Use this only for a cart that has not been sent to the kitchen.</li>
+          <li><strong>Change one item:</strong> remove it, then add the correct one.</li>
+          <li><strong>Item already sent to the kitchen:</strong> tell the manager. Do not cancel it on the till without them.</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="discounts-and-manual-prices-manager-only">
+        <h2>7. Discounts and manual prices <small>(manager only)</small></h2>
+        <ol>
+          <li>Tap the three dots, then <strong>Add discount</strong>, or <strong>Manual price entry</strong>.</li>
+          <li>Enter the amount or percentage, and the reason.</li>
+          <li>The manager enters their PIN to confirm.</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="taking-payment">
+        <h2>8. Taking payment</h2>
+        <div class="box"><strong>Rule:</strong> the customer pays after the food is served, unless the manager has agreed otherwise.</div>
+      
+        <h3>8.1 Card (Solo)</h3>
+        <ol>
+          <li>Tap <strong>Card</strong> at the bottom right of the cart.</li>
+          <li>Choose <strong>Card Reader</strong>. The payment amount appears on the Solo.</li>
+          <li>Hand the Solo to the customer. They tap, insert or pay with their phone.</li>
+          <li>Wait for the green tick and the printed receipt.</li>
+          <li>Give the customer the receipt.</li>
+        </ol>
+      
+        <h3>8.2 Tap to pay (phone)</h3>
+        <ol>
+          <li>Tap <strong>Card</strong>, then <strong>Tap to Pay</strong>.</li>
+          <li>The customer holds their card or phone on the Chromebook or the Solo, as the screen shows.</li>
+        </ol>
+      
+        <h3>8.3 Payment link</h3>
+        <ol>
+          <li>Tap <strong>Card</strong>, then <strong>Payment Links</strong>.</li>
+          <li>Show the link or QR code to the customer.</li>
+        </ol>
+      
+        <h3>8.4 Cash</h3>
+        <ol>
+          <li>Cash is not taken on the payment screen. Count it into the till tray, then give the change.</li>
+          <li>Record the cash on the cash sheet.</li>
+          <li>Keep the drawer closed when not in use.</li>
+        </ol>
+      
+        <h3>8.5 Split bills</h3>
+        <div class="box warn"><span class="tag">Not yet tested</span> Ask the manager before using split bills (section 15).</div>
+      </section>
+      
+      <section class="step" id="the-kitchen">
+        <h2>9. The kitchen</h2>
+        <p>The client has asked that one SumUp Terminal is the kitchen Terminal. It shows the open orders and prints a ticket for each parked order.</p>
+        <ol>
+          <li>Every parked order appears on the kitchen Terminal within seconds.</li>
+          <li>The kitchen Terminal prints one ticket per parked order.</li>
+          <li>Tell the kitchen about every allergy aloud, as well as the order note.</li>
+        </ol>
+        <div class="box warn"><strong>The kitchen display system is not yet decided.</strong> When it is chosen, this section will be replaced.</div>
+      </section>
+      
+      <section class="step" id="refunds-manager-only">
+        <h2>10. Refunds <small>(manager only)</small></h2>
+        <div class="box warn"><span class="tag">Not yet tested</span> The steps below must be confirmed on a real test sale before use (section 15).</div>
+        <ol>
+          <li>Open <strong>Sales</strong> (receipt icon, left bar).</li>
+          <li>Find the sale and tap it.</li>
+          <li>Tap the refund option, if present.</li>
+          <li>Enter the manager PIN.</li>
+          <li>Print the refund receipt and file it with the day's paperwork.</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="reprinting-a-receipt">
+        <h2>11. Reprinting a receipt</h2>
+        <ol>
+          <li>Open <strong>Sales</strong> (receipt icon, left bar).</li>
+          <li>Tap the sale.</li>
+          <li>Tap <strong>Receipt</strong>.</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="closing-the-till-last-person-about-20-minutes">
+        <h2>12. Closing the till <small>(last person, about 20 minutes)</small></h2>
+        <ol>
+          <li>Check there are no open orders on the <strong>Open orders</strong> screen. Pay or clear each one with the manager.</li>
+          <li>Open <strong>Reporting</strong> (chart icon, left bar) and check <strong>Today's sales</strong>.</li>
+          <li>Count the cash in the tray and compare it with the sales total. Write the difference on the cash sheet.</li>
+          <li>Log out, then switch the Chromebook off.</li>
+          <li>Lock the cash in the safe or lockable tray.</li>
+        </ol>
+        <div class="box warn"><span class="tag">Not yet tested</span> The end-of-day Z-report. Ask the manager (section 15).</div>
+      </section>
+      
+      <section class="step" id="paper-and-printer">
+        <h2>13. Paper and printer</h2>
+        <ol>
+          <li>Open the printer lid.</li>
+          <li>Drop in a new roll so the paper feeds from the bottom.</li>
+          <li>Close the lid. Check a test receipt prints.</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="when-something-goes-wrong">
+        <h2>14. When something goes wrong</h2>
+        <ol>
+          <li><strong>The till freezes:</strong> wait 30 seconds, then close and reopen the POS app. Your open orders are saved.</li>
+          <li><strong>Card declined:</strong> ask the customer to try another card or method. Do not retry more than twice.</li>
+          <li><strong>No internet:</strong> the Solo can still take card payments on its own connection. Tell the manager.</li>
+          <li><strong>Printer will not print:</strong> check the paper and the lid, then tell the manager.</li>
+          <li><strong>Anything else:</strong> call the manager. Do not guess.</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="not-yet-tested-on-this-till">
+        <h2>15. Not yet tested on this till</h2>
+        <div class="box warn">These steps are not confirmed on the live till. Do not use them until the manager has checked them with a real test sale.</div>
+        <ol>
+          <li><strong>Split bills.</strong></li>
+          <li><strong>Refunds</strong>, including the refund receipt. A refund button did not appear on the failed test sales checked on 19 November 2026, so no refund has been seen on the till yet.</li>
+          <li><strong>Courses</strong> (sending items to the kitchen in stages).</li>
+          <li><strong>Z-report</strong> at close-down.</li>
+          <li><strong>Table numbers</strong>, if the shop uses them.</li>
+          <li><strong>Kitchen display</strong>, which is not yet chosen.</li>
+          <li><strong>The button that sends an order to the kitchen.</strong></li>
+          <li><strong>The modifier prompt</strong> on the item tile.</li>
+          <li><strong>The exact Log out label.</strong></li>
+          <li><strong>Discount and manual price steps</strong> (the menu items exist; the steps after them are not yet run).</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="questions-for-the-manager">
+        <h2>Questions for the manager</h2>
+        <ol>
+          <li>Does the shop use table numbers?</li>
+          <li>Which kitchen display system will be used?</li>
+          <li>Who is allowed to refund and to apply discounts?</li>
+          <li>Who holds the manager PIN?</li>
+        </ol>
+      </section>
+      
+      <footer>
+        EGGI'S — Till Procedures. Prepared by IToldYouSo Computing. Steps marked
+        "Not yet tested" must be checked on a real test sale before staff rely
+        on them.
+      </footer>
+      </article>
+
+      <article class="doc-article" id="doc-till-features">
+        <div class="article-header">
+          <span class="article-badge badge-spec">Till Feature Reference</span>
+          <h2>EGGI'S — Till Feature Reference</h2>
+          <p class="article-lead">What every feature of the till app does, and how far it has been checked on the device.</p>
+        </div>
+      
+      
+      
+      
+      
+      
+      <div class="box">
+        <strong>Print this page on A4.</strong> Each area starts on a new sheet.
+        For step-by-step tasks, use the till procedures sheet instead.
+      </div>
+      
+      <section class="step first" id="how-to-read-the-status">
+        <h2>How to read the status</h2>
+        <ol>
+          <li><span class="status">Seen</span> opened on the device and described from the screen.</li>
+          <li><span class="status offer">Offer only</span> an introduction and a "Get started" button. Not switched on for this account.</li>
+          <li><span class="status plus">Plus</span> a POS Plus feature. Needs the paid plan.</li>
+          <li><span class="status web">Web</span> managed on the SumUp website, not on the till.</li>
+          <li><span class="status check">Not confirmed</span> not opened, or the screen did not finish loading.</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="cart-and-checkout-main-till-screen">
+        <h2>1. Cart and checkout (main till screen)</h2>
+        <ol>
+          <li><strong>Category tabs</strong> — filters the item tiles by category. "All" shows everything. <span class="status">Seen</span></li>
+          <li><strong>Search (magnifier)</strong> — finds an item by name. <span class="status">Seen</span></li>
+          <li><strong>New item (pencil)</strong> — starts a new item from the till. <span class="status check">Not confirmed</span></li>
+          <li><strong>Item tiles</strong> — tap to add the item to the cart. The price is shown on each tile. <span class="status">Seen</span></li>
+          <li><strong>Cart header</strong> — shows the order code, for example E-003, and the timing label. <span class="status">Seen</span></li>
+          <li><strong>Cart lines</strong> — one line per item, with quantity and price. <span class="status">Seen</span></li>
+          <li><strong>Add course</strong> — creates a course, so items can be sent to the kitchen in stages. <span class="status plus">Plus</span></li>
+          <li><strong>Park order</strong> — saves the order open and unpaid. <span class="status">Seen</span></li>
+          <li><strong>Card</strong> — opens the payment methods screen. <span class="status">Seen</span></li>
+          <li><strong>Chevron beside Card</strong> — opens the split and all-payment menu. <span class="status">Seen</span></li>
+          <li><strong>Three dots menu</strong> — manual price entry, add discount, add order note, clear cart. <span class="status">Seen</span></li>
+          <li><strong>Add order note</strong> — free text for the kitchen, up to 300 characters. <span class="status">Seen</span></li>
+          <li><strong>Clear cart</strong> — empties the cart. Only for a cart not yet sent. <span class="status">Seen</span></li>
+          <li><strong>Manual price entry</strong> — types in a price that is not on the menu. <span class="status">Seen (menu)</span></li>
+          <li><strong>Add discount</strong> — applies a discount to the cart. <span class="status">Seen (menu)</span></li>
+          <li><strong>Split</strong> — splits the bill between payments. <span class="status">Seen (menu)</span></li>
+        </ol>
+      </section>
+      
+      <section class="step" id="payment-methods">
+        <h2>2. Payment methods</h2>
+        <ol>
+          <li><strong>Tap to Pay</strong> — takes a contactless card or phone on the device's own NFC chip. <span class="status check">Not available on this device</span> (see section 13).</li>
+          <li><strong>Card Reader</strong> — sends the amount to the Solo card machine. <span class="status">Seen</span></li>
+          <li><strong>Payment Links</strong> — creates a link or QR code the customer pays online. <span class="status">Seen</span></li>
+        </ol>
+        <div class="box">Cash is not a payment method on this screen. Cash is
+        counted into the till tray (see the till procedures, section 8.4).</div>
+      </section>
+      
+      <section class="step" id="open-orders-bell-icon">
+        <h2>3. Open orders (bell icon)</h2>
+        <ol>
+          <li><strong>Open order list</strong> — every parked order, with its code, time and items. <span class="status">Seen</span></li>
+          <li><strong>Search</strong> — finds an open order by code, item or amount. <span class="status">Seen</span></li>
+          <li><strong>New order</strong> — starts a new order. <span class="status">Seen</span></li>
+          <li><strong>Use courses banner</strong> — explains courses and links to POS Plus. <span class="status plus">Plus</span></li>
+        </ol>
+      </section>
+      
+      <section class="step" id="sales-receipt-icon">
+        <h2>4. Sales (receipt icon)</h2>
+        <ol>
+          <li><strong>Today's sales total</strong> — the total for the day, with a link to the detail. <span class="status">Seen</span></li>
+          <li><strong>Sales list by date</strong> — each sale with its items, time and result. <span class="status">Seen</span></li>
+          <li><strong>Search and filter</strong> — finds a sale; filters by date or result. <span class="status">Seen (search)</span></li>
+          <li><strong>Sale detail</strong> — the items, the VAT and the payment. <span class="status">Seen</span></li>
+          <li><strong>Receipt button</strong> — reprints the customer receipt. <span class="status">Seen</span></li>
+          <li><strong>Payment line</strong> — the card reference, time and result. <span class="status">Seen</span></li>
+        </ol>
+        <div class="box warn">A sale that did not complete shows "Unsuccessful"
+        in red.</div>
+      </section>
+      
+      <section class="step" id="reporting-chart-icon">
+        <h2>5. Reporting (chart icon)</h2>
+        <ol>
+          <li><strong>Periods</strong> — Today, Yesterday, This week, This month, Custom. <span class="status">Seen</span></li>
+          <li><strong>Sales total and count</strong> — the total and the number of sales. <span class="status">Seen</span></li>
+          <li><strong>Items</strong> — number of items sold in the period. <span class="status">Seen</span></li>
+          <li><strong>Average sale</strong> — total divided by the number of sales. <span class="status">Seen</span></li>
+          <li><strong>Refunds</strong> — money refunded in the period. <span class="status">Seen</span></li>
+          <li><strong>Discounts</strong> — money taken off by discounts. <span class="status">Seen</span></li>
+          <li><strong>Best-selling items</strong> — the items sold most. <span class="status">Seen</span></li>
+          <li><strong>Busiest period</strong> — sales by hour, and the busiest time. <span class="status">Seen</span></li>
+          <li><strong>Payment methods</strong> — how customers paid. <span class="status">Seen</span></li>
+          <li><strong>Insights, Revenue, Payouts, Fee invoice, Payments</strong> — detailed tabs. <span class="status">Seen (names)</span></li>
+          <li><strong>Go there now</strong> — opens the full reports on the website. <span class="status web">Web</span></li>
+        </ol>
+        <div class="box">The figures show zero until a successful sale is made.</div>
+      </section>
+      
+      <section class="step" id="items-price-tag-icon">
+        <h2>6. Items (price-tag icon)</h2>
+        <ol>
+          <li><strong>Library</strong> — the full list of items with their prices. Search, sort and filter. <span class="status">Seen</span></li>
+          <li><strong>Add item</strong> — creates a new item. <span class="status">Seen (button)</span></li>
+          <li><strong>Categories</strong> — the till categories and how many items each holds. <span class="status">Seen</span></li>
+          <li><strong>Inventory</strong> — stock tracking. Filter by low stock, sold out and tracked. <span class="status">Seen</span></li>
+          <li><strong>Modifiers</strong> — modifier sets and their choices, such as milk or bread. <span class="status">Seen</span></li>
+          <li><strong>Option sets</strong> — variations such as size or colour. <span class="status">Seen</span></li>
+          <li><strong>Deposits</strong> — container deposits, for example bottles. <span class="status plus">Plus</span></li>
+          <li><strong>Discounts</strong> — named discounts. The shop has 10%, 20% and 50%. <span class="status plus">Plus</span></li>
+          <li><strong>Create modifier set, option set or discount</strong> — creates a new group. <span class="status">Seen (buttons)</span></li>
+        </ol>
+        <div class="box warn"><strong>Clean-up needed:</strong> the modifier list
+        still holds "(Example) Toppings", and the option sets still hold the
+        sample "Color" and "Size" sets. The checklist already asks for the
+        toppings set to be deleted.</div>
+      </section>
+      
+      <section class="step" id="tools-grid-icon">
+        <h2>7. Tools (grid icon)</h2>
+        <p>The Tools screen is a menu. Each entry opens its own feature.</p>
+        <ol>
+          <li><strong>Items</strong> — opens section 6. <span class="status">Seen</span></li>
+          <li><strong>Employees</strong> — staff accounts and their roles. <span class="status">Seen</span> (section 8)</li>
+          <li><strong>Customers</strong> — customer list for invoices and loyalty. <span class="status">Seen</span> (section 9)</li>
+          <li><strong>Reporting</strong> — opens section 5. <span class="status">Seen</span></li>
+          <li><strong>Online Store</strong> — builds a free online shop (Webspace). <span class="status offer">Offer only</span></li>
+          <li><strong>Bookings</strong> — appointment booking. <span class="status offer">Offer only</span></li>
+          <li><strong>Loyalty</strong> — reward programmes. <span class="status check">Not confirmed</span> (did not finish loading)</li>
+          <li><strong>Gift Cards</strong> — sells and redeems gift cards. <span class="status check">Not confirmed</span></li>
+          <li><strong>Card readers</strong> — pairs and buys card machines. <span class="status check">Not confirmed</span></li>
+          <li><strong>Tap to Pay</strong> — settings for contactless on the device. <span class="status">Seen</span> (section 13)</li>
+          <li><strong>Payment links</strong> — creates customer payment links. <span class="status">Seen</span> (section 2)</li>
+          <li><strong>Cash Advance</strong> — loans repaid from sales. <span class="status offer">Offer only</span> The eligibility rules are shown: complete identity checks, take card payments for at least three months, and use the SumUp Business Account and card. Meeting them does not guarantee an offer.</li>
+          <li><strong>Invoices</strong> — creates and sends invoices. <span class="status check">Not confirmed</span></li>
+          <li><strong>Expenses</strong> — tracks spending and exports it for tax. <span class="status offer">Offer only</span></li>
+        </ol>
+      </section>
+      
+      <section class="step" id="employees">
+        <h2>8. Employees</h2>
+        <ol>
+          <li><strong>Members</strong> — lists everyone who can log in, with role and status. <span class="status">Seen</span></li>
+          <li><strong>Search, Role and Status filters</strong> — finds a member. <span class="status">Seen</span></li>
+          <li><strong>Add team member</strong> — invites a person by e-mail. <span class="status">Seen (button)</span></li>
+          <li><strong>Roles</strong> — the permission sets a member can have. <span class="status">Seen (tab)</span></li>
+          <li><strong>Edit team member</strong> — changes a member's role. <span class="status">Seen (panel)</span></li>
+        </ol>
+        <div class="box">On 19 November 2026 the only member is the account owner,
+        as Administrator. The six staff e-mail addresses are still needed (see the
+        checklist). Each staff member needs their own address to be invited.</div>
+      </section>
+      
+      <section class="step" id="customers">
+        <h2>9. Customers</h2>
+        <ol>
+          <li><strong>Customer list</strong> — names and contact details of customers. <span class="status">Seen (empty)</span></li>
+          <li><strong>Add customer</strong> — adds a customer by hand. <span class="status">Seen (button)</span></li>
+          <li><strong>Invoice customers note</strong> — invoice customers are kept in the Invoices directory, not on this list. <span class="status">Seen</span></li>
+        </ol>
+        <div class="box">The list is empty. Customers are added by hand, or created
+        from invoices.</div>
+      </section>
+      
+      <section class="step" id="profile-person-icon-bottom-left">
+        <h2>10. Profile (person icon, bottom left)</h2>
+        <p>The Profile menu opens from the person icon at the extreme bottom left of
+        the till screen and scrolls through every device, checkout, tax, team,
+        accessory and account setting. All menus and submenus below were inspected
+        on 19 November 2026 (except <strong>Log out</strong>, which was not tapped).</p>
+      
+        <h3>10.1 Account and security</h3>
+        <ol>
+          <li><strong>Account header</strong> — shows the account name (<code>Migena Lika</code>) and merchant code (<code>MW82CKEA</code>). Display header only; tapping it does not open a submenu. <span class="status">Seen</span></li>
+          <li><strong>24/7 priority support</strong> — opens the Priority Support web view. <span class="status">Seen</span></li>
+          <li><strong>Inbox</strong> — messages from SumUp with an unread badge (<code>1</code> on 19 November 2026). Lists account alerts including "ID verification needed", mobile number verification and profile setup. <span class="status">Seen</span></li>
+          <li><strong>Login and security</strong> — <span class="status">Seen</span>
+            <ul>
+              <li><strong>Link device</strong> ("Increase your account security"): links this device to the account to confirm important activities.</li>
+              <li><strong>Login credentials</strong>: shows <strong>Mobile phone</strong> (masked, with <strong>Change</strong>) and <strong>Email</strong> (with <strong>Change</strong>).</li>
+              <li>Password note: directs you to <code>me.sumup.com</code> to change your password.</li>
+            </ul>
+          </li>
+        </ol>
+      
+        <h3>10.2 Payouts</h3>
+        <ol start="5">
+          <li><strong>Payouts</strong> — summary of <strong>Payout destination</strong> (<code>SumUp Business Account</code>, "Fastest payouts") and <strong>Frequency</strong> (<code>Next-day payouts</code>), plus <strong>Recent payouts</strong> (<code>No payouts yet</code>), <strong>Go to payout history</strong> (opens <strong>Payout history</strong> with Payout Identification (PID) search and <strong>Filter</strong>), and top-right <strong>Report</strong> (redirects to <strong>Reporting</strong> for Payouts and Fee invoice) and <strong>Settings</strong> icons. <span class="status">Seen</span></li>
+          <li><strong>Payout settings</strong> — shows the current payout destination (<code>SumUp Business Account</code>, marked <code>Current</code>) and the <strong>7am payouts every day</strong> toggle (<em>on</em> — next-day payouts by 7am, 365 days a year). <span class="status">Seen</span></li>
+        </ol>
+      
+        <h3>10.3 Payment methods</h3>
+        <ol start="7">
+          <li><strong>Tap to Pay</strong> — <strong>Tap to Pay</strong> toggle (<em>on</em>) with device readiness checks: <strong>NFC not available</strong> (red — Near Field Communication (NFC) is unsupported on this device; see section 13), <strong>SumUp App version</strong>, <strong>Developer options</strong> and <strong>Android version</strong>. <span class="status">Seen</span></li>
+          <li><strong>Card Reader</strong> — <strong>Accept payments with card reader</strong> toggle (<em>on</em> — shows Card Reader at checkout) and <strong>Connect card reader</strong> button. <span class="status">Seen</span></li>
+          <li><strong>Other payments</strong> — introduces adding non-SumUp payment methods (such as bank transfer or digital payments) to checkout so every payment is recorded in one place, with a <strong>Set up</strong> button. <span class="status offer">Offer only</span></li>
+        </ol>
+      
+        <h3>10.4 Orders</h3>
+        <ol start="10">
+          <li><strong>Order types</strong> (<em>New</em>) — <strong>Use order types</strong> toggle (<em>off</em>): applies an order type at checkout to charge the right prices and Value Added Tax (VAT), and prints it on order tickets. <span class="status">Seen</span></li>
+          <li><strong>Multiple orders</strong> (<em>New</em>) — <span class="status">Seen</span>
+            <ul>
+              <li><strong>Accept multiple orders</strong> toggle (<em>on</em>): open, park and manage orders before taking payment (running tabs or multiple tables).</li>
+              <li><strong>Floor plan</strong> toggle (<em>off</em>): create and manage a restaurant floor plan and place orders on tables.</li>
+              <li><strong>Sync orders across devices — Sync this device</strong> toggle (<em>off</em> on this device): view and edit open orders on synced devices in real time.</li>
+            </ul>
+          </li>
+          <li><strong>Courses</strong> (<em>New</em>) — shows a notice that courses work best with multiple orders and order tickets turned on, <strong>Use courses</strong> to hold or fire kitchen courses separately, and a <strong>How courses work</strong> guide ("Send the next course"). <span class="status">Seen</span></li>
+        </ol>
+      
+        <h3>10.5 Checkout</h3>
+        <ol start="13">
+          <li><strong>Split Payments</strong> (<em>New</em>) — <strong>Split payments</strong> toggle (<em>on</em> — accept multiple payments per order), plus three <strong>Split options</strong> toggles: <strong>Custom amounts</strong> (<em>on</em>), <strong>Equal parts</strong> (<em>on</em>) and <strong>Items</strong> (<em>on</em> — each customer pays for their own items). <span class="status">Seen</span></li>
+          <li><strong>Tipping</strong> — <strong>Standard tipping</strong> toggle (<em>off</em>): lets customers add gratuity at payment. <span class="status">Seen</span></li>
+        </ol>
+      
+        <h3>10.6 Taxes</h3>
+        <ol start="15">
+          <li><strong>VAT</strong> (opens <strong>Taxes</strong> screen) — <span class="status">Seen</span>
+            <ul>
+              <li><strong>Charge VAT</strong> toggle (<em>on</em>), with <strong>Learn more</strong>.</li>
+              <li><strong>Default rate</strong>: <code>VAT 20%</code> (with <strong>Edit</strong>; pre-selected at checkout and in the Online Store).</li>
+              <li><strong>VAT Rates</strong>: <code>No VAT (-)</code>, <code>VAT 0%</code>, <code>VAT 5%</code> and <code>VAT 20%</code> (with <strong>Edit</strong> to change or add rates).</li>
+              <li><strong>Prices</strong>: <strong>Show prices including VAT</strong> toggle (<em>on</em>).</li>
+            </ul>
+          </li>
+        </ol>
+      
+        <h3>10.7 Sales &amp; cash tracking</h3>
+        <ol start="16">
+          <li><strong>Till management</strong> — <span class="status">Seen</span>
+            <ul>
+              <li><strong>Manage till</strong> toggle (<em>off</em>): manually open or close the till at the start and end of the trading day, and generate Z Reports when closing.</li>
+              <li><strong>Manage cash</strong> toggle (<em>off</em>): record the starting cash float and track cash movements for cash reconciliation.</li>
+            </ul>
+          </li>
+        </ol>
+      
+        <h3>10.8 Your team</h3>
+        <ol start="17">
+          <li><strong>Employees</strong> — opens the Employees management screen (see section 8). <span class="status">Seen</span></li>
+          <li><strong>PIN login</strong> — <strong>Use PIN login</strong> toggle (<em>off</em>): lets each employee sign in with a 4-digit Personal Identification Number (PIN) for faster switching on shared devices and activity tracking. <span class="status">Seen</span></li>
+        </ol>
+      
+        <h3>10.9 Plans &amp; fees</h3>
+        <ol start="19">
+          <li><strong>Your plans</strong> — opens the <strong>Your plans</strong> embedded web view for subscription details. <span class="status web">Web</span></li>
+          <li><strong>Card payment summary</strong> — opens the <strong>Annual fees summary</strong> embedded web view. <span class="status web">Web</span></li>
+        </ol>
+      
+        <h3>10.10 Accessories</h3>
+        <ol start="21">
+          <li><strong>Printer settings</strong> — <strong>Use printer</strong> toggle (<em>off</em> on this device): enables printed customer receipts and cash drawer management. <span class="status">Seen</span></li>
+          <li><strong>Barcode scanner</strong> — <strong>Use barcode scanner</strong> toggle (<em>on</em>), connected device status (<code>ChromeOS Keyboard</code>, Universal Serial Bus (USB), <code>Ready</code>), <strong>Switch scanner</strong> button and top-right <strong>Info</strong> icon. <span class="status">Seen</span></li>
+        </ol>
+      
+        <h3>10.11 Support</h3>
+        <ol start="23">
+          <li><strong>Support</strong> (<em>Prio</em>) — <span class="status">Seen</span>
+            <ul>
+              <li><strong>Get in touch</strong>: <strong>Ask AI Support</strong> for quick self-service troubleshooting.</li>
+              <li><strong>Priority support</strong>: <strong>Chat with an agent</strong> (<code>Online</code>) and <strong>Call us</strong> (displays phone hours, e.g. <code>Reopens at 08:00 AM</code>), plus top-right <strong>Conversation history</strong>.</li>
+              <li><strong>Useful self-services</strong>: <strong>Free device replacement</strong>, <strong>Change phone number</strong>, <strong>Change email address</strong> and <strong>Change password</strong> (each shows <code>Resolution time: 1 min</code>).</li>
+              <li><strong>Account and app details</strong>: <strong>Legal documentation</strong>, <strong>Delete my SumUp profile</strong>, and device diagnostics with a <strong>Copy app details</strong> button (<code>Merchant ID: MW82CKEA</code>, <code>System Version: Android 13</code>, <code>SumUp Business: 2.193.0</code>).</li>
+            </ul>
+          </li>
+        </ol>
+      
+        <h3>10.12 For SumUp fans, privacy, legal and log out</h3>
+        <ol start="24">
+          <li><strong>Refer a friend</strong> (opens <strong>Invite</strong> screen) — referral offer ("Get &pound;60 when you refer SumUp"; friend gets up to &pound;50 off their first payment device), <strong>Share link</strong>, <strong>Your rewards</strong> and top-right <strong>Terms</strong>. <span class="status">Seen</span></li>
+          <li><strong>Like this app? Tell others</strong> — opens the SumUp app listing in Google Play Store. <span class="status">Seen</span></li>
+          <li><strong>Cookies Preferences</strong> — opens the <strong>Cookies Preferences</strong> embedded web view. <span class="status web">Web</span></li>
+          <li><strong>Legal information — Terms &amp; Conditions</strong> — opens SumUp Terms &amp; Conditions on <code>sumup.com</code> in the browser. <span class="status web">Web</span></li>
+          <li><strong>Legal information — Privacy policy</strong> — opens SumUp Privacy Policy on <code>sumup.com</code> in the browser. <span class="status web">Web</span></li>
+          <li><strong>Log out</strong> — signs out of the SumUp account on this device (not tapped during inspection). <span class="status">Seen (name)</span></li>
+        </ol>
+      </section>
+      
+      <section class="step" id="settings-and-business-profile-web">
+        <h2>11. Settings and business profile (web)</h2>
+        <p>These are on the website, not the till.</p>
+        <ol>
+          <li><strong>Business information</strong> — registered name, trade name, address. <span class="status web">Web</span></li>
+          <li><strong>Business profile</strong> — name on SumUp listings, statement descriptor and phone. <span class="status web">Web</span></li>
+          <li><strong>VAT</strong> — VAT rates charged. <span class="status web">Web</span></li>
+          <li><strong>Plans and fees</strong> — the current plan and its fees. <span class="status web">Web</span></li>
+          <li><strong>Employees</strong> — staff profiles (also on the till). <span class="status web">Web</span></li>
+        </ol>
+        <div class="box warn">The registered name still reads "Greens Kitchen".
+        Only SumUp Support can change it (checklist, section 8.5).</div>
+      </section>
+      
+      <section class="step" id="printing-and-kitchen-checklist">
+        <h2>12. Printing and kitchen (checklist)</h2>
+        <p>The printing and order-sending settings are per device and are not in
+        the till's menu. They are covered by checklist Rules U3 and U4:</p>
+        <ol>
+          <li>The "Till" printer prints POS Lite receipts.</li>
+          <li>The Solo's counter printer prints standalone card receipts.</li>
+          <li>The Terminal prints order tickets only where "Print order tickets" is on.</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="known-limits-on-this-device">
+        <h2>13. Known limits on this device</h2>
+        <ol>
+          <li><strong>Tap to Pay: not available.</strong> The device reports "NFC not available", so contactless payment on this device will not work. Use the Solo.</li>
+          <li><strong>Card readers</strong> and <strong>Loyalty</strong> did not finish loading during this check, so they are not confirmed.</li>
+          <li><strong>Refunds</strong> and <strong>split bills</strong> have not been used on a real sale.</li>
+        </ol>
+      </section>
+      
+      <section class="step" id="not-yet-checked">
+        <h2>14. Not yet checked</h2>
+        <ol>
+          <li>Gift Cards and Invoices (did not load in this check).</li>
+          <li>Loyalty (did not load).</li>
+          <li>Items: creating and editing an item; deleting a category.</li>
+          <li>Courses, the Z-report and the kitchen send button.</li>
+        </ol>
+        <div class="box warn">These need a manager's test sale or a run-through
+        before this reference can be called complete.</div>
+      </section>
+      
+      <footer>
+        EGGI'S — Till Feature Reference. Compiled from the SumUp POS app on the
+        shop's Android device on 19 November 2026. Where a screen did not load or
+        was not opened, the status says so rather than guessing.
+      </footer>
+      </article>
     </main>
 
     <footer class="site-footer">

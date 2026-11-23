@@ -213,7 +213,8 @@ installation.
   prominent offline-copy download banner at the top, then three owner
   task cards: verify identity, update software and turn on cash
   payments. A separate section lists the tasks owned by Neville, not the
-  owner. The three guide buttons are styled as buttons rather than tiles.
+  owner. The five guides are embedded on the page below those sections,
+  so there are no guide buttons. The guide pages keep their own search.
 - **Migena portal: grouped navigation, documentation search and
   offline copy**: Grouped the Admin Guide, Management Guide and Till
   Procedures & Features under a `3. Documentation` button on the

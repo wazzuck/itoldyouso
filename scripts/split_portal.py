@@ -20,10 +20,14 @@ What the script does:
    link to its stylesheet (doc-search.css) and the two search scripts,
    so all seven official document pages share one search.
 3. Rewrites links that pointed at a section of the portal so they point
-   at the standalone page instead.
+   at the standalone page instead. On the Documentation page they point
+   at the matching anchor in the embedded copy instead.
 4. Writes documentation.html, the Documentation hub. It is password
-   gated like every other page and lists the guides. It has no search
-   box, because it is a list of documents rather than a document.
+   gated like every other page and embeds all five guides: the Admin,
+   Management and Till articles, and the two printable Till sheets. The
+   hub reads the guide sources at build time, so it cannot drift from
+   them. It has no search box, because the search sits on the guide
+   pages themselves.
 
 Run:
     python3 scripts/split_portal.py          # regenerate
@@ -63,6 +67,28 @@ ANCHOR_LINKS = {
     "href=\"#trainer\"": "href=\"contract.html\"",
     "href=\"#hb-pricing\"": "href=\"pricing.html\"",
 }
+
+# The Documentation page embeds all five guides, so its links point at
+# an anchor on its own page instead of opening the standalone file.
+# The five anchors are the ids of the three articles and the two
+# sheets; contract.html and pricing.html are not embedded, so the
+# links that reach them are left alone.
+HUB_LINKS = {
+    "href=\"admin.html\"": "href=\"#doc-admin\"",
+    "href=\"management.html\"": "href=\"#doc-management\"",
+    "href=\"till.html\"": "href=\"#doc-till\"",
+    "href=\"till-procedures.html\"": "href=\"#doc-till-procedures\"",
+    "href=\"till-features.html\"": "href=\"#doc-till-features\"",
+}
+
+# The printable sheets keep their own files, but the hub reads them from
+# here so it holds the same text.
+EMBEDDED_SHEETS = [
+    ("till-procedures.html", "doc-till-procedures",
+     "Till Procedures (front of house)"),
+    ("till-features.html", "doc-till-features",
+     "Till Feature Reference"),
+]
 
 # The documentation search box, placed in the sticky bar of each of the
 # seven document pages. Its ids must match migena/doc-search.js.
@@ -483,51 +509,258 @@ def doc_download_html() -> str:
       </section>"""
 
 
-def doc_guides_html() -> str:
-    """Return the three documentation guide buttons.
+def sheet_parts(path: Path) -> tuple:
+    """Read one printable sheet, split into its style and its content.
 
-    These sit below the owner tasks on the Documentation page and open
-    the Admin Guide, Management Guide and Till Procedures & Features.
+    The sheets are hand-maintained standalone files. The hub embeds
+    their content, so it must carry their own stylesheet with it.
+
+    Args:
+        path: the sheet file, for example till-procedures.html.
+
+    Returns:
+        A tuple of (style rules, body markup). The body holds only the
+        sheet's own content: the cover heading and the numbered
+        sections. The sheet's search form and its script tags are left
+        out: the Documentation page has no search box of its own, and
+        the hub already loads the portal's own scripts once.
+
+    Raises:
+        ValueError: if the file has no style block or no cover heading,
+            so a sheet the generator cannot read fails loudly.
     """
-    return """      <!-- The three documentation guides, opened from the same
-           Documentation page as the owner tasks. -->
-      <section class="doc-guides" aria-labelledby="doc-guides-title">
-        <h2 id="doc-guides-title">Choose a guide</h2>
-        <ul class="portal-buttons">
-          <li>
-            <a href="admin.html">&#128736; Admin Guide</a>
-            <p>Adding and removing staff, changing what they can do, and
-              their Personal Identification Numbers (PINs).</p>
-          </li>
-          <li>
-            <a href="management.html">&#128200; Management Guide</a>
-            <p>The accounts behind the till, who holds each one, and the
-              daily, weekly and monthly routines.</p>
-          </li>
-          <li>
-            <a href="till.html">&#128424; Till Procedures &amp; Features</a>
-            <p>How to do each till task, step by step, and what each
-              feature of the till does.</p>
-          </li>
-        </ul>
-      </section>"""
+    text = path.read_text(encoding="utf-8")
+    start = text.index("<style>") + len("<style>")
+    end = text.index("</style>", start)
+    style = text[start:end]
+    body = text[text.index("<body>") + len("<body>"):]
+    body = body[:body.index("</body>")]
+    body = re.sub(r'<div class="doc-search-bar">.*?</form>\s*</div>',
+                  "", body, flags=re.S)
+    body = re.sub(r'\s*<script src="[^"]*"[^>]*></script>', "", body)
+    cover = re.search(
+        r'<header class="cover">\s*<h1>(.*?)</h1>\s*'
+        r'<p class="lead">(.*?)</p>\s*</header>',
+        body, flags=re.S)
+    if not cover:
+        raise ValueError(f"{path.name}: no cover heading to embed")
+    title = cover.group(1).strip()
+    lead = re.sub(r"\s+", " ", cover.group(2)).strip()
+    body = body.replace(cover.group(0), "")
+    return style, (title, lead, body)
 
 
-def hub_body() -> str:
+def scope_css(css: str, scope: str) -> str:
+    """Limit a sheet's stylesheet to the block that embeds it.
+
+    The sheets style the page body and the plain headings. Embedded on
+    the Documentation page those rules would restyle the whole page, so
+    every selector is prefixed with the scope. The A4 page rule is
+    dropped, because it would change how the whole page prints.
+
+    The sheet's stylesheet is walked rule by rule rather than replaced
+    with one regular expression, because it also holds at-rules such as
+    `@media print`. An at-rule keeps its own header and has the rules
+    inside it scoped in the same way, so the print rules still apply to
+    the embedded copy and to nothing else.
+
+    Args:
+        css: the sheet's stylesheet, read from the sheet file.
+        scope: the selector that wraps the embedded copy, for example
+            "#doc-till-procedures".
+
+    Returns:
+        The same stylesheet, every selector prefixed with the scope,
+        one rule per line.
+    """
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    css = re.sub(r"@page\s*\{[^}]*\}", "", css)
+
+    def scope_selector(selector: str) -> str:
+        """Prefix one selector list with the scope.
+
+        Args:
+            selector: the selector list of a rule, for example
+                "h2, h3".
+
+        Returns:
+            The prefixed list. `body` and `:root` become the scope
+            itself, and `*` covers the scope and what is inside it.
+        """
+        parts = [s.strip() for s in selector.split(",") if s.strip()]
+        out = []
+        for part in parts:
+            if part in ("body", ":root"):
+                out.append(scope)
+            elif part == "*":
+                out.append(f"{scope}, {scope} *")
+            else:
+                out.append(f"{scope} {part}")
+        return ", ".join(out)
+
+    def scope_chunk(chunk: str) -> str:
+        """Scope every rule in one block of stylesheet text.
+
+        Args:
+            chunk: the rules inside a block, or the whole stylesheet
+                at the top level.
+
+        Returns:
+            The same rules, one per line, every selector scoped. Text
+            after the last rule, such as a statement at-rule with no
+            block, is passed through unchanged.
+        """
+        out = []
+        pos = 0
+        while True:
+            open_brace = chunk.find("{", pos)
+            if open_brace == -1:
+                out.append(chunk[pos:])
+                break
+            selector = chunk[pos:open_brace].strip()
+            depth, end = 1, open_brace + 1
+            while depth:
+                if chunk[end] == "{":
+                    depth += 1
+                elif chunk[end] == "}":
+                    depth -= 1
+                end += 1
+            block = chunk[open_brace + 1:end - 1].strip()
+            if selector.startswith("@"):
+                # An at-rule, such as @media print: keep the header and
+                # scope the rules nested inside it.
+                inner = scope_chunk(block)
+                out.append(f"{selector} {{\n{inner}\n}}\n")
+            else:
+                out.append(f"{scope_selector(selector)} {{\n{block}\n}}\n")
+            pos = end
+        return "".join(out)
+
+    return scope_chunk(css)
+
+
+def document_article(src: str, doc_id: str) -> str:
+    """Return one guide article from its source file.
+
+    The Admin article lives in the portal source, so the same block
+    feeds admin.html and the copy embedded on the Documentation page.
+    The Management and Till guides are hand-maintained pages of their
+    own, so this falls back to reading them.
+
+    Args:
+        src: the full text of migena/index.html.
+        doc_id: the article's id attribute, for example "doc-admin".
+
+    Returns:
+        The article's markup, including the banner comment above it.
+
+    Raises:
+        KeyError: if no source file holds that article, so an unknown
+            guide fails loudly instead of embedding an empty section.
+    """
+    if f'<article id="{doc_id}"' not in src:
+        for name, output, _title in DOCS:
+            if output.endswith(".html") and f'<article id="{doc_id}"' \
+                    in (ROOT / output).read_text(encoding="utf-8"):
+                src = (ROOT / output).read_text(encoding="utf-8")
+                break
+        else:
+            page = re.sub(r"[^a-z0-9]+", "-", doc_id).strip("-")
+            page = page.replace("doc-", "")
+            path = ROOT / f"{page}.html"
+            if not path.is_file():
+                raise KeyError(f"no source holds the guide {doc_id}")
+            src = path.read_text(encoding="utf-8")
+    start = src.index(f'<article id="{doc_id}"')
+    start = src.rindex("      <", 0, start)
+    end = src.index("</article>", start) + len("</article>")
+    body = src[start:end]
+    for old, new in ANCHOR_LINKS.items():
+        body = body.replace(old, new)
+    return re.sub(r'\n\s*<!-- =+\n\s+DOCUMENT \d+:.*?=+ -->\n',
+                  '\n', body, flags=re.S)
+
+
+def guides_html(src: str) -> tuple:
+    """Return the five guides for the Documentation page.
+
+    The page embeds the Admin, Management and Till articles, and the two
+    printable Till sheets, so the reader no longer has to leave the page
+    to read any of them.
+
+    Args:
+        src: the full text of migena/index.html.
+
+    Returns:
+        A tuple of (markup, styles). The markup is the five guide
+        sections; the styles are the two sheets' stylesheets, scoped so
+        they cannot restyle the rest of the page, wrapped in a style
+        element ready for the page head.
+    """
+    sections = []
+    for anchor in ("doc-admin", "doc-management", "doc-till"):
+        # The source article already opens with
+        # <article id="..." class="doc-article">, so it is appended as
+        # it stands. Wrapping it in a second article element would give
+        # the section two ids and every in-page link would jump to the
+        # wrong one.
+        sections.append(document_article(src, anchor))
+    styles = []
+    for name, anchor, title in EMBEDDED_SHEETS:
+        style, (sheet_title, sheet_lead, sheet_body) = sheet_parts(
+            ROOT / name)
+        # The sheet's own classes stay on its inner elements; the
+        # scoped stylesheet below already reaches them through the
+        # article's id, so nothing is copied onto the wrapper.
+        article = re.sub(r"^", "      ", sheet_body, flags=re.M)
+        article = article.rstrip()
+        sections.append(f"""      <article class="doc-article" id="{anchor}">
+        <div class="article-header">
+          <span class="article-badge badge-spec">{title}</span>
+          <h2>{sheet_title}</h2>
+          <p class="article-lead">{sheet_lead}</p>
+        </div>
+{article}
+      </article>""")
+        styles.append(scope_css(style, f"#{anchor}"))
+    markup = "\n\n".join(sections)
+    # The embedded guides keep the links they have on their own pages,
+    # which open the standalone file. On the hub those files are the
+    # sections above, so each link is turned into the matching anchor.
+    for old, new in HUB_LINKS.items():
+        markup = markup.replace(old, new)
+    # Count every id the five sections carry, so a guide that reuses an
+    # id already present fails the build instead of linking to the
+    # wrong section in the browser.
+    ids: dict = {}
+    for anchor in re.findall(r'id="([^"]+)"', markup):
+        ids[anchor] = ids.get(anchor, 0) + 1
+    clashes = sorted(k for k, v in ids.items() if v > 1)
+    if clashes:
+        raise ValueError(
+            "duplicate ids on the Documentation page: "
+            + ", ".join(clashes))
+    head = "\n".join(
+        f"  <style>\n{css.rstrip()}\n  </style>" for css in styles)
+    return markup, head
+
+
+def hub_body(src: str) -> str:
     """Return the main content of the Documentation page.
 
     Returns:
         The offline download banner first, then the owner task cards,
-        then the cards owned by Neville, then the three guide buttons.
-        The owner can grab the phone
-        copy, do the tasks, then choose a guide.
+        then the cards owned by Neville, then the five embedded guides.
+        The owner grabs the phone copy, does the tasks, then reads the
+        guides on the same page.
     """
+    guides, _ = guides_html(src)
     return "\n\n".join([doc_download_html(), owner_tasks_html(),
-                        engineer_tasks_html(), doc_guides_html()])
+                        engineer_tasks_html(), guides])
 
 
 def shell(title: str, body: str, back_label: str, search: bool,
-          gate: str, footer: str, script: str) -> str:
+          gate: str, footer: str, script: str, extra_head: str = "") -> str:
     """Wrap one page's body in the frame every portal page shares.
 
     Args:
@@ -536,10 +769,14 @@ def shell(title: str, body: str, back_label: str, search: bool,
         back_label: text of the link back to the main page, with its
             HTML entity, for example "&larr; All documents".
         search: True to add the documentation search box with its
-            stylesheet and scripts; False for the hub, which is a list.
+            stylesheet and scripts; False for the hub, whose search sits
+            on the guide pages themselves.
         gate: the password gate markup copied from index.html.
         footer: the site footer copied from index.html.
         script: the portal's own script, copied from index.html.
+        extra_head: markup added to the page head. The Documentation
+            page passes the scoped stylesheets of the embedded sheets
+            here, so those styles cannot restyle the page.
 
     Returns:
         The complete HTML document as one string.
@@ -556,7 +793,7 @@ def shell(title: str, body: str, back_label: str, search: bool,
   <meta name="robots" content="noindex, nofollow">
   <title>{title} | EGGI'S Till Documentation | IToldYouSo Computing</title>
   <link rel="stylesheet" href="portal.css">
-{head_search}</head>
+{head_search}{extra_head}</head>
 <body>
 {gate}
 
@@ -625,20 +862,16 @@ def build() -> dict:
 
     # 4. One page per document.
     for doc_id, name, title in DOCS:
-        start = src.index(f'<article id="{doc_id}"')
-        start = src.rindex("      <", 0, start)
-        end = src.index("</article>", start) + len("</article>")
-        body = src[start:end]
-        for old, new in ANCHOR_LINKS.items():
-            body = body.replace(old, new)
-        body = re.sub(r'\n\s*<!-- =+\n\s+DOCUMENT \d+:.*?=+ -->\n',
-                      '\n', body, flags=re.S)
+        body = document_article(src, doc_id)
         out[name] = shell(title, body, "&larr; Main page", True,
                           gate, footer, script)
 
-    # 5. The Documentation hub, reached from the main page.
-    out[HUB_FILE] = shell(HUB_TITLE, hub_body(), "&larr; Main page",
-                          False, gate, footer, script)
+    # 5. The Documentation hub, reached from the main page. It embeds
+    #    all five guides, so it reads their sources here and carries the
+    #    sheets' styles in its own head.
+    _, extra_head = guides_html(src)
+    out[HUB_FILE] = shell(HUB_TITLE, hub_body(src), "&larr; Main page",
+                          False, gate, footer, script, extra_head)
     return out
 
 

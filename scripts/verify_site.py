@@ -53,6 +53,40 @@ BASE_URL = "https://itoldyouso.tech"
 EXPECTED_SERVICE_COUNT = 41
 
 
+class IdCollector(HTMLParser):
+    """Collect every element id of a page, in document order.
+
+    Used to prove that a page holds no duplicate id. Two sections with
+    the same id would make an in-page link jump to the wrong place.
+
+    Attributes:
+        ids: the id attribute of every element, in reading order.
+    """
+
+    def __init__(self, ids: List[str]) -> None:
+        """Prepare the collector.
+
+        Args:
+            ids: the list to fill. It is cleared first, so a caller can
+                reuse one list.
+        """
+        super().__init__(convert_charrefs=True)
+        self.ids = ids
+        self.ids.clear()
+
+    def handle_starttag(self, tag: str,
+                        attrs: List[Tuple[str, str]]) -> None:
+        """Record an element's id attribute, if it has one.
+
+        Args:
+            tag: the element's tag name.
+            attrs: its attribute pairs.
+        """
+        for name, value in attrs:
+            if name == "id" and value:
+                self.ids.append(value)
+
+
 class SiteHTMLValidator(HTMLParser):
     """
     Lightweight HTML parser that records element identifiers, metadata tags,
@@ -838,7 +872,8 @@ def check_migena_portal() -> List[str]:
       4. index.html is a landing page with three buttons and no longer
          holds the three documents removed at the client's request;
       5. documentation.html shows the three owner task cards, the six
-         guide buttons, and is password gated;
+         cards owned by Neville and the five embedded guides, with no
+         duplicate ids, and is password gated;
       6. the offline copy contains the User Passwords page.
 
     Returns:
@@ -901,8 +936,8 @@ def check_migena_portal() -> List[str]:
                           f"{gone}")
 
     # 4. The Documentation page shows the three owner task cards, the six
-    #    cards owned by Neville, the three guide buttons, and is password
-    #    gated like every other page.
+    #    cards owned by Neville and the five embedded guides, each anchor
+    #    once with no duplicates, and is password gated.
     hub = REPO_ROOT / "migena" / "documentation.html"
     if not hub.is_file():
         errors.append("Missing migena/documentation.html")
@@ -917,10 +952,30 @@ def check_migena_portal() -> List[str]:
         if '<section class="engineer-tasks"' not in hub_text:
             errors.append("migena/documentation.html has no section "
                           "owned by Neville")
-        for link in ('href="admin.html"', 'href="management.html"',
-                     'href="till.html"', 'href="offline.html"'):
-            if link not in hub_text:
-                errors.append(f"migena/documentation.html is missing {link}")
+        if 'href="offline.html"' not in hub_text:
+            errors.append("migena/documentation.html is missing the "
+                          "offline copy link")
+        # The five guides are embedded, so each anchor appears once and
+        # the guide pages are no longer linked from the hub.
+        for anchor in ('doc-admin', 'doc-management', 'doc-till',
+                       'doc-till-procedures', 'doc-till-features'):
+            if hub_text.count(f'id="{anchor}"') != 1:
+                errors.append(
+                    "migena/documentation.html must embed "
+                    f"{anchor} exactly once")
+        for gone in ('href="admin.html"', 'href="management.html"',
+                     'href="till.html"', 'portal-buttons'):
+            if gone in hub_text:
+                errors.append(f"migena/documentation.html still contains "
+                              f"the old guide link or button {gone}")
+        ids: List[str] = []
+        counter = IdCollector(ids)
+        counter.feed(hub_text)
+        repeated = sorted({i for i in ids if ids.count(i) > 1})
+        if repeated:
+            errors.append(
+                "migena/documentation.html repeats these ids: "
+                + ", ".join(repeated))
         if 'id="auth-gate"' not in hub_text:
             errors.append("migena/documentation.html has no password gate")
 
