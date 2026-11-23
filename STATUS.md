@@ -207,20 +207,19 @@ installation.
   `assets/search-index.js`, and `scripts/verify_site.py`. Legal and
   patent check found no risk: descriptive first-party copy with
   nominative vendor names only.
-- **Migena owner tasks and Documentation hub (`620382c`)**: The owner
-  tasks sit at the top of `migena/index.html`, shown on arrival as four
-  numbered cards in order: update the software (first, and it gates the
-  others), verify identity (done by the owner in their own SumUp
-  profile), turn on cash payments, and check the kitchen and bar printers
-  for `Select categories`. The `3. Documentation` button now links to
-  `migena/documentation.html`, a password-gated hub listing the three
-  guides and the offline copy. `scripts/split_portal.py` generates the
-  hub; `scripts/verify_site.py` checks the cards, the link and the hub.
+- **Migena portal landing page (`526388f`)**: The main page
+  (`migena/index.html`) is now a landing page with three buttons:
+  Service Contract & Scope, Pricing & Terms, and Documentation. The
+  full articles stay in `index.html` as the source for
+  `scripts/split_portal.py` but are hidden from view. The
+  Documentation page (`migena/documentation.html`) shows the four
+  owner task cards followed by buttons for the Admin Guide, Management
+  Guide and Till Procedures & Features.
 - **Migena portal: grouped navigation, documentation search and
   offline copy**: Grouped the Admin Guide, Management Guide and Till
-  Procedures & Features under one `3. Documentation` link in the
-  sticky bar of `migena/index.html`, which opens the Documentation
-  hub (`migena/documentation.html`). Removed the three hidden documents
+  Procedures & Features under a `3. Documentation` button on the
+  landing page (`migena/index.html`), which opens the Documentation
+  page (`migena/documentation.html`). Removed the three hidden documents
   entirely at the client's request (Technical Intake Questionnaire,
   Cafe Client Handbook, Countertop Cheat Sheet): their articles,
   navigation items, stylesheet rules, the dead questionnaire script,
