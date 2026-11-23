@@ -307,9 +307,9 @@
     }
 
     /* -------------------------------------------------------------------------
-       Owner Tasks (main page)
-       Four numbered cards, done in order, at the top of this page so the
-       owner sees them on arrival. Amber marks a duty, not a tip. The red
+       Owner Tasks (documentation.html)
+       Four numbered cards, done in order, on the Documentation page so
+       the owner sees them after choosing Documentation. Amber marks a duty, not a tip. The red
        stop box shows where a step can go wrong, with the number to ring.
        ------------------------------------------------------------------------- */
     .owner-tasks {
@@ -515,6 +515,115 @@
     .hub-links p {
       margin: 4px 0 0;
       color: #4b5563;
+    }
+
+    /* -------------------------------------------------------------------------
+       Landing Page (index.html)
+       Three large buttons that open the standalone pages. On a desktop they
+       sit in one row; on a phone they stack. The whole section is the first
+       thing the owner sees after unlocking.
+       ------------------------------------------------------------------------- */
+    .portal-landing {
+      margin: 0 0 24px 0;
+      padding: 28px 24px;
+      border-radius: 12px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    }
+
+    .portal-landing h2 {
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+      color: #0f766e;
+    }
+
+    .portal-landing-intro {
+      margin: 0 0 22px;
+      font-size: 1.05rem;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+
+    .portal-buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    @media (min-width: 760px) {
+      .portal-buttons {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .portal-buttons li {
+      display: flex;
+      flex-direction: column;
+      padding: 18px 16px;
+      border: 1px solid #d1d5db;
+      border-left: 5px solid #0f766e;
+      border-radius: 10px;
+      background-color: #ffffff;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .portal-buttons li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(15, 23, 42, 0.1);
+    }
+
+    .portal-buttons a {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f766e;
+      text-decoration: none;
+    }
+
+    .portal-buttons a:hover {
+      color: #115e59;
+    }
+
+    .portal-buttons p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.45;
+    }
+
+    /* -------------------------------------------------------------------------
+       Documentation Guides (documentation.html)
+       The three guide buttons sit below the owner tasks. The offline copy
+       link is plain text so it does not compete with the owner tasks.
+       ------------------------------------------------------------------------- */
+    .doc-guides {
+      margin: 0;
+      padding: 22px;
+      border-radius: 12px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    }
+
+    .doc-guides h2 {
+      margin: 0 0 16px;
+      font-size: 1.4rem;
+      color: #0f766e;
+    }
+
+    .doc-guides-offline {
+      margin: 18px 0 0;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .doc-guides-offline a {
+      font-weight: 700;
+      color: #0f766e;
+      text-decoration: underline;
     }
 
     /* -------------------------------------------------------------------------

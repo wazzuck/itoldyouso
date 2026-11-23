@@ -835,10 +835,10 @@ def check_migena_portal() -> List[str]:
       2. the offline copy is in step with scripts/build_offline_doc.py;
       3. all seven official document pages (and the offline copy)
          carry the search box, its stylesheet and both search scripts;
-      4. index.html links to the Documentation hub, shows the four owner
-         task cards on the main page, and no longer
+      4. index.html is a landing page with three buttons and no longer
          holds the three documents removed at the client's request;
-      5. the Documentation hub lists the guides and is password gated;
+      5. documentation.html shows the four owner task cards and the three
+         guide buttons, and is password gated;
       6. the offline copy contains the User Passwords page.
 
     Returns:
@@ -881,29 +881,35 @@ def check_migena_portal() -> List[str]:
             if needle not in text:
                 errors.append(f"migena/{name} is missing {needle}")
 
-    # 3. The main page links to the Documentation hub and shows the four
-    #    owner task cards; the three documents removed at the client's
-    #    request are gone.
+    # 3. The main page is a landing page with three buttons; the three
+    #    documents removed at the client's request are gone.
     portal = (REPO_ROOT / "migena" / "index.html").read_text(
         encoding="utf-8")
-    if 'href="documentation.html"' not in portal:
-        errors.append("migena/index.html has no link to documentation.html")
-    if portal.count('<section class="owner-task-card">') != 4:
-        errors.append("migena/index.html must show the four owner task "
-                      "cards on the main page")
+    for link in ('href="contract.html"', 'href="pricing.html"',
+                 'href="documentation.html"'):
+        if link not in portal:
+            errors.append(f"migena/index.html is missing {link}")
+    if '<section class="portal-landing"' not in portal:
+        errors.append("migena/index.html has no portal landing section")
+    if '<section class="owner-tasks"' in portal:
+        errors.append("migena/index.html should not show owner tasks "
+                      "(they belong on documentation.html)")
     for gone in ('id="questionnaire"', 'id="handbook"',
                  'id="cheatsheet"', 'id="nav-doc-toggle"'):
         if gone in portal:
             errors.append(f"migena/index.html still contains removed "
                           f"{gone}")
 
-    # 4. The Documentation hub lists the guides and the offline copy, and
-    #    is password gated like every other page.
+    # 4. The Documentation page shows the four owner task cards and the
+    #    three guide buttons, and is password gated like every other page.
     hub = REPO_ROOT / "migena" / "documentation.html"
     if not hub.is_file():
         errors.append("Missing migena/documentation.html")
     else:
         hub_text = hub.read_text(encoding="utf-8")
+        if hub_text.count('<section class="owner-task-card">') != 4:
+            errors.append("migena/documentation.html must show the four "
+                          "owner task cards")
         for link in ('href="admin.html"', 'href="management.html"',
                      'href="till.html"', 'href="offline.html"'):
             if link not in hub_text:

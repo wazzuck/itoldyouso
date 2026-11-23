@@ -303,9 +303,9 @@
     }
 
     /* -------------------------------------------------------------------------
-       Owner Tasks (main page)
-       Four numbered cards, done in order, at the top of this page so the
-       owner sees them on arrival. Amber marks a duty, not a tip. The red
+       Owner Tasks (documentation.html)
+       Four numbered cards, done in order, on the Documentation page so
+       the owner sees them after choosing Documentation. Amber marks a duty, not a tip. The red
        stop box shows where a step can go wrong, with the number to ring.
        ------------------------------------------------------------------------- */
     .owner-tasks {
@@ -511,6 +511,115 @@
     .hub-links p {
       margin: 4px 0 0;
       color: #4b5563;
+    }
+
+    /* -------------------------------------------------------------------------
+       Landing Page (index.html)
+       Three large buttons that open the standalone pages. On a desktop they
+       sit in one row; on a phone they stack. The whole section is the first
+       thing the owner sees after unlocking.
+       ------------------------------------------------------------------------- */
+    .portal-landing {
+      margin: 0 0 24px 0;
+      padding: 28px 24px;
+      border-radius: 12px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    }
+
+    .portal-landing h2 {
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+      color: #0f766e;
+    }
+
+    .portal-landing-intro {
+      margin: 0 0 22px;
+      font-size: 1.05rem;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+
+    .portal-buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    @media (min-width: 760px) {
+      .portal-buttons {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .portal-buttons li {
+      display: flex;
+      flex-direction: column;
+      padding: 18px 16px;
+      border: 1px solid #d1d5db;
+      border-left: 5px solid #0f766e;
+      border-radius: 10px;
+      background-color: #ffffff;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .portal-buttons li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(15, 23, 42, 0.1);
+    }
+
+    .portal-buttons a {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f766e;
+      text-decoration: none;
+    }
+
+    .portal-buttons a:hover {
+      color: #115e59;
+    }
+
+    .portal-buttons p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.45;
+    }
+
+    /* -------------------------------------------------------------------------
+       Documentation Guides (documentation.html)
+       The three guide buttons sit below the owner tasks. The offline copy
+       link is plain text so it does not compete with the owner tasks.
+       ------------------------------------------------------------------------- */
+    .doc-guides {
+      margin: 0;
+      padding: 22px;
+      border-radius: 12px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    }
+
+    .doc-guides h2 {
+      margin: 0 0 16px;
+      font-size: 1.4rem;
+      color: #0f766e;
+    }
+
+    .doc-guides-offline {
+      margin: 18px 0 0;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .doc-guides-offline a {
+      font-weight: 700;
+      color: #0f766e;
+      text-decoration: underline;
     }
 
     /* -------------------------------------------------------------------------
@@ -1239,18 +1348,14 @@
     <nav class="doc-nav" aria-label="Document Navigation">
       <div class="nav-container">
         <ul class="nav-links">
-          <li><a href="#trainer">&#128196; 1. Service Contract &amp; Scope</a></li>
-          <li><a href="#hb-pricing">&#128179; 2. Pricing &amp; Terms</a></li>
-          <li><a href="documentation.html">&#128218; 3. Documentation</a></li>
-          <li><span class="nav-disabled" aria-disabled="true"
-            title="Follow-up support options will be available after deployment"
-            >&#128274; 6. Follow-Up Support
-            <em>(Available After Deployment)</em></span></li>
+          <li><a href="contract.html">&#128196; 1. Service Contract
+            &amp; Scope</a></li>
+          <li><a href="pricing.html">&#128179; 2. Pricing &amp;
+            Terms</a></li>
+          <li><a href="documentation.html">&#128218; 3.
+            Documentation</a></li>
         </ul>
         <div class="nav-post-deploy-note">
-          <strong>Note:</strong> The guides are published under
-          3. Documentation. Follow-up support options unlock here
-          after on-site deployment.<br>
           <a href="offline.html"
             download="EGGIs-Till-Documentation.html">&#11015; Download
             the offline copy for your phone (all guides, plus the
@@ -1262,192 +1367,40 @@
     <!-- Main Content Area -->
     <main class="doc-main">
 
-      <!-- Owner tasks: the first thing the owner reads on this
-           main page. Four numbered cards, done in order: task 1
-           gates the other three. Each card is a separate job
-           with its own Done tick. -->
-      <section class="owner-tasks" aria-labelledby="owner-tasks-title">
-        <header class="owner-tasks-heading">
-          <h2 id="owner-tasks-title">Owner tasks: do these 4 in order</h2>
-          <p class="owner-tasks-intro">Only the owner does these
-            tasks. Work through one card at a time. Task 1 must be
-            ticked before you start tasks 2, 3 or 4. If a step does
-            not match what you see, stop and ring Neville Bryce on
-            020&nbsp;4520&nbsp;9114. Do not guess.</p>
-        </header>
-        <div class="owner-tasks-cards">
-        <section class="owner-task-card">
-          <div class="owner-task-card-head">
-            <span class="owner-task-tag">Owner task 1 of 4</span>
-            <span class="owner-task-first">Do this first</span>
-            <span class="owner-task-chip">Owner only</span>
-          </div>
-          <h3>Update the software</h3>
-          <p><strong>When:</strong> before you open on Sunday 22
-            November 2026, and again on the morning of that day.</p>
-          <p><strong>Why:</strong> if the devices run different
-            versions, orders can show different statuses on different
-            devices.</p>
-          <p class="owner-task-label">Follow these steps in order</p>
-          <ol class="owner-steps">
-            <li>Make sure no customer is waiting and no sale is on
-              the register screen.</li>
-            <li>On the register, tap More or Settings. If you cannot
-              see either, stop and ring Neville. Then look for an
-              update option. If an update is shown, tap it and follow
-              the screens.</li>
-            <li>Do the same on the card reader (SumUp Solo). If the
-              reader shows an update, follow the screens.</li>
-            <li>Do the same on the kitchen Terminal.</li>
-            <li>Do not switch anything off while an update is
-              running. Wait until each update has finished.</li>
-            <li>Switch off each device, wait 10 seconds, then switch
-              it on again. Wait until each screen is ready.</li>
-            <li>On each device, find the app version number. Check
-              that all three numbers are the same.</li>
-          </ol>
-          <div class="owner-task-stop">Stop and ring Neville on
-            <a href="tel:02045209114">020&nbsp;4520&nbsp;9114</a> if an update
-            fails, a device will not restart, the three version
-            numbers differ, or you cannot find where to check the
-            version.</div>
-          <label class="owner-task-done">
-            <input type="checkbox">
-            Done: all three devices show the same version after a
-            restart.
-          </label>
-          <p class="owner-task-apart">This is owner task 1 of 4. It is
-            separate from tasks 2, 3 and 4. Do not start those until
-            this box is ticked.</p>
-        </section>
-        <section class="owner-task-card">
-          <div class="owner-task-card-head">
-            <span class="owner-task-tag">Owner task 2 of 4</span>
-            <span class="owner-task-chip">Owner only</span>
-            <span class="owner-task-chip">Do it yourself</span>
-          </div>
-          <h3>Verify your identity</h3>
-          <p class="owner-task-wait">Start only after task 1 is
-            ticked.</p>
-          <p><strong>When:</strong> early, in case the check takes
-            time. Do not leave it until the last day.</p>
-          <p><strong>You need:</strong> your own mobile phone, your own
-            SumUp login, and a valid photo ID such as a passport or a
-            photo driving licence.</p>
-          <p class="owner-task-label">Follow these steps in order</p>
-          <ol class="owner-steps">
-            <li>Sign in to your own SumUp profile, in a web browser or
-              in the SumUp app on your own phone.</li>
-            <li>Look at the top of the screen for the verification
-              banner. Tap it.</li>
-            <li>If the form asks for them, fill in your details exactly
-              as they appear on your ID.</li>
-            <li>When asked, scan your photo ID.</li>
-            <li>When asked, take a selfie and submit it.</li>
-            <li>Submit everything, then wait for SumUp's message.</li>
-          </ol>
-          <p class="owner-task-rules"><strong>Rules:</strong> you do
-            this yourself. Do not let staff or the engineer do it for
-            you, and do not use anyone else's login or phone. Do not
-            send a photo of your ID to anyone by text or e-mail,
-            including Neville. Scan it only on SumUp's own screens.</p>
-          <div class="owner-task-stop">Stop and ring Neville on
-            <a href="tel:02045209114">020&nbsp;4520&nbsp;9114</a> if you cannot
-            find the verification banner, the scan keeps failing, or
-            SumUp asks for something you do not understand.</div>
-          <label class="owner-task-done">
-            <input type="checkbox">
-            Done: SumUp shows that my identity is verified. Tick this
-            only when SumUp says so.
-          </label>
-          <p class="owner-task-apart">This is owner task 2 of 4. It is
-            separate from the other tasks. Verifying your identity does
-            not turn on cash payments or set up the printers.</p>
-        </section>
-        <section class="owner-task-card">
-          <div class="owner-task-card-head">
-            <span class="owner-task-tag">Owner task 3 of 4</span>
-            <span class="owner-task-chip">Owner only</span>
-          </div>
-          <h3>Turn on cash payments</h3>
-          <p class="owner-task-wait">Start only after task 1 is
-            ticked.</p>
-          <p><strong>Why:</strong> until this is on, the till takes card
-            payments only.</p>
-          <p class="owner-task-label">Follow these steps in order</p>
-          <ol class="owner-steps">
-            <li>Make sure no customer is waiting and no sale is on the
-              register screen.</li>
-            <li>Look at the bottom-left corner of the screen. Tap the
-              small round profile icon.</li>
-            <li>In the menu that opens, tap <strong>Cash
-              payments</strong>.</li>
-            <li>Turn on the switch beside <strong>Accept cash
-              payments</strong>. If it is already on, leave it on.</li>
-            <li>Test it: start a new sale with one cheap item. Tap the
-              button that takes payment, often labelled Charge or
-              Pay.</li>
-            <li>Look for <strong>Cash</strong> in the list of ways to
-              pay. You should see it.</li>
-            <li>Do not tap Cash and do not take any money. Leave the
-              test sale without paying. If you are not sure how, ring
-              Neville.</li>
-          </ol>
-          <div class="owner-task-stop">Stop and ring Neville on
-            <a href="tel:02045209114">020&nbsp;4520&nbsp;9114</a> if you cannot
-            find the profile icon, there is no Cash payments option, or
-            the switch will not stay on.</div>
-          <label class="owner-task-done">
-            <input type="checkbox">
-            Done: I can see Cash in the list of ways to pay.
-          </label>
-          <p class="owner-task-apart">This is owner task 3 of 4. It is
-            separate from the other tasks. Finishing this card does not
-            finish the printer check.</p>
-        </section>
-        <section class="owner-task-card">
-          <div class="owner-task-card-head">
-            <span class="owner-task-tag">Owner task 4 of 4</span>
-            <span class="owner-task-chip">Owner only</span>
-          </div>
-          <h3>Check the kitchen and bar printers</h3>
-          <p class="owner-task-wait">Start only after task 1 is
-            ticked.</p>
-          <p><strong>Why:</strong> so the kitchen and bar tickets can
-            be split by category.</p>
-          <p class="owner-task-label">Follow these steps in order</p>
-          <ol class="owner-steps">
-            <li>Check that the register, the card reader and the kitchen
-              Terminal are still on the same version as in task 1.</li>
-            <li>On the register, open the printer settings for the
-              kitchen printer. If you cannot find the printer settings,
-              stop and ring Neville.</li>
-            <li>Look for the words <strong>Select categories</strong>.</li>
-            <li>Do the same for the bar printer.</li>
-            <li>If you see <strong>Select categories</strong> on both
-              printers, ring or text Neville and tell him. Do not change
-              any category setting yourself.</li>
-            <li>If you do not see <strong>Select categories</strong> on
-              a printer, ring Neville before you open. Do not try to fix
-              it yourself. Neville will agree another way to send food
-              and drink orders to the right place.</li>
-          </ol>
-          <div class="owner-task-stop">Stop and ring Neville on
-            <a href="tel:02045209114">020&nbsp;4520&nbsp;9114</a> if a device will
-            not restart, you cannot find the printer settings, or the
-            versions do not match.</div>
-          <label class="owner-task-done">
-            <input type="checkbox">
-            Done: I have checked both printers and told Neville what I
-            found.
-          </label>
-          <p class="owner-task-apart">This is owner task 4 of 4. It is
-            separate from the other tasks. Finishing this card does not
-            turn on cash payments or update the software.</p>
-        </section>
-        </div>
+      <!-- Landing page: the three sections of this portal. Each
+           button opens its own standalone page. The articles
+           below are the source for the generator and are hidden
+           on this landing page. -->
+      <section class="portal-landing" aria-labelledby="portal-landing-title">
+        <h2 id="portal-landing-title">Migena client portal</h2>
+        <p class="portal-landing-intro">Choose a section below.
+          The Documentation page has the owner tasks and the three
+          guides.</p>
+        <ul class="portal-buttons">
+          <li>
+            <a href="contract.html">&#128196; Service Contract
+              &amp; Scope</a>
+            <p>What is being installed, the pre-flight checks, the
+              day-of installation protocol and the manager
+              handover training.</p>
+          </li>
+          <li>
+            <a href="pricing.html">&#128179; Pricing &amp; Terms</a>
+            <p>The £450 package, what it includes, the terms and
+              conditions, and the booking acceptance form.</p>
+          </li>
+          <li>
+            <a href="documentation.html">&#128218; Documentation</a>
+            <p>Owner tasks, the Admin Guide, the Management Guide
+              and Till Procedures &amp; Features.</p>
+          </li>
+        </ul>
       </section>
 
+      <!-- Source documents for scripts/split_portal.py. They are
+           hidden on the landing page because each one has its own
+           standalone page, linked above. -->
+      <div hidden>
       <!-- ===================================================================
            DOCUMENT 1: SERVICE SPECIFICATION & QUALITY PLAN
            =================================================================== -->
@@ -2000,6 +1953,7 @@
         </div>
       </article>
 
+      </div>
     </main>
 
     <!-- Master Footer -->
