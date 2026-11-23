@@ -239,6 +239,25 @@ installation.
   first-party HTML, CSS and JavaScript only, no third-party
   libraries, and the hashed vector retrieval is a standard
   technique implemented from scratch.
+- **GitHub Pages deploys unblocked: AGENTS.md pointer (`6d3dda2`)**:
+  Every Pages build had failed with "Page build failed" since
+  `8396e8c` (21 Nov 2026), when `AGENTS.md` became a symlink to
+  `../vunderland/settings/AGENTS.md`. GitHub's build machines do not
+  hold that path, so the dangling link aborted every build and froze
+  the live site at the 21 Nov 05:17 version. The failure boundary was
+  exact: `51cdb79`, the commit before the symlink, built. `AGENTS.md`
+  is now a regular pointer file naming the golden master, which still
+  holds every common rule, so one edit reaches all repositories with
+  no copy to drift. `AGENTS.local.md` records the local rule that
+  common changes go to the golden master; `_config.yml` keeps its
+  exclude so Jekyll never publishes the pointer, and `.nojekyll` was
+  removed as a misdiagnosis. First green build after two days:
+  `6d3dda2`, 23 Nov 2026 17:38 GMT. Companion changes: `vunderland`
+  `d7eca05` rewrote the golden source for the pointer scheme, and
+  `datavault` `8563efa`, `kay` `24e3767`, `tillswift` `8886843`
+  converted the same way. Still symlinked: `heathandcity`, whose
+  local branch is ahead 138 / behind 175 and needs an operator
+  decision before anything is committed there.
 
 ---
 
