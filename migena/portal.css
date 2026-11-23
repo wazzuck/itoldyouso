@@ -608,6 +608,7 @@
     /* The guide buttons look like buttons, not tiles: solid teal,
        white text, rounded, with a hover lift. */
     .doc-guides .portal-buttons li {
+      position: relative;
       padding: 0;
       border: 0;
       border-radius: 10px;
@@ -631,6 +632,17 @@
 
     .doc-guides .portal-buttons a:hover {
       color: #ffffff;
+    }
+
+    /* Stretch the title link over the whole coloured box, so a click or
+       tap anywhere on the button opens the guide, not only the title. */
+    .doc-guides .portal-buttons a::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
 
     .doc-guides .portal-buttons p {
