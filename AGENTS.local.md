@@ -1,10 +1,11 @@
 # Repository-Local Guidelines for AI Coding Agents (itoldyouso)
 
 > Repository-specific rules and project facts for `itoldyouso`.
-> Shared Artificial Intelligence (AI) coding agent rules live in
-> `AGENTS.md` (symlinked to `../vunderland/settings/AGENTS.md`).
-> Keep all `itoldyouso`-specific rules here; only common cross-repo
-> rules belong in `AGENTS.md`.
+> Shared Artificial Intelligence (AI) coding agent rules live in the
+> golden master, `../vunderland/settings/AGENTS.md`; this repository's
+> `AGENTS.md` is a pointer to that file and holds no rules of its own.
+> Keep all `itoldyouso`-specific rules here; common cross-repo rules
+> belong in the golden master, never in this file or in `AGENTS.md`.
 > Where this file refines or extends a common policy, both apply; if
 > there is a conflict, stop and ask the operator.
 
@@ -28,6 +29,18 @@
    - Keep `scripts/verify_site.py` updated to enforce all new pages,
      Uniform Resource Locators (URLs), counts, and indexing checks
      automatically.
+
+2. **Common rule changes go to the golden master.**
+   - Any change to the common rule set must be made in
+     `../vunderland/settings/AGENTS.md` and committed in the
+     `vunderland` repository, whatever the change looks like.
+   - Never add, edit or fork a common rule in this repository's
+     `AGENTS.md` pointer, and never park one in this file to move
+     later: `AGENTS.md` here names the golden master and nothing
+     else.
+   - There is nothing to regenerate afterwards. Every repository
+     reads the golden master live through its pointer, so the new
+     rule applies to all of them from the next session onward.
 
 ---
 
