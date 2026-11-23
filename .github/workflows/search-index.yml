@@ -48,7 +48,7 @@ jobs:
       #    occurs.
       - name: Commit refreshed artefacts
         run: |
-          generated="assets/search-index.js migena/search-index.js migena/offline.html migena/portal.css migena/contract.html migena/pricing.html migena/admin.html"
+          generated="assets/search-index.js migena/search-index.js migena/offline.html migena/portal.css migena/contract.html migena/pricing.html migena/admin.html migena/documentation.html"
           if git diff --quiet -- $generated; then
             echo "Generated artefacts already current."
             exit 0

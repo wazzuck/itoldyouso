@@ -12,4 +12,4 @@ python3 scripts/build_search_index.py >/dev/null || exit 1
 python3 scripts/build_offline_doc.py >/dev/null || exit 1
 git add assets/search-index.js migena/search-index.js \
   migena/offline.html migena/portal.css migena/contract.html \
-  migena/pricing.html migena/admin.html
+  migena/pricing.html migena/admin.html migena/documentation.html

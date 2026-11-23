@@ -298,142 +298,54 @@
     }
 
     /* -------------------------------------------------------------------------
-       Documentation Dropdown
-       One top-level button ("3. Documentation") that reveals the three
-       guide links -- Admin Guide, Management Guide and Till Procedures &
-       Features -- when pressed. It opens on a deliberate click rather
-       than a hover so that a mouse, a touch screen and a keyboard all
-       behave the same way, and it starts closed so the bar keeps the
-       height it had before the guides were grouped. The script at the
-       foot of this file toggles .is-open on the menu and aria-expanded
-       on the button together, so sighted and screen-reader users see
-       the same state.
+       Owner Tasks (main page)
+       Four numbered cards, done in order, at the top of this page so the
+       owner sees them on arrival. Amber marks a duty, not a tip. The red
+       stop box shows where a step can go wrong, with the number to ring.
        ------------------------------------------------------------------------- */
-    .nav-dropdown {
-      position: relative;
-    }
-
-    .nav-dropdown-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #ffffff;
-      background-color: #0f766e;
-      border: 2px solid #0f766e;
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 0.92rem;
-      padding: 8px 16px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(15, 118, 110, 0.2);
-      cursor: pointer;
-      transition: transform 0.15s ease, background-color 0.15s ease,
-        border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .nav-dropdown-toggle:hover {
-      color: #ffffff;
-      background-color: #115e59;
-      border-color: #115e59;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 8px rgba(15, 118, 110, 0.28);
-    }
-
-    .nav-dropdown-toggle:active {
-      transform: translateY(0);
-    }
-
-    /* Open state: the button holds the deeper teal so it reads as
-       "pressed", and the caret below flips to point upwards. */
-    .nav-dropdown-toggle[aria-expanded="true"] {
-      background-color: #115e59;
-      border-color: #115e59;
-    }
-
-    .nav-dropdown-caret {
-      font-size: 0.7em;
-      line-height: 1;
-      transition: transform 0.15s ease;
-    }
-
-    .nav-dropdown-toggle[aria-expanded="true"] .nav-dropdown-caret {
-      transform: rotate(180deg);
-    }
-
-    /* The submenu hangs below the button, aligned to its left edge.
-       display: none while closed keeps it out of sight and out of the
-       keyboard tab order at the same time; .is-open swaps it to flex. */
-    .nav-dropdown-menu {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      z-index: 60;
-      display: none;
-      flex-direction: column;
-      gap: 8px;
-      box-sizing: border-box;
-      width: min(420px, calc(100vw - 48px));
-      max-height: calc(100vh - 380px);
-      overflow-y: auto;
-      margin: 0;
-      padding: 10px;
-      list-style: none;
-      background-color: #ffffff;
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
-    }
-
-    .nav-dropdown-menu.is-open {
-      display: flex;
-    }
-
-    /* Sub-links keep the pill styling the bar gives every link, but
-       stretch to the panel's full width so each one is an easy target
-       on a phone. */
-    .nav-dropdown-menu a {
-      width: 100%;
-      justify-content: flex-start;
-      text-align: left;
-    }
-
-    .nav-dropdown-toggle:focus-visible,
-    .nav-dropdown-menu a:focus-visible {
-      outline: 3px solid #f59e0b;
-      outline-offset: 2px;
-    }
-
-    /* -------------------------------------------------------------------------
-       Owner Tasks (inside the Documentation menu)
-       Four numbered cards, done in order. Each card is a separate box with
-       its own Done tick. Amber marks a duty, not a tip. The red stop box
-       appears where a step can go wrong, with the number to ring.
-       ------------------------------------------------------------------------- */
-    .owner-tasks-heading {
-      padding: 4px 2px 0;
+    .owner-tasks {
+      margin: 0 0 32px 0;
+      padding: 22px;
+      border: 1px solid #fcd34d;
+      border-radius: 12px;
+      background-color: #fffdf5;
     }
 
     .owner-tasks-heading h2 {
-      margin: 0 0 4px;
-      font-size: 0.98rem;
+      margin: 0 0 6px;
+      font-size: 1.4rem;
       color: #78350f;
     }
 
     .owner-tasks-intro {
-      margin: 0;
-      font-size: 0.82rem;
-      line-height: 1.45;
+      margin: 0 0 16px;
+      font-size: 0.98rem;
+      line-height: 1.5;
       color: #44403c;
     }
 
+    /* One column on a phone. On a desktop, two columns, read left to right
+       and top to bottom, so task 1 is always the first card. */
+    .owner-tasks-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 760px) {
+      .owner-tasks-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .owner-task-card {
-      padding: 12px 12px 12px 14px;
+      padding: 14px 16px;
       border: 1px solid #fcd34d;
       border-left: 6px solid #b45309;
       border-radius: 8px;
       background-color: #ffffff;
       box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
-      font-size: 0.86rem;
+      font-size: 0.95rem;
       line-height: 1.5;
       color: #1f2937;
     }
@@ -450,7 +362,7 @@
     .owner-task-chip {
       padding: 2px 8px;
       border-radius: 999px;
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -473,7 +385,7 @@
 
     .owner-task-card h3 {
       margin: 0 0 6px;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #1f2937;
     }
 
@@ -484,6 +396,12 @@
       margin: 4px 0;
       font-size: inherit;
       line-height: inherit;
+    }
+
+    .owner-task-card a {
+      color: #9a3412;
+      font-weight: 700;
+      text-decoration: underline;
     }
 
     .owner-task-wait {
@@ -557,43 +475,37 @@
       color: #57534e;
     }
 
-    /* Links inside a card are plain text links, not the bar's pill
-       buttons, so the call number reads as part of the instruction. */
-    .nav-links .owner-task-card a {
-      display: inline;
-      width: auto;
+    /* -------------------------------------------------------------------------
+       Documentation Hub (documentation.html)
+       The page the Documentation button opens. Each guide is a large row
+       with one plain sentence, so each one is easy to tap on a phone.
+       ------------------------------------------------------------------------- */
+    .hub-links {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 20px 0 0;
       padding: 0;
-      border: 0;
-      border-radius: 0;
-      background-color: transparent;
-      box-shadow: none;
-      color: #9a3412;
-      font-size: inherit;
-      font-weight: 700;
-      text-decoration: underline;
+      list-style: none;
     }
 
-    .nav-links .owner-task-card a:hover {
-      transform: none;
-      background-color: transparent;
-      border-color: transparent;
-      box-shadow: none;
-      color: #7c2d12;
+    .hub-links li {
+      padding: 14px 16px;
+      border: 1px solid #d1d5db;
+      border-left: 5px solid #0f766e;
+      border-radius: 8px;
+      background-color: #ffffff;
     }
 
-    /* The count on the Documentation button, so the owner sees there are
-       tasks waiting before opening the menu. Dark brown on amber is well
-       above the 4.5:1 contrast floor. */
-    .owner-task-badge {
-      margin-left: 6px;
-      padding: 1px 8px;
-      border-radius: 999px;
-      background-color: #fbbf24;
-      color: #78350f;
-      font-size: 0.72rem;
+    .hub-links a {
+      font-size: 1.1rem;
       font-weight: 700;
-      line-height: 1.6;
-      white-space: nowrap;
+      color: #0f766e;
+    }
+
+    .hub-links p {
+      margin: 4px 0 0;
+      color: #4b5563;
     }
 
     /* -------------------------------------------------------------------------
@@ -1103,29 +1015,6 @@
         font-size: 0.88rem;
         line-height: 1.35;
         flex-wrap: wrap;
-      }
-
-      /* The Documentation button becomes a full-width stacked button
-         like every other item in the bar. */
-      .nav-dropdown-toggle {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        padding: 10px 12px;
-        font-size: 0.88rem;
-        line-height: 1.35;
-      }
-
-      /* With the bar stacked on a phone the submenu drops into the
-         flow instead of floating over the buttons below it, so opening
-         it pushes them down rather than covering them. */
-      .nav-dropdown-menu {
-        position: static;
-        width: auto;
-        min-width: 0;
-        max-height: none;
-        overflow: visible;
-        margin-top: 8px;
       }
 
       .nav-post-deploy-note {

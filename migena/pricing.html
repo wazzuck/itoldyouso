@@ -453,64 +453,6 @@
 
     })();
   </script>
-  <script>
-    (function () {
-      'use strict';
-
-      // Step 1: locate the controls. Missing controls mean this page has
-      // no Documentation menu (the standalone guide pages), so exit
-      // quietly instead of raising an error.
-      var toggle = document.getElementById('nav-doc-toggle');
-      var menu = document.getElementById('nav-doc-menu');
-      if (!toggle || !menu) { return; }
-
-      // Step 2: the single source of truth for "is the submenu open".
-      function isOpen() {
-        return toggle.getAttribute('aria-expanded') === 'true';
-      }
-
-      function setOpen(open) {
-        menu.classList.toggle('is-open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      }
-
-      // Step 3: pressing the button flips the state. preventDefault
-      // guards against a stray form submission if the button is ever
-      // moved inside a form element.
-      toggle.addEventListener('click', function (event) {
-        event.preventDefault();
-        setOpen(!isOpen());
-      });
-
-      // Step 4: a click outside the button/menu pair closes the
-      // submenu, so it never lingers over the article underneath.
-      document.addEventListener('click', function (event) {
-        if (!isOpen()) { return; }
-        if (toggle.contains(event.target) || menu.contains(event.target)) {
-          return;
-        }
-        setOpen(false);
-      });
-
-      // Step 5: Escape closes the submenu and hands focus back to the
-      // button that opened it.
-      document.addEventListener('keydown', function (event) {
-        if (event.key !== 'Escape' || !isOpen()) { return; }
-        setOpen(false);
-        toggle.focus();
-      });
-
-      // Step 6: following any submenu link closes the panel. This
-      // matters most for the in-page Admin Guide anchor: the panel must
-      // not stay open over the section just scrolled to.
-      menu.addEventListener('click', function (event) {
-        var target = event.target;
-        if (target && target.closest && target.closest('a')) {
-          setOpen(false);
-        }
-      });
-    })();
-  </script>
   <script src="search-index.js" defer></script>
   <script src="doc-search.js" defer></script>
 </body>

@@ -344,6 +344,7 @@ def check_required_files() -> List[str]:
         "migena/doc-search.js",
         "migena/search-index.js",
         "migena/offline.html",
+        "migena/documentation.html",
         "migena/sumup_password.txt",
         ".github/workflows/indexnow.yml",
     ]
@@ -834,9 +835,11 @@ def check_migena_portal() -> List[str]:
       2. the offline copy is in step with scripts/build_offline_doc.py;
       3. all seven official document pages (and the offline copy)
          carry the search box, its stylesheet and both search scripts;
-      4. index.html still has the Documentation dropdown and no longer
+      4. index.html links to the Documentation hub, shows the four owner
+         task cards on the main page, and no longer
          holds the three documents removed at the client's request;
-      5. the offline copy contains the User Passwords page.
+      5. the Documentation hub lists the guides and is password gated;
+      6. the offline copy contains the User Passwords page.
 
     Returns:
         Error messages; empty when every artefact is in step.
@@ -878,19 +881,37 @@ def check_migena_portal() -> List[str]:
             if needle not in text:
                 errors.append(f"migena/{name} is missing {needle}")
 
-    # 3. The Documentation dropdown, and the hidden documents' absence.
+    # 3. The main page links to the Documentation hub and shows the four
+    #    owner task cards; the three documents removed at the client's
+    #    request are gone.
     portal = (REPO_ROOT / "migena" / "index.html").read_text(
         encoding="utf-8")
-    if 'id="nav-doc-toggle"' not in portal:
-        errors.append("migena/index.html is missing the Documentation "
-                      "dropdown button")
+    if 'href="documentation.html"' not in portal:
+        errors.append("migena/index.html has no link to documentation.html")
+    if portal.count('<section class="owner-task-card">') != 4:
+        errors.append("migena/index.html must show the four owner task "
+                      "cards on the main page")
     for gone in ('id="questionnaire"', 'id="handbook"',
-                 'id="cheatsheet"'):
+                 'id="cheatsheet"', 'id="nav-doc-toggle"'):
         if gone in portal:
             errors.append(f"migena/index.html still contains removed "
                           f"{gone}")
 
-    # 4. The offline copy must be whole: passwords page plus search.
+    # 4. The Documentation hub lists the guides and the offline copy, and
+    #    is password gated like every other page.
+    hub = REPO_ROOT / "migena" / "documentation.html"
+    if not hub.is_file():
+        errors.append("Missing migena/documentation.html")
+    else:
+        hub_text = hub.read_text(encoding="utf-8")
+        for link in ('href="admin.html"', 'href="management.html"',
+                     'href="till.html"', 'href="offline.html"'):
+            if link not in hub_text:
+                errors.append(f"migena/documentation.html is missing {link}")
+        if 'id="auth-gate"' not in hub_text:
+            errors.append("migena/documentation.html has no password gate")
+
+    # 5. The offline copy must be whole: passwords page plus search.
     offline = REPO_ROOT / "migena" / "offline.html"
     if offline.is_file():
         text = offline.read_text(encoding="utf-8")
