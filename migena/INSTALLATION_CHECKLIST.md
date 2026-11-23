@@ -687,6 +687,13 @@ are not synchronised between devices; SumUp says these configurations
 are "not synced automatically". Decision: two print groups, set the
 same way on every device. The SumUp app is not modified; the groups use
 its own roles and category selection.
+Gate: this rule applies only when the till shows "Select categories"
+under a printer's settings. SumUp's help pages describe that option, but
+on version 2.193.0 only the general "Print order tickets" setting was
+seen (23 November 2026). Update every device to the same latest version
+(rule U5), restart them, and check again. If the option is still
+missing, use one ticket printer for all orders instead, with each
+station reading its own items from that ticket.
 
 1. **Kitchen group:** categories 01 to 11 (food). Printer: the network
    kitchen printer (Epson TM-T20III), role Kitchen. Tickets on, receipts
