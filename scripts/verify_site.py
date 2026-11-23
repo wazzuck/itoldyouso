@@ -907,8 +907,8 @@ def check_migena_portal() -> List[str]:
         errors.append("Missing migena/documentation.html")
     else:
         hub_text = hub.read_text(encoding="utf-8")
-        if hub_text.count('<section class="owner-task-card">') != 4:
-            errors.append("migena/documentation.html must show the four "
+        if hub_text.count('<section class="owner-task-card">') != 6:
+            errors.append("migena/documentation.html must show the six "
                           "owner task cards")
         for link in ('href="admin.html"', 'href="management.html"',
                      'href="till.html"', 'href="offline.html"'):

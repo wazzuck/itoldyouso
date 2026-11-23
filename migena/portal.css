@@ -605,6 +605,39 @@
       color: #0f766e;
     }
 
+    /* The guide buttons look like buttons, not tiles: solid teal,
+       white text, rounded, with a hover lift. */
+    .doc-guides .portal-buttons li {
+      padding: 0;
+      border: 0;
+      border-radius: 10px;
+      background-color: #0f766e;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(15, 118, 110, 0.25);
+    }
+
+    .doc-guides .portal-buttons li:hover {
+      background-color: #115e59;
+      box-shadow: 0 6px 12px rgba(15, 118, 110, 0.35);
+    }
+
+    .doc-guides .portal-buttons a {
+      display: block;
+      padding: 16px 18px;
+      margin: 0;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .doc-guides .portal-buttons a:hover {
+      color: #ffffff;
+    }
+
+    .doc-guides .portal-buttons p {
+      padding: 0 18px 16px;
+      color: #e0f2f1;
+    }
+
     .doc-guides-offline {
       margin: 18px 0 0;
       font-size: 0.95rem;
@@ -615,6 +648,74 @@
       font-weight: 700;
       color: #0f766e;
       text-decoration: underline;
+    }
+
+    /* -------------------------------------------------------------------------
+       Documentation Download Banner (documentation.html)
+       A large button-style banner at the top of the Documentation page.
+       Teal background, white text, and a clear arrow icon so it reads as
+       an action rather than a text link.
+       ------------------------------------------------------------------------- */
+    .doc-download {
+      margin: 0 0 24px 0;
+    }
+
+    .doc-download-btn {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      border-radius: 10px;
+      background-color: #0f766e;
+      color: #ffffff;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(15, 118, 110, 0.25);
+      transition: background-color 0.15s ease, transform 0.1s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .doc-download-btn:hover {
+      background-color: #115e59;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(15, 118, 110, 0.35);
+    }
+
+    .doc-download-btn:active {
+      transform: translateY(0);
+    }
+
+    .doc-download-icon {
+      flex: 0 0 auto;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .doc-download-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .doc-download-text strong {
+      font-size: 1.15rem;
+    }
+
+    .doc-download-text span {
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    /* Hide the heading visually but keep it available to screen readers. */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     /* -------------------------------------------------------------------------
