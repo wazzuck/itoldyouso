@@ -18,8 +18,9 @@ page (`migena/index.html`).
 
 **Done off-site:** the new menu is imported (189 items, 22 categories,
 Section 8.4), 21 modifier sets are built and attached, the "Green's
-Ambassador" role exists, POS Plus shows as active on a monthly trial
-until 25 November 2026, and order sync, ticket printing and parked
+Ambassador" role exists, POS Plus shows as active (a monthly trial until
+25 November 2026 on 19 November, and paid for as the operator confirmed
+on 23 November 2026), and order sync, ticket printing and parked
 orders have been tested on the live devices. The customer-facing SumUp
 business profile now reads EGGI'S and carries the landline and a
 statement descriptor (Section 8.5).
@@ -116,14 +117,13 @@ arrival.
       authentication (2FA) verification code?
 - [ ] Are the thermal paper rolls on site in the right sizes —
       57 mm, 58 mm and 80 mm?
-- [ ] POS Plus: the client states they hold a POS Plus plan for a
-      year starting 18 November 2026 (reported on 18 November
-      2026). The account does not show an annual plan yet: the
-      Plans page reads "POS Plus, £46.80 per month, free trial
-      until 25 November 2026" on a card ending 4669, and Invoice
-      history shows no invoices. Confirm which is right — an
-      annual commitment or the monthly trial — and record the
-      renewal date. The shop opens on 22 November 2026 and order
+- [ ] POS Plus: paid for, as the operator confirmed on 23 November
+      2026. Still to confirm: whether it is an annual commitment or
+      monthly, and the renewal date. The client said on 18 November
+      2026 that they hold a year's plan. On that day the Plans page
+      read "POS Plus, £46.80 per month, free trial until 25 November
+      2026" on a card ending 4669, and Invoice history showed no
+      invoices. The shop opens on 22 November 2026, and order
       synchronisation and multi-printer roles depend on this plan
       staying active. (Rule U2.)
 - [ ] Should the till track stock levels, or is inventory tracking
@@ -152,10 +152,10 @@ arrival.
       cash drawer, and does it pass the "Open cash drawer" test?
       (Rule U1 — the one open item that can stop the job.)
 - [ ] Re-check on arrival that POS Plus still shows as active on
-      the Plans page. It was active on 18 November 2026 with a
-      free trial until 25 November 2026; if the trial has been
-      cancelled since, order synchronisation and multi-printer
-      roles will be missing. (Rule U2.)
+      the Plans page. It was active on 18 November 2026, and the
+      operator confirmed on 23 November 2026 that it has been paid
+      for. If the plan has been cancelled since, order synchronisation
+      and multi-printer roles will be missing. (Rule U2.)
 - [ ] Which existing wall socket feeds the register, which feeds
       the Solo counter printer, and which feeds the kitchen
       Terminal's USB-C charger? (No new socket work on this job.)
