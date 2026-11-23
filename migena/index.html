@@ -609,6 +609,25 @@
       margin-bottom: 0;
     }
 
+    /* Status chip for an "Action Required" item the client has
+       finished. Green on pale green matches the portal's success
+       colours, and #16653d on #dcfce7 clears the 4.5:1 contrast
+       floor comfortably on the white card it sits on. Uppercase and
+       letter-spaced so it reads as a stamp rather than prose. */
+    .action-done {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 3px 10px;
+      border: 1px solid #86efac;
+      border-radius: 999px;
+      background-color: #dcfce7;
+      color: #16653d;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
     /* Tables */
     table {
       width: 100%;
@@ -1263,7 +1282,12 @@
               <strong>2. Mandatory Device &amp; Printer Model Details Required (As Soon As Possible):</strong> Please clarify the exact details of your devices &mdash; including exact model numbers and full printer specifications for both the checkout printer and the kitchen printer &mdash; <strong>as soon as possible</strong> so that detailed technical planning can be carried out and in case any specialist cables or devices are required. <strong>It is mandatory to have this information prior to the installation day.</strong>
             </p>
             <p style="margin-top: 12px;">
-              <strong>3. Detailed Cafe Layout Plan for Cabling:</strong> Please provide a detailed plan of the layout of the cafe (showing the front checkout counter, kitchen printer position, broadband router location, and nearby power sockets) ahead of the visit so that any additional required cabling can be planned for.
+              <strong>3. Detailed Cafe Layout Plan for Cabling:</strong> Please provide a detailed plan of the layout of the cafe (showing the front checkout counter, kitchen printer position, broadband router location, and nearby power sockets) ahead of the visit so that any additional required cabling can be planned for.<br>
+              <span class="action-done">&#9989; Implemented</span>
+              The floorplan has been implemented and now sets the
+              cabling positions for installation day: front checkout
+              counter, kitchen printer, broadband router and the
+              nearby power sockets.
             </p>
             <p style="margin-top: 12px;">
               <strong>4. Written Menu &amp; Price List Sent Before Arrival:</strong> The full list of menu items and prices (10&ndash;20 brunch items, 10&ndash;20 lunch items, coffees, modifiers, soft drinks, beers, and wine, plus the 4 staff names for PIN logins) <strong>must be sent in writing before arrival on-site</strong> so that catalogue setup can be completed within the allocated session.

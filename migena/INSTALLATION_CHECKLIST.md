@@ -679,6 +679,42 @@ real amounts and clean up afterwards, using the method in Phase 5.
 Test: the test item is deleted, the day's figures are back to zero,
 and every refund receipt is filed before the shop opens.
 
+**Rule U9 — print groups send each category to one printer.**
+Fact: SumUp gives each printer a role (Till, Kitchen or Bar) in
+Settings → Printers, and the ticket categories for each printer are
+chosen on the device the printer is connected to. Roles and categories
+are not synchronised between devices; SumUp says these configurations
+are "not synced automatically". Decision: two print groups, set the
+same way on every device. The SumUp app is not modified; the groups use
+its own roles and category selection.
+
+1. **Kitchen group:** categories 01 to 11 (food). Printer: the network
+   kitchen printer (Epson TM-T20III), role Kitchen. Tickets on, receipts
+   off.
+2. **Bar group:** categories 12 to 18 and 20 to 22 (drinks). Printer:
+   the bar printer on USB, connected to the POS, roles Till and Bar.
+   Tickets on, and it keeps the receipts and the cash drawer.
+3. **Counter group:** no categories. The Solo's counter printer prints
+   card receipts, with order tickets off.
+
+19 Drink Extras holds no items, so it belongs to neither group. Each
+category must be ticked on exactly one printer.
+
+Warning: a printer added to a second device that syncs orders prints
+those orders too, so food would print twice. Add each printer on one
+device only, and never add the kitchen printer to the local app copy
+while that copy is logged in to the live account.
+
+Open: which device holds the kitchen printer; whether the TM-T20III is on
+SumUp's supported list for kitchen tickets (rule U6); whether the bar
+printer's model is on SumUp's drawer list (rule U1); and whether one
+printer can hold both the Till and Bar roles.
+
+Test: park a mixed order (one food item, one drink with oat milk). The
+kitchen ticket shows only food, the bar ticket only drinks, and both
+show the order code. The cash drawer must not open when a ticket prints,
+but must still open on a cash sale.
+
 ### 5.4 Configuration order (safe sequence)
 
 Do these in order; each step assumes the previous one passed.
@@ -706,11 +742,11 @@ Do these in order; each step assumes the previous one passed.
    devices" → "Sync this device" on; then repeat the same two
    toggles on the POS Lite. Both toggles can only be changed while
    no orders are in progress (rule U2).
-8. **Kitchen tickets:** on the kitchen Terminal — More → Settings
-   → Printer settings → built-in printer → "Print order tickets"
-   on, then select the food categories (rule U4). Switch ticket
-   printing off on the front-of-house Terminal, so a parked order
-   does not print twice.
+8. **Kitchen tickets:** on the device that holds the kitchen printer
+   (rule U9), Printer settings → the kitchen printer → "Print order
+   tickets" on, then select the Kitchen group categories. Switch
+   ticket printing off on every other device, so a parked order does
+   not print twice.
 9. **Staff:** sign in each staff profile on the POS Lite, confirm
    the PINs, and restrict refunds to the manager profile.
 10. **Security:** administrator PIN, automatic updates on, no
@@ -1017,10 +1053,10 @@ in a walkway.
         orders" → "Synchronize multiple devices" → "Sync this
         device" (only when no orders are in progress); repeat both
         toggles on the POS Lite and on the other Terminal; then, on
-        the kitchen Terminal only, More → Settings → Printer
-        settings → built-in printer → "Print order tickets" on for
-        the food categories, with the setting off on the
-        front-of-house Terminal (rules U2 and U4).
+        the device that holds the kitchen printer only, Printer
+        settings → the kitchen printer → "Print order tickets" on for
+        the Kitchen group, with it off on every other device (rules
+        U2, U4 and U9).
 16. [ ] Test resilience: note the Wi-Fi outage behaviour and the
         sync banners ("Your changes aren't online", "Back online")
         for the manager's briefing (Section 5.6).
