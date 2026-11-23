@@ -134,17 +134,20 @@ def owner_tasks_html() -> str:
 
     Task 1 (verify identity) must be done first. Task 2 (update the
     software) gates task 3 (turn on cash payments). Task 4 (buy a
-    carrying strap for the kitchen Terminal) carries no gate: the owner
-    can start it at any time, because buying a strap touches nothing on
-    the till. The printer routing and the Wi-Fi check belong to
-    Neville; engineer_tasks_html builds them. Each card has numbered
-    steps, a stop box with the engineer's number, and a Done tick.
+    strap or lanyard so staff can carry the devices hands-free) carries
+    no gate: the owner can start it at any time, because buying a strap
+    touches nothing on the till. It opens with a note in the
+    engineer's own words, explaining why the devices are worth
+    keeping in good order. The printer routing and the Wi-Fi check
+    belong to Neville; engineer_tasks_html builds them. Each card has
+    numbered steps, a stop box with the engineer's number, and a Done
+    tick.
     """
     return """      <!-- Owner tasks: the first thing the owner reads on the
            Documentation page. Four numbered cards. Tasks 1 to 3 run in
            order: task 1 must be done first, and task 2 gates task 3.
-           Task 4 (buying a carrying strap) can be started at any time,
-           because it changes nothing on the till. Each card is a
+           Task 4 (buying a strap or lanyard) can be started at any
+           time, because it changes nothing on the till. Each card is a
            separate job with its own Done tick. The tasks owned by
            Neville sit in their own section below. -->
       <section class="owner-tasks" aria-labelledby="owner-tasks-title">
@@ -293,14 +296,18 @@ def owner_tasks_html() -> str:
             <span class="owner-task-chip">Owner only</span>
             <span class="owner-task-chip">Buy it yourself</span>
           </div>
-          <h3>Buy a strap so staff can carry the kitchen Terminal
-            hands-free</h3>
+          <h3>Buy a handheld strap or lanyard so staff can carry the
+            devices hands-free</h3>
           <p><strong>When:</strong> any time. It does not wait for
             tasks 1 to 3.</p>
-          <p><strong>Why:</strong> the printer sits in the top of the
-            Terminal, so the device is top heavy and can turn in the
-            hand and drop. A strap, brace or belt holster holds it
-            steady against the body and leaves both hands free.</p>
+          <p><strong>Note from Neville:</strong> the handheld devices
+            are top heavy with the built-in printers, and I think they
+            can be easily dropped and smashed. I would buy a handheld
+            strap or a SumUp lanyard so staff can carry the devices
+            hands-free, because they are hand-held. The point I am
+            trying to make is that whilst they are relatively cheap to
+            replace, they take a long time to set up, so you are best
+            keeping them in good working order if you can.</p>
           <p><strong>You need:</strong> the Terminal's height, width
             and depth, and a way to pay.</p>
           <p class="owner-task-label">Follow these steps in order</p>

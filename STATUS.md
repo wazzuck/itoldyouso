@@ -212,7 +212,7 @@ installation.
   buttons. The Documentation page (`migena/documentation.html`) has a
   prominent offline-copy download banner at the top, then four owner
   task cards: verify identity, update software, turn on cash payments,
-  and buy a carrying strap so staff can carry the kitchen Terminal
+  and buy a handheld strap or lanyard so staff can carry the devices
   hands-free. A separate section lists the tasks owned by Neville, not the
   owner. The five guides are embedded on the page below those sections,
   so there are no guide buttons. The guide pages keep their own search.
@@ -258,11 +258,15 @@ installation.
   converted the same way. Still symlinked: `heathandcity`, whose
   local branch is ahead 138 / behind 175 and needs an operator
   decision before anything is committed there.
-- **Owner task: carrying straps for the kitchen Terminal**: The fourth
-  owner task on `migena/documentation.html` holds a purchase shortlist
-  of straps, braces and holsters, so staff can carry the top-heavy
-  SumUp Terminal (the model with the built-in printer) hands-free on a
-  belt, round the neck or over the shoulder. Prices were checked on
+- **Owner task: straps and lanyards for the hand-held devices**: The
+  fourth owner task on `migena/documentation.html` holds a purchase
+  shortlist of straps, lanyards and holsters, so staff can carry the
+  devices hands-free on a belt, round the neck or over the shoulder.
+  It opens with a note from Neville: the handheld devices are top
+  heavy with the built-in printers and can be easily dropped and
+  smashed, and whilst they are relatively cheap to replace they take
+  a long time to set up, so they are best kept in good working order
+  if you can. Prices were checked on
   Amazon on 23 November 2026: the DURA belt-loop holster made for the
   SumUp Terminal at £21.00, which is the only listing that names this
   Terminal; the MOBILIS shockproof case at £19.99 with its O-rings at
