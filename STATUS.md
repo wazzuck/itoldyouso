@@ -210,9 +210,10 @@ installation.
 - **Migena portal owner tasks and download link (`ee400f1`)**: The
   main page (`migena/index.html`) is a landing page with three
   buttons. The Documentation page (`migena/documentation.html`) has a
-  prominent offline-copy download banner at the top, then three owner
-  task cards: verify identity, update software and turn on cash
-  payments. A separate section lists the tasks owned by Neville, not the
+  prominent offline-copy download banner at the top, then four owner
+  task cards: verify identity, update software, turn on cash payments,
+  and buy a carrying strap so staff can carry the kitchen Terminal
+  hands-free. A separate section lists the tasks owned by Neville, not the
   owner. The five guides are embedded on the page below those sections,
   so there are no guide buttons. The guide pages keep their own search.
 - **Migena portal: grouped navigation, documentation search and
@@ -257,6 +258,26 @@ installation.
   converted the same way. Still symlinked: `heathandcity`, whose
   local branch is ahead 138 / behind 175 and needs an operator
   decision before anything is committed there.
+- **Owner task: carrying straps for the kitchen Terminal**: The fourth
+  owner task on `migena/documentation.html` holds a purchase shortlist
+  of straps, braces and holsters, so staff can carry the top-heavy
+  SumUp Terminal (the model with the built-in printer) hands-free on a
+  belt, round the neck or over the shoulder. Prices were checked on
+  Amazon on 23 November 2026: the DURA belt-loop holster made for the
+  SumUp Terminal at £21.00, which is the only listing that names this
+  Terminal; the MOBILIS shockproof case at £19.99 with its O-rings at
+  £6.99 and breakaway shoulder strap at £19.49, about £46 in all; the
+  universal sling pouch at £36.12; and a trial chest harness or
+  three-way buckle holster at £7.33 to £7.58. The card warns that
+  lanyard holders made only for the SumUp Air, Solo or 3G will not
+  hold this Terminal, and tells the owner to ring Neville if a listing
+  does not name the SumUp Terminal. It is not gated behind tasks 1 to
+  3, because buying a strap changes nothing on the till.
+  `scripts/split_portal.py` builds the card, `scripts/verify_site.py`
+  now expects four owner cards rather than three, and
+  `migena/documentation.html` was regenerated. Legal and patent check
+  found no risk: first-party copy with nominative vendor names, plain
+  product links and no affiliate tag.
 
 ---
 
