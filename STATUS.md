@@ -209,13 +209,11 @@ installation.
   nominative vendor names only.
 - **Migena portal owner tasks and download link (`ee400f1`)**: The
   main page (`migena/index.html`) is a landing page with three
-  buttons. The Documentation page (`migena/documentation.html`) now
-  has a prominent offline-copy download banner at the top, followed
-  by five owner task cards: verify identity, update software, turn on
-  cash payments, route drinks to the bar printer and food to the
-  kitchen printer, and check Wi-Fi for dropouts. The separate printer
-  check card has been removed. The three guide buttons are styled as
-  buttons rather than tiles.
+  buttons. The Documentation page (`migena/documentation.html`) has a
+  prominent offline-copy download banner at the top, then three owner
+  task cards: verify identity, update software and turn on cash
+  payments. A separate section lists the tasks owned by Neville, not the
+  owner. The three guide buttons are styled as buttons rather than tiles.
 - **Migena portal: grouped navigation, documentation search and
   offline copy**: Grouped the Admin Guide, Management Guide and Till
   Procedures & Features under a `3. Documentation` button on the
@@ -373,6 +371,15 @@ indexes, business profiles, and external consensus across the web.
   mentioning `"London"`, `"till installation"`, and `"POS"` / `"EPOS"`.
 
 ---
+
+## Next (Migena installation)
+
+- [ ] **Neville's six Migena tasks**: listed under "Tasks owned by
+  Neville" on `migena/documentation.html`. They are the printer routing
+  check, the Wi-Fi check, a written guide to printing the bill before
+  payment, modifiers printed under their items on tickets, staff names on
+  order tickets, and a payout method for withdrawing cash from SumUp. The
+  payout method needs the owner's decision.
 
 ## Blocked / Open Decisions
 

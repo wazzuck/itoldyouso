@@ -104,35 +104,33 @@ def extract(src: str, start_marker: str, end_marker: str) -> str:
 
 
 def owner_tasks_html() -> str:
-    """Return the five owner task cards, done in order.
+    """Return the three owner task cards, done in order.
 
     Task 1 (verify identity) must be done first. Task 2 (update the
-    software) gates tasks 3 to 5. Task 4 (route categories) needs the
-    category option that the updated software shows. Task 5 (Wi-Fi
-    check) is not a blocker but is included so the owner spots dropouts
-    before they affect service. Each card has numbered steps, a stop box
-    with the engineer's number, and a Done tick.
+    software) gates task 3 (turn on cash payments). The printer routing
+    and the Wi-Fi check belong to Neville; engineer_tasks_html builds
+    them. Each card has numbered steps, a stop box with the engineer's
+    number, and a Done tick.
     """
     return """      <!-- Owner tasks: the first thing the owner reads on the
-           Documentation page. Five numbered cards, done in order: task 1
-           must be done first, and task 2 gates tasks 3 to 5. Task 5 is
-           not a blocker but should be checked. Each card is a separate
-           job with its own Done tick. -->
+           Documentation page. Three numbered cards, done in order: task 1
+           must be done first, and task 2 gates task 3. Each card is a
+           separate job with its own Done tick. The tasks owned by Neville
+           sit in their own section below. -->
       <section class="owner-tasks" aria-labelledby="owner-tasks-title">
         <header class="owner-tasks-heading">
-          <h2 id="owner-tasks-title">Owner tasks: do these 5 in order</h2>
+          <h2 id="owner-tasks-title">Owner tasks: do these 3 in order</h2>
           <p class="owner-tasks-intro">Only the owner does these
             tasks. Work through one card at a time. Task 1 must be
-            ticked before you start tasks 2 to 5. Task 2 must be
-            ticked before you start tasks 3 to 5. Task 5 is not a
-            blocker, but dropouts can affect service. If a step does
-            not match what you see, stop and ring Neville Bryce on
+            ticked before you start tasks 2 and 3. Task 2 must be
+            ticked before you start task 3. If a step does not match
+            what you see, stop and ring Neville Bryce on
             020&nbsp;4520&nbsp;9114. Do not guess.</p>
         </header>
         <div class="owner-tasks-cards">
         <section class="owner-task-card">
           <div class="owner-task-card-head">
-            <span class="owner-task-tag">Owner task 1 of 5</span>
+            <span class="owner-task-tag">Owner task 1 of 3</span>
             <span class="owner-task-first">Do this first</span>
             <span class="owner-task-chip">Owner only</span>
             <span class="owner-task-chip">Do it yourself</span>
@@ -168,14 +166,14 @@ def owner_tasks_html() -> str:
             Done: SumUp shows that my identity is verified. Tick this
             only when SumUp says so.
           </label>
-          <p class="owner-task-apart">This is owner task 1 of 5. It is
+          <p class="owner-task-apart">This is owner task 1 of 3. It is
             separate from the other tasks. Verifying your identity does
             not update the software, turn on cash payments or set up the
             printers.</p>
         </section>
         <section class="owner-task-card">
           <div class="owner-task-card-head">
-            <span class="owner-task-tag">Owner task 2 of 5</span>
+            <span class="owner-task-tag">Owner task 2 of 3</span>
             <span class="owner-task-chip">Owner only</span>
           </div>
           <h3>Update the software</h3>
@@ -214,13 +212,13 @@ def owner_tasks_html() -> str:
             Done: all three devices show the same version after a
             restart.
           </label>
-          <p class="owner-task-apart">This is owner task 2 of 5. It is
-            separate from the other tasks. Do not start tasks 3, 4, 5 or
-            6 until this box is ticked.</p>
+          <p class="owner-task-apart">This is owner task 2 of 3. It is
+            separate from the other tasks. Do not start task 3 until this
+            box is ticked.</p>
         </section>
         <section class="owner-task-card">
           <div class="owner-task-card-head">
-            <span class="owner-task-tag">Owner task 3 of 5</span>
+            <span class="owner-task-tag">Owner task 3 of 3</span>
             <span class="owner-task-chip">Owner only</span>
           </div>
           <h3>Turn on cash payments</h3>
@@ -255,109 +253,207 @@ def owner_tasks_html() -> str:
             <input type="checkbox">
             Done: I can see Cash in the list of ways to pay.
           </label>
-          <p class="owner-task-apart">This is owner task 3 of 5. It is
+          <p class="owner-task-apart">This is owner task 3 of 3. It is
             separate from the other tasks. Finishing this card does not
-            finish category routing.</p>
+            finish the work that Neville owns.</p>
         </section>
-        <section class="owner-task-card">
-          <div class="owner-task-card-head">
-            <span class="owner-task-tag">Owner task 4 of 5</span>
-            <span class="owner-task-chip">Owner only</span>
+        </div>
+      </section>"""
+
+
+def engineer_tasks_html() -> str:
+    """Return the six task cards that Neville owns, not the owner.
+
+    The cards sit in their own section below the owner tasks, so the
+    owner never mistakes them for duties. The owner does not tick them.
+    Cards 1 and 2 are on-site checks. Cards 3 to 6 are documentation and
+    set-up tasks. Card 1 starts only after owner task 2 (update the
+    software) is ticked, because the category option appears only on
+    updated software.
+
+    Returns:
+        The HTML for the section owned by Neville.
+    """
+    return """      <!--
+           Tasks owned by Neville. They sit below the owner tasks so the
+           owner never mistakes them for duties. The owner does not tick
+           these cards. -->
+      <section class="engineer-tasks" aria-labelledby="engineer-tasks-title">
+        <header class="engineer-tasks-heading">
+          <h2 id="engineer-tasks-title">Tasks owned by Neville</h2>
+          <p class="engineer-tasks-intro">Neville Bryce owns these six
+            tasks, so you do not need to do them. He will tell you when
+            each one is done. Where he needs a decision from you, he will
+            ask. If you notice a printer, Wi-Fi or till problem before he
+            has finished, ring him on 020&nbsp;4520&nbsp;9114.</p>
+        </header>
+        <div class="engineer-tasks-cards">
+        <section class="engineer-task-card">
+          <div class="engineer-task-card-head">
+            <span class="owner-task-tag">Neville task 1 of 6</span>
+            <span class="owner-task-chip">Owned by Neville</span>
           </div>
           <h3>Route drinks to the bar printer and food to the kitchen
             printer</h3>
-          <p class="owner-task-wait">Start only after task 2 is
-            ticked.</p>
+          <p class="owner-task-wait">Start only after the owner has ticked
+            owner task 2.</p>
           <p><strong>Why:</strong> so drink orders print at the bar and
-            food orders print in the kitchen. Staff then know where each
-            item is made.</p>
-          <p class="owner-task-label">Follow these steps in order</p>
+            food orders print in the kitchen.</p>
+          <p class="owner-task-label">Neville checks these steps in order</p>
           <ol class="owner-steps">
-            <li>Make sure no customer is waiting and no sale is on the
-              register screen.</li>
-            <li>On the register, open the main menu (often three lines or
-              the word More). Look for <strong>Settings</strong> or
-              <strong>Printers</strong>. If you cannot find either, stop
-              and ring Neville.</li>
-            <li>Open the printer settings and choose the
-              <strong>kitchen printer</strong>.</li>
-            <li>Look for <strong>Select categories</strong>,
-              <strong>Categories</strong> or <strong>Print categories</strong>.
-              Tap it.</li>
-            <li>Select only the food categories, for example
-              <strong>Brunch</strong>, <strong>Lunch</strong>,
-              <strong>Mains</strong> and <strong>Sides</strong>. Do not
-              select drink categories here.</li>
-            <li>Save the kitchen printer settings.</li>
-            <li>Go back and choose the <strong>bar printer</strong>.</li>
-            <li>Open its category selection and select only the drink
-              categories, for example <strong>Coffee</strong>,
-              <strong>Tea</strong>, <strong>Soft Drinks</strong>,
-              <strong>Beers</strong> and <strong>Wine</strong>. Do not
-              select food categories here.</li>
-            <li>Save the bar printer settings.</li>
-            <li>Test it: start a new sale with one drink and one food
-              item. Send the order to the printers. Check that the bar
-              printer prints only the drink and the kitchen printer
-              prints only the food.</li>
+            <li>Check that the register, the card reader and the kitchen
+              Terminal are on the same software version.</li>
+            <li>On each device that holds a printer, open the printer
+              settings. If they cannot be found, check the software
+              versions again before going on.</li>
+            <li>Look for <strong>Select categories</strong> on each
+              printer. If it is missing, stop. Agree another way to send
+              food and drink orders to the right place with the owner
+              before going on.</li>
+            <li>On the kitchen printer, select only the food categories,
+              01 to 11. Save the settings.</li>
+            <li>On the bar printer, select only the drink categories, 12
+              to 18 and 20 to 22. Do not select 19 Drink Extras, which is
+              empty. Save the settings.</li>
+            <li>Test: park one order with a food item and one drink. The
+              bar printer should print only the drink, and the kitchen
+              printer only the food.</li>
           </ol>
-          <div class="owner-task-stop">Stop and ring Neville on
-            <a href="tel:02045209114">020&nbsp;4520&nbsp;9114</a> if you cannot
-            find the printer settings, the Select categories option is
-            missing, the category names do not match your menu, or a test
-            order prints on the wrong printer.</div>
-          <label class="owner-task-done">
-            <input type="checkbox">
-            Done: a drink-only ticket prints at the bar and a food-only
-            ticket prints in the kitchen.
-          </label>
-          <p class="owner-task-apart">This is owner task 4 of 5. It is
-            separate from the other tasks. Routing categories does not
-            turn on cash payments or update the software.</p>
+          <div class="owner-task-stop">Stop if a device will not restart,
+            the printer settings cannot be found, or the software versions
+            do not match. Do not change the routing until they match.</div>
+          <p class="owner-task-apart"><strong>Status:</strong> to do, on
+            site. The owner does not need to do this task.</p>
         </section>
-        <section class="owner-task-card">
-          <div class="owner-task-card-head">
-            <span class="owner-task-tag">Owner task 5 of 5</span>
-            <span class="owner-task-chip">Owner only</span>
+        <section class="engineer-task-card">
+          <div class="engineer-task-card-head">
+            <span class="owner-task-tag">Neville task 2 of 6</span>
+            <span class="owner-task-chip">Owned by Neville</span>
             <span class="owner-task-chip">Not a blocker</span>
           </div>
           <h3>Check the Wi-Fi for dropouts</h3>
-          <p class="owner-task-wait">Start only after task 2 is
-            ticked.</p>
+          <p class="owner-task-wait">Start only after the owner has ticked
+            owner task 2.</p>
           <p><strong>Why:</strong> if the till, card reader or kitchen
             Terminal lose Wi-Fi during service, payments can fail and
-            orders can stop printing. This is not a blocker to opening,
-            but it can impact business if it is not spotted early.</p>
-          <p class="owner-task-label">Follow these steps in order</p>
+            orders can stop printing. It is not a blocker to opening, but
+            it can affect business if it is not spotted early.</p>
+          <p class="owner-task-label">Neville checks these steps in order</p>
           <ol class="owner-steps">
-            <li>Stand at the till, the card reader's usual position and
-              the kitchen Terminal's usual position. Look at the Wi-Fi
+            <li>Stand at the till, at the card reader's usual position and
+              at the kitchen Terminal's usual position. Check the Wi-Fi
               symbol on each screen.</li>
-            <li>If any device shows one bar, a cross, or the words
-              <strong>No connection</strong>, note the exact spot.</li>
+            <li>If any device shows one bar, a cross or <strong>No
+              connection</strong>, note the exact spot.</li>
             <li>With each device in its normal place, start one test sale
               and send it to the printers.</li>
             <li>Watch the screen during the sale. If a spinner stays for
-              more than 10 seconds, or the printer does not respond,
-              note it.</li>
-            <li>Do this at a quiet time and again during a busy period if
+              more than 10 seconds, or a printer does not respond, note
+              it.</li>
+            <li>Repeat at a quiet time and again during a busy period if
               possible, because dropouts often show up when the network
               is under load.</li>
-            <li>If you see dropouts, write down when they happen and
-              which device is affected, then ring Neville.</li>
+            <li>Record when each dropout happens and which device is
+              affected.</li>
           </ol>
-          <div class="owner-task-stop">Stop and ring Neville on
-            <a href="tel:02045209114">020&nbsp;4520&nbsp;9114</a> if a device keeps
-            losing connection, a payment fails because of the network, or
-            printers stop responding mid-service.</div>
-          <label class="owner-task-done">
-            <input type="checkbox">
-            Done: I have checked all three devices in their normal
-            positions and I am happy with the Wi-Fi.
-          </label>
-          <p class="owner-task-apart">This is owner task 5 of 5. It is
-            not a blocker, but it is worth checking before you are busy.
-            It is separate from the printer category routing.</p>
+          <div class="owner-task-stop">Stop and investigate if a device
+            keeps losing connection, a payment fails because of the
+            network, or a printer stops responding mid-service. Tell the
+            owner what you found.</div>
+          <p class="owner-task-apart"><strong>Status:</strong> to do, on
+            site. The owner should ring Neville about any dropout they
+            see.</p>
+        </section>
+        <section class="engineer-task-card">
+          <div class="engineer-task-card-head">
+            <span class="owner-task-tag">Neville task 3 of 6</span>
+            <span class="owner-task-chip">Owned by Neville</span>
+          </div>
+          <h3>Write down how to print the bill before payment</h3>
+          <p><strong>Why:</strong> so the customer can check the bill on
+            paper before paying.</p>
+          <p class="owner-task-label">Neville to do</p>
+          <ol class="owner-steps">
+            <li>Find how to print the bill from the till before payment,
+              and check which printer prints it.</li>
+            <li>Confirm the steps on the till, using a test order and
+              without taking payment. Then write them into the Till
+              Procedures &amp; Features guide in plain steps.</li>
+            <li>Check that the printed bill shows each item, its modifiers
+              and the prices, so the customer can check it.</li>
+          </ol>
+          <p class="owner-task-apart"><strong>Status:</strong> to do. The
+            owner does not need to do this task.</p>
+        </section>
+        <section class="engineer-task-card">
+          <div class="engineer-task-card-head">
+            <span class="owner-task-tag">Neville task 4 of 6</span>
+            <span class="owner-task-chip">Owned by Neville</span>
+          </div>
+          <h3>Print each modifier under its food or drink item on
+            tickets</h3>
+          <p><strong>Why:</strong> at the moment each modifier, such as oat
+            milk or an extra shot, prints as a separate item. The kitchen
+            and bar need to see it under the item it belongs to.</p>
+          <p class="owner-task-label">Neville to do</p>
+          <ol class="owner-steps">
+            <li>Check the ticket and modifier settings on each device that
+              prints tickets, and find the setting that prints a modifier
+              under its item.</li>
+            <li>If the till cannot do this, ask SumUp support, and tell the
+              owner before changing the menu.</li>
+            <li>Test with a mixed order: a drink with a modifier, such as
+              oat milk, and a food item. Each modifier should print under
+              its item on the right ticket.</li>
+          </ol>
+          <p class="owner-task-apart"><strong>Status:</strong> to do. The
+            owner does not need to do this task.</p>
+        </section>
+        <section class="engineer-task-card">
+          <div class="engineer-task-card-head">
+            <span class="owner-task-tag">Neville task 5 of 6</span>
+            <span class="owner-task-chip">Owned by Neville</span>
+          </div>
+          <h3>Print the name of the member of staff on each order
+            ticket</h3>
+          <p><strong>Why:</strong> the kitchen has asked for it, so that any
+            query from the kitchen or bar can go to the right person.</p>
+          <p class="owner-task-label">Neville to do</p>
+          <ol class="owner-steps">
+            <li>Check whether the order tickets can show the name of the
+              member of staff who placed the order.</li>
+            <li>If they can, check what the name is taken from. It may need
+              each person to sign in with their own Personal Identification
+              Number (PIN). PIN login was off when the till was checked on
+              19 November 2026.</li>
+            <li>If the tickets cannot show the name, tell the owner before
+              deciding what to do.</li>
+          </ol>
+          <p class="owner-task-apart"><strong>Status:</strong> to do. The
+            owner does not need to do this task.</p>
+        </section>
+        <section class="engineer-task-card">
+          <div class="engineer-task-card-head">
+            <span class="owner-task-tag">Neville task 6 of 6</span>
+            <span class="owner-task-chip">Owned by Neville</span>
+          </div>
+          <h3>Add a payout method so the owner can withdraw cash
+            from SumUp</h3>
+          <p><strong>Why:</strong> so the owner can take the takings out of
+            the SumUp account as cash.</p>
+          <p class="owner-task-label">Neville to do</p>
+          <ol class="owner-steps">
+            <li>Ask the owner which withdrawal method they want. The payout
+              destination is currently the SumUp Business Account. Ask
+              whether a different destination, such as a bank account, is
+              wanted.</li>
+            <li>Check whether the owner's identity check (owner task 1) must
+              be finished before a new payout destination can be added.</li>
+            <li>Set up the method in the payout settings, under Profile, then
+              Payouts. Check that the first payout arrives as expected.</li>
+          </ol>
+          <p class="owner-task-apart"><strong>Status:</strong> to do. The
+            owner needs to decide which method to use.</p>
         </section>
         </div>
       </section>"""
@@ -422,11 +518,12 @@ def hub_body() -> str:
 
     Returns:
         The offline download banner first, then the owner task cards,
-        then the three guide buttons. The owner can grab the phone
+        then the cards owned by Neville, then the three guide buttons.
+        The owner can grab the phone
         copy, do the tasks, then choose a guide.
     """
     return "\n\n".join([doc_download_html(), owner_tasks_html(),
-                        doc_guides_html()])
+                        engineer_tasks_html(), doc_guides_html()])
 
 
 def shell(title: str, body: str, back_label: str, search: bool,

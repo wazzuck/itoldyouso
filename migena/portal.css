@@ -650,6 +650,106 @@
       color: #e0f2f1;
     }
 
+    /* -------------------------------------------------------------------------
+       Tasks Owned by Neville (documentation.html)
+       Teal, not amber: amber marks the owner's own duties, so these cards
+       use another colour and are never mistaken for the owner's. The
+       layout repeats the owner card layout.
+       ---------------------------------------------------------------------- */
+    .engineer-tasks {
+      margin: 0 0 32px 0;
+      padding: 22px;
+      border: 1px solid #99f6e4;
+      border-radius: 12px;
+      background-color: #f0fdfa;
+    }
+
+    .engineer-tasks-heading h2 {
+      margin: 0 0 6px;
+      font-size: 1.4rem;
+      color: #115e59;
+    }
+
+    .engineer-tasks-intro {
+      margin: 0 0 16px;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      color: #44403c;
+    }
+
+    .engineer-tasks-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 760px) {
+      .engineer-tasks-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .engineer-task-card {
+      padding: 14px 16px;
+      border: 1px solid #99f6e4;
+      border-left: 6px solid #0f766e;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #1f2937;
+    }
+
+    .engineer-task-card-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .engineer-task-card .owner-task-tag {
+      background-color: #0f766e;
+    }
+
+    .engineer-task-card .owner-task-chip {
+      border-color: #0f766e;
+      color: #115e59;
+    }
+
+    .engineer-task-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+      color: #1f2937;
+    }
+
+    .engineer-task-card p,
+    .engineer-task-card .owner-steps li {
+      margin: 4px 0;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    .engineer-task-card .owner-task-wait {
+      background-color: #ccfbf1;
+      color: #115e59;
+    }
+
+    .engineer-task-card .owner-task-label {
+      margin: 10px 0 2px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #115e59;
+    }
+
+    .engineer-task-card .owner-task-apart {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: #57534e;
+    }
+
     .doc-guides-offline {
       margin: 18px 0 0;
       font-size: 0.95rem;
