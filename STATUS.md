@@ -207,12 +207,20 @@ installation.
   `assets/search-index.js`, and `scripts/verify_site.py`. Legal and
   patent check found no risk: descriptive first-party copy with
   nominative vendor names only.
+- **Migena owner tasks and Documentation hub (`620382c`)**: The owner
+  tasks sit at the top of `migena/index.html`, shown on arrival as four
+  numbered cards in order: update the software (first, and it gates the
+  others), verify identity (done by the owner in their own SumUp
+  profile), turn on cash payments, and check the kitchen and bar printers
+  for `Select categories`. The `3. Documentation` button now links to
+  `migena/documentation.html`, a password-gated hub listing the three
+  guides and the offline copy. `scripts/split_portal.py` generates the
+  hub; `scripts/verify_site.py` checks the cards, the link and the hub.
 - **Migena portal: grouped navigation, documentation search and
   offline copy**: Grouped the Admin Guide, Management Guide and Till
-  Procedures & Features under one `3. Documentation` button in the
-  sticky bar of `migena/index.html`, opening a click-to-toggle
-  submenu (Escape and an outside click close it, and `aria-expanded`
-  tracks the visual state). Removed the three hidden documents
+  Procedures & Features under one `3. Documentation` link in the
+  sticky bar of `migena/index.html`, which opens the Documentation
+  hub (`migena/documentation.html`). Removed the three hidden documents
   entirely at the client's request (Technical Intake Questionnaire,
   Cafe Client Handbook, Countertop Cheat Sheet): their articles,
   navigation items, stylesheet rules, the dead questionnaire script,
@@ -355,6 +363,10 @@ indexes, business profiles, and external consensus across the web.
   whether to add `<meta name="robots" content="noindex, nofollow">` and
   `robots.txt` `Disallow:` rules so client installation notes do not appear
   in public AI search snippets.
+- [ ] **Till documents say cash is not taken**: `migena/TILL_PROCEDURES.md`
+  section 8.4 and `migena/TILL_FEATURES.md` still say cash is not taken on
+  the payment screen. Update them, and the closing-up routine, once the
+  owner has done task 3 (turn on cash payments). Needs the operator's go-ahead.
 - [ ] **Migena portal script error (pre-existing)**: Unlocking the
   portal with `?pwd=migenalika` or a stored unlock state throws
   `Cannot access 'TERMS_DAY_STORAGE_KEY' before initialization` and
