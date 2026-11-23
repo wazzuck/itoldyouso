@@ -407,3 +407,13 @@ indexes, business profiles, and external consensus across the web.
   shared over chat on 18 November 2026, so it should be rotated by
   the client. The private repository `wazzuck/itoldyouso_client`
   still holds `ACCESS.md`.
+- [x] **Staff passwords in the offline copy — operator acknowledgement
+  recorded 23 November 2026**: the operator has acknowledged the risk of
+  the staff passwords in `migena/sumup_password.txt` appearing on the
+  User Passwords page of `migena/offline.html`. This extends the override
+  above to those staff rows, and supersedes the rule in the Migena
+  checklist (`INSTALLATION_CHECKLIST.md`, section 5.7, item 1) for them.
+  The operator's stated reason is that a sign-in from a new device needs
+  a two-factor authentication (2FA) code sent to the owner's phone. That
+  covers new devices. It does not cover a device that is already signed
+  in to the account.
