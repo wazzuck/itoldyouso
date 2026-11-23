@@ -380,7 +380,10 @@
       display: none;
       flex-direction: column;
       gap: 8px;
-      min-width: 250px;
+      box-sizing: border-box;
+      width: min(420px, calc(100vw - 48px));
+      max-height: calc(100vh - 380px);
+      overflow-y: auto;
       margin: 0;
       padding: 10px;
       list-style: none;
@@ -409,38 +412,197 @@
       outline-offset: 2px;
     }
 
-    /* The reminder the owner sees the moment the Documentation menu
-       opens. It is shaped like a task card, not a navigation item: an
-       amber panel carrying a solid "OWNER TASK" badge, so a glance is
-       enough to see that something must be done and who must do it.
-       Amber on cream holds well above the 4.5:1 contrast floor, and
-       the badge is white on deep amber so it survives colour-blind
-       vision and small screens alike. */
-    .nav-dropdown-note {
-      padding: 10px;
-      border: 1px solid #fcd34d;
-      border-radius: 6px;
-      background-color: #fffbeb;
-      font-size: 0.8rem;
-      line-height: 1.45;
-      color: #92400e;
+    /* -------------------------------------------------------------------------
+       Owner Tasks (inside the Documentation menu)
+       Four numbered cards, done in order. Each card is a separate box with
+       its own Done tick. Amber marks a duty, not a tip. The red stop box
+       appears where a step can go wrong, with the number to ring.
+       ------------------------------------------------------------------------- */
+    .owner-tasks-heading {
+      padding: 4px 2px 0;
     }
 
-    .nav-dropdown-note-tag {
-      display: inline-block;
-      margin-bottom: 5px;
+    .owner-tasks-heading h2 {
+      margin: 0 0 4px;
+      font-size: 0.98rem;
+      color: #78350f;
+    }
+
+    .owner-tasks-intro {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #44403c;
+    }
+
+    .owner-task-card {
+      padding: 12px 12px 12px 14px;
+      border: 1px solid #fcd34d;
+      border-left: 6px solid #b45309;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: #1f2937;
+    }
+
+    .owner-task-card-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .owner-task-tag,
+    .owner-task-first,
+    .owner-task-chip {
       padding: 2px 8px;
       border-radius: 999px;
-      background-color: #b45309;
-      color: #ffffff;
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
-    .nav-dropdown-note strong {
+    .owner-task-tag {
+      background-color: #b45309;
+      color: #ffffff;
+    }
+
+    .owner-task-first {
+      background-color: #991b1b;
+      color: #ffffff;
+    }
+
+    .owner-task-chip {
+      border: 1px solid #b45309;
       color: #78350f;
+    }
+
+    .owner-task-card h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: #1f2937;
+    }
+
+    /* The portal sets its own paragraph and list sizes, so the card text
+       must inherit the card's size explicitly to stay uniform. */
+    .owner-task-card p,
+    .owner-task-card .owner-steps li {
+      margin: 4px 0;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    .owner-task-wait {
+      padding: 4px 8px;
+      border-radius: 6px;
+      background-color: #fef3c7;
+      color: #78350f;
+      font-weight: 700;
+    }
+
+    .owner-task-card .owner-task-label {
+      margin: 10px 0 2px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #78350f;
+    }
+
+    .owner-steps {
+      margin: 0;
+      padding-left: 22px;
+      list-style: decimal;
+    }
+
+    .owner-steps li {
+      margin: 4px 0;
+    }
+
+    .owner-task-card .owner-task-rules {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background-color: #f5f5f4;
+      color: #292524;
+    }
+
+    .owner-task-stop {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-left: 4px solid #dc2626;
+      border-radius: 0 6px 6px 0;
+      background-color: #fef2f2;
+      color: #7f1d1d;
+    }
+
+    .owner-task-done {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background-color: #fffbeb;
+      color: #78350f;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .owner-task-done input {
+      flex: 0 0 auto;
+      width: 20px;
+      height: 20px;
+      margin: 1px 0 0;
+      accent-color: #b45309;
+    }
+
+    .owner-task-card .owner-task-apart {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: #57534e;
+    }
+
+    /* Links inside a card are plain text links, not the bar's pill
+       buttons, so the call number reads as part of the instruction. */
+    .nav-links .owner-task-card a {
+      display: inline;
+      width: auto;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background-color: transparent;
+      box-shadow: none;
+      color: #9a3412;
+      font-size: inherit;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .nav-links .owner-task-card a:hover {
+      transform: none;
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      color: #7c2d12;
+    }
+
+    /* The count on the Documentation button, so the owner sees there are
+       tasks waiting before opening the menu. Dark brown on amber is well
+       above the 4.5:1 contrast floor. */
+    .owner-task-badge {
+      margin-left: 6px;
+      padding: 1px 8px;
+      border-radius: 999px;
+      background-color: #fbbf24;
+      color: #78350f;
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.6;
+      white-space: nowrap;
     }
 
     /* -------------------------------------------------------------------------
@@ -968,7 +1130,10 @@
          it pushes them down rather than covering them. */
       .nav-dropdown-menu {
         position: static;
+        width: auto;
         min-width: 0;
+        max-height: none;
+        overflow: visible;
         margin-top: 8px;
       }
 
