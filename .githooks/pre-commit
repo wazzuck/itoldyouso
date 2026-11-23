@@ -1,8 +1,15 @@
 #!/bin/sh
 # FILE: .githooks/pre-commit
-# Purpose: keep assets/search-index.js in step with index.html on every
-# local commit. Steps: 1) regenerate the index; 2) stage it if it changed.
-# Install once per clone with: sh scripts/install_hooks.sh
+# Purpose: keep every generated artefact in step with its sources on
+# each local commit. Steps: 1) split index.html into the standalone
+# portal pages and portal.css; 2) rebuild both search indexes; 3)
+# rebuild the offline copy, which embeds the pages and the index;
+# 4) stage whatever changed. Install once per clone with:
+# sh scripts/install_hooks.sh
 cd "$(git rev-parse --show-toplevel)" || exit 1
+python3 scripts/split_portal.py >/dev/null || exit 1
 python3 scripts/build_search_index.py >/dev/null || exit 1
-git add assets/search-index.js
+python3 scripts/build_offline_doc.py >/dev/null || exit 1
+git add assets/search-index.js migena/search-index.js \
+  migena/offline.html migena/portal.css migena/contract.html \
+  migena/pricing.html migena/admin.html

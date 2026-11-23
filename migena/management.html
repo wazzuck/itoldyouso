@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Management Guide | EGGI'S Till Documentation | IToldYouSo Computing</title>
   <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="doc-search.css">
 </head>
 <body>
   <div id="auth-gate">
@@ -53,6 +54,21 @@
         <ul class="nav-links">
           <li><a href="index.html">&larr; All documents</a></li>
         </ul>
+        <form class="doc-search" role="search"
+              aria-label="Search the documentation"
+              onsubmit="return false;">
+          <label class="doc-search-label" for="doc-search-input">
+            Search the documentation
+          </label>
+          <input type="search" id="doc-search-input"
+                 class="doc-search-input" autocomplete="off"
+                 spellcheck="false" enterkeyhint="search"
+                 placeholder="e.g. refunds, PIN, closing up">
+          <p id="doc-search-status" class="doc-search-status"
+             role="status" aria-live="polite"></p>
+          <ul id="doc-search-results" class="doc-search-results"
+              hidden></ul>
+        </form>
       </div>
     </nav>
 
@@ -88,7 +104,7 @@
           </p>
         </div>
 
-        <section>
+        <section id="the-five-accounts-to-keep-organised">
           <h3>1. The Five Accounts to Keep Organised</h3>
           <ol>
             <li>
@@ -116,7 +132,7 @@
           </ol>
         </section>
 
-        <section>
+        <section id="who-holds-what">
           <h3>2. Who Holds What</h3>
           <table>
             <thead>
@@ -185,7 +201,7 @@
           </div>
         </section>
 
-        <section>
+        <section id="the-plan-and-the-fees">
           <h3>3. The Plan and the Fees</h3>
           <ul>
             <li>
@@ -214,7 +230,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="the-daily-rhythm">
           <h3>4. The Daily Rhythm</h3>
           <ol>
             <li>
@@ -237,7 +253,7 @@
           </ol>
         </section>
 
-        <section>
+        <section id="every-week-about-15-minutes">
           <h3>5. Every Week (about 15 Minutes)</h3>
           <ul class="check-list">
             <li>Download the week's sales export from Reports as a
@@ -252,7 +268,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="every-month-about-30-minutes">
           <h3>6. Every Month (about 30 Minutes)</h3>
           <ul class="check-list">
             <li>
@@ -283,7 +299,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="records-to-keep">
           <h3>7. Records to Keep</h3>
           <table>
             <thead>
@@ -332,7 +348,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="who-does-what">
           <h3>8. Who Does What</h3>
           <table>
             <thead>
@@ -798,5 +814,7 @@
 
     })();
   </script>
+  <script src="search-index.js" defer></script>
+  <script src="doc-search.js" defer></script>
 </body>
 </html>

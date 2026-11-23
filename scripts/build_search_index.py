@@ -3,31 +3,43 @@
 FILE: scripts/build_search_index.py
 
 Purpose:
-    Generates assets/search-index.js, the "document tower" half of the
-    service search on index.html. The "query tower" half lives in
-    assets/service-search.js and runs in the visitor's browser.
+    Generates two "document tower" files, one per search on this site:
+
+    1. assets/search-index.js, the service search on index.html at the
+       repository root (41 service cards).
+    2. migena/search-index.js, the documentation search on the seven
+       official Migena client document pages (one record per section,
+       so a result can jump straight to the matching heading).
+
+    The "query tower" halves live in the browser: assets/service-search.js
+    for the home page and migena/doc-search.js for the client portal.
 
     The pair work like a two-tower retrieval model: each tower maps text
     into the same fixed-length vector space, and relevance is the cosine
-    similarity between a query vector and a service vector. Here the
+    similarity between a query vector and a document vector. Here the
     towers are deterministic (hashed word, concept and character-trigram
     features, weighted by Inverse Document Frequency (IDF)) rather than
     neural, so the whole system is static files that GitHub Pages can
     serve with no server, no API call and no tracking.
 
 Deliberately NOT for:
-    Hand-editing assets/search-index.js (it is generated: change this
-    file, then regenerate), or fetching anything over the network.
+    Hand-editing either generated index (change this file, then
+    regenerate), or fetching anything over the network.
 
 Invariants relied upon:
     1. The featurizer below (normalise, stem, hash, features) MUST match
-       the one in assets/service-search.js step for step. If one changes,
-       change the other and regenerate. Mismatched towers silently give
-       poor results.
+       the one in assets/service-search.js AND the one in
+       migena/doc-search.js step for step. If one changes, change the
+       others and regenerate. Mismatched towers silently give poor
+       results. The concept lexicon, stopwords, weights and dimension
+       travel inside each index, so each query tower only has to share
+       the maths, not the tables.
     2. Every service card in index.html has an href and an <h3> title.
+    3. The seven pages listed in MIGENA_PAGES exist, and any section
+       that should be jumpable to carries an id attribute.
 
 Usage:
-    python3 scripts/build_search_index.py          # regenerate
+    python3 scripts/build_search_index.py          # regenerate both
     python3 scripts/build_search_index.py --check  # exit 1 if stale
 """
 
@@ -43,6 +55,32 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 INDEX_HTML = REPO_ROOT / "index.html"
 OUTPUT_JS = REPO_ROOT / "assets" / "search-index.js"
 
+# Second corpus and second output: the Migena client portal. Its index
+# is written beside the pages it searches so the portal loads it with
+# a relative path, and so a copy of the portal folder stays complete.
+MIGENA_DIR = REPO_ROOT / "migena"
+MIGENA_OUTPUT = MIGENA_DIR / "search-index.js"
+
+# The seven official document pages, in portal order, with the name
+# shown beside every search result from that page. Consumed by
+# read_migena_docs(). The hidden documents (questionnaire, handbook,
+# cheat sheet) were removed at the client's request and are absent
+# here on purpose.
+MIGENA_PAGES = [
+    ("contract.html", "Service Contract"),
+    ("pricing.html", "Pricing & Terms"),
+    ("admin.html", "Admin Guide"),
+    ("management.html", "Management Guide"),
+    ("till.html", "Till Procedures & Features"),
+    ("till-procedures.html", "Till Procedures"),
+    ("till-features.html", "Till Feature Reference"),
+]
+
+# How many characters of a section are kept as the visible snippet
+# under a search result. Value: 140 characters, about two lines on a
+# phone. Consumed by read_migena_docs() and shown by doc-search.js.
+SNIPPET_LEN = 140
+
 # Length of the hashed feature space. Value: 2048 buckets. Consumed by:
 # both towers (bucket = hash % DIM). Larger means fewer collisions.
 DIM = 2048
@@ -54,8 +92,9 @@ WEIGHT_WORD = 1.0
 WEIGHT_CONCEPT = 2.0
 WEIGHT_TRIGRAM = 0.3
 
-# How many times a service title is repeated when building document text,
-# so title words outweigh description words. Value: 3.
+# How many times a document title is repeated when building document
+# text, so title words outweigh body words. Value: 3. Consumed by
+# build_payload() for both corpora (service cards and doc sections).
 TITLE_REPEAT = 3
 
 # Common words carrying no meaning for matching. Consumed by tokenise().
@@ -170,6 +209,32 @@ CONCEPTS: Dict[str, List[str]] = {
     "streaming",
 }
 
+# Extra concepts for the Migena documentation corpus only. The public
+# home page never meets words such as "z report", "allergy" or "PIN",
+# but the till guides are full of them, so without these the doc
+# search would rank poorly on the client's own vocabulary. Merged on
+# top of CONCEPTS by build_migena(); the public payload keeps CONCEPTS
+# untouched, and each index ships its own concept list, so the query
+# tower always uses the set its index was built with.
+MIGENA_CONCEPTS: Dict[str, List[str]] = {
+    "till_ops": "refund refunds void voided discount discounts pin pins "
+    "staff staffmember employee employees login logins permission "
+    "permissions role roles closing close closed closeout zreport "
+    "zreports z report takings cash cashing up float tillout "
+    "reconcile reconciliation reconcile payout payouts opening open "
+    "opened course courses allergy allergies dietary modifier modifiers "
+    "split splitbill splitting bill bills table tables order orders "
+    "waitress waiting server tab barcode loyalty gift voucher vouchers "
+    "receipt reprint reprinting training roster shift shifts drawer "
+    "cashfloat centrepayment gratuity tip tips service charge",
+    "cafe_docs": "cafe coffee barista brunch lunch menu menus dish "
+    "dishes plate plates kitchen food fpoh front counter service "
+    "station stations tillroll tillroll paper",
+    "accounts_docs": "invoice invoices vat quarterly bookkeeper "
+    "accountant margin gross net profit loss sheet sheets turnover "
+    "bank statement statements reconciliation nominal year end",
+}
+
 
 def normalise(text: str) -> str:
     """Lower-case text and reduce it to space-separated ASCII words.
@@ -229,11 +294,20 @@ def fnv1a(text: str) -> int:
     return value
 
 
-def concept_stems() -> Dict[str, set]:
-    """Return each concept's member words, stemmed like real tokens."""
+def concept_stems(lexicon: Dict[str, List[str]] = CONCEPTS) -> Dict[str, set]:
+    """Return each concept's member words, stemmed like real tokens.
+
+    Args:
+        lexicon: concept name to space-separated member words. Defaults
+            to the public CONCEPTS lexicon; build_migena() passes the
+            merged documentation lexicon instead.
+
+    Returns:
+        Mapping of concept name to the set of stemmed member words.
+    """
     return {
         name: {stem(w) for w in words.split()}
-        for name, words in CONCEPTS.items()
+        for name, words in lexicon.items()
     }
 
 
@@ -300,27 +374,188 @@ def read_cards() -> List[Dict[str, str]]:
     return cards
 
 
-def build() -> str:
-    """Build the full text of assets/search-index.js.
+def strip_tags(fragment: str) -> str:
+    """Reduce an HTML fragment to its plain words.
+
+    Args:
+        fragment: any HTML text, entities allowed.
 
     Returns:
-        JavaScript source assigning window.SERVICE_SEARCH_INDEX.
+        The text with every tag removed, HTML entities decoded, and
+        whitespace collapsed to single spaces.
     """
-    cards = read_cards()
-    concepts = concept_stems()
+    text = re.sub(r"<[^>]+>", " ", fragment)
+    return re.sub(r"\s+", " ", html.unescape(text)).strip()
 
-    # Step 1: encode each card's text into raw bucket weights.
+
+def portal_main(page_html: str) -> str:
+    """Return the article area of a portal page.
+
+    Args:
+        page_html: full source of one of the five portal pages.
+
+    Returns:
+        The inside of <main class="doc-main">, which holds the single
+        document article and nothing else.
+
+    Raises:
+        ValueError: if the page has no main area, which would mean the
+            page is not a portal page and the corpus list is wrong.
+    """
+    match = re.search(r'<main class="doc-main">(.*?)</main>',
+                      page_html, re.S)
+    if not match:
+        raise ValueError("page has no <main class=\"doc-main\"> area")
+    return match.group(1)
+
+
+def sheet_body(page_html: str) -> str:
+    """Return the instructional content of a printable A4 sheet.
+
+    Args:
+        page_html: full source of till-procedures.html or
+            till-features.html.
+
+    Returns:
+        The body with the cover header, the print note, the footer,
+        the search bar and the scripts removed, leaving only the
+        numbered sections that are worth searching.
+    """
+    match = re.search(r"<body>(.*?)</body>", page_html, re.S)
+    if not match:
+        raise ValueError("sheet has no <body> element")
+    text = match.group(1)
+    for pattern in (
+        r'<header class="cover">.*?</header>',
+        r'<div class="box">.*?</div>',
+        r'<div class="doc-search-bar">.*?</div>',
+        r"<footer.*?</footer>",
+        r"<script.*?</script>",
+    ):
+        text = re.sub(pattern, "", text, flags=re.S)
+    return text
+
+
+def split_sections(content: str) -> List[Tuple[str, str]]:
+    """Split a document body into (anchor, fragment) pieces.
+
+    The first piece is everything before the first <section> (the
+    document's own header and lead); each later piece is one top-level
+    <section> element together with its id attribute, or "" when the
+    section carries no id. The scan counts nesting depth, so a section
+    nested inside another still closes where it should.
+
+    Args:
+        content: the article or sheet body, tags intact.
+
+    Returns:
+        Pieces in document order, with empty or tag-only pieces
+        dropped.
+    """
+    pieces: List[Tuple[str, str]] = []
+    depth = 0
+    cursor = 0
+    anchor = ""
+    for match in re.finditer(r"<section\b([^>]*)>|</section>", content):
+        if match.group(0).startswith("<section"):
+            if depth == 0:
+                pieces.append((anchor, content[cursor:match.start()]))
+                id_match = re.search(r'id="([^"]+)"', match.group(1))
+                anchor = id_match.group(1) if id_match else ""
+                cursor = match.start()
+            depth += 1
+        else:
+            depth -= 1
+            if depth == 0:
+                pieces.append((anchor, content[cursor:match.end()]))
+                cursor = match.end()
+                anchor = ""
+    if cursor < len(content):
+        pieces.append((anchor, content[cursor:]))
+    return [(a, f) for a, f in pieces if strip_tags(f)]
+
+
+def read_migena_docs() -> List[Dict[str, object]]:
+    """Read the seven official document pages into search records.
+
+    One record is produced per section (or per document when a page
+    has no sections), so a search result can link straight to the
+    heading the visitor wants rather than to the top of a long page.
+
+    Returns:
+        Records in portal order. Each carries href (page plus anchor),
+        title (the section heading, or the document title for the
+        leading piece), page (the display name shown beside a result),
+        snippet (the first SNIPPET_LEN characters of plain text) and
+        parts (the text pieces featurised after the repeated title).
+
+    Raises:
+        FileNotFoundError: if any listed page has not been generated.
+    """
+    records: List[Dict[str, object]] = []
+    for filename, display in MIGENA_PAGES:
+        page_html = (MIGENA_DIR / filename).read_text(encoding="utf-8")
+        if '<main class="doc-main">' in page_html:
+            content = portal_main(page_html)
+        else:
+            content = sheet_body(page_html)
+        # The leading piece anchors to the article id on portal pages;
+        # the sheets have no article, so their lead links to the page.
+        article = re.search(r'<article id="([^"]+)"', content)
+        doc_anchor = article.group(1) if article else ""
+        for position, (anchor, fragment) in enumerate(split_sections(content)):
+            heading_match = re.search(r"<h[23][^>]*>(.*?)</h[23]>",
+                                      fragment, re.S)
+            heading = (strip_tags(heading_match.group(1))
+                       if heading_match else "")
+            body = strip_tags(fragment)
+            if len(body) < 10:
+                continue
+            if not heading:
+                heading = display
+            piece_anchor = anchor or (doc_anchor if position == 0 else "")
+            href = f"{filename}#{piece_anchor}" if piece_anchor else filename
+            records.append({
+                "href": href,
+                "title": heading,
+                "page": display,
+                "snippet": body[:SNIPPET_LEN]
+                + ("..." if len(body) > SNIPPET_LEN else ""),
+                "parts": [body],
+            })
+    return records
+
+
+def build_payload(records: List[Dict[str, object]],
+                  concepts: Dict[str, set],
+                  title_repeat: int) -> Dict[str, object]:
+    """Featurise records and assemble an index payload.
+
+    Args:
+        records: dicts holding href, title and parts (the text pieces
+            joined after the repeated title). Documentation records may
+            also carry page and snippet, which are copied through.
+        concepts: output of concept_stems().
+        title_repeat: how often the title is repeated in the document
+            text so title words outweigh body words. Value: 3, the
+            same weighting for both corpora.
+
+    Returns:
+        The payload dict consumed by render().
+    """
+    # Step 1: encode each record's text into raw bucket weights.
     raw: List[Dict[int, float]] = []
     texts: List[str] = []
-    for card in cards:
+    for record in records:
         text = " ".join(
-            [card["title"]] * TITLE_REPEAT + [card["desc"], card["tag"]]
+            [str(record["title"])] * title_repeat
+            + [str(p) for p in record["parts"]]
         )
         texts.append(normalise(text))
         raw.append(bucketise(featurise(text, concepts)))
 
     # Step 2: IDF per bucket, so rare features count more than common.
-    n = len(cards)
+    n = len(records)
     df = [0] * DIM
     for vec in raw:
         for b in vec:
@@ -329,7 +564,7 @@ def build() -> str:
 
     # Step 3: apply log-tf and IDF, then L2-normalise each document.
     docs = []
-    for card, text, vec in zip(cards, texts, raw):
+    for record, text, vec in zip(records, texts, raw):
         weighted = {
             b: (1 + math.log(w)) * idf[b] if w > 0 else 0.0
             for b, w in vec.items()
@@ -338,15 +573,24 @@ def build() -> str:
         sparse = sorted(
             (b, round(v / norm, 4)) for b, v in weighted.items()
         )
-        docs.append({
-            "h": card["href"],
-            "t": normalise(card["title"]),
+        doc = {
+            "h": record["href"],
+            "t": normalise(str(record["title"])),
             "x": text,
             "v": [[b, v] for b, v in sparse],
-        })
+        }
+        if "page" in record:
+            # Documentation records only: "n" is the display title the
+            # panel shows (t holds the normalised form used for
+            # matching), "p" the document it belongs to, "s" the
+            # snippet under it.
+            doc["n"] = str(record["title"])
+            doc["p"] = record["page"]
+        if "snippet" in record:
+            doc["s"] = record["snippet"]
+        docs.append(doc)
 
-    # Step 4: emit one JSON-ish line per record to keep diffs readable.
-    payload = {
+    return {
         "dim": DIM,
         "idf": idf,
         "concepts": {k: sorted(v) for k, v in concepts.items()},
@@ -354,8 +598,22 @@ def build() -> str:
         "stopwords": sorted(STOPWORDS),
         "docs": docs,
     }
+
+
+def render(payload: Dict[str, object], global_name: str) -> str:
+    """Render a payload as JavaScript source.
+
+    Args:
+        payload: output of build_payload().
+        global_name: the window property to assign, for example
+            SERVICE_SEARCH_INDEX or MIGENA_SEARCH_INDEX.
+
+    Returns:
+        JavaScript source assigning window.<global_name>, one JSON line
+        per document so version-control diffs stay readable.
+    """
     lines = ["/* GENERATED by scripts/build_search_index.py. Do not edit. */",
-             "window.SERVICE_SEARCH_INDEX = {"]
+             "window.%s = {" % global_name]
     for key, value in payload.items():
         if key == "docs":
             lines.append('"docs": [')
@@ -370,18 +628,83 @@ def build() -> str:
     return "\n".join(lines) + "\n"
 
 
+def build() -> str:
+    """Build the full text of assets/search-index.js.
+
+    Returns:
+        JavaScript source assigning window.SERVICE_SEARCH_INDEX.
+    """
+    cards = read_cards()
+    records = [{
+        "href": card["href"],
+        "title": card["title"],
+        "parts": [card["desc"], card["tag"]],
+    } for card in cards]
+    return render(
+        build_payload(records, concept_stems(), TITLE_REPEAT),
+        "SERVICE_SEARCH_INDEX",
+    )
+
+
+def documentation_lexicon() -> Dict[str, List[str]]:
+    """Return the concept lexicon used for both documentation indexes.
+
+    Returns:
+        The public CONCEPTS lexicon with MIGENA_CONCEPTS layered on
+        top. build_migena() and scripts/build_offline_doc.py both call
+        this, so the online portal and the offline copy always search
+        with the same meanings.
+    """
+    lexicon = dict(CONCEPTS)
+    lexicon.update(MIGENA_CONCEPTS)
+    return lexicon
+
+
+def build_migena() -> str:
+    """Build the full text of migena/search-index.js.
+
+    Returns:
+        JavaScript source assigning window.MIGENA_SEARCH_INDEX, built
+        from the seven document pages with the public lexicon plus the
+        documentation-only concepts.
+    """
+    return render(
+        build_payload(read_migena_docs(),
+                      concept_stems(documentation_lexicon()),
+                      TITLE_REPEAT),
+        "MIGENA_SEARCH_INDEX",
+    )
+
+
 def main(argv: List[str]) -> int:
-    """Entry point: regenerate, or with --check compare to disk."""
-    content = build()
+    """Entry point: regenerate both indexes, or with --check compare.
+
+    Args:
+        argv: command-line arguments; "--check" switches from writing
+            to comparing.
+
+    Returns:
+        0 on success or when nothing is stale, 1 when --check finds a
+        stale output.
+    """
+    outputs = [
+        (OUTPUT_JS, build(), "assets/search-index.js"),
+        (MIGENA_OUTPUT, build_migena(), "migena/search-index.js"),
+    ]
     if "--check" in argv:
-        current = (OUTPUT_JS.read_text(encoding="utf-8")
-                   if OUTPUT_JS.is_file() else "")
-        if current != content:
-            print("assets/search-index.js is stale; rerun the builder.")
+        stale = [
+            label for path, content, label in outputs
+            if not path.is_file()
+            or path.read_text(encoding="utf-8") != content
+        ]
+        if stale:
+            print("%s is stale; rerun the builder."
+                  % ", ".join(stale))
             return 1
         return 0
-    OUTPUT_JS.write_text(content, encoding="utf-8")
-    print("Wrote %s (%d bytes)" % (OUTPUT_JS, len(content)))
+    for path, content, _ in outputs:
+        path.write_text(content, encoding="utf-8")
+        print("Wrote %s (%d bytes)" % (path, len(content)))
     return 0
 
 

@@ -1,0 +1,3 @@
+# Python bytecode cache created when scripts/ imports a sibling
+# module (build_offline_doc.py imports build_search_index.py).
+__pycache__/

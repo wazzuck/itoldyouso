@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Service Contract &amp; Scope of Work | EGGI'S Till Documentation | IToldYouSo Computing</title>
   <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="doc-search.css">
 </head>
 <body>
   <div id="auth-gate">
@@ -53,6 +54,21 @@
         <ul class="nav-links">
           <li><a href="index.html">&larr; All documents</a></li>
         </ul>
+        <form class="doc-search" role="search"
+              aria-label="Search the documentation"
+              onsubmit="return false;">
+          <label class="doc-search-label" for="doc-search-input">
+            Search the documentation
+          </label>
+          <input type="search" id="doc-search-input"
+                 class="doc-search-input" autocomplete="off"
+                 spellcheck="false" enterkeyhint="search"
+                 placeholder="e.g. refunds, PIN, closing up">
+          <p id="doc-search-status" class="doc-search-status"
+             role="status" aria-live="polite"></p>
+          <ul id="doc-search-results" class="doc-search-results"
+              hidden></ul>
+        </form>
       </div>
     </nav>
 
@@ -66,7 +82,7 @@
           <h2>Service Contract &amp; Scope of Work &mdash; SumUp Till Delivery</h2>
         </div>
 
-        <section>
+        <section id="agreement-parties-purpose">
           <h3>1. Agreement Parties &amp; Purpose</h3>
           <p>
             <strong>Service Provider:</strong> IToldYouSo Computing &mdash; Neville Bryce, Senior Software Engineer (Director)<br>
@@ -107,7 +123,7 @@
           </div>
         </section>
 
-        <section>
+        <section id="pre-flight-checks">
           <h3>2. Pre-Flight Checks</h3>
           <p>
             On the day of installation at your North London cafe, I start with the following pre-flight checks to verify the network and counter environment before mounting and configuring your till equipment:
@@ -119,7 +135,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="day-of-installation-protocol">
           <h3>3. Day of Installation Protocol</h3>
           <p>
             On the day of installation, I manage the physical and digital setup end-to-end:
@@ -134,7 +150,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="manager-handover-training-syllabus-single-sessio">
           <h3>4. Manager Handover Training Syllabus (Single Session)</h3>
           <p>
             Technology in a busy cafe must never cause stress during a rush. I deliver a calm, unhurried 1-on-1 handover training session with the manager in 1 single session, equipping the manager to operate the till confidently and train the rest of the staff:
@@ -165,7 +181,6 @@
     (function() {
       // Configuration constants
       const AUTH_STORAGE_KEY = 'itoldyouso_migena_auth_state';
-      const DATA_STORAGE_KEY = 'itoldyouso_migena_intake_responses';
       const TERMS_STORAGE_KEY = 'itoldyouso_migena_terms_state';
       const VALID_PASSWORD = 'migenalika';
 
@@ -174,18 +189,10 @@
       const passwordInput = document.getElementById('password-input');
       const authError = document.getElementById('auth-error');
 
-      const saveDot = document.getElementById('save-dot');
-      const saveDotBottom = document.getElementById('save-dot-bottom');
-      const saveText = document.getElementById('save-status-text');
-      const saveTextBottom = document.getElementById('save-status-text-bottom');
-
-      const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'];
-
       // Function to reveal the unlocked documentation
       function revealDocumentation() {
         if (authGate) authGate.style.display = 'none';
         if (docContent) docContent.style.display = 'block';
-        loadSavedResponses();
         checkTermsState();
       }
 
@@ -228,177 +235,6 @@
           passwordInput.focus();
           passwordInput.select();
         }
-      };
-
-      // Set visual save status indicator
-      function updateSaveStatus(isSaved, timestampText) {
-        const text = isSaved
-          ? 'All changes saved locally' + (timestampText ? ' (' + timestampText + ')' : '')
-          : 'Saving changes...';
-
-        if (saveText) saveText.textContent = text;
-        if (saveTextBottom) saveTextBottom.textContent = text;
-
-        if (saveDot) {
-          saveDot.className = isSaved ? 'status-dot' : 'status-dot dirty';
-        }
-        if (saveDotBottom) {
-          saveDotBottom.className = isSaved ? 'status-dot' : 'status-dot dirty';
-        }
-      }
-
-      // Load all saved responses from localStorage
-      function loadSavedResponses() {
-        try {
-          const raw = localStorage.getItem(DATA_STORAGE_KEY) ||
-                      localStorage.getItem('itoldyouso_illyrian_intake_responses');
-          if (!raw) return;
-          const data = JSON.parse(raw);
-          questionIds.forEach(function(qid) {
-            const textarea = document.getElementById(qid);
-            if (textarea && data[qid] !== undefined && data[qid].trim().length > 0) {
-              textarea.value = data[qid];
-              updateCounts(qid);
-            }
-          });
-          if (data._updatedAt) {
-            updateSaveStatus(true, data._updatedAt);
-          }
-        } catch (err) {
-          console.error('Failed to parse saved intake responses:', err);
-        }
-      }
-
-      // Save all current responses into localStorage
-      function persistData() {
-        const now = new Date();
-        const timeString = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        const data = {
-          _updatedAt: timeString
-        };
-
-        questionIds.forEach(function(qid) {
-          const textarea = document.getElementById(qid);
-          if (textarea) {
-            data[qid] = textarea.value;
-          }
-        });
-
-        try {
-          localStorage.setItem(DATA_STORAGE_KEY, JSON.stringify(data));
-          updateSaveStatus(true, timeString);
-          questionIds.forEach(function(qid) {
-            const savedSpan = document.getElementById(qid + '-saved-time');
-            if (savedSpan) {
-              savedSpan.textContent = 'Saved at ' + timeString;
-            }
-          });
-        } catch (err) {
-          console.error('Could not save to localStorage:', err);
-        }
-      }
-
-      // Update character counter and individual field status
-      function updateCounts(qid) {
-        const textarea = document.getElementById(qid);
-        const countSpan = document.getElementById(qid + '-count');
-        if (textarea && countSpan) {
-          const len = textarea.value.length;
-          countSpan.textContent = len + (len === 1 ? ' character' : ' characters');
-        }
-      }
-
-      // Debounce timer for auto-save
-      let autoSaveTimer = null;
-      window.handleFieldChange = function(qid) {
-        updateCounts(qid);
-        updateSaveStatus(false);
-        if (autoSaveTimer) clearTimeout(autoSaveTimer);
-        autoSaveTimer = setTimeout(function() {
-          persistData();
-        }, 600);
-      };
-
-      // Manual save trigger
-      window.forceSave = function() {
-        if (autoSaveTimer) clearTimeout(autoSaveTimer);
-        persistData();
-      };
-
-      // Append pre-defined suggestion chip into a textarea
-      window.appendChip = function(qid, chipText) {
-        const textarea = document.getElementById(qid);
-        if (!textarea) return;
-
-        const currentVal = textarea.value.trim();
-        if (currentVal.length === 0) {
-          textarea.value = chipText;
-        } else if (!currentVal.includes(chipText)) {
-          textarea.value = currentVal + '; ' + chipText;
-        }
-        textarea.focus();
-        window.handleFieldChange(qid);
-      };
-
-      // Export all answers formatted into clipboard
-      window.exportResponses = function() {
-        persistData();
-        const questionLabels = {
-          q1: '1. Hardware Model & Operating System',
-          q2: '2. POS Software & Cafe Ordering Workflow',
-          q3: '3. Card Reader & Merchant Terminal',
-          q4: '4. Peripherals & Kitchen/Barista Printers',
-          q5: '5. Cafe Internet Connectivity',
-          q6: '6. Cafe Menu, Modifiers & Staff Logins',
-          q7: '7. Target Launch Date & Peak Priorities'
-        };
-
-        let summary = '==================================================\n' +
-                      'SUMUP POS LITE TILL INTAKE (MIGENA LIKA & EGZON QUILIA)\n' +
-                      '345 Green Lanes, London N13 4JG - IToldYouSo Computing\n' +
-                      '==================================================\n\n';
-
-        questionIds.forEach(function(qid) {
-          const textarea = document.getElementById(qid);
-          const val = textarea ? textarea.value.trim() : '';
-          summary += questionLabels[qid] + '\n';
-          summary += (val.length > 0 ? val : '[No response recorded yet]') + '\n\n';
-        });
-
-        summary += 'Timestamp: ' + new Date().toLocaleString('en-GB') + '\n';
-        summary += 'Consultant: Neville Bryce (020 4520 9114 | contactus@itoldyouso.tech)\n';
-
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(summary).then(function() {
-            alert('Questionnaire responses copied to clipboard successfully!');
-          }).catch(function() {
-            prompt('Copy your questionnaire summary below:', summary);
-          });
-        } else {
-          prompt('Copy your questionnaire summary below:', summary);
-        }
-      };
-
-      // Clear all form responses with safety confirmation
-      window.clearFormConfirm = function() {
-        const confirmed = confirm(
-          'Are you sure you want to clear all entered responses? ' +
-          'This will remove all text from your local browser storage.'
-        );
-        if (!confirmed) return;
-
-        questionIds.forEach(function(qid) {
-          const textarea = document.getElementById(qid);
-          if (textarea) {
-            textarea.value = '';
-            updateCounts(qid);
-            const savedSpan = document.getElementById(qid + '-saved-time');
-            if (savedSpan) savedSpan.textContent = 'Not yet modified';
-          }
-        });
-
-        localStorage.removeItem(DATA_STORAGE_KEY);
-        updateSaveStatus(true, 'Cleared');
       };
 
       // Terms Acceptance state management
@@ -556,5 +392,65 @@
 
     })();
   </script>
+  <script>
+    (function () {
+      'use strict';
+
+      // Step 1: locate the controls. Missing controls mean this page has
+      // no Documentation menu (the standalone guide pages), so exit
+      // quietly instead of raising an error.
+      var toggle = document.getElementById('nav-doc-toggle');
+      var menu = document.getElementById('nav-doc-menu');
+      if (!toggle || !menu) { return; }
+
+      // Step 2: the single source of truth for "is the submenu open".
+      function isOpen() {
+        return toggle.getAttribute('aria-expanded') === 'true';
+      }
+
+      function setOpen(open) {
+        menu.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      // Step 3: pressing the button flips the state. preventDefault
+      // guards against a stray form submission if the button is ever
+      // moved inside a form element.
+      toggle.addEventListener('click', function (event) {
+        event.preventDefault();
+        setOpen(!isOpen());
+      });
+
+      // Step 4: a click outside the button/menu pair closes the
+      // submenu, so it never lingers over the article underneath.
+      document.addEventListener('click', function (event) {
+        if (!isOpen()) { return; }
+        if (toggle.contains(event.target) || menu.contains(event.target)) {
+          return;
+        }
+        setOpen(false);
+      });
+
+      // Step 5: Escape closes the submenu and hands focus back to the
+      // button that opened it.
+      document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape' || !isOpen()) { return; }
+        setOpen(false);
+        toggle.focus();
+      });
+
+      // Step 6: following any submenu link closes the panel. This
+      // matters most for the in-page Admin Guide anchor: the panel must
+      // not stay open over the section just scrolled to.
+      menu.addEventListener('click', function (event) {
+        var target = event.target;
+        if (target && target.closest && target.closest('a')) {
+          setOpen(false);
+        }
+      });
+    })();
+  </script>
+  <script src="search-index.js" defer></script>
+  <script src="doc-search.js" defer></script>
 </body>
 </html>

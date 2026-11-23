@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SumUp 13-Inch Countertop Touchscreen Register &amp; Solo Card Reader Setup, Diagnostic Questionnaire &amp; Training Documentation for Client Migena (345 Green Lanes, London N13 4JG), provided by IToldYouSo Computing.">
+  <meta name="description" content="SumUp 13-Inch Countertop Touchscreen Register &amp; Solo Card Reader Setup, Diagnostics &amp; Training Documentation for Client Migena (345 Green Lanes, London N13 4JG), provided by IToldYouSo Computing.">
   <title>SumUp 13-Inch Touchscreen Register &amp; Till Setup | Client Migena (345 Green Lanes) | IToldYouSo Computing</title>
   <style>
     /* -------------------------------------------------------------------------
@@ -303,6 +303,109 @@
     }
 
     /* -------------------------------------------------------------------------
+       Documentation Dropdown
+       One top-level button ("3. Documentation") that reveals the three
+       guide links -- Admin Guide, Management Guide and Till Procedures &
+       Features -- when pressed. It opens on a deliberate click rather
+       than a hover so that a mouse, a touch screen and a keyboard all
+       behave the same way, and it starts closed so the bar keeps the
+       height it had before the guides were grouped. The script at the
+       foot of this file toggles .is-open on the menu and aria-expanded
+       on the button together, so sighted and screen-reader users see
+       the same state.
+       ------------------------------------------------------------------------- */
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      background-color: #0f766e;
+      border: 2px solid #0f766e;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(15, 118, 110, 0.2);
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease,
+        border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .nav-dropdown-toggle:hover {
+      color: #ffffff;
+      background-color: #115e59;
+      border-color: #115e59;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(15, 118, 110, 0.28);
+    }
+
+    .nav-dropdown-toggle:active {
+      transform: translateY(0);
+    }
+
+    /* Open state: the button holds the deeper teal so it reads as
+       "pressed", and the caret below flips to point upwards. */
+    .nav-dropdown-toggle[aria-expanded="true"] {
+      background-color: #115e59;
+      border-color: #115e59;
+    }
+
+    .nav-dropdown-caret {
+      font-size: 0.7em;
+      line-height: 1;
+      transition: transform 0.15s ease;
+    }
+
+    .nav-dropdown-toggle[aria-expanded="true"] .nav-dropdown-caret {
+      transform: rotate(180deg);
+    }
+
+    /* The submenu hangs below the button, aligned to its left edge.
+       display: none while closed keeps it out of sight and out of the
+       keyboard tab order at the same time; .is-open swaps it to flex. */
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 60;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 250px;
+      margin: 0;
+      padding: 10px;
+      list-style: none;
+      background-color: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    .nav-dropdown-menu.is-open {
+      display: flex;
+    }
+
+    /* Sub-links keep the pill styling the bar gives every link, but
+       stretch to the panel's full width so each one is an easy target
+       on a phone. */
+    .nav-dropdown-menu a {
+      width: 100%;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .nav-dropdown-toggle:focus-visible,
+    .nav-dropdown-menu a:focus-visible {
+      outline: 3px solid #f59e0b;
+      outline-offset: 2px;
+    }
+
+    /* -------------------------------------------------------------------------
        Main Article Container
        ------------------------------------------------------------------------- */
     main.doc-main {
@@ -351,7 +454,7 @@
       border: 1px solid #cbd5e1;
     }
 
-    .badge-questionnaire {
+    .badge-management {
       background-color: #ccfbf1;
       color: #0f766e;
       border: 1px solid #99f6e4;
@@ -538,190 +641,6 @@
     }
 
     /* -------------------------------------------------------------------------
-       Questionnaire Form & Cards
-       ------------------------------------------------------------------------- */
-    .form-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      background-color: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 14px 18px;
-      margin-bottom: 28px;
-    }
-
-    .autosave-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #0f766e;
-    }
-
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #10b981;
-      display: inline-block;
-    }
-
-    .status-dot.dirty {
-      background-color: #f3b428;
-    }
-
-    .toolbar-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn-secondary {
-      background-color: #ffffff;
-      color: #374151;
-      border: 1px solid #d1d5db;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .btn-secondary:hover {
-      background-color: #f3f4f6;
-      border-color: #9ca3af;
-    }
-
-    .btn-primary {
-      background-color: #0f766e;
-      color: #ffffff;
-      border: 1px solid #0f766e;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.15s ease;
-    }
-
-    .btn-primary:hover {
-      background-color: #115e59;
-    }
-
-    .question-card {
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 24px;
-      margin-bottom: 26px;
-      background-color: #ffffff;
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-
-    .question-card:focus-within {
-      border-color: #0f766e;
-      box-shadow: 0 4px 12px rgba(15, 118, 110, 0.08);
-    }
-
-    .question-header {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .question-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background-color: #0f766e;
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    .question-title {
-      font-size: 1.22rem;
-      font-weight: 700;
-      color: #0f766e;
-      line-height: 1.35;
-    }
-
-    .question-context {
-      font-size: 0.98rem;
-      color: #4b5563;
-      margin-bottom: 12px;
-      line-height: 1.6;
-    }
-
-    .chips-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .chip {
-      background-color: #f1f5f9;
-      color: #334155;
-      border: 1px solid #cbd5e1;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .chip:hover {
-      background-color: #e2e8f0;
-      border-color: #94a3b8;
-    }
-
-    .input-wrapper {
-      position: relative;
-    }
-
-    .intake-textarea {
-      width: 100%;
-      min-height: 96px;
-      padding: 12px 14px;
-      font-size: 1rem;
-      font-family: inherit;
-      color: #1f2937;
-      background-color: #fcfdfe;
-      border: 2px solid #e2e8f0;
-      border-radius: 8px;
-      outline: none;
-      resize: vertical;
-      line-height: 1.5;
-      transition: border-color 0.15s ease, background-color 0.15s ease;
-    }
-
-    .intake-textarea:focus {
-      border-color: #0f766e;
-      background-color: #ffffff;
-    }
-
-    .input-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-      font-size: 0.82rem;
-      color: #6b7280;
-    }
-
-    /* -------------------------------------------------------------------------
        Pricing Tiers & Terms Acceptance Module
        ------------------------------------------------------------------------- */
     .pricing-grid {
@@ -893,97 +812,6 @@
     }
 
     /* -------------------------------------------------------------------------
-       Cheat Sheet Special Styling (Screen & Print)
-       ------------------------------------------------------------------------- */
-    #cheatsheet {
-      background-color: #ffffff;
-      border: 2px solid #0f766e;
-    }
-
-    .cheatsheet-banner {
-      background-color: #0f766e;
-      color: #ffffff;
-      padding: 16px 20px;
-      border-radius: 6px 6px 0 0;
-      text-align: center;
-      margin: -40px -40px 24px -40px;
-    }
-
-    .cheatsheet-banner h2 {
-      color: #ffffff;
-      font-size: 1.8rem;
-      letter-spacing: 0.04em;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-    }
-
-    .cheatsheet-banner p {
-      color: #ccfbf1;
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0;
-    }
-
-    .cheatsheet-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .cheatsheet-card {
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 16px 18px;
-      background-color: #ffffff;
-    }
-
-    .cheatsheet-card h3 {
-      font-size: 1.2rem;
-      color: #0f766e;
-      margin-top: 0;
-      margin-bottom: 10px;
-      padding-bottom: 4px;
-      border-bottom: 2px solid #0f766e;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .cheatsheet-card ol, .cheatsheet-card ul {
-      margin-bottom: 0;
-      padding-left: 22px;
-    }
-
-    .cheatsheet-card li {
-      font-size: 1rem;
-      margin-bottom: 6px;
-      line-height: 1.45;
-    }
-
-    .cheatsheet-warning-box {
-      margin-top: 8px;
-      padding: 8px 12px;
-      background-color: #fef2f2;
-      border: 2px solid #dc2626;
-      border-radius: 6px;
-      color: #991b1b;
-      font-weight: 700;
-      text-align: center;
-      font-size: 0.98rem;
-    }
-
-    .cheatsheet-phone-box {
-      margin-top: 10px;
-      padding: 10px 14px;
-      background-color: #f0fdf4;
-      border: 2px solid #16a34a;
-      border-radius: 6px;
-      color: #166534;
-      font-weight: 700;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-
-    /* -------------------------------------------------------------------------
        Footer
        ------------------------------------------------------------------------- */
     footer.site-footer {
@@ -1067,6 +895,26 @@
         flex-wrap: wrap;
       }
 
+      /* The Documentation button becomes a full-width stacked button
+         like every other item in the bar. */
+      .nav-dropdown-toggle {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 0.88rem;
+        line-height: 1.35;
+      }
+
+      /* With the bar stacked on a phone the submenu drops into the
+         flow instead of floating over the buttons below it, so opening
+         it pushes them down rather than covering them. */
+      .nav-dropdown-menu {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+      }
+
       .nav-post-deploy-note {
         font-size: 0.78rem;
         text-align: center;
@@ -1133,7 +981,7 @@
         padding: 10px 12px;
       }
 
-      .pricing-grid, .cheatsheet-grid {
+      .pricing-grid {
         grid-template-columns: 1fr;
         gap: 16px;
       }
@@ -1185,10 +1033,6 @@
         justify-content: center;
       }
 
-      .cheatsheet-banner {
-        margin: -20px -15px 18px -15px;
-      }
-
       .question-card {
         padding: 18px 14px;
       }
@@ -1206,7 +1050,7 @@
         display: block !important;
       }
 
-      nav.doc-nav, .form-toolbar, .chips-group, footer.site-footer {
+      nav.doc-nav, footer.site-footer {
         display: none !important;
       }
 
@@ -1218,21 +1062,8 @@
         page-break-inside: avoid;
       }
 
-      .intake-textarea {
-        border: 1px solid #9ca3af;
-        background-color: #ffffff;
-      }
     }
 
-    /* Hide completed intake questionnaire, Cafe Client Handbook, and
-       Countertop Cheat Sheet for now while retaining all content in the
-       background DOM.
-       NOTE: Neville requested restoring #handbook and #cheatsheet later. */
-    #questionnaire,
-    #handbook,
-    #cheatsheet {
-      display: none !important;
-    }
   </style>
 </head>
 <body>
@@ -1302,24 +1133,40 @@
       <div class="nav-container">
         <ul class="nav-links">
           <li><a href="#trainer">&#128196; 1. Service Contract &amp; Scope</a></li>
-          <li style="display: none;" aria-hidden="true"><a href="#questionnaire">Technical Intake</a></li>
           <li><a href="#hb-pricing">&#128179; 2. Pricing &amp; Terms</a></li>
-          <!-- NOTE: Restore Cafe Client Handbook and Cheat Sheet nav items later when unhiding #handbook and #cheatsheet -->
-          <li style="display: none;" aria-hidden="true"><a href="#handbook">Cafe Client Handbook</a></li>
-          <li style="display: none;" aria-hidden="true"><a href="#cheatsheet">Cheat Sheet</a></li>
-          <li><a href="#doc-admin">&#128736; 3. Admin Guide</a></li>
-          <li><a href="management.html">&#128200; 4. Management Guide</a></li>
-          <li><a href="till.html">&#128424; 5. Till Procedures
-            &amp; Features</a></li>
+          <!-- The three guides share one "Documentation" button. The
+               submenu opens on click through the script at the foot of
+               this file; its three links keep their original targets
+               (the inline Admin Guide anchor, then the two standalone
+               pages). -->
+          <li class="nav-dropdown">
+            <button type="button" class="nav-dropdown-toggle"
+              id="nav-doc-toggle" aria-expanded="false"
+              aria-controls="nav-doc-menu">&#128218; 3. Documentation
+              <span class="nav-dropdown-caret"
+                aria-hidden="true">&#9662;</span></button>
+            <ul class="nav-dropdown-menu" id="nav-doc-menu"
+              aria-label="Documentation sections">
+              <li><a href="#doc-admin">&#128736; Admin Guide</a></li>
+              <li><a href="management.html">&#128200; Management
+                Guide</a></li>
+              <li><a href="till.html">&#128424; Till Procedures
+                &amp; Features</a></li>
+            </ul>
+          </li>
           <li><span class="nav-disabled" aria-disabled="true"
             title="Follow-up support options will be available after deployment"
             >&#128274; 6. Follow-Up Support
             <em>(Available After Deployment)</em></span></li>
         </ul>
         <div class="nav-post-deploy-note">
-          <strong>Note:</strong> The guides above are published now.
-          The printable Cafe Client Handbook, the Countertop Cheat Sheet and
-          follow-up support options unlock here after on-site deployment.
+          <strong>Note:</strong> The guides in the Documentation menu
+          are published now. Follow-up support options unlock here
+          after on-site deployment.<br>
+          <a href="offline.html"
+            download="EGGIs-Till-Documentation.html">&#11015; Download
+            the offline copy for your phone (all guides, plus the
+            User Passwords page)</a>
         </div>
       </div>
     </nav>
@@ -1336,7 +1183,7 @@
           <h2>Service Contract &amp; Scope of Work &mdash; SumUp Till Delivery</h2>
         </div>
 
-        <section>
+        <section id="agreement-parties-purpose">
           <h3>1. Agreement Parties &amp; Purpose</h3>
           <p>
             <strong>Service Provider:</strong> IToldYouSo Computing &mdash; Neville Bryce, Senior Software Engineer (Director)<br>
@@ -1377,7 +1224,7 @@
           </div>
         </section>
 
-        <section>
+        <section id="pre-flight-checks">
           <h3>2. Pre-Flight Checks</h3>
           <p>
             On the day of installation at your North London cafe, I start with the following pre-flight checks to verify the network and counter environment before mounting and configuring your till equipment:
@@ -1389,7 +1236,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="day-of-installation-protocol">
           <h3>3. Day of Installation Protocol</h3>
           <p>
             On the day of installation, I manage the physical and digital setup end-to-end:
@@ -1404,7 +1251,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="manager-handover-training-syllabus-single-sessio">
           <h3>4. Manager Handover Training Syllabus (Single Session)</h3>
           <p>
             Technology in a busy cafe must never cause stress during a rush. I deliver a calm, unhurried 1-on-1 handover training session with the manager in 1 single session, equipping the manager to operate the till confidently and train the rest of the staff:
@@ -1421,584 +1268,9 @@
         </section>
       </article>
 
-      <!-- ===================================================================
-           DOCUMENT 2: TECHNICAL INTAKE QUESTIONNAIRE (HIDDEN IN BACKGROUND)
-           =================================================================== -->
-      <article id="questionnaire" class="doc-article" style="display: none;" aria-hidden="true">
-        <div class="article-header">
-          <span class="article-badge badge-questionnaire">Initial Intake Questionnaire</span>
-          <h2>Initial Setup &amp; Software Assessment Questionnaire</h2>
-          <p class="article-lead">
-            Please fill in your details below. Each response is automatically stored locally in your browser so you will never lose progress. You can also copy all responses to your clipboard with a single click.
-          </p>
-        </div>
 
-        <!-- Form Control Toolbar -->
-        <div class="form-toolbar">
-          <div class="autosave-indicator">
-            <span class="status-dot" id="save-dot"></span>
-            <span id="save-status-text">All changes saved locally</span>
-          </div>
-          <div class="toolbar-actions">
-            <button type="button" class="btn-secondary" onclick="exportResponses()">
-              📋 Copy Summary to Clipboard
-            </button>
-            <button type="button" class="btn-secondary" onclick="clearFormConfirm()">
-              🗑️ Clear Form
-            </button>
-            <button type="button" class="btn-primary" onclick="forceSave()">
-              💾 Save Now
-            </button>
-          </div>
-        </div>
 
-        <form id="intake-form" onsubmit="event.preventDefault(); forceSave();">
 
-          <!-- Question 1: Hardware Identification -->
-          <div class="question-card" id="card-q1">
-            <div class="question-header">
-              <span class="question-num">1</span>
-              <div class="question-title">
-                Hardware Model, Amazon UK Order &amp; Operating System
-              </div>
-            </div>
-            <div class="question-context">
-              What is the brand, model name, or listing link from Amazon UK? Does the screen boot into Android (e.g. tablet style with home/back icons) or Microsoft Windows? Does it have a specification sticker on the underside or power supply?
-            </div>
-            <div class="chips-group">
-              <span class="chip" onclick="appendChip('q1', 'Android Touchscreen Terminal')">Android Terminal</span>
-              <span class="chip" onclick="appendChip('q1', 'Windows 10/11 IoT All-in-One')">Windows All-in-One</span>
-              <span class="chip" onclick="appendChip('q1', 'Sunmi / MUNBYN / Elo White-label')">Sunmi / MUNBYN / Elo</span>
-              <span class="chip" onclick="appendChip('q1', 'Has Google Play Store')">Has Google Play Store</span>
-              <span class="chip" onclick="appendChip('q1', 'No App Store / Standalone Firmware')">No App Store</span>
-            </div>
-            <div class="input-wrapper">
-              <textarea
-                id="q1"
-                class="intake-textarea"
-                rows="5"
-                placeholder="Enter model number, Amazon link, Android version, or physical description..."
-                oninput="handleFieldChange('q1')"
-              >Owners: Migena Lika (Primary Contact), Egzon Quilia
-
-Countertop Register: 13” Full HD Touchscreen Countertop Register on Stand (SumUp Point of Sale Lite Payment Terminal/Register – Speedy Set Up, Fast &amp; Flexible Checkout, No Contracts, with End-of-Day Z Reports)
-
-Handheld Card Reader: SumUp Solo Credit Card Reader (wireless companion reader paired to the 13” countertop touchscreen)
-
-Printers: 2 printers (1 for checkout counter, 1 for the kitchen)
-
-Cash drawer: First-party SumUp Cash Drawer recommended for client purchase ahead of installation (£69.00 ex VAT / £82.80 incl. VAT, 24V RJ11 printer-driven trigger).</textarea>
-              <div class="input-footer">
-                <span id="q1-saved-time">Pre-filled from intake</span>
-                <span id="q1-count">Recorded</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 2: Cafe POS & Ordering Workflow -->
-          <div class="question-card" id="card-q2">
-            <div class="question-header">
-              <span class="question-num">2</span>
-              <div class="question-title">
-                Point of Sale (POS) Software &amp; Cafe Ordering Workflow
-              </div>
-            </div>
-            <div class="question-context">
-              Which software platform do you currently use, or wish to run on this till? Are you looking for a dedicated cafe or hospitality ordering application (e.g. Square for Restaurants, Loyverse POS, SumUp POS, Lightspeed, Clover, TouchBistro), or did the seller bundle a generic retail POS app or pre-installed Android Package (APK)? Do you require table management, or primarily counter and takeaway service?
-            </div>
-            <div class="chips-group">
-              <span class="chip" onclick="appendChip('q2', 'Square for Restaurants')">Square for Restaurants</span>
-              <span class="chip" onclick="appendChip('q2', 'Loyverse POS (Free Hospitality)')">Loyverse Cafe POS</span>
-              <span class="chip" onclick="appendChip('q2', 'SumUp Point of Sale')">SumUp POS</span>
-              <span class="chip" onclick="appendChip('q2', 'Counter &amp; Takeaway Ordering')">Counter Ordering</span>
-              <span class="chip" onclick="appendChip('q2', 'Table Service &amp; Tabs')">Table Service &amp; Tabs</span>
-              <span class="chip" onclick="appendChip('q2', 'Undecided / Need Professional Recommendation')">Need Advice</span>
-            </div>
-            <div class="input-wrapper">
-              <textarea
-                id="q2"
-                class="intake-textarea"
-                rows="4"
-                placeholder="Detail your planned cafe software, current accounts, table vs counter setup, or seller-provided licences..."
-                oninput="handleFieldChange('q2')"
-              >Software: SumUp Point of Sale (POS) application running on the 13-inch Full HD Countertop Touchscreen Register.
-
-Workflow: Automated kitchen order ticket printing to kitchen printer on food orders, plus customer receipts and cash drawer trigger at front counter.</textarea>
-              <div class="input-footer">
-                <span id="q2-saved-time">Pre-filled from intake</span>
-                <span id="q2-count">Recorded</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 3: Card Payment Processing & Merchant Terminal -->
-          <div class="question-card" id="card-q3">
-            <div class="question-header">
-              <span class="question-num">3</span>
-              <div class="question-title">
-                Card Payment Terminal (PDQ) &amp; Merchant Provider
-              </div>
-            </div>
-            <div class="question-context">
-              How will cafe customers pay by card? Do you have an existing card reader (such as Dojo Go, Square Reader, Zettle by PayPal, SumUp Air/Solo, or a high-street bank terminal like Barclaycard or Worldpay)? Will the card machine need to pair directly with the till screen for fast one-touch checkout, or will staff enter amounts manually on a standalone countertop terminal?
-            </div>
-            <div class="chips-group">
-              <span class="chip" onclick="appendChip('q3', 'Dojo Go Card Terminal')">Dojo Go</span>
-              <span class="chip" onclick="appendChip('q3', 'Square Reader / Stand')">Square Reader</span>
-              <span class="chip" onclick="appendChip('q3', 'Zettle by PayPal Reader 2')">Zettle Reader 2</span>
-              <span class="chip" onclick="appendChip('q3', 'SumUp Air / Solo')">SumUp Solo</span>
-              <span class="chip" onclick="appendChip('q3', 'Standalone Bank PDQ (Manual Amount Entry)')">Standalone Bank PDQ</span>
-              <span class="chip" onclick="appendChip('q3', 'Need Merchant Account Guidance')">Need Merchant Guidance</span>
-            </div>
-            <div class="input-wrapper">
-              <textarea
-                id="q3"
-                class="intake-textarea"
-                rows="4"
-                placeholder="List your card terminal make/model, current transaction fee rate, and integration hopes..."
-                oninput="handleFieldChange('q3')"
-              >Card Terminal: SumUp Solo Handheld Credit Card Reader.
-Pre-paired wirelessly with the 13-inch Full HD Countertop Touchscreen Register. Supports contactless card tap, Apple Pay, Google Pay, and Chip &amp; PIN with instantaneous confirmation chimes.</textarea>
-              <div class="input-footer">
-                <span id="q3-saved-time">Pre-filled from intake</span>
-                <span id="q3-count">Recorded</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 4: Peripherals & Hardware Connections -->
-          <div class="question-card" id="card-q4">
-            <div class="question-header">
-              <span class="question-num">4</span>
-              <div class="question-title">
-                Receipt Printer, Cash Drawer &amp; Kitchen / Barista Printers
-              </div>
-            </div>
-            <div class="question-context">
-              What external equipment came in the Amazon box? Is the receipt printer built into the screen housing (common on Sunmi/Elo models) or a separate external cube? Does it take 58mm or 80mm thermal paper rolls? Does the cash drawer plug into the back of the printer with an RJ11/RJ12 cable? Do you require an additional ticket printer or display screen for the kitchen or coffee barista?
-            </div>
-            <div class="chips-group">
-              <span class="chip" onclick="appendChip('q4', 'First-Party SumUp Cash Drawer (£69 ex VAT / £82.80 inc VAT)')">SumUp Cash Drawer (£69)</span>
-              <span class="chip" onclick="appendChip('q4', 'Checkout 80mm Thermal Receipt Printer')">Checkout 80mm Printer</span>
-              <span class="chip" onclick="appendChip('q4', 'Kitchen Order Ticket Printer (Ethernet LAN)')">Kitchen Ticket Printer</span>
-              <span class="chip" onclick="appendChip('q4', 'Heavy Duty RJ11 24V Drawer')">RJ11 Cash Drawer</span>
-              <span class="chip" onclick="appendChip('q4', 'Separate Barista / Kitchen Printer')">Barista Printer</span>
-            </div>
-            <div class="input-wrapper">
-              <textarea
-                id="q4"
-                class="intake-textarea"
-                rows="5"
-                placeholder="Detail the printer width, cables provided, cash drawer model, and kitchen ticket requirements..."
-                oninput="handleFieldChange('q4')"
-              >Printers (2 Units):
-1. Checkout Counter Printer: Thermal receipt printer for customer bills and receipts.
-2. Kitchen Ticket Printer: Order ticket printer for chef / food preparation tickets.
-
-Cash Drawer:
-Official first-party SumUp Cash Drawer recommended for client purchase ahead of installation day (£69.00 ex VAT / £82.80 incl. VAT, 24V RJ11 printer-driven trigger).</textarea>
-              <div class="input-footer">
-                <span id="q4-saved-time">Pre-filled from intake</span>
-                <span id="q4-count">Recorded</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 5: Cafe Internet & Counter Connectivity -->
-          <div class="question-card" id="card-q5">
-            <div class="question-header">
-              <span class="question-num">5</span>
-              <div class="question-title">
-                Cafe Internet Connectivity &amp; Counter Network Reliability
-              </div>
-            </div>
-            <div class="question-context">
-              How will the till connect to the internet at your counter? Is there an Ethernet network wall socket or cable near the barista station, or must it run over Wi-Fi? Do you share your cafe broadband with visiting customers, and is there a 4G mobile broadband failover in case your main broadband drops during trading hours?
-            </div>
-            <div class="chips-group">
-              <span class="chip" onclick="appendChip('q5', 'Wired Ethernet Cable at Desk')">Wired Ethernet Cable</span>
-              <span class="chip" onclick="appendChip('q5', 'Wi-Fi Only (2.4GHz / 5GHz)')">Wi-Fi Only</span>
-              <span class="chip" onclick="appendChip('q5', 'Separate Guest Wi-Fi Network Required')">Separate Guest Wi-Fi</span>
-              <span class="chip" onclick="appendChip('q5', '4G SIM Slot on Till Terminal')">Has 4G SIM Slot</span>
-              <span class="chip" onclick="appendChip('q5', 'No Internet Cable at Counter')">No Cable at Counter</span>
-            </div>
-            <div class="input-wrapper">
-              <textarea
-                id="q5"
-                class="intake-textarea"
-                rows="4"
-                placeholder="Describe your broadband provider (BT/Virgin/Sky), router location, and Wi-Fi signal at the till..."
-                oninput="handleFieldChange('q5')"
-              >Premises: 345 Green Lanes, London N13 4JG.
-
-Connectivity: On-premise Wi-Fi network is already active and available across the premises for connecting the till register and wireless peripherals.</textarea>
-              <div class="input-footer">
-                <span id="q5-saved-time">Pre-filled from intake</span>
-                <span id="q5-count">Recorded</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 6: Cafe Menu, Modifiers, Staff Logins & VAT -->
-          <div class="question-card" id="card-q6">
-            <div class="question-header">
-              <span class="question-num">6</span>
-              <div class="question-title">
-                Cafe Menu, Drink Modifiers, Staff PINs &amp; Tax / VAT Status
-              </div>
-            </div>
-            <div class="question-context">
-              How many baristas, servers, or supervisors need individual PIN codes or login accounts? Do you have an up-to-date food and beverage menu in a document? Do you need modifier options configured (e.g. oat/almond/soya milk, syrups, extra shots, decaf, gluten-free toast)? Are you VAT registered, and do you need eat-in (standard 20% VAT) vs cold takeaway food (zero-rated VAT) configured?
-            </div>
-            <div class="chips-group">
-              <span class="chip" onclick="appendChip('q6', '1-3 Staff Members')">1-3 Staff</span>
-              <span class="chip" onclick="appendChip('q6', '4-10 Staff Members')">4-10 Staff</span>
-              <span class="chip" onclick="appendChip('q6', 'Menu Ready in Excel / PDF')">Menu Ready in File</span>
-              <span class="chip" onclick="appendChip('q6', 'Drink Modifiers (Milks / Syrups / Shots)')">Drink Modifiers</span>
-              <span class="chip" onclick="appendChip('q6', 'VAT Registered (Eat-in vs Takeaway Rates)')">Eat-in vs Takeaway VAT</span>
-              <span class="chip" onclick="appendChip('q6', 'Staff Tip &amp; Gratuity Pooling Required')">Tip Pooling</span>
-            </div>
-            <div class="input-wrapper">
-              <textarea
-                id="q6"
-                class="intake-textarea"
-                rows="7"
-                placeholder="Number of staff, menu categories, drink modifiers, takeaway food items, and VAT details..."
-                oninput="handleFieldChange('q6')"
-              >Premises Address: 345 Green Lanes, London N13 4JG
-
-Staff Logins: 4 team members require individual employee accounts and PIN codes for individual sales tracking and end-of-day reporting.
-
-Item Catalogue Setup Scope:
-• 10–20 Brunch Items (e.g. Eggs Benedict, Florentine, Royale, Avocado on Sourdough, Full Breakfast, Pancakes, Shakshuka)
-• 10–20 Lunch Items (e.g. artisanal toasted sourdough sandwiches, gourmet burgers, bowls, fresh salads, daily specials)
-• Coffee &amp; Hot Drinks: Full London cafe assortment (Espresso, Flat White, Latte, Cappuccino, Mocha, Americano, Tea) with drink modifiers (Oat, Almond, Soya milks, Syrups, Extra Shots, Decaf)
-• Soft Drinks: Fresh juices, sodas, iced drinks, mineral water
-• Licensed Bar / Alcohol: Assortment of craft/lager beers and wine selection (standard 20% VAT).</textarea>
-              <div class="input-footer">
-                <span id="q6-saved-time">Pre-filled from intake</span>
-                <span id="q6-count">Recorded</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 7: Target Go-Live Date & Peak Trading Priorities -->
-          <div class="question-card" id="card-q7">
-            <div class="question-header">
-              <span class="question-num">7</span>
-              <div class="question-title">
-                Target Launch Date, Peak Trading Hours &amp; Top Priorities
-              </div>
-            </div>
-            <div class="question-context">
-              What is your target launch date for taking live customer payments on this till? What are your busiest service windows (e.g. morning coffee rush 7:30–9:30am, weekend brunch peak 10am–2pm)? What are your top operational priorities (e.g. fast queue busting, split brunch bills, fast card reader response, or strict cash float reconciliation)?
-            </div>
-            <div class="chips-group">
-              <span class="chip" onclick="appendChip('q7', 'Launch within 7 days')">Urgent (Within 7 Days)</span>
-              <span class="chip" onclick="appendChip('q7', 'Launch within 14-30 days')">Within 2-4 Weeks</span>
-              <span class="chip" onclick="appendChip('q7', 'Speed of service &amp; queue busting')">Queue Busting</span>
-              <span class="chip" onclick="appendChip('q7', 'Split bill capabilities for brunch tables')">Split Bills</span>
-              <span class="chip" onclick="appendChip('q7', 'Strict staff cash float audit')">Cash Float Audits</span>
-            </div>
-            <div class="input-wrapper">
-              <textarea
-                id="q7"
-                class="intake-textarea"
-                rows="6"
-                placeholder="Target date, opening hours, peak morning/brunch hours, and your biggest operational worries..."
-                oninput="handleFieldChange('q7')"
-              >Target Launch Date: Sunday 22nd November 2026 (Quick turnaround required).
-
-Primary Priorities:
-1. Complete turn-key installation and dual-printer configuration ahead of Sunday 22nd opening.
-2. Fast queue-busting counter checkout with instant card handoff.
-3. Automated kitchen ticket dispatch to chef upon ringing up food orders.
-4. Separate sales tracking across all 4 team members.
-5. Strict end-of-day cashing up and cash float reconciliation drills.</textarea>
-              <div class="input-footer">
-                <span id="q7-saved-time">Pre-filled from intake</span>
-                <span id="q7-count">Recorded</span>
-              </div>
-            </div>
-          </div>
-
-        </form>
-
-        <div class="form-toolbar" style="margin-top: 20px;">
-          <div class="autosave-indicator">
-            <span class="status-dot" id="save-dot-bottom"></span>
-            <span id="save-status-text-bottom">All changes saved locally</span>
-          </div>
-          <div class="toolbar-actions">
-            <button type="button" class="btn-secondary" onclick="exportResponses()">
-              📋 Copy Summary to Clipboard
-            </button>
-            <button type="button" class="btn-primary" onclick="forceSave()">
-              💾 Save All Responses
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ===================================================================
-           DOCUMENT 3: CAFE CLIENT REFERENCE HANDBOOK
-           NOTE (RESTORE LATER): Hidden temporarily per Neville's request.
-           To bring the handbook back later, remove #handbook from the
-           display:none CSS rule, remove style="display: none;" below, and
-           un-hide the #handbook link in .nav-links.
-           =================================================================== -->
-      <article id="handbook" class="doc-article" style="display: none;" aria-hidden="true">
-        <div class="article-header">
-          <span class="article-badge badge-client">Cafe Client Handbook</span>
-          <h2>Your Cafe &amp; Brunch Till Handbook</h2>
-          <p class="article-lead">
-            A plain-English, step-by-step operational reference to using your Amazon electronic till system with complete confidence during busy cafe and brunch service.
-          </p>
-        </div>
-
-        <section>
-          <h3>A Note Before We Start</h3>
-          <p>
-            Welcome to your new cafe till! First of all, please take a deep breath and relax. Technology in a busy cafe can feel intimidating when it is brand new, especially during a fast-moving morning coffee rush or a bustling weekend brunch service. But with our setup, bloatware removal, and customisation, this system is configured to be friendly, clear, and very simple to operate.
-          </p>
-          <p>
-            The most important thing to know is: <strong>you cannot break this till</strong>. There is no button you can press by accident that will ruin anything or lose your takings. Every coffee order or food plate can be adjusted, any wrong item can be voided or cancelled, and every transaction can be refunded in seconds.
-          </p>
-          <p>
-            We have also provided a large-print <strong>Cheat Sheet</strong> to keep right beside your counter or barista station for quick daily reminders. Keep this handbook in a drawer near the till, and remember that I am always here to support you whenever you have a question.
-          </p>
-        </section>
-
-        <!-- Table of Contents -->
-        <div class="toc-box">
-          <h3>Handbook Contents</h3>
-          <ul class="toc-list">
-            <li><a href="#hb-what-it-does">1. What Your Till Does</a></li>
-            <li><a href="#hb-parts">2. The Parts of Your Till</a></li>
-            <li><a href="#hb-power">3. Turning It On &amp; Network</a></li>
-            <li><a href="#hb-card-payment">4. Taking a Card Payment</a></li>
-            <li><a href="#hb-cash-payment">5. Taking a Cash Payment</a></li>
-            <li><a href="#hb-split">6. Modifiers, Add-ons &amp; Split Bills</a></li>
-            <li><a href="#hb-deposits">7. Takeaway vs Eat-in Orders</a></li>
-            <li><a href="#hb-refund">8. Giving a Refund</a></li>
-            <li><a href="#hb-sales">9. Daily Takings &amp; Z-Reports</a></li>
-            <li><a href="#hb-paper">10. Receipt Paper Replacement</a></li>
-            <li><a href="#hb-trouble">11. Troubleshooting Common Glitches</a></li>
-            <li><a href="#hb-remote">12. Remote Support Protocol</a></li>
-            <li><a href="#hb-care">13. Cafe Care &amp; Liquid / Steam Protection</a></li>
-            <li><a href="#hb-contacts">14. Useful Contacts</a></li>
-            <li><a href="#hb-glossary">15. Glossary of Terms</a></li>
-            <li><a href="#hb-pricing">16. Pricing &amp; Engineering Value</a></li>
-            <li><a href="#hb-final">17. A Final Word</a></li>
-          </ul>
-        </div>
-
-        <section id="hb-what-it-does">
-          <h3>1. What Your Till Does</h3>
-          <p>
-            Your system is an Electronic Point of Sale (EPOS) workstation designed to keep your counter and service running smoothly:
-          </p>
-          <ul>
-            <li>It adds up food orders, hot drinks, bakery items, and custom modifiers so staff never have to do mental arithmetic under pressure.</li>
-            <li>It links seamlessly with card readers to take contactless cards, Apple Pay, Google Pay, and Chip &amp; PIN payments in seconds.</li>
-            <li>It records cash payments and works out the exact change to hand back to the customer.</li>
-            <li>It prints clean paper receipts with your North London cafe address, phone number, VAT registration, and the British Pound (&pound;) symbol.</li>
-            <li>It supports table tabs, takeaway orders, and staff tip / gratuity pooling.</li>
-            <li>It totals up all your daily takings automatically, saving you evening paperwork and cash float stress.</li>
-          </ul>
-        </section>
-
-        <section id="hb-parts">
-          <h3>2. The Parts of Your Till</h3>
-          <p>
-            Your countertop setup consists of four core elements:
-          </p>
-          <ul>
-            <li><strong>The Touchscreen Terminal:</strong> SumUp Point of Sale Lite 13-inch Full HD display on an ergonomic stand facing your barista or counter staff.</li>
-            <li><strong>The Card Reader (PDQ):</strong> SumUp Solo Contactless &amp; Chip Card Reader paired wirelessly with the register.</li>
-            <li><strong>The Receipt &amp; Order Printers:</strong> Front checkout thermal receipt printer plus a secondary kitchen ticket printer for automatic order routing.</li>
-            <li><strong>The Cash Drawer:</strong> First-party SumUp Cash Drawer (&pound;69.00 ex VAT / &pound;82.80 incl. VAT) connected via an RJ11 cable to the back of the checkout receipt printer. It triggers open automatically whenever you record a cash payment.</li>
-          </ul>
-        </section>
-
-        <section id="hb-power">
-          <h3>3. Turning It On &amp; Internet</h3>
-          <p>
-            Every morning:
-          </p>
-          <ol>
-            <li>Press and hold the power button on the back or right edge for 2 seconds. The screen will illuminate and boot up.</li>
-            <li>Confirm that the Wi-Fi icon in the top right shows strong signal (or the Ethernet symbol shows connected).</li>
-            <li>Open the POS application on the home screen.</li>
-            <li>Enter your morning staff PIN code to unlock the register.</li>
-          </ol>
-        </section>
-
-        <section id="hb-card-payment">
-          <h3>4. Taking a Card Payment &mdash; Step by Step</h3>
-          <ol>
-            <li>Select the drinks or food items (e.g. Flat White, Eggs Florentine, Avocado Toast) or tap custom amount.</li>
-            <li>Tap any required modifiers (e.g. Oat Milk, Extra Shot, Sourdough).</li>
-            <li>Tap the blue or green <strong>Charge / Pay</strong> button on the screen.</li>
-            <li>Select <strong>Card</strong> as the payment method. The amount transmits to the card reader (or staff types the amount on a standalone terminal).</li>
-            <li>Invite the customer to tap their contactless card/phone or insert their chip card.</li>
-            <li>Wait for the green tick and confirmation chime on the card screen.</li>
-            <li>Ask if the customer would like a printed paper receipt.</li>
-            <li>Tap <strong>Finish Sale</strong> for the next customer.</li>
-          </ol>
-        </section>
-
-        <section id="hb-cash-payment">
-          <h3>5. Taking a Cash Payment</h3>
-          <ol>
-            <li>Select the items as usual and tap <strong>Charge / Pay</strong>.</li>
-            <li>Tap <strong>Cash</strong>.</li>
-            <li>Tap the exact amount handed to you (e.g. &pound;20 note).</li>
-            <li>The screen displays the exact change due to the penny, and the cash drawer clicks open automatically.</li>
-            <li>Place the cash in the drawer, count the change into the customer's hand, and close the drawer firmly.</li>
-          </ol>
-        </section>
-
-        <section id="hb-split">
-          <h3>6. Modifiers, Add-ons &amp; Split Bills</h3>
-          <p>
-            Cafes and brunch spots frequently handle custom drink preparations and customers who want to split the bill:
-          </p>
-          <ul>
-            <li><strong>Barista Drink Modifiers:</strong> Tap any coffee to add milk alternatives (oat, almond, coconut), extra espresso shots, decaf beans, or flavoured syrups. These are priced automatically.</li>
-            <li><strong>Gratuities / Tips:</strong> When customers wish to leave a tip on card, select the gratuity prompt on the card reader before the final charge.</li>
-            <li><strong>Split Bills:</strong> For brunch tables sharing dishes, tap <strong>Split Bill</strong> to divide the total evenly across multiple cards, or charge specific items separately.</li>
-          </ul>
-        </section>
-
-        <section id="hb-deposits">
-          <h3>7. Takeaway vs Eat-in Orders</h3>
-          <p>
-            Your till distinguishes between eat-in dining and takeaway counter service:
-          </p>
-          <ul>
-            <li><strong>Eat-in Service:</strong> Assign a table number so front-of-house staff know where to deliver brunch plates and coffee.</li>
-            <li><strong>Takeaway Orders:</strong> Flag orders as takeaway to ensure correct VAT attribution (standard 20% on hot food and eat-in vs zero-rated cold takeaway food items where applicable).</li>
-          </ul>
-        </section>
-
-        <section id="hb-refund">
-          <h3>8. Giving a Refund</h3>
-          <p>
-            If a client needs a refund or an accidental double-charge occurred:
-          </p>
-          <ol>
-            <li>Tap the menu button (three horizontal lines) and select <strong>Transactions / Sales History</strong>.</li>
-            <li>Locate the transaction by time, amount, or last 4 digits of the card.</li>
-            <li>Tap <strong>Issue Refund</strong>.</li>
-            <li>Select the specific item or enter a custom refund amount.</li>
-            <li>Select refund to original card or cash, and confirm. The refund receipt will print automatically.</li>
-          </ol>
-        </section>
-
-        <section id="hb-sales">
-          <h3>9. Daily Takings &amp; Z-Reports (Cashing Up)</h3>
-          <p>
-            At the close of trading:
-          </p>
-          <ol>
-            <li>Tap <strong>Reports &rarr; Close Register</strong> (commonly called the End-of-Day or Z-Report).</li>
-            <li>Count the physical cash in the drawer and enter the total. The till will tell you if your float is exact, over, or short.</li>
-            <li>Tap <strong>Print Daily Summary</strong>. A comprehensive paper slip will print listing total card sales, cash takings, VAT breakdowns, and shift totals.</li>
-            <li>File the report with your daily receipts for your accountant.</li>
-          </ol>
-        </section>
-
-        <section id="hb-paper">
-          <h3>10. Receipt Paper Replacement</h3>
-          <p>
-            When a red or pink stripe appears on the edge of receipts, your paper roll is nearly empty:
-          </p>
-          <ol>
-            <li>Pull the top lever on the printer to open the clamshell lid.</li>
-            <li>Drop in a fresh roll of thermal paper (shiny side facing toward the print head, paper feeding from the bottom of the roll).</li>
-            <li>Pull 2 inches of paper past the tear-off blade and snap the lid shut firmly until it clicks.</li>
-            <li>Tear off the excess paper downwards across the serrated blade.</li>
-          </ol>
-        </section>
-
-        <section id="hb-trouble">
-          <h3>11. Troubleshooting Common Glitches</h3>
-          <div class="callout warning">
-            <h4>Quick Fixes for Counter Glitches</h4>
-            <p>
-              <strong>1. The till screen is frozen:</strong> Hold down the power button on the back for 10 seconds until the screen shuts off. Wait 5 seconds, then turn it back on. No sales data will be lost.
-            </p>
-            <p style="margin-top: 10px;">
-              <strong>2. Card reader says "Connection Error":</strong> Check that Bluetooth or Wi-Fi is toggled ON in the till settings. If on standalone terminal, ensure the card machine display shows ready with green battery bars.
-            </p>
-            <p style="margin-top: 10px;">
-              <strong>3. Cash drawer does not click open:</strong> Check the telephone-style RJ11 cable behind the printer is firmly clicked into the socket marked "DK" or "Drawer".
-            </p>
-          </div>
-        </section>
-
-        <section id="hb-remote">
-          <h3>12. Remote Support Protocol</h3>
-          <p>
-            If you ever encounter an issue you cannot solve locally, you can contact me directly. I can connect securely to your till terminal using our pre-installed remote diagnostics tool, view the screen with your permission, and adjust software settings, menu prices, drink modifiers, or printer drivers live while you stay on the phone.
-          </p>
-        </section>
-
-        <section id="hb-care">
-          <h3>13. Cafe Care &amp; Liquid / Steam Protection</h3>
-          <div class="callout info">
-            <h4>Protecting Countertop Electronics in a Busy Cafe</h4>
-            <p>
-              Cafes and coffee counters are demanding environments with steam wands, boiling water, espresso grinds, milk jugs, and sticky syrups. Keep the till terminal at least 1 metre away from the espresso machine steam wand, sink splash zones, and syrup dispensers. Clean the glass touchscreen only with a soft microfibre cloth dampened lightly with water or screen-safe electronic wipes &mdash; never spray antibacterial kitchen cleaners or water directly onto the screen or card reader.
-            </p>
-          </div>
-        </section>
-
-        <section id="hb-contacts">
-          <h3>14. Useful Contacts</h3>
-          <p>
-            Keep these emergency numbers handy:
-          </p>
-          <ul>
-            <li><strong>Engineer &amp; Support:</strong> Neville Bryce &mdash; <strong><a href="tel:02045209114">020 4520 9114</a></strong> &bull; Email: <a href="mailto:contactus@itoldyouso.tech">contactus@itoldyouso.tech</a></li>
-            <li><strong>Local Address:</strong> Corringham Court, Corringham Road, London NW11 7BY</li>
-            <li><strong>Broadband Emergency:</strong> Check your cafe router supplier (BT Business: 0800 800 152 / Virgin Media Business: 0800 052 0800).</li>
-          </ul>
-        </section>
-
-        <section id="hb-glossary">
-          <h3>15. Glossary of Terms</h3>
-          <ul>
-            <li><strong>EPOS:</strong> Electronic Point of Sale &mdash; the computerised till and register.</li>
-            <li><strong>PDQ:</strong> Process Data Quickly &mdash; industry term for the customer card payment terminal.</li>
-            <li><strong>Modifier:</strong> An option attached to a menu item (e.g. oat milk, extra shot, decaf, sourdough toast) that automatically adjusts the price and kitchen ticket.</li>
-            <li><strong>ESC/POS:</strong> Standard printing command language used by receipt printers.</li>
-            <li><strong>Code Page 858:</strong> Printer character memory setting that allows the British Pound (&pound;) symbol to print without errors.</li>
-            <li><strong>Solenoid:</strong> The magnetic coil inside the cash drawer that pulls the latch to pop it open when triggered.</li>
-            <li><strong>Z-Report:</strong> The end-of-day daily financial summary that closes out the trading day.</li>
-          </ul>
-        </section>
-
-        <section id="hb-final">
-          <h3>17. A Final Word</h3>
-          <p>
-            Dear Migena team,
-          </p>
-          <p>
-            With this setup, configuration, and guide in place, you will be fully equipped to run your cafe till with total pride and confidence. Sourcing till hardware from Amazon is a smart, budget-conscious decision, and with our engineering diligence behind it, it will serve your North London cafe and brunch spot faithfully through the busiest morning coffee rushes and weekend brunch services.
-          </p>
-          <p>
-            Take your time with every customer. Customers love visiting a welcoming cafe, and a moment's pause at the counter is completely natural. And remember: <strong>no question is ever too small</strong>. Whenever you need a hand or have a quick query, you can always pick up the phone and ring me on <strong><a href="tel:02045209114">020 4520 9114</a></strong>. I am always happy to help.
-          </p>
-          <p style="margin-top: 24px;">
-            Warmest regards,<br>
-            <strong>Neville Bryce</strong><br>
-            IToldYouSo Computing<br>
-            Corringham Court, Corringham Road, London NW11 7BY
-          </p>
-        </section>
-      </article>
 
       <!-- ===================================================================
            DOCUMENT 3B: COMMERCIAL PRICING & SERVICE TERMS (VISIBLE)
@@ -2009,7 +1281,7 @@ Primary Priorities:
           <h2>Transparent Pricing &amp; Service Terms</h2>
         </div>
 
-        <section>
+        <section id="transparent-pricing">
           <h3>Transparent Pricing</h3>
           <p>
             I believe in total financial transparency with zero hidden extras or surprise invoices. All work is based upon a professional software engineering rate of <strong>&pound;50 per hour</strong>. Rather than rushing through the setup, our fixed <strong>&pound;450</strong> package is priced to include both substantial off-site work, technical planning, and hardware/software research ahead of the visit to ensure that installation goes smoothly on the day, as well as up to 5.5 hours of unhurried time on-site so that you never feel watched by the clock and can practice every till routine until you feel 100% in control. <strong>Please note that if the engineer finishes the primary setup before 5.5 hours, the &pound;450 fee remains fully payable as a fixed minimum; however, the full 5.5-hour window will be filled on-site by setting up, working on, or providing information about any related technology services for you.</strong> If a job takes longer than the allocated 5.5-hour on-site package duration (for example, if you request extra staff training, extensive food and drink catalogue entry, or complex Wi-Fi router troubleshooting), any extended time is charged at the standard agreed rate of <strong>&pound;50 per hour</strong> (billed in straightforward 30-minute increments of &pound;25), always agreed with you on-site before continuing.
@@ -2155,99 +1427,7 @@ Primary Priorities:
         </section>
       </article>
 
-      <!-- ===================================================================
-           DOCUMENT 4: RECEPTION COUNTERTOP CHEAT SHEET
-           NOTE (RESTORE LATER): Hidden temporarily per Neville's request.
-           To bring the cheat sheet back later, remove #cheatsheet from the
-           display:none CSS rule, remove style="display: none;" below, and
-           un-hide the #cheatsheet link in .nav-links.
-           =================================================================== -->
-      <article id="cheatsheet" class="doc-article" style="display: none;" aria-hidden="true">
-        <div class="cheatsheet-banner">
-          <h2>CAFE &amp; BRUNCH SPOT TILL &mdash; COUNTERTOP QUICK CHEAT SHEET</h2>
-          <p>Keep this by the till &bull; My number: <a href="tel:02045209114" style="color: inherit; text-decoration: underline;">020 4520 9114</a></p>
-        </div>
 
-        <div class="cheatsheet-grid">
-          <!-- Column 1 -->
-          <div class="cheatsheet-col">
-            <div class="cheatsheet-card" style="margin-bottom: 16px;">
-              <h3>1. Take a Card Payment</h3>
-              <ol>
-                <li>Tap drinks/food or enter amount.</li>
-                <li>Tap modifiers (e.g. oat milk, extra shot).</li>
-                <li>Tap green <strong>Charge / Pay</strong> button.</li>
-                <li>Select <strong>Card</strong> payment.</li>
-                <li>Customer taps card/phone or inserts chip.</li>
-                <li>Wait for green tick &amp; confirmation chime.</li>
-                <li>Ask if customer wants a printed receipt.</li>
-                <li>Tap <strong>Finish Sale</strong> for next order.</li>
-              </ol>
-            </div>
-
-            <div class="cheatsheet-card" style="margin-bottom: 16px;">
-              <h3>2. Take a Cash Payment</h3>
-              <ol>
-                <li>Tap order items and tap <strong>Charge / Pay</strong>.</li>
-                <li>Select <strong>Cash</strong>.</li>
-                <li>Tap note handed to you (e.g. &pound;20).</li>
-                <li>Cash drawer pops open automatically.</li>
-                <li>Screen shows change to give back.</li>
-                <li>Hand change to customer &amp; close drawer firmly.</li>
-              </ol>
-            </div>
-
-            <div class="cheatsheet-card">
-              <h3>3. End-of-Day Cashing Up</h3>
-              <ol>
-                <li>Tap <strong>Reports &rarr; Close Register</strong>.</li>
-                <li>Count cash drawer notes and coins.</li>
-                <li>Type cash counted and tap <strong>Close Register</strong>.</li>
-                <li>Tap <strong>Print Z-Report Summary</strong>.</li>
-                <li>Clip card machine summary to the paper slip.</li>
-              </ol>
-            </div>
-          </div>
-
-          <!-- Column 2 -->
-          <div class="cheatsheet-col">
-            <div class="cheatsheet-card" style="margin-bottom: 16px;">
-              <h3>4. Give a Refund or Void</h3>
-              <ol>
-                <li>Tap <strong>Menu &rarr; Transactions</strong>.</li>
-                <li>Find order by time, amount, or card digits.</li>
-                <li>Tap <strong>Issue Refund</strong>.</li>
-                <li>Choose items or enter partial amount.</li>
-                <li>Tap <strong>Refund to Card</strong> (or Cash).</li>
-                <li>Hand printed refund receipt to customer.</li>
-              </ol>
-            </div>
-
-            <div class="cheatsheet-card" style="margin-bottom: 16px;">
-              <h3>5. Something Went Wrong?</h3>
-              <ul>
-                <li><strong>Screen frozen:</strong> Hold power button on back for 10 seconds to reboot. No sales data is lost.</li>
-                <li><strong>Card reader disconnected:</strong> Check Wi-Fi/Bluetooth icon in top bar is ON.</li>
-                <li><strong>Drawer won't pop:</strong> Check telephone wire behind receipt printer is plugged tight.</li>
-                <li><strong>Receipt won't feed:</strong> Open printer lid and make sure paper feeds from under the roll.</li>
-              </ul>
-              <div class="cheatsheet-warning-box">
-                YOU CANNOT BREAK THIS TILL &mdash; TAKE YOUR TIME
-              </div>
-            </div>
-
-            <div class="cheatsheet-card">
-              <h3>6. Need Help?</h3>
-              <p style="margin-bottom: 6px; font-size: 0.95rem;">
-                Neville Bryce is always happy to help with any question, large or small:
-              </p>
-              <div class="cheatsheet-phone-box">
-                📞 <a href="tel:02045209114" style="color: inherit; text-decoration: none;">020 4520 9114</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
 
       <!-- ===================================================================
            DOCUMENT 4: ADMIN GUIDE (STAFF ACCOUNTS)
@@ -2280,7 +1460,19 @@ Primary Priorities:
           </p>
         </div>
 
-        <section>
+        <div class="callout warning">
+          <h4>User Names and Passwords Are on a Separate Page</h4>
+          <p>
+            The account logins are deliberately not written in this
+            guide. They live on a separate page: open the
+            <a href="offline.html">offline copy</a> of this
+            documentation and scroll to
+            <strong>User Passwords</strong>, or ask your engineer for
+            the current list.
+          </p>
+        </div>
+
+        <section id="your-team-at-a-glance">
           <h3>1. Your Team at a Glance</h3>
           <p>
             The installation created four profiles with individual PINs.
@@ -2336,7 +1528,7 @@ Primary Priorities:
           </table>
         </section>
 
-        <section>
+        <section id="add-a-staff-member">
           <h3>2. Add a Staff Member</h3>
           <ol>
             <li>
@@ -2390,7 +1582,7 @@ Primary Priorities:
           </div>
         </section>
 
-        <section>
+        <section id="change-what-someone-can-do">
           <h3>3. Change What Someone Can Do</h3>
           <p>
             Use this to promote a trusted counter worker to manager, or to
@@ -2421,7 +1613,7 @@ Primary Priorities:
           </div>
         </section>
 
-        <section>
+        <section id="reset-a-forgotten-pin">
           <h3>4. Reset a Forgotten PIN</h3>
           <ol>
             <li>
@@ -2435,8 +1627,8 @@ Primary Priorities:
               Tell them privately. The old code stops working at once.
             </li>
             <li>
-              Never write the new code on the till, on the cheat sheet, or
-              in a photo on a phone.
+              Never write the new code on the till, on any
+              printed sheet, or in a photo on a phone.
             </li>
           </ol>
           <div class="callout">
@@ -2449,7 +1641,7 @@ Primary Priorities:
           </div>
         </section>
 
-        <section>
+        <section id="remove-a-staff-member">
           <h3>5. Remove a Staff Member</h3>
           <p>
             SumUp does not delete employee profiles, and that is a good
@@ -2489,7 +1681,7 @@ Primary Priorities:
           </div>
         </section>
 
-        <section>
+        <section id="security-rules-that-keep-the-figures-honest">
           <h3>6. Security Rules That Keep the Figures Honest</h3>
           <ul class="check-list">
             <li>One PIN per person: never lend it, never share it,
@@ -2506,7 +1698,7 @@ Primary Priorities:
           </ul>
         </section>
 
-        <section>
+        <section id="when-to-ring-the-engineer">
           <h3>7. When to Ring the Engineer</h3>
           <p>
             Ring <strong><a href="tel:02045209114">020 4520 9114</a></strong>
@@ -2544,13 +1736,12 @@ Primary Priorities:
   </div>
 
   <!-- =======================================================================
-       3. Interactive Client Script: Storage, Auto-save, Terms & Auth
+       3. Interactive Client Script: Storage, Terms & Auth
        ======================================================================= -->
   <script>
     (function() {
       // Configuration constants
       const AUTH_STORAGE_KEY = 'itoldyouso_migena_auth_state';
-      const DATA_STORAGE_KEY = 'itoldyouso_migena_intake_responses';
       const TERMS_STORAGE_KEY = 'itoldyouso_migena_terms_state';
       const VALID_PASSWORD = 'migenalika';
 
@@ -2559,18 +1750,10 @@ Primary Priorities:
       const passwordInput = document.getElementById('password-input');
       const authError = document.getElementById('auth-error');
 
-      const saveDot = document.getElementById('save-dot');
-      const saveDotBottom = document.getElementById('save-dot-bottom');
-      const saveText = document.getElementById('save-status-text');
-      const saveTextBottom = document.getElementById('save-status-text-bottom');
-
-      const questionIds = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'];
-
       // Function to reveal the unlocked documentation
       function revealDocumentation() {
         if (authGate) authGate.style.display = 'none';
         if (docContent) docContent.style.display = 'block';
-        loadSavedResponses();
         checkTermsState();
       }
 
@@ -2613,177 +1796,6 @@ Primary Priorities:
           passwordInput.focus();
           passwordInput.select();
         }
-      };
-
-      // Set visual save status indicator
-      function updateSaveStatus(isSaved, timestampText) {
-        const text = isSaved
-          ? 'All changes saved locally' + (timestampText ? ' (' + timestampText + ')' : '')
-          : 'Saving changes...';
-
-        if (saveText) saveText.textContent = text;
-        if (saveTextBottom) saveTextBottom.textContent = text;
-
-        if (saveDot) {
-          saveDot.className = isSaved ? 'status-dot' : 'status-dot dirty';
-        }
-        if (saveDotBottom) {
-          saveDotBottom.className = isSaved ? 'status-dot' : 'status-dot dirty';
-        }
-      }
-
-      // Load all saved responses from localStorage
-      function loadSavedResponses() {
-        try {
-          const raw = localStorage.getItem(DATA_STORAGE_KEY) ||
-                      localStorage.getItem('itoldyouso_illyrian_intake_responses');
-          if (!raw) return;
-          const data = JSON.parse(raw);
-          questionIds.forEach(function(qid) {
-            const textarea = document.getElementById(qid);
-            if (textarea && data[qid] !== undefined && data[qid].trim().length > 0) {
-              textarea.value = data[qid];
-              updateCounts(qid);
-            }
-          });
-          if (data._updatedAt) {
-            updateSaveStatus(true, data._updatedAt);
-          }
-        } catch (err) {
-          console.error('Failed to parse saved intake responses:', err);
-        }
-      }
-
-      // Save all current responses into localStorage
-      function persistData() {
-        const now = new Date();
-        const timeString = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        const data = {
-          _updatedAt: timeString
-        };
-
-        questionIds.forEach(function(qid) {
-          const textarea = document.getElementById(qid);
-          if (textarea) {
-            data[qid] = textarea.value;
-          }
-        });
-
-        try {
-          localStorage.setItem(DATA_STORAGE_KEY, JSON.stringify(data));
-          updateSaveStatus(true, timeString);
-          questionIds.forEach(function(qid) {
-            const savedSpan = document.getElementById(qid + '-saved-time');
-            if (savedSpan) {
-              savedSpan.textContent = 'Saved at ' + timeString;
-            }
-          });
-        } catch (err) {
-          console.error('Could not save to localStorage:', err);
-        }
-      }
-
-      // Update character counter and individual field status
-      function updateCounts(qid) {
-        const textarea = document.getElementById(qid);
-        const countSpan = document.getElementById(qid + '-count');
-        if (textarea && countSpan) {
-          const len = textarea.value.length;
-          countSpan.textContent = len + (len === 1 ? ' character' : ' characters');
-        }
-      }
-
-      // Debounce timer for auto-save
-      let autoSaveTimer = null;
-      window.handleFieldChange = function(qid) {
-        updateCounts(qid);
-        updateSaveStatus(false);
-        if (autoSaveTimer) clearTimeout(autoSaveTimer);
-        autoSaveTimer = setTimeout(function() {
-          persistData();
-        }, 600);
-      };
-
-      // Manual save trigger
-      window.forceSave = function() {
-        if (autoSaveTimer) clearTimeout(autoSaveTimer);
-        persistData();
-      };
-
-      // Append pre-defined suggestion chip into a textarea
-      window.appendChip = function(qid, chipText) {
-        const textarea = document.getElementById(qid);
-        if (!textarea) return;
-
-        const currentVal = textarea.value.trim();
-        if (currentVal.length === 0) {
-          textarea.value = chipText;
-        } else if (!currentVal.includes(chipText)) {
-          textarea.value = currentVal + '; ' + chipText;
-        }
-        textarea.focus();
-        window.handleFieldChange(qid);
-      };
-
-      // Export all answers formatted into clipboard
-      window.exportResponses = function() {
-        persistData();
-        const questionLabels = {
-          q1: '1. Hardware Model & Operating System',
-          q2: '2. POS Software & Cafe Ordering Workflow',
-          q3: '3. Card Reader & Merchant Terminal',
-          q4: '4. Peripherals & Kitchen/Barista Printers',
-          q5: '5. Cafe Internet Connectivity',
-          q6: '6. Cafe Menu, Modifiers & Staff Logins',
-          q7: '7. Target Launch Date & Peak Priorities'
-        };
-
-        let summary = '==================================================\n' +
-                      'SUMUP POS LITE TILL INTAKE (MIGENA LIKA & EGZON QUILIA)\n' +
-                      '345 Green Lanes, London N13 4JG - IToldYouSo Computing\n' +
-                      '==================================================\n\n';
-
-        questionIds.forEach(function(qid) {
-          const textarea = document.getElementById(qid);
-          const val = textarea ? textarea.value.trim() : '';
-          summary += questionLabels[qid] + '\n';
-          summary += (val.length > 0 ? val : '[No response recorded yet]') + '\n\n';
-        });
-
-        summary += 'Timestamp: ' + new Date().toLocaleString('en-GB') + '\n';
-        summary += 'Consultant: Neville Bryce (020 4520 9114 | contactus@itoldyouso.tech)\n';
-
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(summary).then(function() {
-            alert('Questionnaire responses copied to clipboard successfully!');
-          }).catch(function() {
-            prompt('Copy your questionnaire summary below:', summary);
-          });
-        } else {
-          prompt('Copy your questionnaire summary below:', summary);
-        }
-      };
-
-      // Clear all form responses with safety confirmation
-      window.clearFormConfirm = function() {
-        const confirmed = confirm(
-          'Are you sure you want to clear all entered responses? ' +
-          'This will remove all text from your local browser storage.'
-        );
-        if (!confirmed) return;
-
-        questionIds.forEach(function(qid) {
-          const textarea = document.getElementById(qid);
-          if (textarea) {
-            textarea.value = '';
-            updateCounts(qid);
-            const savedSpan = document.getElementById(qid + '-saved-time');
-            if (savedSpan) savedSpan.textContent = 'Not yet modified';
-          }
-        });
-
-        localStorage.removeItem(DATA_STORAGE_KEY);
-        updateSaveStatus(true, 'Cleared');
       };
 
       // Terms Acceptance state management
@@ -2939,6 +1951,90 @@ Primary Priorities:
         if (confirmedBox) confirmedBox.style.display = 'none';
       };
 
+    })();
+  </script>
+
+  <!-- =======================================================================
+       4. Documentation Menu Script
+
+       Deliberately a separate <script> element from the portal script
+       above: that script can abort early on the pre-existing
+       TERMS_DAY_STORAGE_KEY initialisation error recorded in STATUS.md,
+       and the navigation must keep working regardless of it.
+
+       What it does, in order:
+         1. finds the "3. Documentation" button and the submenu it
+            controls (both live in the sticky bar inside
+            #document-content, so they exist whether or not the portal
+            has been unlocked yet);
+         2. defines open/close as one function that keeps the visual
+            state (.is-open) and the accessible state (aria-expanded)
+            in step, so sighted and screen-reader users see the same
+            thing and the CSS caret rotation keys off one attribute;
+         3. flips that state when the button is pressed;
+         4. closes the submenu on a click anywhere outside the pair;
+         5. closes it on Escape and returns focus to the button, which
+            is the expected keyboard behaviour for a disclosure
+            control;
+         6. closes it when a submenu link is followed, so the panel
+            never sits over the guide the visitor just opened.
+       ======================================================================= -->
+  <script>
+    (function () {
+      'use strict';
+
+      // Step 1: locate the controls. Missing controls mean this page has
+      // no Documentation menu (the standalone guide pages), so exit
+      // quietly instead of raising an error.
+      var toggle = document.getElementById('nav-doc-toggle');
+      var menu = document.getElementById('nav-doc-menu');
+      if (!toggle || !menu) { return; }
+
+      // Step 2: the single source of truth for "is the submenu open".
+      function isOpen() {
+        return toggle.getAttribute('aria-expanded') === 'true';
+      }
+
+      function setOpen(open) {
+        menu.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      // Step 3: pressing the button flips the state. preventDefault
+      // guards against a stray form submission if the button is ever
+      // moved inside a form element.
+      toggle.addEventListener('click', function (event) {
+        event.preventDefault();
+        setOpen(!isOpen());
+      });
+
+      // Step 4: a click outside the button/menu pair closes the
+      // submenu, so it never lingers over the article underneath.
+      document.addEventListener('click', function (event) {
+        if (!isOpen()) { return; }
+        if (toggle.contains(event.target) || menu.contains(event.target)) {
+          return;
+        }
+        setOpen(false);
+      });
+
+      // Step 5: Escape closes the submenu and hands focus back to the
+      // button that opened it.
+      document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape' || !isOpen()) { return; }
+        setOpen(false);
+        toggle.focus();
+      });
+
+      // Step 6: following any submenu link closes the panel. This
+      // matters most for the in-page Admin Guide anchor: the panel must
+      // not stay open over the section just scrolled to.
+      menu.addEventListener('click', function (event) {
+        var target = event.target;
+        if (target && target.closest && target.closest('a')) {
+          setOpen(false);
+        }
+      });
     })();
   </script>
 </body>

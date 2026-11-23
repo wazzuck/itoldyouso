@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Till Procedures &amp; Features | EGGI'S Till Documentation | IToldYouSo Computing</title>
   <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="doc-search.css">
 </head>
 <body>
   <div id="auth-gate">
@@ -53,6 +54,21 @@
         <ul class="nav-links">
           <li><a href="index.html">&larr; All documents</a></li>
         </ul>
+        <form class="doc-search" role="search"
+              aria-label="Search the documentation"
+              onsubmit="return false;">
+          <label class="doc-search-label" for="doc-search-input">
+            Search the documentation
+          </label>
+          <input type="search" id="doc-search-input"
+                 class="doc-search-input" autocomplete="off"
+                 spellcheck="false" enterkeyhint="search"
+                 placeholder="e.g. refunds, PIN, closing up">
+          <p id="doc-search-status" class="doc-search-status"
+             role="status" aria-live="polite"></p>
+          <ul id="doc-search-results" class="doc-search-results"
+              hidden></ul>
+        </form>
       </div>
     </nav>
 
@@ -511,5 +527,7 @@
 
     })();
   </script>
+  <script src="search-index.js" defer></script>
+  <script src="doc-search.js" defer></script>
 </body>
 </html>

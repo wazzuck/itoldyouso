@@ -298,6 +298,109 @@
     }
 
     /* -------------------------------------------------------------------------
+       Documentation Dropdown
+       One top-level button ("3. Documentation") that reveals the three
+       guide links -- Admin Guide, Management Guide and Till Procedures &
+       Features -- when pressed. It opens on a deliberate click rather
+       than a hover so that a mouse, a touch screen and a keyboard all
+       behave the same way, and it starts closed so the bar keeps the
+       height it had before the guides were grouped. The script at the
+       foot of this file toggles .is-open on the menu and aria-expanded
+       on the button together, so sighted and screen-reader users see
+       the same state.
+       ------------------------------------------------------------------------- */
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      background-color: #0f766e;
+      border: 2px solid #0f766e;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(15, 118, 110, 0.2);
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease,
+        border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .nav-dropdown-toggle:hover {
+      color: #ffffff;
+      background-color: #115e59;
+      border-color: #115e59;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(15, 118, 110, 0.28);
+    }
+
+    .nav-dropdown-toggle:active {
+      transform: translateY(0);
+    }
+
+    /* Open state: the button holds the deeper teal so it reads as
+       "pressed", and the caret below flips to point upwards. */
+    .nav-dropdown-toggle[aria-expanded="true"] {
+      background-color: #115e59;
+      border-color: #115e59;
+    }
+
+    .nav-dropdown-caret {
+      font-size: 0.7em;
+      line-height: 1;
+      transition: transform 0.15s ease;
+    }
+
+    .nav-dropdown-toggle[aria-expanded="true"] .nav-dropdown-caret {
+      transform: rotate(180deg);
+    }
+
+    /* The submenu hangs below the button, aligned to its left edge.
+       display: none while closed keeps it out of sight and out of the
+       keyboard tab order at the same time; .is-open swaps it to flex. */
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 60;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 250px;
+      margin: 0;
+      padding: 10px;
+      list-style: none;
+      background-color: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    .nav-dropdown-menu.is-open {
+      display: flex;
+    }
+
+    /* Sub-links keep the pill styling the bar gives every link, but
+       stretch to the panel's full width so each one is an easy target
+       on a phone. */
+    .nav-dropdown-menu a {
+      width: 100%;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .nav-dropdown-toggle:focus-visible,
+    .nav-dropdown-menu a:focus-visible {
+      outline: 3px solid #f59e0b;
+      outline-offset: 2px;
+    }
+
+    /* -------------------------------------------------------------------------
        Main Article Container
        ------------------------------------------------------------------------- */
     main.doc-main {
@@ -346,7 +449,7 @@
       border: 1px solid #cbd5e1;
     }
 
-    .badge-questionnaire {
+    .badge-management {
       background-color: #ccfbf1;
       color: #0f766e;
       border: 1px solid #99f6e4;
@@ -533,190 +636,6 @@
     }
 
     /* -------------------------------------------------------------------------
-       Questionnaire Form & Cards
-       ------------------------------------------------------------------------- */
-    .form-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      background-color: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 14px 18px;
-      margin-bottom: 28px;
-    }
-
-    .autosave-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #0f766e;
-    }
-
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #10b981;
-      display: inline-block;
-    }
-
-    .status-dot.dirty {
-      background-color: #f3b428;
-    }
-
-    .toolbar-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn-secondary {
-      background-color: #ffffff;
-      color: #374151;
-      border: 1px solid #d1d5db;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .btn-secondary:hover {
-      background-color: #f3f4f6;
-      border-color: #9ca3af;
-    }
-
-    .btn-primary {
-      background-color: #0f766e;
-      color: #ffffff;
-      border: 1px solid #0f766e;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.15s ease;
-    }
-
-    .btn-primary:hover {
-      background-color: #115e59;
-    }
-
-    .question-card {
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 24px;
-      margin-bottom: 26px;
-      background-color: #ffffff;
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-
-    .question-card:focus-within {
-      border-color: #0f766e;
-      box-shadow: 0 4px 12px rgba(15, 118, 110, 0.08);
-    }
-
-    .question-header {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .question-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background-color: #0f766e;
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    .question-title {
-      font-size: 1.22rem;
-      font-weight: 700;
-      color: #0f766e;
-      line-height: 1.35;
-    }
-
-    .question-context {
-      font-size: 0.98rem;
-      color: #4b5563;
-      margin-bottom: 12px;
-      line-height: 1.6;
-    }
-
-    .chips-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .chip {
-      background-color: #f1f5f9;
-      color: #334155;
-      border: 1px solid #cbd5e1;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .chip:hover {
-      background-color: #e2e8f0;
-      border-color: #94a3b8;
-    }
-
-    .input-wrapper {
-      position: relative;
-    }
-
-    .intake-textarea {
-      width: 100%;
-      min-height: 96px;
-      padding: 12px 14px;
-      font-size: 1rem;
-      font-family: inherit;
-      color: #1f2937;
-      background-color: #fcfdfe;
-      border: 2px solid #e2e8f0;
-      border-radius: 8px;
-      outline: none;
-      resize: vertical;
-      line-height: 1.5;
-      transition: border-color 0.15s ease, background-color 0.15s ease;
-    }
-
-    .intake-textarea:focus {
-      border-color: #0f766e;
-      background-color: #ffffff;
-    }
-
-    .input-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-      font-size: 0.82rem;
-      color: #6b7280;
-    }
-
-    /* -------------------------------------------------------------------------
        Pricing Tiers & Terms Acceptance Module
        ------------------------------------------------------------------------- */
     .pricing-grid {
@@ -888,97 +807,6 @@
     }
 
     /* -------------------------------------------------------------------------
-       Cheat Sheet Special Styling (Screen & Print)
-       ------------------------------------------------------------------------- */
-    #cheatsheet {
-      background-color: #ffffff;
-      border: 2px solid #0f766e;
-    }
-
-    .cheatsheet-banner {
-      background-color: #0f766e;
-      color: #ffffff;
-      padding: 16px 20px;
-      border-radius: 6px 6px 0 0;
-      text-align: center;
-      margin: -40px -40px 24px -40px;
-    }
-
-    .cheatsheet-banner h2 {
-      color: #ffffff;
-      font-size: 1.8rem;
-      letter-spacing: 0.04em;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-    }
-
-    .cheatsheet-banner p {
-      color: #ccfbf1;
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0;
-    }
-
-    .cheatsheet-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .cheatsheet-card {
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 16px 18px;
-      background-color: #ffffff;
-    }
-
-    .cheatsheet-card h3 {
-      font-size: 1.2rem;
-      color: #0f766e;
-      margin-top: 0;
-      margin-bottom: 10px;
-      padding-bottom: 4px;
-      border-bottom: 2px solid #0f766e;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .cheatsheet-card ol, .cheatsheet-card ul {
-      margin-bottom: 0;
-      padding-left: 22px;
-    }
-
-    .cheatsheet-card li {
-      font-size: 1rem;
-      margin-bottom: 6px;
-      line-height: 1.45;
-    }
-
-    .cheatsheet-warning-box {
-      margin-top: 8px;
-      padding: 8px 12px;
-      background-color: #fef2f2;
-      border: 2px solid #dc2626;
-      border-radius: 6px;
-      color: #991b1b;
-      font-weight: 700;
-      text-align: center;
-      font-size: 0.98rem;
-    }
-
-    .cheatsheet-phone-box {
-      margin-top: 10px;
-      padding: 10px 14px;
-      background-color: #f0fdf4;
-      border: 2px solid #16a34a;
-      border-radius: 6px;
-      color: #166534;
-      font-weight: 700;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-
-    /* -------------------------------------------------------------------------
        Footer
        ------------------------------------------------------------------------- */
     footer.site-footer {
@@ -1062,6 +890,26 @@
         flex-wrap: wrap;
       }
 
+      /* The Documentation button becomes a full-width stacked button
+         like every other item in the bar. */
+      .nav-dropdown-toggle {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 0.88rem;
+        line-height: 1.35;
+      }
+
+      /* With the bar stacked on a phone the submenu drops into the
+         flow instead of floating over the buttons below it, so opening
+         it pushes them down rather than covering them. */
+      .nav-dropdown-menu {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+      }
+
       .nav-post-deploy-note {
         font-size: 0.78rem;
         text-align: center;
@@ -1128,7 +976,7 @@
         padding: 10px 12px;
       }
 
-      .pricing-grid, .cheatsheet-grid {
+      .pricing-grid {
         grid-template-columns: 1fr;
         gap: 16px;
       }
@@ -1180,10 +1028,6 @@
         justify-content: center;
       }
 
-      .cheatsheet-banner {
-        margin: -20px -15px 18px -15px;
-      }
-
       .question-card {
         padding: 18px 14px;
       }
@@ -1201,7 +1045,7 @@
         display: block !important;
       }
 
-      nav.doc-nav, .form-toolbar, .chips-group, footer.site-footer {
+      nav.doc-nav, footer.site-footer {
         display: none !important;
       }
 
@@ -1213,9 +1057,5 @@
         page-break-inside: avoid;
       }
 
-      .intake-textarea {
-        border: 1px solid #9ca3af;
-        background-color: #ffffff;
-      }
     }
 

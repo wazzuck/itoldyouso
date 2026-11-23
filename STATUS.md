@@ -207,6 +207,30 @@ installation.
   `assets/search-index.js`, and `scripts/verify_site.py`. Legal and
   patent check found no risk: descriptive first-party copy with
   nominative vendor names only.
+- **Migena portal: grouped navigation, documentation search and
+  offline copy**: Grouped the Admin Guide, Management Guide and Till
+  Procedures & Features under one `3. Documentation` button in the
+  sticky bar of `migena/index.html`, opening a click-to-toggle
+  submenu (Escape and an outside click close it, and `aria-expanded`
+  tracks the visual state). Removed the three hidden documents
+  entirely at the client's request (Technical Intake Questionnaire,
+  Cafe Client Handbook, Countertop Cheat Sheet): their articles,
+  navigation items, stylesheet rules, the dead questionnaire script,
+  the three generated pages, and their entries in
+  `scripts/split_portal.py`. Added a two-tower search to all seven
+  official document pages: `scripts/build_search_index.py` now also
+  emits `migena/search-index.js` (59 section records, each carrying
+  an anchor id so a result jumps to the exact heading),
+  `migena/doc-search.js` is the query tower, `migena/doc-search.css`
+  styles the box, and `scripts/build_offline_doc.py` writes
+  `migena/offline.html`, one self-contained file holding every guide,
+  the search inlined and the User Passwords page, laid out for a
+  390-pixel phone and for a desktop window alike. The pre-commit
+  hook, `search-index.yml` and `scripts/verify_site.py` regenerate
+  and check all of it. Legal and patent check found no risk:
+  first-party HTML, CSS and JavaScript only, no third-party
+  libraries, and the hashed vector retrieval is a standard
+  technique implemented from scratch.
 
 ---
 
@@ -340,10 +364,15 @@ indexes, business profiles, and external consensus across the web.
   block at the top of the same script. Confirmed present before the
   documentation work in `0b047d7` and left unfixed there to keep that
   change limited to documentation.
-- [x] **Client credentials location**: the SumUp username and password
-  for the Migena job are kept in the private repository
-  `wazzuck/itoldyouso_client`, beside the client portal copy, and are
-  never stored in this public repository. That password was shared
-  over chat on 18 November 2026, so it should be rotated by the client.
-  The private repository holds only `migena/index.html`, `ACCESS.md`
-  and a short `README.md`; the rest of the job material remains here.
+- [x] **Client credentials location — operator override recorded 23
+  November 2026**: the earlier rule that the SumUp username and
+  password are "never stored in this public repository" is
+  superseded for the Migena job by the operator's explicit decision,
+  taken after the risk was stated in full. The credentials now live
+  in `migena/sumup_password.txt` and are embedded in the generated
+  `migena/offline.html`, both committed here. The portal's password
+  gate is client-side only, so anyone with the repository URL can
+  read them; the operator accepted that risk. The password was also
+  shared over chat on 18 November 2026, so it should be rotated by
+  the client. The private repository `wazzuck/itoldyouso_client`
+  still holds `ACCESS.md`.

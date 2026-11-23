@@ -51,3 +51,15 @@
    Run `python3 scripts/verify_site.py` before committing. All tests,
    link checks, Extensible Markup Language (XML) sitemaps, JSON-LD,
    and 80-column line-length rules must pass with code 0.
+
+4. **Migena portal generators**:
+   Files under `migena/` are partly generated: edit the source or the
+   generator, never the outputs. `scripts/split_portal.py` writes
+   `portal.css` and the standalone pages from `migena/index.html`;
+   `scripts/build_search_index.py` writes `assets/search-index.js`
+   and `migena/search-index.js`; `scripts/build_offline_doc.py`
+   writes `migena/offline.html`, which embeds the credentials file
+   and must be regenerated whenever the documents or
+   `migena/sumup_password.txt` change. Run them in that order, or let
+   the pre-commit hook do it; `scripts/verify_site.py` fails when any
+   output is stale.

@@ -333,11 +333,18 @@ def check_required_files() -> List[str]:
         "llms-full.txt",
         "scripts/submit_indexnow.py",
         "scripts/build_search_index.py",
+        "scripts/split_portal.py",
+        "scripts/build_offline_doc.py",
         "scripts/install_hooks.sh",
         ".githooks/pre-commit",
         ".github/workflows/search-index.yml",
         "assets/search-index.js",
         "assets/service-search.js",
+        "migena/doc-search.css",
+        "migena/doc-search.js",
+        "migena/search-index.js",
+        "migena/offline.html",
+        "migena/sumup_password.txt",
         ".github/workflows/indexnow.yml",
     ]
 
@@ -770,6 +777,8 @@ def check_line_lengths() -> List[str]:
         "scripts/verify_site.py",
         "scripts/submit_indexnow.py",
         "scripts/build_search_index.py",
+        "scripts/split_portal.py",
+        "scripts/build_offline_doc.py",
         ".github/workflows/indexnow.yml",
     ]
     for rel_path in code_files:
@@ -816,6 +825,82 @@ def check_search_index() -> List[str]:
     return errors
 
 
+def check_migena_portal() -> List[str]:
+    """Check the Migena portal pages, their search and the offline copy.
+
+    Verifies that:
+      1. the three generated portal pages are in step with
+         scripts/split_portal.py;
+      2. the offline copy is in step with scripts/build_offline_doc.py;
+      3. all seven official document pages (and the offline copy)
+         carry the search box, its stylesheet and both search scripts;
+      4. index.html still has the Documentation dropdown and no longer
+         holds the three documents removed at the client's request;
+      5. the offline copy contains the User Passwords page.
+
+    Returns:
+        Error messages; empty when every artefact is in step.
+    """
+    errors: List[str] = []
+
+    # 1. Staleness of the two generators this check owns; the search
+    #    index itself is covered by check_search_index().
+    for script in ("split_portal.py", "build_offline_doc.py"):
+        result = subprocess.run(
+            [sys.executable, str(REPO_ROOT / "scripts" / script),
+             "--check"],
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            errors.append(
+                result.stdout.strip() or f"{script} --check failed"
+            )
+
+    # 2. The search box on every official document page.
+    pages = [
+        "contract.html", "pricing.html", "admin.html",
+        "management.html", "till.html",
+        "till-procedures.html", "till-features.html",
+    ]
+    for name in pages:
+        path = REPO_ROOT / "migena" / name
+        if not path.is_file():
+            errors.append(f"Missing migena/{name}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for needle in (
+            'id="doc-search-input"',
+            'href="doc-search.css"',
+            'src="doc-search.js"',
+            'src="search-index.js"',
+        ):
+            if needle not in text:
+                errors.append(f"migena/{name} is missing {needle}")
+
+    # 3. The Documentation dropdown, and the hidden documents' absence.
+    portal = (REPO_ROOT / "migena" / "index.html").read_text(
+        encoding="utf-8")
+    if 'id="nav-doc-toggle"' not in portal:
+        errors.append("migena/index.html is missing the Documentation "
+                      "dropdown button")
+    for gone in ('id="questionnaire"', 'id="handbook"',
+                 'id="cheatsheet"'):
+        if gone in portal:
+            errors.append(f"migena/index.html still contains removed "
+                          f"{gone}")
+
+    # 4. The offline copy must be whole: passwords page plus search.
+    offline = REPO_ROOT / "migena" / "offline.html"
+    if offline.is_file():
+        text = offline.read_text(encoding="utf-8")
+        if 'id="puserpasswords"' not in text:
+            errors.append("migena/offline.html has no User Passwords page")
+        if 'id="doc-search-input"' not in text:
+            errors.append("migena/offline.html has no search box")
+    return errors
+
+
 def main() -> int:
     """
     Execute all verification routines and return process exit status.
@@ -851,6 +936,9 @@ def main() -> int:
 
     # Step 9: Check synonym coverage for every service (findability rule).
     all_errors.extend(check_synonym_coverage())
+
+    # Step 10: Check the Migena portal pages, search and offline copy.
+    all_errors.extend(check_migena_portal())
 
     # Report results.
     if all_errors:

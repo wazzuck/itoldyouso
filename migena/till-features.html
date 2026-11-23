@@ -143,8 +143,27 @@
     footer { display: none; }
   }
 </style>
+<link rel="stylesheet" href="doc-search.css">
 </head>
 <body>
+
+<div class="doc-search-bar">
+  <form class="doc-search" role="search"
+        aria-label="Search the documentation"
+        onsubmit="return false;">
+    <label class="doc-search-label" for="doc-search-input">
+      Search the documentation
+    </label>
+    <input type="search" id="doc-search-input"
+           class="doc-search-input" autocomplete="off"
+           spellcheck="false" enterkeyhint="search"
+           placeholder="e.g. refunds, PIN, closing up">
+    <p id="doc-search-status" class="doc-search-status"
+       role="status" aria-live="polite"></p>
+    <ul id="doc-search-results" class="doc-search-results"
+        hidden></ul>
+  </form>
+</div>
 
 <header class="cover">
   <h1>EGGI'S — Till Feature Reference</h1>
@@ -157,7 +176,7 @@
   For step-by-step tasks, use the till procedures sheet instead.
 </div>
 
-<section class="step first">
+<section class="step first" id="how-to-read-the-status">
   <h2>How to read the status</h2>
   <ol>
     <li><span class="status">Seen</span> opened on the device and described from the screen.</li>
@@ -168,7 +187,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="cart-and-checkout-main-till-screen">
   <h2>1. Cart and checkout (main till screen)</h2>
   <ol>
     <li><strong>Category tabs</strong> — filters the item tiles by category. "All" shows everything. <span class="status">Seen</span></li>
@@ -190,7 +209,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="payment-methods">
   <h2>2. Payment methods</h2>
   <ol>
     <li><strong>Tap to Pay</strong> — takes a contactless card or phone on the device's own NFC chip. <span class="status check">Not available on this device</span> (see section 13).</li>
@@ -201,7 +220,7 @@
   counted into the till tray (see the till procedures, section 8.4).</div>
 </section>
 
-<section class="step">
+<section class="step" id="open-orders-bell-icon">
   <h2>3. Open orders (bell icon)</h2>
   <ol>
     <li><strong>Open order list</strong> — every parked order, with its code, time and items. <span class="status">Seen</span></li>
@@ -211,7 +230,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="sales-receipt-icon">
   <h2>4. Sales (receipt icon)</h2>
   <ol>
     <li><strong>Today's sales total</strong> — the total for the day, with a link to the detail. <span class="status">Seen</span></li>
@@ -225,7 +244,7 @@
   in red.</div>
 </section>
 
-<section class="step">
+<section class="step" id="reporting-chart-icon">
   <h2>5. Reporting (chart icon)</h2>
   <ol>
     <li><strong>Periods</strong> — Today, Yesterday, This week, This month, Custom. <span class="status">Seen</span></li>
@@ -243,7 +262,7 @@
   <div class="box">The figures show zero until a successful sale is made.</div>
 </section>
 
-<section class="step">
+<section class="step" id="items-price-tag-icon">
   <h2>6. Items (price-tag icon)</h2>
   <ol>
     <li><strong>Library</strong> — the full list of items with their prices. Search, sort and filter. <span class="status">Seen</span></li>
@@ -262,7 +281,7 @@
   toppings set to be deleted.</div>
 </section>
 
-<section class="step">
+<section class="step" id="tools-grid-icon">
   <h2>7. Tools (grid icon)</h2>
   <p>The Tools screen is a menu. Each entry opens its own feature.</p>
   <ol>
@@ -283,7 +302,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="employees">
   <h2>8. Employees</h2>
   <ol>
     <li><strong>Members</strong> — lists everyone who can log in, with role and status. <span class="status">Seen</span></li>
@@ -297,7 +316,7 @@
   checklist). Each staff member needs their own address to be invited.</div>
 </section>
 
-<section class="step">
+<section class="step" id="customers">
   <h2>9. Customers</h2>
   <ol>
     <li><strong>Customer list</strong> — names and contact details of customers. <span class="status">Seen (empty)</span></li>
@@ -308,7 +327,7 @@
   from invoices.</div>
 </section>
 
-<section class="step">
+<section class="step" id="profile-person-icon-bottom-left">
   <h2>10. Profile (person icon, bottom left)</h2>
   <p>The Profile menu opens from the person icon at the extreme bottom left of
   the till screen and scrolls through every device, checkout, tax, team,
@@ -424,7 +443,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="settings-and-business-profile-web">
   <h2>11. Settings and business profile (web)</h2>
   <p>These are on the website, not the till.</p>
   <ol>
@@ -438,7 +457,7 @@
   Only SumUp Support can change it (checklist, section 8.5).</div>
 </section>
 
-<section class="step">
+<section class="step" id="printing-and-kitchen-checklist">
   <h2>12. Printing and kitchen (checklist)</h2>
   <p>The printing and order-sending settings are per device and are not in
   the till's menu. They are covered by checklist Rules U3 and U4:</p>
@@ -449,7 +468,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="known-limits-on-this-device">
   <h2>13. Known limits on this device</h2>
   <ol>
     <li><strong>Tap to Pay: not available.</strong> The device reports "NFC not available", so contactless payment on this device will not work. Use the Solo.</li>
@@ -458,7 +477,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="not-yet-checked">
   <h2>14. Not yet checked</h2>
   <ol>
     <li>Gift Cards and Invoices (did not load in this check).</li>
@@ -476,5 +495,7 @@
   was not opened, the status says so rather than guessing.
 </footer>
 
+<script src="search-index.js" defer></script>
+<script src="doc-search.js" defer></script>
 </body>
 </html>

@@ -136,8 +136,27 @@
     footer { display: none; }
   }
 </style>
+<link rel="stylesheet" href="doc-search.css">
 </head>
 <body>
+
+<div class="doc-search-bar">
+  <form class="doc-search" role="search"
+        aria-label="Search the documentation"
+        onsubmit="return false;">
+    <label class="doc-search-label" for="doc-search-input">
+      Search the documentation
+    </label>
+    <input type="search" id="doc-search-input"
+           class="doc-search-input" autocomplete="off"
+           spellcheck="false" enterkeyhint="search"
+           placeholder="e.g. refunds, PIN, closing up">
+    <p id="doc-search-status" class="doc-search-status"
+       role="status" aria-live="polite"></p>
+    <ul id="doc-search-results" class="doc-search-results"
+        hidden></ul>
+  </form>
+</div>
 
 <header class="cover">
   <h1>EGGI'S — Till Procedures</h1>
@@ -150,7 +169,7 @@
   new sheet, so you can pin the right page at the till.
 </div>
 
-<section class="step first">
+<section class="step first" id="who-this-is-for">
   <h2>Who this is for</h2>
   <ol>
     <li>Every member of front-of-house staff.</li>
@@ -175,7 +194,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="opening-the-till-first-person-in-about-10-minute">
   <h2>1. Opening the till <small>(first person in, about 10 minutes)</small></h2>
   <ol>
     <li>Switch on the Chromebook and open the <strong>POS</strong> app.</li>
@@ -188,7 +207,7 @@
   <div class="box warn"><strong>If a warning banner appears:</strong> note its words, then go to section 14.</div>
 </section>
 
-<section class="step">
+<section class="step" id="logging-in-and-out">
   <h2>2. Logging in and out</h2>
   <ol>
     <li>Tap your name or the login prompt.</li>
@@ -198,7 +217,7 @@
   <div class="box warn"><strong>Never</strong> leave the till logged in and unattended.</div>
 </section>
 
-<section class="step">
+<section class="step" id="taking-a-table-order">
   <h2>3. Taking a table order</h2>
   <ol>
     <li>Tap <strong>New order</strong> on the <strong>Open orders</strong> screen (the bell icon on the left bar), or tap the cart icon to start a new cart.</li>
@@ -211,7 +230,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="modifiers-choices-such-as-milk-or-bread">
   <h2>4. Modifiers <small>(choices such as milk or bread)</small></h2>
   <p>Modifiers are options attached to an item. The till asks for them after you tap the item.</p>
   <ol>
@@ -229,7 +248,7 @@
   <div class="box"><strong>If a modifier is missing:</strong> do not guess. Add the item with an order note (section 5) saying what the customer wants.</div>
 </section>
 
-<section class="step">
+<section class="step" id="allergies-and-special-requests">
   <h2>5. Allergies and special requests</h2>
   <div class="box warn">
     <p><strong>Rule 1: every allergy goes in the order note.</strong> A modifier is for choices on the menu; the order note is for anything else, including allergies.</p>
@@ -249,7 +268,7 @@
   <div class="box warn"><strong>What not to do:</strong> never write only "allergy" with no detail, and never remove the note by accident. If the customer changes their mind, edit the note rather than deleting it.</div>
 </section>
 
-<section class="step">
+<section class="step" id="changing-or-cancelling-items">
   <h2>6. Changing or cancelling items</h2>
   <ol>
     <li><strong>Clear the whole cart:</strong> tap the three dots, then <strong>Clear cart</strong>. Use this only for a cart that has not been sent to the kitchen.</li>
@@ -258,7 +277,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="discounts-and-manual-prices-manager-only">
   <h2>7. Discounts and manual prices <small>(manager only)</small></h2>
   <ol>
     <li>Tap the three dots, then <strong>Add discount</strong>, or <strong>Manual price entry</strong>.</li>
@@ -267,7 +286,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="taking-payment">
   <h2>8. Taking payment</h2>
   <div class="box"><strong>Rule:</strong> the customer pays after the food is served, unless the manager has agreed otherwise.</div>
 
@@ -303,7 +322,7 @@
   <div class="box warn"><span class="tag">Not yet tested</span> Ask the manager before using split bills (section 15).</div>
 </section>
 
-<section class="step">
+<section class="step" id="the-kitchen">
   <h2>9. The kitchen</h2>
   <p>The client has asked that one SumUp Terminal is the kitchen Terminal. It shows the open orders and prints a ticket for each parked order.</p>
   <ol>
@@ -314,7 +333,7 @@
   <div class="box warn"><strong>The kitchen display system is not yet decided.</strong> When it is chosen, this section will be replaced.</div>
 </section>
 
-<section class="step">
+<section class="step" id="refunds-manager-only">
   <h2>10. Refunds <small>(manager only)</small></h2>
   <div class="box warn"><span class="tag">Not yet tested</span> The steps below must be confirmed on a real test sale before use (section 15).</div>
   <ol>
@@ -326,7 +345,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="reprinting-a-receipt">
   <h2>11. Reprinting a receipt</h2>
   <ol>
     <li>Open <strong>Sales</strong> (receipt icon, left bar).</li>
@@ -335,7 +354,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="closing-the-till-last-person-about-20-minutes">
   <h2>12. Closing the till <small>(last person, about 20 minutes)</small></h2>
   <ol>
     <li>Check there are no open orders on the <strong>Open orders</strong> screen. Pay or clear each one with the manager.</li>
@@ -347,7 +366,7 @@
   <div class="box warn"><span class="tag">Not yet tested</span> The end-of-day Z-report. Ask the manager (section 15).</div>
 </section>
 
-<section class="step">
+<section class="step" id="paper-and-printer">
   <h2>13. Paper and printer</h2>
   <ol>
     <li>Open the printer lid.</li>
@@ -356,7 +375,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="when-something-goes-wrong">
   <h2>14. When something goes wrong</h2>
   <ol>
     <li><strong>The till freezes:</strong> wait 30 seconds, then close and reopen the POS app. Your open orders are saved.</li>
@@ -367,7 +386,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="not-yet-tested-on-this-till">
   <h2>15. Not yet tested on this till</h2>
   <div class="box warn">These steps are not confirmed on the live till. Do not use them until the manager has checked them with a real test sale.</div>
   <ol>
@@ -384,7 +403,7 @@
   </ol>
 </section>
 
-<section class="step">
+<section class="step" id="questions-for-the-manager">
   <h2>Questions for the manager</h2>
   <ol>
     <li>Does the shop use table numbers?</li>
@@ -400,5 +419,7 @@
   on them.
 </footer>
 
+<script src="search-index.js" defer></script>
+<script src="doc-search.js" defer></script>
 </body>
 </html>

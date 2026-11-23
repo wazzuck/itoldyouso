@@ -1,0 +1,9 @@
+Kitchen order ticket should have name of waitress attached to the order ticket.
+
+Kitchen order ticket should have the order modifiers as sub items rather than individual.
+
+Avo lovers should have eggs options for scrambled poached or fried
+
+Completed
+
+Light & Sweet - Missing fried dough (Petulla)

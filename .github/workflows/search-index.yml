@@ -2,7 +2,8 @@
 # Workflow: Refresh Service Search Index
 # Purpose: Safety net for commits made without the local pre-commit hook
 #          (for example edits in the GitHub web editor). On every push to
-#          main, regenerate assets/search-index.js and commit it if stale.
+#          main, regenerate the portal pages, both search indexes and the
+#          offline copy, and commit whatever is stale.
 # ==============================================================================
 
 name: Refresh Service Search Index
@@ -13,6 +14,10 @@ on:
     paths:
       - "index.html"
       - "scripts/build_search_index.py"
+      - "scripts/split_portal.py"
+      - "scripts/build_offline_doc.py"
+      - "migena/*.html"
+      - "migena/sumup_password.txt"
   workflow_dispatch:
 
 permissions:
@@ -27,22 +32,29 @@ jobs:
         with:
           ref: main
 
-      # 2. Regenerate the index with the standard-library-only builder.
+      # 2. Regenerate in dependency order with the
+      #    standard-library-only builders: pages first, then the
+      #    indexes that read those pages, then the offline copy that
+      #    embeds both.
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+      - run: python3 scripts/split_portal.py
       - run: python3 scripts/build_search_index.py
+      - run: python3 scripts/build_offline_doc.py
 
-      # 3. Commit only if the generated file changed. Commits made with the
-      #    built-in token do not retrigger workflows, so no loop occurs.
-      - name: Commit refreshed index
+      # 3. Commit only if a generated file changed. Commits made with
+      #    the built-in token do not retrigger workflows, so no loop
+      #    occurs.
+      - name: Commit refreshed artefacts
         run: |
-          if git diff --quiet -- assets/search-index.js; then
-            echo "Search index already current."
+          generated="assets/search-index.js migena/search-index.js migena/offline.html migena/portal.css migena/contract.html migena/pricing.html migena/admin.html"
+          if git diff --quiet -- $generated; then
+            echo "Generated artefacts already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/search-index.js
-          git commit -m "Refresh service search index"
+          git add $generated
+          git commit -m "Refresh search indexes and offline copy"
           git push
