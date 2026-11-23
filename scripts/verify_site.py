@@ -837,7 +837,7 @@ def check_migena_portal() -> List[str]:
          carry the search box, its stylesheet and both search scripts;
       4. index.html is a landing page with three buttons and no longer
          holds the three documents removed at the client's request;
-      5. documentation.html shows the four owner task cards and the three
+      5. documentation.html shows the five owner task cards and the three
          guide buttons, and is password gated;
       6. the offline copy contains the User Passwords page.
 
@@ -900,15 +900,15 @@ def check_migena_portal() -> List[str]:
             errors.append(f"migena/index.html still contains removed "
                           f"{gone}")
 
-    # 4. The Documentation page shows the four owner task cards and the
+    # 4. The Documentation page shows the five owner task cards and the
     #    three guide buttons, and is password gated like every other page.
     hub = REPO_ROOT / "migena" / "documentation.html"
     if not hub.is_file():
         errors.append("Missing migena/documentation.html")
     else:
         hub_text = hub.read_text(encoding="utf-8")
-        if hub_text.count('<section class="owner-task-card">') != 6:
-            errors.append("migena/documentation.html must show the six "
+        if hub_text.count('<section class="owner-task-card">') != 5:
+            errors.append("migena/documentation.html must show the five "
                           "owner task cards")
         for link in ('href="admin.html"', 'href="management.html"',
                      'href="till.html"', 'href="offline.html"'):
