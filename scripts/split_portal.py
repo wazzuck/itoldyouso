@@ -383,14 +383,16 @@ def owner_tasks_html() -> str:
 
 
 def engineer_tasks_html() -> str:
-    """Return the six task cards that Neville owns, not the owner.
+    """Return the seven task cards that Neville owns, not the owner.
 
     The cards sit in their own section below the owner tasks, so the
     owner never mistakes them for duties. The owner does not tick them.
-    Cards 1 and 2 are on-site checks. Cards 3 to 6 are documentation and
-    set-up tasks. Card 1 starts only after owner task 2 (update the
-    software) is ticked, because the category option appears only on
-    updated software.
+    Cards 1 and 2 are on-site checks, cards 3 to 6 are documentation and
+    set-up tasks, and card 7 is the under-counter power and network
+    job: it waits on three parts being ordered, and its full write-up
+    is migena/NETWORK_SETUP.md. Card 1 starts only after owner task 2
+    (update the software) is ticked, because the category option
+    appears only on updated software.
 
     Returns:
         The HTML for the section owned by Neville.
@@ -402,7 +404,7 @@ def engineer_tasks_html() -> str:
       <section class="engineer-tasks" aria-labelledby="engineer-tasks-title">
         <header class="engineer-tasks-heading">
           <h2 id="engineer-tasks-title">Tasks owned by Neville</h2>
-          <p class="engineer-tasks-intro">Neville Bryce owns these six
+          <p class="engineer-tasks-intro">Neville Bryce owns these seven
             tasks, so you do not need to do them. He will tell you when
             each one is done. Where he needs a decision from you, he will
             ask. If you notice a printer, Wi-Fi or till problem before he
@@ -411,7 +413,7 @@ def engineer_tasks_html() -> str:
         <div class="engineer-tasks-cards">
         <section class="engineer-task-card">
           <div class="engineer-task-card-head">
-            <span class="owner-task-tag">Neville task 1 of 6</span>
+            <span class="owner-task-tag">Neville task 1 of 7</span>
             <span class="owner-task-chip">Owned by Neville</span>
           </div>
           <h3>Route drinks to the bar printer and food to the kitchen
@@ -448,7 +450,7 @@ def engineer_tasks_html() -> str:
         </section>
         <section class="engineer-task-card">
           <div class="engineer-task-card-head">
-            <span class="owner-task-tag">Neville task 2 of 6</span>
+            <span class="owner-task-tag">Neville task 2 of 7</span>
             <span class="owner-task-chip">Owned by Neville</span>
             <span class="owner-task-chip">Not a blocker</span>
           </div>
@@ -487,7 +489,7 @@ def engineer_tasks_html() -> str:
         </section>
         <section class="engineer-task-card">
           <div class="engineer-task-card-head">
-            <span class="owner-task-tag">Neville task 3 of 6</span>
+            <span class="owner-task-tag">Neville task 3 of 7</span>
             <span class="owner-task-chip">Owned by Neville</span>
           </div>
           <h3>Write down how to print the bill before payment</h3>
@@ -508,7 +510,7 @@ def engineer_tasks_html() -> str:
         </section>
         <section class="engineer-task-card">
           <div class="engineer-task-card-head">
-            <span class="owner-task-tag">Neville task 4 of 6</span>
+            <span class="owner-task-tag">Neville task 4 of 7</span>
             <span class="owner-task-chip">Owned by Neville</span>
           </div>
           <h3>Print each modifier under its food or drink item on
@@ -532,7 +534,7 @@ def engineer_tasks_html() -> str:
         </section>
         <section class="engineer-task-card">
           <div class="engineer-task-card-head">
-            <span class="owner-task-tag">Neville task 5 of 6</span>
+            <span class="owner-task-tag">Neville task 5 of 7</span>
             <span class="owner-task-chip">Owned by Neville</span>
           </div>
           <h3>Print the name of the member of staff on each order
@@ -555,7 +557,7 @@ def engineer_tasks_html() -> str:
         </section>
         <section class="engineer-task-card">
           <div class="engineer-task-card-head">
-            <span class="owner-task-tag">Neville task 6 of 6</span>
+            <span class="owner-task-tag">Neville task 6 of 7</span>
             <span class="owner-task-chip">Owned by Neville</span>
           </div>
           <h3>Add a payout method so the owner can withdraw cash
@@ -575,6 +577,66 @@ def engineer_tasks_html() -> str:
           </ol>
           <p class="owner-task-apart"><strong>Status:</strong> to do. The
             owner needs to decide which method to use.</p>
+        </section>
+        <section class="engineer-task-card">
+          <div class="engineer-task-card-head">
+            <span class="owner-task-tag">Neville task 7 of 7</span>
+            <span class="owner-task-chip">Owned by Neville</span>
+            <span class="owner-task-chip">Parts to order</span>
+          </div>
+          <h3>Hide the power brick under the counter and feed the
+            register's network by cable</h3>
+          <p><strong>When:</strong> any time. It does not wait for the
+            owner's tasks, and ordering the parts changes nothing on
+            the till.</p>
+          <p><strong>Why:</strong> the register then reaches the
+            internet by cable instead of by Wi-Fi, so payments no
+            longer depend on the signal at the counter, and the brick
+            and the adapter sit out of sight under the counter. Only
+            two slim cables pass through the grommet.</p>
+          <p class="owner-task-label">Neville to do</p>
+          <ol class="owner-steps">
+            <li>Look at the register's ports first. Note which are
+              USB Type-A and which are already taken by the receipt
+              printer or the card reader cradle. The parts list below
+              assumes one free USB Type-A port.</li>
+            <li>Order three parts: an Ethernet adapter whose listing
+              names an ASIX chipset, because that family is the best
+              documented on Android and this register runs Android 10;
+              a 3 metre USB-C cable rated 100 W that carries data as
+              well as power; and a 3 metre USB Type-A extension lead.</li>
+            <li>Assemble the whole chain on the bench before drilling
+              anything: extension lead, adapter, USB-C cable from the
+              original SumUp 65 W adapter, and an RJ45 lead from the
+              adapter to the router.</li>
+            <li>Boot with everything already attached, then turn the
+              Wi-Fi off on the register. It must still reach the
+              internet. If it does not, that adapter is not supported
+              and a second chipset must be tried.</li>
+            <li>Power the register off and on again with everything
+              still attached, turn the Wi-Fi off once more and repeat
+              the test. Some Android 10 devices only bring the network
+              up at boot.</li>
+            <li>Only after both tests pass, route the cables through
+              the grommet and tie them under the counter with
+              hook-and-loop ties. Site the brick where it can breathe
+              and clear of the till drawer's travel, and label both
+              ends of both cables.</li>
+            <li>Turn the Wi-Fi back on and leave it configured as the
+              fallback. Take one live sale in a busy period over the
+              cable and record the date in the job file.</li>
+          </ol>
+          <div class="owner-task-stop">Stop and investigate if the
+            register cannot reach the internet with the Wi-Fi off
+            after trying two adapters, if there is no free USB Type-A
+            port, or if the brick will not charge the register through
+            the longer cable. Leave the Wi-Fi on and the register
+            trading.</div>
+          <p class="owner-task-apart"><strong>Status:</strong> to do.
+            It waits on three parts being ordered. The full note, with
+            the reason each part is chosen, the one-cable alternative
+            and the test plan, is NETWORK_SETUP.md in the job file.
+            The owner does not need to do this task.</p>
         </section>
         </div>
       </section>"""

@@ -292,6 +292,28 @@ installation.
   than the 640-pixel cap, so the box still fills the row at 16px
   type. The two printable sheets are unchanged as well, for the same
   reason. `migena/offline.html` was regenerated from the stylesheet.
+- **Under-counter power and wired network (`NETWORK_SETUP.md`)**:
+  The register is a first-generation SumUp POS Lite on Android 10, so
+  it has no Ethernet port and SumUp documents no supported adapter
+  for it. `migena/NETWORK_SETUP.md` is the job-file note: what the
+  unit actually is, why Android 10 makes any adapter a probability
+  rather than a guarantee (the kernel decides, and Android only
+  adopts interfaces named `ethX`, so a standards-only adapter
+  becomes the ignored `usb0`), the recommended two-cable layout (a
+  3 metre 100 W USB-C lead for power, a 3 metre USB Type-A extension
+  to an ASIX adapter under the counter), the one-cable hub
+  alternative and the approaches ruled out, a buying specification
+  with a shortlist of adapters, cables and extensions, the wiring
+  layout, the bench test that must pass before anything is drilled,
+  and the acceptance criteria with Wi-Fi left on as the fallback.
+  It becomes "Neville task 7 of 7" on `migena/documentation.html`,
+  so the six existing cards are renumbered "of 7" and the section
+  intro now says seven. `scripts/split_portal.py` builds the card,
+  `scripts/verify_site.py` expects seven engineer cards and checks
+  the seventh tag and the note file, and
+  `migena/documentation.html` was regenerated. Legal and patent
+  check found no risk: first-party copy with nominative vendor
+  names, plain product links and no affiliate tag.
 
 ---
 
@@ -410,12 +432,13 @@ indexes, business profiles, and external consensus across the web.
 
 ## Next (Migena installation)
 
-- [ ] **Neville's six Migena tasks**: listed under "Tasks owned by
+- [ ] **Neville's seven Migena tasks**: listed under "Tasks owned by
   Neville" on `migena/documentation.html`. They are the printer routing
   check, the Wi-Fi check, a written guide to printing the bill before
   payment, modifiers printed under their items on tickets, staff names on
-  order tickets, and a payout method for withdrawing cash from SumUp. The
-  payout method needs the owner's decision.
+  order tickets, a payout method for withdrawing cash from SumUp, and the
+  under-counter power and wired-network job (task 7 of 7). The payout
+  method needs the owner's decision; task 7 needs three parts ordered.
 
 ## Blocked / Open Decisions
 

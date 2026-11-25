@@ -871,7 +871,7 @@ def check_migena_portal() -> List[str]:
          carry the search box, its stylesheet and both search scripts;
       4. index.html is a landing page with three buttons and no longer
          holds the three documents removed at the client's request;
-      5. documentation.html shows the four owner task cards, the six
+      5. documentation.html shows the four owner task cards, the seven
          cards owned by Neville and the five embedded guides, with no
          duplicate ids, and is password gated;
       6. the offline copy contains the User Passwords page.
@@ -935,7 +935,7 @@ def check_migena_portal() -> List[str]:
             errors.append(f"migena/index.html still contains removed "
                           f"{gone}")
 
-    # 4. The Documentation page shows the four owner task cards, the six
+    # 4. The Documentation page shows the four owner task cards, the seven
     #    cards owned by Neville and the five embedded guides, each anchor
     #    once with no duplicates, and is password gated.
     hub = REPO_ROOT / "migena" / "documentation.html"
@@ -946,9 +946,15 @@ def check_migena_portal() -> List[str]:
         if hub_text.count('<section class="owner-task-card">') != 4:
             errors.append("migena/documentation.html must show the four "
                           "owner task cards")
-        if hub_text.count('<section class="engineer-task-card">') != 6:
-            errors.append("migena/documentation.html must show the six "
+        if hub_text.count('<section class="engineer-task-card">') != 7:
+            errors.append("migena/documentation.html must show the seven "
                           "task cards owned by Neville")
+        if 'Neville task 7 of 7</span>' not in hub_text:
+            errors.append("migena/documentation.html has no seventh "
+                          "task card numbered of 7")
+        if not (REPO_ROOT / "migena" / "NETWORK_SETUP.md").is_file():
+            errors.append("Missing migena/NETWORK_SETUP.md, the note "
+                          "behind Neville task 7 of 7")
         if '<section class="engineer-tasks"' not in hub_text:
             errors.append("migena/documentation.html has no section "
                           "owned by Neville")
